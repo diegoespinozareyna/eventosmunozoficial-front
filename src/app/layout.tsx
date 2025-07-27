@@ -26,7 +26,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: "https://serverimages.inmobackend.site/uploads/1751606623128-logo.jpg"
+        url: "https://serverimages.inmobackend.site/uploads/1747085430914-LOGOMU%C3%83%C2%91OZ.png"
         , // Next.js ahora resolverá automáticamente la URL completa
         width: 1200,
         height: 630,
