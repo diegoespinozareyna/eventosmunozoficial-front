@@ -13,6 +13,7 @@ export const Apis = {
     //DATOS PROYECTO
     PROYECTCURRENT: "eventosmunozoficial",
     PROYECTCURRENT_NAMEDOMINIO: "eventosmunozoficial",
+    PROYECTCURRENT_NAMEDOMINIO2: "eventosmunoz",
     NAME_PROYECT: "Eventos Muñoz",
     NAME_INMOBILIARIA: "INMOBILIARIA MUÑOZ",
     NAME_LOGO: "/logoperladelchira.jpg",
