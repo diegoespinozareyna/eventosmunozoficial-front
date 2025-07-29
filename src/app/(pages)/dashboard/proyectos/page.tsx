@@ -51,7 +51,7 @@ export default function DashBoard() {
     });
 
     return (
-        <div className="px-3 py-1">
+        <div className="px-3 py-1 max-h-[calc(100vh-50px)]">
             <h1 className="text-3xl font-bold mb-7">Eventos</h1>
             <div className="flex flex-col gap-2">
                 <div className="-ml-2 p-0">
@@ -90,7 +90,7 @@ export default function DashBoard() {
                         />
                     </div>
                 </div>
-                <div className="w-[calc(100vw-65px)] h-[calc(100vh-240px)] overflow-y-auto pr-0 flex flex-col justify-items-center-center gap-4 pb-5">
+                <div className="w-[calc(100vw-65px)] h-[calc(100vh-280px)] overflow-y-auto flex flex-col justify-items-center-center gap-4 pb-5 pr-5">
                     {
                         eventos?.length > 0 ?
                             datosFiltrados?.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((evento: any, index: any) => {
@@ -148,7 +148,7 @@ export default function DashBoard() {
                                             <div className="flex items-center justify-between w-full">
                                                 <p className="text-sm text-gray-500">{`Creado el ${moment.tz(evento.createdAt, "America/Lima").format("DD/MM/YYYY HH:mm")}`}</p>
                                                 <div className="flex gap-2">
-                                                    <Button className="gap-2">
+                                                    <Button onClick={() => router.push(`/eventos/${evento.title}-${evento._id}`)} className="gap-2">
                                                         <ExternalLink className="h-4 w-4" />
                                                         Ir al Evento
                                                     </Button>
