@@ -42,9 +42,10 @@ export const Evento200Sale = ({ handleClickInformation, setOpen }: any) => {
                                 <svg
                                     viewBox="0 0 500 500" // ajusta este valor al contenido real
                                     style={{
-                                        width: "100%",
-                                        height: "calc(150vw - 0px)",
+                                        // width: "100%",
+                                        // height: "calc(200vh - 0px)",
                                     }}
+                                    className="h-[70vh] md:h-[100vh] w-[100%] md:w-[70%]"
                                     preserveAspectRatio="xMidYMin meet"
                                 >
                                     <g>

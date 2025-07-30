@@ -14,6 +14,9 @@ import Swal from "sweetalert2"
 import { StatusLotes } from "@/app/configs/proyecto/statusLotes"
 import { ChevronsLeft, X } from "lucide-react"
 import { changeDecimales } from "@/app/functions/changeDecimales"
+import { usePopUp } from "@/app/hooks/popup/usePopUp"
+import Image from "next/image"
+import TicketLoaderMotion from "@/app/components/loader/TicketLoader"
 
 export default function Eventos() {
 
@@ -22,12 +25,14 @@ export default function Eventos() {
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
     const { apiCall, loading, error } = useApi()
-    watch(["capacity"])
+    const { openPopup, setOpenPopup, PopUp } = usePopUp()
+    const [isLoading, setIsLoading] = useState(true);
 
     const [openAsientos, setOpenAsientos] = useState(false)
 
     const [info, setInfo] = useState<any>(null)
     const [open, setOpen] = useState(false)
+    // const [openPopup, setOpenPopup] = useState(false)
     const [dataAsientos, setDataAsientos] = useState<any>(null)
 
     const fetchEventId = async (id: string | string[]) => {
@@ -135,91 +140,164 @@ export default function Eventos() {
         // }
     }
 
+    const handleImageLoad = () => {
+        setIsLoading(false);
+    };
+
+    const onSubmit = async (data: any) => {
+        console.log(data)
+
+        const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/auth/newVentaAsiento`
+        const jsonSend = {
+            ...data,
+            codAsiento: dataAsientos?.id,
+            precio: dataAsientos?.precio,
+            codTicket: params?.eventos?.split("-")[1],
+        }
+        console.log("jsonSend: ", jsonSend)
+        // const response = await apiCall({
+        //     method: "post", endpoint: url, data: { ...data, role: "user client", userType: "client" }
+        // })
+        // console.log("responsefuianl: ", response)
+        // if (response.status === 201) {
+        //     Swal.fire({
+        //         title: 'Usuario creado',
+        //         text: 'Se ha creado el usuario',
+        //         icon: 'success',
+        //         confirmButtonText: 'OK',
+        //         // showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         // cancelButtonColor: '#d33',
+        //         // cancelButtonText: 'No',
+        //         showLoaderOnConfirm: true,
+        //         allowOutsideClick: false,
+        //         preConfirm: () => {
+        //             router.push(`/dashboard/verUsuarios`);
+        //             // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
+        //             return
+        //         },
+        //     });
+        // } else {
+        //     Swal.fire({
+        //         title: 'Error al crear usuario',
+        //         text: 'No se ha podido crear el usuario',
+        //         icon: 'error',
+        //         confirmButtonText: 'OK',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         // cancelButtonText: 'No',
+        //         showLoaderOnConfirm: true,
+        //         allowOutsideClick: false,
+        //         preConfirm: () => {
+        //             return
+        //         },
+        //     });
+        // }
+
+    }
+
     return (
-        <div className="!max-w-full relative z-20 min-h-screen w-full flex items-center justify-center">
-            {
-                !openAsientos &&
-                <div className="min-h-screen w-[650px] flex items-start justify-start p-0 relative overflow-hidden z-40">
-                    <div
-                        className="absolute inset-0 bg-center bg-no-repeat bg-contain"
-                        style={{
-                            backgroundImage: `url(${info?.urlFlyer})`,
-                        }}
-                    ></div>
-                    <div className="flex justify-center items-center w-full mt-[calc(100vh*0.3)]">
-                        <button
-                            className="bg-green-500 text-white px-4 py-[1rem] w-[350px] relative z-50 font-bold text-xl button-attention cursor-pointer rounded-lg"
-                            onClick={() => setOpenAsientos(true)}
-                        >
-                            COMPRAR ENTRADAS
-                        </button>
-                    </div>
-                </div>
-            }
-            {
-                openAsientos &&
-                <div className="flex flex-col items-start justify-start w-full">
-                    <div>
-                        <button className="bg-blue-500 text-white px-3 py-3 relative z-20 font-bold text-xl cursor-pointer rounded-lg ml-5 mt-2 flex justify-center items-center"
-                            onClick={() => setOpenAsientos(false)}
-                        >
-                            <ChevronsLeft
-                                color={"#fff"}
-                            />
-                        </button>
-                    </div>
-                    {
-                        (
-                            info?.capacity === "200" &&
-                            <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5">
-                                <Evento200Sale {...{ handleClickInformation, setOpen }} />
-                            </div>
-                        )
-                    }
-                    {
-                        (
-                            info?.capacity === "250" &&
-                            <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5">
-                                <Evento250Sale {...{ handleClickInformation, setOpen }} />
-                            </div>
-                        )
-                    }
-                    {
-                        (
-                            info?.capacity === "300" &&
-                            <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5">
-                                <Evento300Sale {...{ handleClickInformation, setOpen }} />
-                            </div>
-                        )
-                    }
-                </div>
-            }
-            {
-                open &&
-                <>
-                    <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] z-20" />
-                    <div onClick={() => setOpen(false)} className="min-h-[100vh] min-w-[100vw] bg-transparent absolute z-30 top-0 left-0"></div>
-                    <div className="fixed bottom-0 left-0 w-full bg-white pb-4 z-50 shadow-xl rounded-t-sm modal-slide-up">
-                        <div className="flex flex-col items-center justify-center w-full">
-                            <div className="border-1 w-full text-center mb-3 cursor-pointer bg-blue-50 flex justify-center items-center" onClick={() => setOpen(false)}><X color="blue" /></div>
-                            <div className="grid grid-cols-2 justify-start items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                                <div className="font-bold">Asiento</div>
-                                <div>{`: ${dataAsientos?.id}`}</div>
-                                <div className="font-bold">Precio</div>
-                                <div>{`: S/. ${changeDecimales(dataAsientos?.precio)}`}</div>
-                            </div>
-                            <div className="flex justify-center items-center gap-2 mt-2 px-3">
-                                <button className="bg-green-500 text-[12px] text-white w-[20vw] py-2 px-2 rounded-lg font-bold text-xl cursor-pointer" onClick={() => setOpen(false)}>
-                                    RESERVAR CON TARJETA
-                                </button>
-                                <button className="bg-blue-500 text-[12px] text-white w-[20vw] py-2 px-2 rounded-lg  font-bold text-xl cursor-pointer" onClick={() => setOpen(false)}>
-                                    RESERVAR CON VOUCHER
-                                </button>
-                            </div>
+        <>
+            {isLoading && <TicketLoaderMotion />}
+            <div className="!max-w-full relative z-20 w-full flex items-center justify-center">
+                {
+                    !openAsientos && info &&
+                    <div className="relative w-full min-h-screen">
+                        <Image
+                            src={info?.urlFlyer}
+                            alt="Flyer"
+                            fill
+                            style={{ objectFit: "contain" }}
+                            onLoad={handleImageLoad}
+                            priority
+                        />
+                        <div className="flex justify-center items-center w-full mt-[calc(100vh*0.3)]">
+                            <button
+                                className="bg-green-500 text-white px-4 py-[1rem] w-[350px] relative z-50 font-bold text-xl button-attention cursor-pointer rounded-lg"
+                                onClick={() => setOpenAsientos(true)}
+                            >
+                                COMPRAR ENTRADAS
+                            </button>
                         </div>
                     </div>
-                </>
-            }
-        </div>
+                }
+                {
+                    openAsientos &&
+                    <div className="flex flex-col">
+                        <div>
+                            <button className="bg-blue-500 text-white px-3 py-3 relative z-20 font-bold text-xl cursor-pointer rounded-lg ml-5 mt-2 flex justify-center items-center"
+                                onClick={() => {
+                                    setIsLoading(true);
+                                    setOpenAsientos(false)
+                                }}
+                            >
+                                <ChevronsLeft
+                                    color={"#fff"}
+                                />
+                            </button>
+                        </div>
+                        <div className="flex flex-col items-center justify-center w-full">
+                            {
+                                (
+                                    info?.capacity === "200" &&
+                                    <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-slate-200">
+                                        <Evento200Sale {...{ handleClickInformation, setOpen }} />
+                                    </div>
+                                )
+                            }
+                            {
+                                (
+                                    info?.capacity === "250" &&
+                                    <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-slate-200">
+                                        <Evento250Sale {...{ handleClickInformation, setOpen }} />
+                                    </div>
+                                )
+                            }
+                            {
+                                (
+                                    info?.capacity === "300" &&
+                                    <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-slate-200">
+                                        <Evento300Sale {...{ handleClickInformation, setOpen }} />
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
+                }
+                {
+                    open &&
+                    <>
+                        <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] z-20" />
+                        <div onClick={() => setOpen(false)} className="min-h-[100vh] min-w-[100vw] bg-transparent absolute z-30 top-0 left-0"></div>
+                        <div className="fixed bottom-0 left-0 w-full bg-white pb-4 z-50 shadow-xl rounded-t-sm modal-slide-up">
+                            <div className="flex flex-col items-center justify-center w-full">
+                                <div className="border-1 w-full text-center mb-3 cursor-pointer bg-blue-50 flex justify-center items-center" onClick={() => setOpen(false)}><X color="blue" /></div>
+                                <div className="grid grid-cols-2 justify-start items-center gap-2 p-3 bg-slate-50 rounded-lg">
+                                    <div className="font-bold">Asiento</div>
+                                    <div>{`: ${dataAsientos?.id}`}</div>
+                                    <div className="font-bold">Precio</div>
+                                    <div>{`: S/. ${changeDecimales(dataAsientos?.precio)}`}</div>
+                                </div>
+                                <div className="flex justify-center items-center gap-2 mt-2 px-3">
+                                    <button className="bg-green-500 text-[12px] text-white w-[21vw] py-2 px-2 rounded-sm font-bold text-xl cursor-pointer" onClick={() => setOpen(false)}>
+                                        RESERVAR CON TARJETA
+                                    </button>
+                                    <button className="bg-blue-500 text-[12px] text-white w-[21vw] py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => setOpenPopup(true)}>
+                                        RESERVAR CON VOUCHER
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                }
+                {
+                    openPopup &&
+                    <>
+                        <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue }} />
+                    </>
+                }
+            </div>
+        </>
     )
 }

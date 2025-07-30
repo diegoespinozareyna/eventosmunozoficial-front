@@ -2072,3 +2072,66 @@ export const formCrearUsuario = [
         color: "bg-blue-500",
     },
 ]
+
+export const dataComprarTicket = [
+    {
+        id: 1,
+        name: "documentoUsuario",
+        label: "Documento Cliente (DNI)",
+        type: "number",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Documento Cliente",
+        description: "Documento Cliente",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+    {
+        id: 2,
+        name: "nombres",
+        label: "Nombres Cliente",
+        type: "text",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Nombres Cliente",
+        description: "Nombres Cliente",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+    {
+        id: 3,
+        name: "apellidoPaterno",
+        label: "Apellido Paterno",
+        type: "text",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Apellido Paterno Cliente",
+        description: "Apellido Paterno Cliente",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+    {
+        id: 4,
+        name: "apellidoMaterno",
+        label: "Apellido Materno",
+        type: "text",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Apellido Materno Cliente",
+        description: "Apellido Materno Cliente",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+]

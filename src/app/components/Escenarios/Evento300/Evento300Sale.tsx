@@ -3,7 +3,7 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
     return (
-        <div className="-mt">
+        <div className="-mt-0">
             <TransformWrapper
                 initialScale={1}
                 initialPositionX={0}
@@ -41,9 +41,10 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                 <svg
                                     viewBox="0 0 500 500" // ajusta este valor al contenido real
                                     style={{
-                                        width: "100%",
-                                        height: "calc(150vw - 0px)",
+                                        // width: "100%",
+                                        // height: "calc(200vh - 0px)",
                                     }}
+                                    className="h-[70vh] md:h-[100vh] w-[100%] md:w-[70%]"
                                     preserveAspectRatio="xMidYMin meet"
                                 >
                                     <g>

@@ -6,6 +6,16 @@ const nextConfig: NextConfig = {
     // Ignora ESLint durante `next build`
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'serverimages.inmobackend.site',
+        port: '',
+        pathname: '/uploads/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
