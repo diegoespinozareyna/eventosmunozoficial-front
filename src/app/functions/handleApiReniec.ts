@@ -28,6 +28,7 @@ export const handleApiReniec = async (dni: any, key: string, setValue: any, apiC
             data: { documentoUsuario: dni }
         });
         const existe = apiReniecMe?.data !== null ? true : false;
+        setValue(`UsuarioAntiguo`, existe);
         console.log("existe usuario1?: ", existe);
         console.log("existe usuario2?: ", apiReniecMe);
 

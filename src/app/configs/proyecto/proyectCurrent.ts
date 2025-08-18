@@ -7,7 +7,7 @@ export const Apis = {
     // URL_APOIMENT_BACKEND_DEV: "https://inmobackend.site",
     // URL_APOIMENT_BACKEND_DEV: "https://inmobackend.store",
     // URL_APOIMENT_BACKEND_DEV: "http://localhost:7000",
-        URL_APOIMENT_BACKEND_DEV: "https://apieventosmunoz.inmunoz.com",
+    URL_APOIMENT_BACKEND_DEV: "https://apieventosmunoz.inmunoz.com",
     // URL_APOIMENT_BACKEND_DEV2: "http://localhost:5000",
     URL_APOIMENT_BACKEND_DEV2: "https://serverimages.inmobackend.site",
     //DATOS PROYECTO
@@ -79,13 +79,13 @@ export const Apis = {
     LINK_GITHUB: "https://github.com/ubuntunetworkpe",
     LINK_LIBRO_RECLAMACIONES: "https://reclamovirtual.pe/reclamar/grupovycinmobiliario/grupovycinmobiliarialibroreclamaciones",
     //COLORES STATUS
-    COLOR_VENDIDO_CONTADO: "#087f68",
+    COLOR_VENDIDO_CONTADO: "#00ffff",
     COLOR_VENDIDO_FINANCIADO: "#2ad3b3",
-    COLOR_NO_DISPONIBLE: "#af94c0",
+    COLOR_NO_DISPONIBLE: "#2aff80",
     COLOR_DISPONIBLE: "#efefef",
     COLOR_SEPERADO: "#00ffff",
     COLOR_BLOQUEADO: "#999999",
-    COLOR_RESERVADO: "#00ffff",
+    COLOR_RESERVADO: "#ca8a04",
     COLOR_DESCUENTO: "#fce11f",
     //colores panel y fondo plano
     COLOR_FONDO_PLANO: "bg-[#d4e5c2]",

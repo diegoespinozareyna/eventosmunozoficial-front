@@ -99,11 +99,11 @@ export default function DashBoard() {
                                         <div className="">
                                             <div className="flex flex-col md:flex-row items-center gap-5 justify-between">
                                                 <div className="">
-                                                    <div className="text-xl font-bold text-gray-900 leading-tight">
+                                                    <div className="text-xl font-bold text-gray-900 leading-tight text-center md:text-left">
                                                         {`${evento.title}`}
                                                     </div>
                                                 </div>
-                                                <div className="flex gap-2">
+                                                <div className="flex flex-col md:flex-row gap-2">
                                                     <Button variant="outlined" className="gap-2 bg-transparent">
                                                         <Eye className="h-4 w-4" />
                                                         <div className="text-xs">Ver Asientos</div>
@@ -128,7 +128,7 @@ export default function DashBoard() {
                                                     </div>
                                                     <div>
                                                         <p className="text-sm font-medium text-gray-600">Fecha</p>
-                                                        <p className="text-base font-semibold text-gray-900">{`${moment.tz(evento.dateEvent, "America/Lima").format("DD/MM/YYYY HH:mm")}`}</p>
+                                                        <p className="text-base font-semibold text-gray-900">{`${moment.tz(evento.dateEvent, "America/Lima").format("DD/MM/YYYY")}`}</p>
                                                     </div>
                                                 </div>
 

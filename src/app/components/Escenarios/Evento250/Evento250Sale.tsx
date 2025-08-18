@@ -1,9 +1,10 @@
+import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import { ArrowDownUp } from "lucide-react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
     return (
-        <div className="-mt-0">
+        <div className="-mt">
             <TransformWrapper
                 initialScale={1}
                 initialPositionX={0}
@@ -36,7 +37,10 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                         </div>
                         <TransformComponent>
                             {/* // Aquí va el contenido de tu componente */}
-                            <div className="flex flex-col items-center justify-center">
+                            <div
+                                id={Apis.PROYECTCURRENT}
+                                className="flex flex-col items-center justify-center"
+                            >
                                 {``}
                                 <svg
                                     viewBox="0 0 500 500" // ajusta este valor al contenido real
@@ -50,7 +54,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                     <g>
                                         <g id="onlyAsientos" transform="matrix(0.45,0,0,0.45,-73,20)">
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -63,7 +68,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -76,7 +82,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -86,10 +93,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 268.18924,646.25978 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="G-01-0"
+                                                id="G-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -99,10 +107,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 222.63937,849.40284 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="J-01-6"
+                                                id="J-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -115,7 +124,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -128,7 +138,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -141,7 +152,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -154,7 +166,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -167,7 +180,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -180,7 +194,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -193,7 +208,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -206,7 +222,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -219,7 +236,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -232,7 +250,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -245,7 +264,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -258,7 +278,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -271,7 +292,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -284,7 +306,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -297,7 +320,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -310,7 +334,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -323,7 +348,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -336,7 +362,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -349,7 +376,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -362,7 +390,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -375,7 +404,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -388,7 +418,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -398,10 +429,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 268.22651,783.00978 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="I-01-39"
+                                                id="I-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -411,10 +443,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 268.24796,849.38453 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="J-02-23"
+                                                id="J-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -427,7 +460,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -437,10 +471,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.16438,919.12973 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -0.001,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="K-02-7"
+                                                id="K-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -450,10 +485,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 222.61733,986.47889 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="L-01-6"
+                                                id="L-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -466,7 +502,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -479,7 +516,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -489,10 +527,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.19134,1054.3853 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -10e-4,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="M-02-7"
+                                                id="M-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -502,10 +541,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 222.65371,1121.9526 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="N-01-9"
+                                                id="N-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -515,10 +555,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.19513,1122.0103 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -0.001,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="N-02-39"
+                                                id="N-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -531,7 +572,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -541,10 +583,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.17146,1189.974 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -10e-4,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="O-02-2"
+                                                id="O-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -557,7 +600,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -570,7 +614,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -580,10 +625,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 222.64558,1325.7309 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="Q-01-9"
+                                                id="Q-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -593,10 +639,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.187,1325.7886 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -10e-4,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="Q-02-6"
+                                                id="Q-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -609,7 +656,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -619,10 +667,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.14281,1394.9083 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -0.001,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="R-02-1"
+                                                id="R-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -635,7 +684,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -648,7 +698,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -658,10 +709,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 222.65409,1462.6606 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="S-01-2"
+                                                id="S-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -671,10 +723,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.19551,1462.7183 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -10e-4,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="S-02-2"
+                                                id="S-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -684,10 +737,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 222.63199,1530.124 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="T-01-6"
+                                                id="T-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -697,10 +751,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 267.17341,1530.1817 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -0.001,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="T-02-4"
+                                                id="T-02"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -713,7 +768,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-01"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -723,10 +779,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 360.48928,238.63433 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="A-02-9"
+                                                id="A-02"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -739,7 +796,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-03"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -752,7 +810,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-04"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -762,10 +821,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.5374,238.1872 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="A-05-56"
+                                                id="A-05"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -778,7 +838,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-10"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -788,10 +849,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.59784,237.89983 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -0.001,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="A-06-0"
+                                                id="A-06"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -801,10 +863,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 982.13926,237.95755 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21447,5.54487 14.89034,11.67944 0.7604,1.74314 1.361,4.00158 1.5713,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.3999,8.53947 -5.48307,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="A-07-2"
+                                                id="A-07"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -814,10 +877,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.5557,237.86918 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="A-08-9"
+                                                id="A-08"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -830,7 +894,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-09"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -840,10 +905,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.73707,306.10594 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="B-01-7"
+                                                id="B-01"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -856,7 +922,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-02"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -869,7 +936,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-03"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -879,10 +947,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.42541,306.13074 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="B-04-7"
+                                                id="B-04"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -892,10 +961,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.32661,306.21653 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="B-05-1"
+                                                id="B-05"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -905,10 +975,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 1115.5945,305.7758 c -4.4538,-0.48992 -8.5281,-2.40523 -11.6777,-5.48954 -1.7777,-1.74085 -2.9641,-3.37555 -4.0174,-5.53523 -0.7091,-1.45417 -1.0233,-2.28433 -1.3759,-3.63612 -1.8317,-7.02068 0.1689,-14.29378 5.3209,-19.34371 2.5586,-2.50793 5.5147,-4.16933 9.0041,-5.0605 2.4596,-0.62817 5.3934,-0.74352 7.9886,-0.31409 6.4956,1.07479 12.1601,5.50807 14.824,11.60192 0.757,1.73157 1.3549,3.97502 1.5643,5.86945 0.1098,0.99307 0.1092,3.26519 0,4.25062 -0.4962,4.43478 -2.3892,8.48279 -5.4586,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.3655,5.88103 -0.9057,0.14267 -3.8696,0.20656 -4.8057,0.1036 z"
-                                                id="B-10-9"
+                                                id="B-10"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -918,10 +989,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.38705,305.92916 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="B-06-56"
+                                                id="B-06"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -931,10 +1003,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.92847,305.98688 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21443,5.54487 14.89033,11.67944 0.7604,1.74314 1.361,4.00158 1.5713,5.90867 0.1103,0.9997 0.1097,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.3999,8.53947 -5.48306,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="B-07-0"
+                                                id="B-07"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -944,10 +1017,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.3449,305.89851 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="B-08-1"
+                                                id="B-08"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -957,10 +1031,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1071.0754,305.95396 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1697,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1097,3.28576 -10e-4,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="B-09-2"
+                                                id="B-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -970,10 +1045,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.81029,374.13259 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="C-01-4"
+                                                id="C-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -983,10 +1059,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.35171,374.19031 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="C-02-7"
+                                                id="C-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -999,7 +1076,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1012,7 +1090,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1022,10 +1101,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.39983,374.24318 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="C-05-4"
+                                                id="C-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1035,10 +1115,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 1115.6677,373.80245 c -4.4538,-0.48992 -8.5281,-2.40523 -11.6777,-5.48954 -1.7777,-1.74085 -2.9641,-3.37555 -4.0174,-5.53523 -0.7091,-1.45417 -1.0233,-2.28433 -1.3759,-3.63612 -1.8317,-7.02068 0.1689,-14.29378 5.3209,-19.34371 2.5586,-2.50793 5.5147,-4.16933 9.0041,-5.0605 2.4596,-0.62817 5.3934,-0.74352 7.9886,-0.31409 6.4956,1.07479 12.1601,5.50807 14.824,11.60192 0.757,1.73157 1.3549,3.97502 1.5643,5.86945 0.1098,0.99307 0.1092,3.26519 0,4.25062 -0.4962,4.43478 -2.3892,8.48279 -5.4586,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.3655,5.88103 -0.9057,0.14267 -3.8696,0.20656 -4.8057,0.1036 z"
-                                                id="C-10-2"
+                                                id="C-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1048,10 +1129,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.46027,373.95581 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="C-06-4"
+                                                id="C-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1061,10 +1143,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 982.00169,374.01353 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21443,5.54487 14.89031,11.67944 0.7604,1.74314 1.361,4.00158 1.5713,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.3999,8.53947 -5.48304,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="C-07-9"
+                                                id="C-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1074,10 +1157,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.4181,373.92516 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="C-08-1"
+                                                id="C-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1087,10 +1171,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1071.1486,373.98061 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1697,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1097,3.28576 -10e-4,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="C-09-16"
+                                                id="C-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1100,10 +1185,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.82101,442.08786 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="D-01-7"
+                                                id="D-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1113,10 +1199,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.36243,442.14558 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="D-02-9"
+                                                id="D-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1126,10 +1213,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.77886,442.05721 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="D-03-4"
+                                                id="D-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1139,10 +1227,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.50935,442.11266 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="D-04-2"
+                                                id="D-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1152,10 +1241,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.41055,442.19845 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="D-05-9"
+                                                id="D-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1165,10 +1255,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 1115.6784,441.75772 c -4.4538,-0.48992 -8.5281,-2.40523 -11.6777,-5.48954 -1.7777,-1.74085 -2.9641,-3.37555 -4.0174,-5.53523 -0.7091,-1.45417 -1.0233,-2.28433 -1.3759,-3.63612 -1.8317,-7.02068 0.1689,-14.29378 5.3209,-19.34371 2.5586,-2.50793 5.5147,-4.16933 9.0041,-5.0605 2.4596,-0.62817 5.3934,-0.74352 7.9886,-0.31409 6.4956,1.07479 12.1601,5.50807 14.824,11.60192 0.757,1.73157 1.3549,3.97502 1.5643,5.86945 0.1098,0.99307 0.1092,3.26519 0,4.25062 -0.4962,4.43478 -2.3892,8.48279 -5.4586,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.3655,5.88103 -0.9057,0.14267 -3.8696,0.20656 -4.8057,0.1036 z"
-                                                id="D-10-4"
+                                                id="D-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1178,10 +1269,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.47099,441.91108 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="D-06-6"
+                                                id="D-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1191,10 +1283,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 982.01241,441.9688 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21441,5.54487 14.89029,11.67944 0.7604,1.74314 1.361,4.00158 1.5713,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.3999,8.53947 -5.48302,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="D-07-79"
+                                                id="D-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1204,10 +1297,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.4288,441.88043 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="D-08-7"
+                                                id="D-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1220,7 +1314,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1233,7 +1328,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1243,10 +1339,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.48928,510.06178 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="E-02-6"
+                                                id="E-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1256,10 +1353,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.90571,509.97341 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="E-03-7"
+                                                id="E-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1269,10 +1367,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.6362,510.02886 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="E-04-6"
+                                                id="E-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1282,10 +1381,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.5374,510.11465 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="E-05-74"
+                                                id="E-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1295,10 +1395,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 1115.8053,509.67392 c -4.4538,-0.48992 -8.5281,-2.40523 -11.6777,-5.48954 -1.7777,-1.74085 -2.9641,-3.37555 -4.0174,-5.53523 -0.7091,-1.45417 -1.0233,-2.28433 -1.3759,-3.63612 -1.8317,-7.02068 0.1689,-14.29378 5.3209,-19.34371 2.5586,-2.50793 5.5147,-4.16933 9.0041,-5.0605 2.4596,-0.62817 5.3934,-0.74352 7.9886,-0.31409 6.4956,1.07479 12.1601,5.50807 14.824,11.60192 0.757,1.73157 1.3549,3.97502 1.5643,5.86945 0.1098,0.99307 0.1092,3.26519 0,4.25062 -0.4962,4.43478 -2.3892,8.48279 -5.4586,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.3655,5.88103 -0.9057,0.14267 -3.8696,0.20656 -4.8057,0.1036 z"
-                                                id="E-10-6"
+                                                id="E-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1308,10 +1409,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.59784,509.82728 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -0.001,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="E-06-6"
+                                                id="E-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1324,7 +1426,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1334,10 +1437,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.5557,509.79663 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="E-08-85"
+                                                id="E-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1347,10 +1451,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1071.2862,509.85208 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1697,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1097,3.28576 -10e-4,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="E-09-20"
+                                                id="E-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1360,10 +1465,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.73707,578.03339 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="F-01-7"
+                                                id="F-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1376,7 +1482,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1389,7 +1496,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1399,10 +1507,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.42541,578.05819 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="F-04-7"
+                                                id="F-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1412,10 +1521,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.32661,578.14398 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="F-05-6"
+                                                id="F-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1425,10 +1535,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 1115.5945,577.70325 c -4.4538,-0.48992 -8.5281,-2.40523 -11.6777,-5.48954 -1.7777,-1.74085 -2.9641,-3.37555 -4.0174,-5.53523 -0.7091,-1.45417 -1.0233,-2.28433 -1.3759,-3.63612 -1.8317,-7.02068 0.1689,-14.29378 5.3209,-19.34371 2.5586,-2.50793 5.5147,-4.16933 9.0041,-5.0605 2.4596,-0.62817 5.3934,-0.74352 7.9886,-0.31409 6.4956,1.07479 12.1601,5.50807 14.824,11.60192 0.757,1.73157 1.3549,3.97502 1.5643,5.86945 0.1098,0.99307 0.1092,3.26519 0,4.25062 -0.4962,4.43478 -2.3892,8.48279 -5.4586,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.3655,5.88103 -0.9057,0.14267 -3.8696,0.20656 -4.8057,0.1036 z"
-                                                id="F-10-7"
+                                                id="F-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1441,7 +1552,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1451,10 +1563,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.92847,577.91433 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21443,5.54487 14.89033,11.67944 0.7604,1.74314 1.361,4.00158 1.5713,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.3999,8.53947 -5.48306,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="F-07-2"
+                                                id="F-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1464,10 +1577,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.3449,577.82596 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="F-08-6"
+                                                id="F-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1477,10 +1591,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1071.0754,577.88141 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1697,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1097,3.28576 -10e-4,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="F-09-9"
+                                                id="F-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1490,10 +1605,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.81029,646.06004 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="G-02-1"
+                                                id="G-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1503,10 +1619,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.35171,646.11776 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="G-03-1"
+                                                id="G-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1516,10 +1633,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.76814,646.02939 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="G-04-2"
+                                                id="G-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1529,10 +1647,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.49863,646.08484 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="G-05-7"
+                                                id="G-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1542,10 +1661,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.39983,646.17063 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="G-06-0"
+                                                id="G-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1558,7 +1678,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1568,10 +1689,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.46027,645.88326 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="G-07-4"
+                                                id="G-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1581,10 +1703,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 982.00169,645.94098 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21443,5.54487 14.89031,11.67944 0.7604,1.74314 1.361,4.00158 1.5713,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.3999,8.53947 -5.48304,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="G-08-2"
+                                                id="G-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1594,10 +1717,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.4181,645.85261 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="G-09-7"
+                                                id="G-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1607,10 +1731,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1071.1486,645.90806 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1697,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1097,3.28576 -10e-4,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="G-10-1"
+                                                id="G-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1620,10 +1745,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.82101,714.01531 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="H-02-1"
+                                                id="H-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1633,10 +1759,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.36243,714.07303 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="H-03-4"
+                                                id="H-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1649,7 +1776,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1659,10 +1787,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.50935,714.04011 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="H-05-61"
+                                                id="H-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1675,7 +1804,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1688,7 +1818,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1698,10 +1829,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.47099,713.83853 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="H-07-7"
+                                                id="H-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1714,7 +1846,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1724,10 +1857,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.4288,713.80788 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="H-09-1"
+                                                id="H-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1740,7 +1874,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1750,10 +1885,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.7622,782.16174 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="I-02-7"
+                                                id="I-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1763,10 +1899,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.30362,782.21946 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -10e-4,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="I-03-25"
+                                                id="I-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1776,10 +1913,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.72005,782.13109 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="I-04-7"
+                                                id="I-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1789,10 +1927,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.45054,782.18654 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="I-05-6"
+                                                id="I-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1805,7 +1944,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1818,7 +1958,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1828,10 +1969,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.41218,781.98496 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="I-07-7"
+                                                id="I-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1841,10 +1983,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.9536,782.04268 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21447,5.54487 14.8903,11.67944 0.7605,1.74314 1.3611,4.00158 1.5714,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.4,8.53947 -5.48313,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="I-08-6"
+                                                id="I-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1857,7 +2000,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1870,7 +2014,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1880,10 +2025,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.55141,850.19107 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -0.001,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="J-03-9"
+                                                id="J-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1893,10 +2039,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.09283,850.24879 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52466,1.08197 12.21451,5.54487 14.89039,11.67944 0.76036,1.74314 1.36094,4.00158 1.57128,5.90867 0.11029,0.9997 0.10971,3.287 -0.001,4.27902 -0.4984,4.46441 -2.39989,8.53947 -5.48305,11.75058 -3.09189,3.22021 -6.93383,5.21258 -11.41641,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="J-04-7"
+                                                id="J-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1906,10 +2053,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.50926,850.16042 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="J-05-35"
+                                                id="J-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1922,7 +2070,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1932,10 +2081,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.14095,850.30166 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="J-07-7"
+                                                id="J-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1948,7 +2098,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1961,7 +2112,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1971,10 +2123,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.74281,850.07201 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.52622 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21443,5.54487 14.89029,11.67944 0.7605,1.74314 1.3611,4.00158 1.5714,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.4,8.53947 -5.48312,11.75058 -3.0918,3.22021 -6.93378,5.21258 -11.41636,5.92032 -0.90971,0.14363 -3.88694,0.20794 -4.82726,0.1043 z"
-                                                id="J-09-9"
+                                                id="J-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1984,10 +2137,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.1593,849.98364 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="J-10-9"
+                                                id="J-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2000,7 +2154,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2013,7 +2168,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2026,7 +2182,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2036,10 +2193,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.58248,918.18707 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="K-05-02"
+                                                id="K-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2049,10 +2207,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.31297,918.24252 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="K-06-1"
+                                                id="K-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2062,10 +2221,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.71417,918.32831 c -4.47497,-0.49301 -8.56864,-2.42038 -11.73322,-5.52412 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -10e-4,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.2106 -11.41951,5.91808 -0.90995,0.14357 -3.88799,0.20786 -4.82856,0.10425 z"
-                                                id="K-07-51"
+                                                id="K-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2078,7 +2238,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2088,10 +2249,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.27461,918.04094 c -4.4538,-0.48992 -8.52811,-2.40523 -11.67772,-5.48954 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.17798 -11.36549,5.88103 -0.90565,0.14267 -3.8696,0.20656 -4.80572,0.1036 z"
-                                                id="K-08-9"
+                                                id="K-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2104,7 +2266,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2114,10 +2277,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.2325,918.01029 c -4.475,-0.49301 -8.5687,-2.42038 -11.7333,-5.52412 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.2106 -11.4195,5.91808 -0.91,0.14357 -3.888,0.20786 -4.8286,0.10425 z"
-                                                id="K-10-1"
+                                                id="K-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2130,7 +2294,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2143,7 +2308,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2156,7 +2322,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2169,7 +2336,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2179,10 +2347,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.32369,986.1978 c -4.47497,-0.493 -8.56864,-2.42039 -11.73322,-5.52413 -1.78616,-1.75182 -2.97822,-3.39681 -4.03645,-5.5701 -0.71253,-1.46333 -1.02818,-2.29872 -1.38252,-3.65903 -1.84037,-7.0649 0.16978,-14.38382 5.3462,-19.46556 2.57077,-2.52373 5.54091,-4.1956 9.04687,-5.09238 2.47133,-0.63213 5.41909,-0.7482 8.02665,-0.31607 6.52642,1.08156 12.21781,5.54277 14.89442,11.67501 0.76056,1.74248 1.3613,4.00006 1.5717,5.90642 0.11032,0.99933 0.10974,3.28576 -0.001,4.2774 -0.49854,4.46272 -2.40055,8.53623 -5.48454,11.74612 -3.09273,3.21899 -6.93571,5.21062 -11.41951,5.91812 -0.90995,0.1435 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="L-06-0"
+                                                id="L-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2195,7 +2364,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2208,7 +2378,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2218,10 +2389,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.28533,985.9962 c -4.4538,-0.4899 -8.52811,-2.40522 -11.67772,-5.48953 -1.77771,-1.74085 -2.96413,-3.37555 -4.01736,-5.53523 -0.70916,-1.45417 -1.02331,-2.28433 -1.37598,-3.63612 -1.83166,-7.02068 0.16898,-14.29378 5.32091,-19.34371 2.55861,-2.50793 5.5147,-4.16933 9.00408,-5.0605 2.45964,-0.62817 5.39346,-0.74352 7.98868,-0.31409 6.49555,1.07479 12.16002,5.50807 14.82396,11.60192 0.75697,1.73157 1.35487,3.97502 1.56427,5.86945 0.1098,0.99307 0.10922,3.26519 -10e-4,4.25062 -0.49618,4.43478 -2.38919,8.48279 -5.45859,11.67259 -3.0781,3.19884 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="L-08-1"
+                                                id="L-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2231,10 +2403,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.82675,986.0539 c -4.47376,-0.4932 -8.56632,-2.42127 -11.73005,-5.52619 -1.78567,-1.75248 -2.97741,-3.39811 -4.03536,-5.57222 -0.71234,-1.46388 -1.02789,-2.29959 -1.38214,-3.66041 -1.83987,-7.06759 0.16973,-14.38929 5.34475,-19.47296 2.57007,-2.52469 5.53941,-4.19719 9.04443,-5.09431 2.47066,-0.63237 5.41762,-0.74849 8.02447,-0.31619 6.52467,1.08197 12.21441,5.54487 14.89025,11.67944 0.7605,1.74314 1.3611,4.00158 1.5714,5.90867 0.1103,0.9997 0.1097,3.287 0,4.27902 -0.4984,4.46441 -2.4,8.53947 -5.48308,11.75058 -3.0918,3.22021 -6.93378,5.21257 -11.41636,5.92037 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="L-09-6"
+                                                id="L-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2244,10 +2417,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.2432,985.9656 c -4.475,-0.493 -8.5687,-2.42042 -11.7333,-5.52416 -1.7861,-1.75182 -2.9782,-3.39681 -4.0364,-5.5701 -0.7125,-1.46333 -1.0282,-2.29872 -1.3825,-3.65903 -1.8404,-7.0649 0.1698,-14.38382 5.3462,-19.46556 2.5707,-2.52373 5.5409,-4.1956 9.0468,-5.09238 2.4714,-0.63213 5.4191,-0.7482 8.0267,-0.31607 6.5264,1.08156 12.2178,5.54277 14.8944,11.67501 0.7606,1.74248 1.3613,4.00006 1.5717,5.90642 0.1103,0.99933 0.1098,3.28576 0,4.2774 -0.4985,4.46272 -2.4005,8.53623 -5.4845,11.74612 -3.0928,3.21899 -6.9357,5.21065 -11.4195,5.91805 -0.91,0.1436 -3.888,0.2079 -4.8286,0.1043 z"
-                                                id="L-10-7"
+                                                id="L-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2260,7 +2434,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2270,10 +2445,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.74443,1054.1178 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2844 -1.37598,-3.6361 -1.83166,-7.0206 0.16898,-14.2937 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.602 0.75697,1.7315 1.35487,3.975 1.56427,5.8694 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2506 -0.49618,4.4347 -2.38919,8.4827 -5.45859,11.6725 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="M-03-9"
+                                                id="M-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2286,7 +2462,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2299,7 +2476,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2312,7 +2490,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2322,10 +2501,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.33397,1054.2284 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.6589 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.6751 0.76056,1.7425 1.3613,4 1.5717,5.9064 0.11032,0.9993 0.10974,3.2858 -0.001,4.2774 -0.49854,4.4626 -2.40055,8.5361 -5.48454,11.746 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1435 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="M-07-08"
+                                                id="M-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2338,7 +2518,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2348,10 +2529,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.39441,1053.941 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7408 -2.96413,-3.3755 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2843 -1.37598,-3.636 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3438 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6281 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.602 0.75697,1.7316 1.35487,3.975 1.56427,5.8694 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2507 -0.49618,4.4346 -2.38919,8.4826 -5.45859,11.6724 -3.0781,3.1989 -6.9029,5.178 -11.36549,5.8811 -0.90565,0.1426 -3.8696,0.2065 -4.80572,0.1036 z"
-                                                id="M-08-4"
+                                                id="M-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2361,10 +2543,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.93583,1053.9988 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5263 -1.78567,-1.7524 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4638 -1.02789,-2.2996 -1.38214,-3.6603 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.4729 2.57007,-2.5248 5.53941,-4.1973 9.04443,-5.0944 2.47066,-0.6323 5.41762,-0.7485 8.0245,-0.3162 6.5246,1.082 12.21444,5.5449 14.89034,11.6795 0.7604,1.7431 1.361,4.0016 1.5713,5.9087 0.1103,0.9997 0.1097,3.287 0,4.279 -0.4984,4.4643 -2.3999,8.5394 -5.48314,11.7505 -3.0918,3.2202 -6.9337,5.2125 -11.41632,5.9203 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="M-09-7"
+                                                id="M-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2374,10 +2557,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.3523,1053.9104 c -4.475,-0.493 -8.5687,-2.4204 -11.7333,-5.5241 -1.7861,-1.7518 -2.9782,-3.3968 -4.0364,-5.5701 -0.7125,-1.4633 -1.0282,-2.2986 -1.3825,-3.6589 -1.8404,-7.0649 0.1698,-14.3839 5.3462,-19.4656 2.5707,-2.5238 5.5409,-4.1956 9.0468,-5.0924 2.4714,-0.6321 5.4191,-0.7482 8.0267,-0.3161 6.5264,1.0816 12.2178,5.5428 14.8944,11.6751 0.7606,1.7424 1.3613,4 1.5717,5.9064 0.1103,0.9993 0.1098,3.2857 0,4.2774 -0.4985,4.4626 -2.4005,8.5361 -5.4845,11.746 -3.0928,3.219 -6.9357,5.2106 -11.4195,5.9181 -0.91,0.1435 -3.888,0.2078 -4.8286,0.1042 z"
-                                                id="M-10-2"
+                                                id="M-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2390,7 +2574,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2400,10 +2585,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.81765,1122.1445 c -4.4538,-0.49 -8.52811,-2.4053 -11.67772,-5.4896 -1.77771,-1.7408 -2.96413,-3.3755 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.508 5.5147,-4.1694 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7436 7.98868,-0.3141 6.49555,1.0748 12.16002,5.508 14.82396,11.6019 0.75697,1.7316 1.35487,3.975 1.56427,5.8694 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2507 -0.49618,4.4347 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.1779 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2065 -4.80572,0.1036 z"
-                                                id="N-03-1"
+                                                id="N-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2413,10 +2599,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.35907,1122.2022 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5723 -0.71234,-1.4638 -1.02789,-2.2995 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.4729 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.0819 12.21451,5.5448 14.89039,11.6794 0.76036,1.7432 1.36094,4.0016 1.57128,5.9087 0.11029,0.9997 0.10971,3.287 -10e-4,4.279 -0.4984,4.4644 -2.39989,8.5395 -5.48305,11.7506 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9203 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="N-04-35"
+                                                id="N-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2426,10 +2613,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.7755,1122.1138 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3839 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.316 6.52642,1.0815 12.21781,5.5427 14.89442,11.675 0.76056,1.7424 1.3613,4 1.5717,5.9064 0.11032,0.9993 0.10974,3.2857 -10e-4,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1436 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="N-05-2"
+                                                id="N-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2439,10 +2627,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.50599,1122.1693 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5242 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4655 2.57077,-2.5238 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6322 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.675 0.76056,1.7425 1.3613,4.0001 1.5717,5.9064 0.11032,0.9994 0.10974,3.2858 -0.001,4.2774 -0.49854,4.4628 -2.40055,8.5363 -5.48454,11.7462 -3.09273,3.2189 -6.93571,5.2106 -11.41951,5.918 -0.90995,0.1436 -3.88799,0.2079 -4.82856,0.1043 z"
-                                                id="N-06-2"
+                                                id="N-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2455,7 +2644,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2468,7 +2658,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2481,7 +2672,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2491,10 +2683,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 982.00905,1122.0254 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02448,-0.3162 6.5247,1.082 12.21444,5.5449 14.89034,11.6794 0.7604,1.7432 1.361,4.0016 1.5713,5.9087 0.1103,0.9997 0.1097,3.287 0,4.279 -0.4984,4.4644 -2.3999,8.5395 -5.48304,11.7506 -3.0918,3.2202 -6.9338,5.2126 -11.4164,5.9203 -0.90971,0.1437 -3.88694,0.208 -4.82726,0.1043 z"
-                                                id="N-09-05"
+                                                id="N-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2504,10 +2697,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.4255,1121.937 c -4.475,-0.493 -8.5687,-2.4203 -11.7333,-5.5241 -1.7861,-1.7518 -2.9782,-3.3968 -4.0364,-5.5701 -0.7125,-1.4633 -1.0282,-2.2987 -1.3825,-3.659 -1.8404,-7.0649 0.1698,-14.3838 5.3462,-19.4656 2.5707,-2.5237 5.5409,-4.1956 9.0468,-5.0924 2.4714,-0.6321 5.4191,-0.7482 8.0267,-0.316 6.5264,1.0815 12.2178,5.5427 14.8944,11.675 0.7606,1.7425 1.3613,4 1.5717,5.9064 0.1103,0.9993 0.1098,3.2858 0,4.2774 -0.4985,4.4627 -2.4005,8.5362 -5.4845,11.7461 -3.0928,3.219 -6.9357,5.2106 -11.4195,5.9181 -0.91,0.1436 -3.888,0.2079 -4.8286,0.1043 z"
-                                                id="N-10-2"
+                                                id="N-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2520,7 +2714,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2530,10 +2725,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.82837,1190.0997 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2844 -1.37598,-3.6362 -1.83166,-7.0206 0.16898,-14.2937 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6281 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.602 0.75697,1.7315 1.35487,3.975 1.56427,5.8694 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1989 -6.9029,5.178 -11.36549,5.8811 -0.90565,0.1426 -3.8696,0.2065 -4.80572,0.1036 z"
-                                                id="O-03-6"
+                                                id="O-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2546,7 +2742,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2559,7 +2756,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2569,10 +2767,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.51671,1190.1245 c -4.47497,-0.493 -8.56864,-2.4203 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.316 6.52642,1.0815 12.21781,5.5427 14.89442,11.675 0.76056,1.7425 1.3613,4 1.5717,5.9064 0.11032,0.9993 0.10974,3.2858 -10e-4,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1436 -3.88799,0.2079 -4.82856,0.1043 z"
-                                                id="O-06-22"
+                                                id="O-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2585,7 +2784,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2598,7 +2798,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2611,7 +2812,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2621,10 +2823,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 982.01977,1189.9807 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3982 -4.03536,-5.5723 -0.71234,-1.4638 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.4729 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02446,-0.3162 6.5247,1.0819 12.21444,5.5448 14.89034,11.6794 0.7604,1.7431 1.361,4.0016 1.5713,5.9087 0.1103,0.9997 0.1097,3.287 0,4.279 -0.4984,4.4644 -2.3999,8.5395 -5.48304,11.7506 -3.0918,3.2202 -6.9338,5.2126 -11.41638,5.9203 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="O-09-6"
+                                                id="O-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2637,7 +2840,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2650,7 +2854,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2663,7 +2868,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2673,10 +2879,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.31098,1258.3039 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5723 -0.71234,-1.4638 -1.02789,-2.2995 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.4729 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.0819 12.21451,5.5448 14.89039,11.6794 0.76036,1.7432 1.36094,4.0016 1.57128,5.9087 0.11029,0.9997 0.10971,3.287 -10e-4,4.279 -0.4984,4.4644 -2.39989,8.5395 -5.48305,11.7506 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9203 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="P-04-24"
+                                                id="P-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2689,7 +2896,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2699,10 +2907,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.4579,1258.271 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5242 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4655 2.57077,-2.5238 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6322 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.675 0.76056,1.7425 1.3613,4.0001 1.5717,5.9064 0.11032,0.9994 0.10974,3.2858 -0.001,4.2774 -0.49854,4.4628 -2.40055,8.5363 -5.48454,11.7462 -3.09273,3.2189 -6.93571,5.2106 -11.41951,5.918 -0.90995,0.1436 -3.88799,0.2079 -4.82856,0.1043 z"
-                                                id="P-06-6"
+                                                id="P-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2715,7 +2924,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2728,7 +2938,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2738,10 +2949,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.41954,1258.0694 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4896 -1.77771,-1.7408 -2.96413,-3.3755 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.975 1.56427,5.8695 0.1098,0.993 0.10922,3.2652 -10e-4,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="P-08-96"
+                                                id="P-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2751,10 +2963,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.96096,1258.1271 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.5247,1.082 12.21454,5.5449 14.89034,11.6794 0.7605,1.7432 1.3611,4.0016 1.5714,5.9087 0.1103,0.9997 0.1097,3.287 0,4.279 -0.4984,4.4644 -2.4,8.5395 -5.48314,11.7506 -3.0918,3.2202 -6.9338,5.2126 -11.41639,5.9203 -0.90971,0.1437 -3.88694,0.208 -4.82726,0.1043 z"
-                                                id="P-09-92"
+                                                id="P-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2767,7 +2980,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2780,7 +2994,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2793,7 +3008,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2803,10 +3019,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.10019,1326.3332 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6794 0.76036,1.7432 1.36094,4.0016 1.57128,5.9087 0.11029,0.9997 0.10971,3.287 -0.001,4.279 -0.4984,4.4644 -2.39989,8.5395 -5.48305,11.7506 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9203 -0.90971,0.1437 -3.88694,0.208 -4.82726,0.1043 z"
-                                                id="Q-04-6"
+                                                id="Q-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2816,10 +3033,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.51662,1326.2448 c -4.47497,-0.493 -8.56864,-2.4203 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0923 2.47133,-0.6322 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0815 12.21781,5.5428 14.89442,11.675 0.76056,1.7425 1.3613,4.0001 1.5717,5.9064 0.11032,0.9993 0.10974,3.2858 -10e-4,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1436 -3.88799,0.2079 -4.82856,0.1043 z"
-                                                id="Q-05-1"
+                                                id="Q-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2829,10 +3047,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.24711,1326.3003 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4634 -1.02818,-2.2987 -1.38252,-3.6591 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4655 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.675 0.76056,1.7425 1.3613,4.0001 1.5717,5.9065 0.11032,0.9993 0.10974,3.2857 -10e-4,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1435 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="Q-06-7"
+                                                id="Q-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2842,10 +3061,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.14831,1326.3861 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7519 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4634 -1.02818,-2.2988 -1.38252,-3.6591 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4655 2.57077,-2.5238 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.675 0.76056,1.7425 1.3613,4.0001 1.5717,5.9065 0.11032,0.9993 0.10974,3.2857 -0.001,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1435 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="Q-07-93"
+                                                id="Q-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2858,7 +3078,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2868,10 +3089,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.20875,1326.0987 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="Q-08-7"
+                                                id="Q-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2881,10 +3103,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 981.75017,1326.1564 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02446,-0.3162 6.5247,1.082 12.2144,5.5449 14.89034,11.6795 0.7605,1.7431 1.3611,4.0015 1.5714,5.9086 0.1103,0.9997 0.1097,3.287 0,4.2791 -0.4984,4.4644 -2.4,8.5394 -5.48314,11.7505 -3.0918,3.2202 -6.9338,5.2126 -11.41638,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="Q-09-1"
+                                                id="Q-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2894,10 +3117,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.1667,1326.0681 c -4.475,-0.493 -8.5687,-2.4204 -11.7333,-5.5242 -1.7861,-1.7518 -2.9782,-3.3968 -4.0364,-5.5701 -0.7125,-1.4633 -1.0282,-2.2987 -1.3825,-3.659 -1.8404,-7.0649 0.1698,-14.3838 5.3462,-19.4655 2.5707,-2.5238 5.5409,-4.1956 9.0468,-5.0924 2.4714,-0.6322 5.4191,-0.7482 8.0267,-0.3161 6.5264,1.0816 12.2178,5.5428 14.8944,11.675 0.7606,1.7425 1.3613,4.0001 1.5717,5.9064 0.1103,0.9994 0.1098,3.2858 0,4.2774 -0.4985,4.4628 -2.4005,8.5363 -5.4845,11.7462 -3.0928,3.2189 -6.9357,5.2106 -11.4195,5.918 -0.91,0.1436 -3.888,0.2079 -4.8286,0.1043 z"
-                                                id="Q-10-0"
+                                                id="Q-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2910,7 +3134,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2920,10 +3145,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.63199,1394.3021 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7408 -2.96413,-3.3755 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2844 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3438 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6281 5.39346,-0.7435 7.98868,-0.314 6.49555,1.0747 12.16002,5.508 14.82396,11.6019 0.75697,1.7315 1.35487,3.975 1.56427,5.8694 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1989 -6.9029,5.178 -11.36549,5.8811 -0.90565,0.1426 -3.8696,0.2065 -4.80572,0.1036 z"
-                                                id="R-03-0"
+                                                id="R-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2936,7 +3162,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2946,10 +3173,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.58984,1394.2715 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4634 -1.02818,-2.2987 -1.38252,-3.6591 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4655 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.675 0.76056,1.7425 1.3613,4.0001 1.5717,5.9065 0.11032,0.9993 0.10974,3.2857 -10e-4,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1435 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="R-05-78"
+                                                id="R-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2962,7 +3190,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2972,10 +3201,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.22153,1394.4127 c -4.47497,-0.493 -8.56864,-2.4203 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.316 6.52642,1.0815 12.21781,5.5427 14.89442,11.675 0.76056,1.7425 1.3613,4 1.5717,5.9064 0.11032,0.9993 0.10974,3.2858 -0.001,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1436 -3.88799,0.2079 -4.82856,0.1043 z"
-                                                id="R-07-17"
+                                                id="R-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2988,7 +3218,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3001,7 +3232,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3014,7 +3246,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3024,10 +3257,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 1026.2399,1394.0947 c -4.475,-0.493 -8.5687,-2.4204 -11.7333,-5.5241 -1.7861,-1.7518 -2.9782,-3.3968 -4.0364,-5.5701 -0.7125,-1.4633 -1.0282,-2.2987 -1.3825,-3.659 -1.8404,-7.0649 0.1698,-14.3839 5.3462,-19.4656 2.5707,-2.5237 5.5409,-4.1956 9.0468,-5.0924 2.4714,-0.6321 5.4191,-0.7482 8.0267,-0.316 6.5264,1.0815 12.2178,5.5427 14.8944,11.675 0.7606,1.7424 1.3613,4 1.5717,5.9064 0.1103,0.9993 0.1098,3.2857 0,4.2774 -0.4985,4.4627 -2.4005,8.5362 -5.4845,11.7461 -3.0928,3.219 -6.9357,5.2106 -11.4195,5.9181 -0.91,0.1436 -3.888,0.2078 -4.8286,0.1042 z"
-                                                id="R-10-1"
+                                                id="R-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3040,7 +3274,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3050,10 +3285,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.64271,1462.2574 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="S-03-2"
+                                                id="S-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3063,10 +3299,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.18413,1462.3151 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -10e-4,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="S-04-4"
+                                                id="S-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3076,10 +3313,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 402.60056,1462.2268 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5242 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3838 5.3462,-19.4655 2.57077,-2.5238 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6322 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.675 0.76056,1.7425 1.3613,4.0001 1.5717,5.9064 0.11032,0.9994 0.10974,3.2858 -10e-4,4.2774 -0.49854,4.4628 -2.40055,8.5363 -5.48454,11.7462 -3.09273,3.2189 -6.93571,5.2106 -11.41951,5.918 -0.90995,0.1436 -3.88799,0.2079 -4.82856,0.1043 z"
-                                                id="S-05-1"
+                                                id="S-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3089,10 +3327,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 447.33105,1462.2822 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3839 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.316 6.52642,1.0815 12.21781,5.5427 14.89442,11.675 0.76056,1.7424 1.3613,4 1.5717,5.9064 0.11032,0.9993 0.10974,3.2857 -0.001,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1436 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="S-06-7"
+                                                id="S-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3102,10 +3341,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.23225,1462.368 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3839 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.6751 0.76056,1.7424 1.3613,4 1.5717,5.9064 0.11032,0.9993 0.10974,3.2857 -0.001,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1435 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="S-07-50"
+                                                id="S-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3118,7 +3358,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3128,10 +3369,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.29269,1462.0806 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2844 -1.37598,-3.6362 -1.83166,-7.0206 0.16898,-14.2937 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6281 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.602 0.75697,1.7315 1.35487,3.975 1.56427,5.8694 0.1098,0.9931 0.10922,3.2652 -10e-4,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1989 -6.9029,5.178 -11.36549,5.8811 -0.90565,0.1426 -3.8696,0.2065 -4.80572,0.1036 z"
-                                                id="S-08-4"
+                                                id="S-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3144,7 +3386,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3157,7 +3400,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3170,7 +3414,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3180,10 +3425,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 313.81949,1530.1396 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5353 -0.70916,-1.4541 -1.02331,-2.2843 -1.37598,-3.6361 -1.83166,-7.0207 0.16898,-14.2938 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6282 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.6019 0.75697,1.7316 1.35487,3.9751 1.56427,5.8695 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1988 -6.9029,5.178 -11.36549,5.881 -0.90565,0.1427 -3.8696,0.2066 -4.80572,0.1036 z"
-                                                id="T-03-0"
+                                                id="T-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3193,10 +3439,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59926"
                                                 d="m 358.36091,1530.1973 c -4.47376,-0.4932 -8.56632,-2.4213 -11.73005,-5.5262 -1.78567,-1.7525 -2.97741,-3.3981 -4.03536,-5.5722 -0.71234,-1.4639 -1.02789,-2.2996 -1.38214,-3.6604 -1.83987,-7.0676 0.16973,-14.3893 5.34475,-19.473 2.57007,-2.5247 5.53941,-4.1972 9.04443,-5.0943 2.47066,-0.6324 5.41762,-0.7485 8.02447,-0.3162 6.52466,1.082 12.21451,5.5449 14.89039,11.6795 0.76036,1.7431 1.36094,4.0015 1.57128,5.9086 0.11029,0.9997 0.10971,3.287 -0.001,4.2791 -0.4984,4.4644 -2.39989,8.5394 -5.48305,11.7505 -3.09189,3.2202 -6.93383,5.2126 -11.41641,5.9204 -0.90971,0.1436 -3.88694,0.2079 -4.82726,0.1043 z"
-                                                id="T-04-93"
+                                                id="T-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3209,7 +3456,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3222,7 +3470,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3232,10 +3481,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.59901"
                                                 d="m 492.40903,1530.2502 c -4.47497,-0.493 -8.56864,-2.4204 -11.73322,-5.5241 -1.78616,-1.7518 -2.97822,-3.3968 -4.03645,-5.5701 -0.71253,-1.4633 -1.02818,-2.2987 -1.38252,-3.659 -1.84037,-7.0649 0.16978,-14.3839 5.3462,-19.4656 2.57077,-2.5237 5.54091,-4.1956 9.04687,-5.0924 2.47133,-0.6321 5.41909,-0.7482 8.02665,-0.3161 6.52642,1.0816 12.21781,5.5428 14.89442,11.6751 0.76056,1.7424 1.3613,4 1.5717,5.9064 0.11032,0.9993 0.10974,3.2857 -0.001,4.2774 -0.49854,4.4627 -2.40055,8.5362 -5.48454,11.7461 -3.09273,3.219 -6.93571,5.2106 -11.41951,5.9181 -0.90995,0.1435 -3.88799,0.2078 -4.82856,0.1042 z"
-                                                id="T-07-6"
+                                                id="T-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3248,7 +3498,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3258,10 +3509,11 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 }}
                                                 // // style="fill:#2aff80;stroke-width:4.57374"
                                                 d="m 937.46947,1529.9628 c -4.4538,-0.4899 -8.52811,-2.4052 -11.67772,-5.4895 -1.77771,-1.7409 -2.96413,-3.3756 -4.01736,-5.5352 -0.70916,-1.4542 -1.02331,-2.2844 -1.37598,-3.6362 -1.83166,-7.0206 0.16898,-14.2937 5.32091,-19.3437 2.55861,-2.5079 5.5147,-4.1693 9.00408,-5.0605 2.45964,-0.6281 5.39346,-0.7435 7.98868,-0.3141 6.49555,1.0748 12.16002,5.5081 14.82396,11.602 0.75697,1.7315 1.35487,3.975 1.56427,5.8694 0.1098,0.9931 0.10922,3.2652 -0.001,4.2506 -0.49618,4.4348 -2.38919,8.4828 -5.45859,11.6726 -3.0781,3.1989 -6.9029,5.178 -11.36549,5.8811 -0.90565,0.1426 -3.8696,0.2065 -4.80572,0.1036 z"
-                                                id="T-08-4"
+                                                id="T-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3274,7 +3526,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3287,7 +3540,8 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
+
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3318,7 +3572,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5669"
                                                 y="612.96216"
-                                                id="G-12-2"
+                                                id="G-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3348,7 +3602,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3136"
                                                 y="810.39502"
-                                                id="J-14-6"
+                                                id="J-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3378,7 +3632,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.546"
                                                 y="810.25043"
-                                                id="J-13-1"
+                                                id="J-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3408,7 +3662,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.337"
                                                 y="878.0011"
-                                                id="K-14-0"
+                                                id="K-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3438,7 +3692,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5259"
                                                 y="878.0011"
-                                                id="K-13-1"
+                                                id="K-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3468,7 +3722,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3213"
                                                 y="943.71954"
-                                                id="L-14-2"
+                                                id="L-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3498,7 +3752,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5717"
                                                 y="943.53766"
-                                                id="L-13-0"
+                                                id="L-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3528,7 +3782,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3196"
                                                 y="1009.7055"
-                                                id="M-14-0"
+                                                id="M-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3588,7 +3842,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3271"
                                                 y="1075.443"
-                                                id="N-14-1"
+                                                id="N-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3648,7 +3902,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3403"
                                                 y="1141.5811"
-                                                id="O-14-0"
+                                                id="O-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3678,7 +3932,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5613"
                                                 y="1141.3987"
-                                                id="O-13-9"
+                                                id="O-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3738,7 +3992,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5762"
                                                 y="1207.4158"
-                                                id="P-13-1"
+                                                id="P-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3768,7 +4022,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3306"
                                                 y="1273.6085"
-                                                id="Q-14-1"
+                                                id="Q-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3798,7 +4052,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5762"
                                                 y="1273.4474"
-                                                id="Q-13-9"
+                                                id="Q-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3888,7 +4142,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3298"
                                                 y="1406.7906"
-                                                id="S-14-7"
+                                                id="S-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -3918,7 +4172,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.575"
                                                 y="1406.6387"
-                                                id="S-13-1"
+                                                id="S-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -4488,7 +4742,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1234.3291"
                                                 y="1472.3735"
-                                                id="T-14-7"
+                                                id="T-14"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -4518,7 +4772,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5902"
                                                 y="1472.2216"
-                                                id="T-13-1"
+                                                id="T-13"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -6588,7 +6842,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7878"
                                                 y="612.98096"
-                                                id="G-11-1"
+                                                id="G-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -8515,7 +8769,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1096.8889"
                                                 y="1472.375"
-                                                id="T-11-7"
+                                                id="T-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -8545,7 +8799,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7848"
                                                 y="1472.3713"
-                                                id="T-12-0"
+                                                id="T-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -8815,7 +9069,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1096.8938"
                                                 y="1340.8176"
-                                                id="R-11-7"
+                                                id="R-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -8965,7 +9219,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1096.8892"
                                                 y="1273.6021"
-                                                id="Q-11-2"
+                                                id="Q-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -8995,7 +9249,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7872"
                                                 y="1273.6072"
-                                                id="Q-12-7"
+                                                id="Q-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -9265,7 +9519,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1096.8988"
                                                 y="1141.5685"
-                                                id="O-11-2"
+                                                id="O-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -9295,7 +9549,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7765"
                                                 y="1141.5609"
-                                                id="O-12-6"
+                                                id="O-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -9565,7 +9819,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1096.8843"
                                                 y="1009.6989"
-                                                id="M-11-2"
+                                                id="M-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -9595,7 +9849,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7847"
                                                 y="1009.6877"
-                                                id="M-12-1"
+                                                id="M-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -9715,7 +9969,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1096.8931"
                                                 y="943.71924"
-                                                id="L-11-0"
+                                                id="L-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -9745,7 +9999,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7773"
                                                 y="943.71753"
-                                                id="L-12-1"
+                                                id="L-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -9895,7 +10149,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7854"
                                                 y="878.19171"
-                                                id="K-12-2"
+                                                id="K-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -10015,7 +10269,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1096.9016"
                                                 y="810.42755"
-                                                id="J-11-2"
+                                                id="J-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -10045,7 +10299,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7965"
                                                 y="810.40961"
-                                                id="J-12-4"
+                                                id="J-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -10255,7 +10509,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1188.5665"
                                                 y="679.30267"
-                                                id="H-12-2"
+                                                id="H-12"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -10405,7 +10659,7 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 // style="font-size:10.944px;fill:#000000;stroke-width:57.101"
                                                 x="1142.7622"
                                                 y="679.31622"
-                                                id="H-11-4"
+                                                id="H-11"
                                                 transform="scale(0.97242163,1.0283605)"
                                             >
                                                 <tspan
@@ -11780,55 +12034,55 @@ export const Evento250Sale = ({ handleClickInformation, setOpen }: any) => {
                                         </g>
                                         <g id="escenario" transform="matrix(0.45,0,0,0.45,-73,20)">
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="m 596.34375,100.53125 v -15.8125 h 9.125 9.125 v 2.5625 2.5625 h -6 -6 v 3.96875 3.96875 h 5.34375 5.34375 v 2.5 2.5 h -5.34375 -5.34375 V 107 v 4.21875 h 6 6 v 2.5625 2.5625 h -9.125 -9.125 z"
                                                 id="path27"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="m 630.0625,116.61691 c -2.51818,-0.20913 -4.72985,-0.91786 -6.46875,-2.07292 -1.74835,-1.16134 -3.05687,-2.88486 -3.59188,-4.73109 -0.17416,-0.60099 -0.31664,-1.42611 -0.36431,-2.10978 l -0.0294,-0.42187 h 3.36661 3.36662 l 0.025,0.14062 c 0.26762,1.50354 0.50437,2.0272 1.25165,2.76856 0.56623,0.56174 1.08933,0.8709 1.85172,1.09441 0.71235,0.20883 2.35937,0.24307 3.21773,0.0669 1.51484,-0.31091 2.67151,-1.2393 3.10394,-2.49135 0.12599,-0.36477 0.14557,-0.53885 0.14254,-1.26664 -0.003,-0.73242 -0.0229,-0.89323 -0.1504,-1.21875 -0.27616,-0.70509 -0.6128,-1.12871 -1.33465,-1.67946 -0.85265,-0.65056 -1.80223,-1.03689 -4.61889,-1.87915 -4.78875,-1.43196 -6.43256,-2.1915 -7.8961,-3.648468 -1.52996,-1.523092 -2.11533,-2.934571 -2.19507,-5.292922 -0.0404,-1.195184 0.0544,-2.065 0.32818,-3.009645 1.01595,-3.505844 4.15513,-5.851814 8.59167,-6.420728 3.10807,-0.39856 6.15649,0.03457 8.48572,1.205685 1.25421,0.630606 2.73788,1.903224 3.43216,2.943934 0.81514,1.221889 1.3454,2.71113 1.50752,4.233879 l 0.0482,0.453125 h -3.44695 -3.44694 l -0.10143,-0.514808 c -0.3072,-1.55933 -1.55254,-2.740217 -3.28278,-3.112883 -0.73417,-0.158127 -2.01251,-0.172267 -2.69801,-0.02984 -0.66005,0.137135 -1.39549,0.504869 -1.84851,0.92429 -0.64369,0.595944 -0.95512,1.324211 -1.00844,2.358245 -0.0574,1.112206 0.18605,1.829101 0.84466,2.487708 0.96864,0.968646 2.04754,1.459865 5.64006,2.567906 4.36987,1.3478 5.89231,2.061842 7.32206,3.434152 1.71034,1.64163 2.36176,3.23125 2.36242,5.76484 3e-4,1.17804 -0.10743,1.88022 -0.4451,2.90102 -0.4584,1.38577 -1.06857,2.36512 -2.14481,3.44253 -1.64047,1.64224 -3.68533,2.61586 -6.29712,2.99825 -0.6295,0.0922 -2.89804,0.16582 -3.51897,0.11425 z"
                                                 id="path29"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="m 661,116.5552 c -0.83377,-0.0857 -2.10189,-0.29893 -2.73996,-0.46075 -4.04127,-1.02488 -7.35095,-3.46883 -9.48062,-7.0007 -1.22423,-2.0303 -1.94555,-4.26811 -2.19318,-6.80411 -0.0944,-0.96695 -0.0355,-3.646524 0.0984,-4.47714 0.46007,-2.853738 1.44686,-5.226856 3.06667,-7.375 2.46269,-3.265934 6.1032,-5.346357 10.40825,-5.947952 0.9695,-0.135479 3.51926,-0.154034 4.49673,-0.03272 1.9618,0.243475 3.56695,0.708468 5.21875,1.511818 3.49262,1.698628 6.00212,4.485111 7.30338,8.109482 l 0.16268,0.453125 h -3.60814 -3.60814 l -0.15571,-0.296875 c -0.5065,-0.965651 -1.4276,-2.068615 -2.18782,-2.619785 -1.28767,-0.933573 -2.81507,-1.463066 -4.54231,-1.574646 -1.9466,-0.125752 -3.55741,0.169684 -5.10308,0.93595 -2.69862,1.337842 -4.48854,3.959008 -5.01307,7.341195 -0.13709,0.88394 -0.18368,2.534568 -0.0978,3.464158 0.25446,2.75363 1.21449,4.96354 2.87888,6.62697 1.19581,1.19512 2.54576,1.93135 4.31485,2.35321 0.91114,0.21727 2.8241,0.27466 3.84493,0.11534 2.56745,-0.40069 4.57643,-1.7761 5.78007,-3.9572 l 0.28125,-0.50966 3.60937,-0.002 c 1.98516,-0.001 3.60938,0.0132 3.60938,0.0316 0,0.1075 -0.63069,1.60266 -0.91843,2.17732 -1.41525,2.8264 -3.57845,4.946 -6.48782,6.35706 -1.14273,0.55423 -1.78279,0.79122 -2.94569,1.09069 -1.40373,0.36148 -2.34447,0.47407 -4.14806,0.49642 -0.87656,0.0109 -1.70625,0.008 -1.84375,-0.006 z"
                                                 id="path31"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="M 682.84375,100.53125 V 84.71875 H 692 h 9.15625 v 2.5625 2.5625 h -6 -6 v 3.96875 3.96875 h 5.3125 5.3125 v 2.5 2.5 h -5.3125 -5.3125 V 107 v 4.21875 h 6 6 v 2.5625 2.5625 H 692 682.84375 Z"
                                                 id="path33"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="M 706.96875,100.53068 V 84.717604 l 3.1653,0.0162 3.16529,0.0162 7.16283,10.85652 c 3.93956,5.971086 7.18392,10.857796 7.2097,10.859366 0.0258,0.002 0.0469,-4.89089 0.0469,-10.872136 v -10.875 h 3.125 3.125 v 15.812496 15.8125 l -3.14063,-4.6e-4 -3.14062,-4.5e-4 -7.11867,-10.76517 c -3.91526,-5.92084 -7.15667,-10.806349 -7.20312,-10.856684 -0.071,-0.0769 -0.0845,1.642148 -0.0845,10.765624 v 10.85714 h -3.15625 -3.15625 z"
                                                 id="path35"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="m 738.50603,115.92187 c 0.0851,-0.23203 2.63904,-7.34062 5.67545,-15.79687 l 5.52073,-15.375 3.68034,-0.01611 3.68033,-0.01611 5.64933,15.73487 c 3.10713,8.65417 5.66249,15.77026 5.67858,15.81354 0.0233,0.0627 -0.64454,0.0754 -3.2977,0.0625 l -3.32696,-0.0162 -1.03932,-3.01512 -1.03931,-3.01511 -6.32225,-5.1e-4 -6.32225,-5.1e-4 -0.1006,0.29687 c -0.0553,0.16329 -0.52619,1.52735 -1.04636,3.03125 l -0.94576,2.73438 h -3.29948 -3.29949 z m 19.46272,-10.66784 c 0,-0.0546 -4.51368,-13.069361 -4.56416,-13.16028 -0.0408,-0.07347 -0.0676,-0.0532 -0.12414,0.09375 -0.16266,0.423107 -4.4992,12.99285 -4.4992,13.04124 0,0.0289 2.06719,0.0525 4.59375,0.0525 2.52656,0 4.59375,-0.0122 4.59375,-0.0272 z"
                                                 id="path37"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="M 772.78125,100.5625 V 84.78125 h 6.52463 c 4.07966,0 6.76717,0.02446 7.17187,0.06527 3.88825,0.392115 6.97218,2.259436 8.44933,5.116085 0.70377,1.361012 0.97064,2.42252 1.0229,4.068643 0.039,1.227816 -0.0241,1.880586 -0.27467,2.84375 -0.43257,1.662537 -1.24915,3.07222 -2.46055,4.247712 -0.99692,0.96737 -2.08583,1.60993 -3.62101,2.13674 -0.42969,0.14745 -0.77513,0.29432 -0.76765,0.32637 0.007,0.0321 1.69952,2.91571 3.76008,6.40811 l 3.74648,6.34982 -3.63508,-0.001 -3.63508,-10e-4 -3.47389,-6.13963 -3.47389,-6.13962 -1.54174,-0.0167 -1.54173,-0.0167 v 6.15734 6.15734 h -3.125 -3.125 z M 786.25,99.106159 c 0.88604,-0.24575 1.48801,-0.578774 2.03032,-1.123235 0.54639,-0.548554 0.85089,-1.093712 1.07264,-1.920424 0.18272,-0.681215 0.19844,-2.220035 0.0294,-2.875 -0.41348,-1.601789 -1.43688,-2.605052 -3.10107,-3.040082 -0.51065,-0.133487 -0.6615,-0.139795 -3.89063,-0.162686 l -3.35937,-0.02381 v 4.663642 4.663641 l 3.35937,-0.02168 c 3.24264,-0.02093 3.37675,-0.0265 3.85938,-0.16036 z"
                                                 id="path39"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="M 801.78125,100.5625 V 84.78125 h 3.15625 3.15625 v 15.78125 15.78125 h -3.15625 -3.15625 z"
                                                 id="path41"
                                             />
                                             <path
-                                                style={{ fill: "#000" }}
+                                                style={{ fill: "#000", cursor: "pointer" }}
                                                 // // // style="fill:#000000;stroke-width:3.91319"
                                                 d="m 827.5,116.58982 c -4.98507,-0.46362 -9.3865,-3.07643 -12.0485,-7.15232 -1.88445,-2.88535 -2.72501,-6.18263 -2.53775,-9.954891 0.16468,-3.317417 1.18546,-6.199304 3.11329,-8.789453 2.29356,-3.08154 5.72024,-5.251895 9.52946,-6.035672 2.98315,-0.613807 6.207,-0.42379 9.01136,0.531139 3.91301,1.332444 7.11964,4.140153 8.95692,7.842627 0.78379,1.579495 1.2359,3.017387 1.51601,4.821526 0.18702,1.204523 0.20425,3.859294 0.0326,5.022224 -0.53414,3.61885 -1.9377,6.52035 -4.34904,8.99051 -2.46147,2.52153 -5.7191,4.14177 -9.31811,4.63454 -0.87245,0.11945 -3.04922,0.16948 -3.90625,0.0898 z m 2.90789,-5.62437 c 3.77005,-0.46843 6.49514,-2.72125 7.71308,-6.37639 0.89411,-2.68329 0.83026,-6.240798 -0.15659,-8.72505 -1.23014,-3.096695 -3.49933,-5.022441 -6.72764,-5.709399 -0.80691,-0.171703 -2.5674,-0.234765 -3.50326,-0.125489 -5.15242,0.601625 -8.38973,4.617865 -8.38973,10.408378 0,4.96119 2.32592,8.67185 6.30354,10.05637 0.5716,0.19896 1.60934,0.43252 2.19646,0.49434 0.49795,0.0524 2.07134,0.0385 2.56414,-0.0228 z"
                                                 id="path43"

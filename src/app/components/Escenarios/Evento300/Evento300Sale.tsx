@@ -1,3 +1,4 @@
+import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import { ArrowDownUp, RefreshCcw, Rows } from "lucide-react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
@@ -36,7 +37,10 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                         </div>
                         <TransformComponent>
                             {/* // Aquí va el contenido de tu componente */}
-                            <div className="flex flex-col items-center justify-center">
+                            <div
+                                id={Apis.PROYECTCURRENT}
+                                className="flex flex-col items-center justify-center"
+                            >
                                 {``}
                                 <svg
                                     viewBox="0 0 500 500" // ajusta este valor al contenido real
@@ -50,7 +54,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                     <g>
                                         <g id="onlyAsientos" transform="matrix(0.45,0,0,0.45,-71.9,20)">
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -63,7 +67,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -76,7 +80,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -89,7 +93,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -102,7 +106,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -115,7 +119,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -128,7 +132,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -141,7 +145,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -154,7 +158,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -167,7 +171,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -180,7 +184,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -193,7 +197,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -206,7 +210,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -219,7 +223,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -232,7 +236,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -245,7 +249,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -258,7 +262,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -271,7 +275,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -284,7 +288,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -297,7 +301,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -310,7 +314,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -323,7 +327,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -336,7 +340,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -349,7 +353,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -362,7 +366,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -375,7 +379,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -388,7 +392,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -401,7 +405,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -414,7 +418,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -427,7 +431,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -440,7 +444,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -453,7 +457,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -466,7 +470,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -479,7 +483,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -492,7 +496,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -505,7 +509,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -518,7 +522,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -531,7 +535,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -544,7 +548,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -557,7 +561,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-16"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -570,7 +574,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -583,7 +587,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -596,7 +600,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -609,7 +613,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -622,7 +626,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -635,7 +639,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -648,7 +652,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -661,7 +665,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -674,7 +678,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -687,7 +691,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -700,7 +704,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-01"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -713,7 +717,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -726,7 +730,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -739,7 +743,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -752,7 +756,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -765,7 +769,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -778,7 +782,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -791,7 +795,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -804,7 +808,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -817,7 +821,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -830,7 +834,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -843,7 +847,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -856,7 +860,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -869,7 +873,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -882,7 +886,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -895,7 +899,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -908,7 +912,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -921,7 +925,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -934,7 +938,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -947,7 +951,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -960,7 +964,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -973,7 +977,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -986,7 +990,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -999,7 +1003,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1012,7 +1016,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1025,7 +1029,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1038,7 +1042,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1051,7 +1055,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1064,7 +1068,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1077,7 +1081,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1090,7 +1094,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1103,7 +1107,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1116,7 +1120,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1129,7 +1133,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1142,7 +1146,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1155,7 +1159,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1168,7 +1172,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1181,7 +1185,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1194,7 +1198,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1207,7 +1211,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1220,7 +1224,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1233,7 +1237,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1246,7 +1250,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1259,7 +1263,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1272,7 +1276,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1285,7 +1289,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-15"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1298,7 +1302,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-14"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1311,7 +1315,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1324,7 +1328,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1337,7 +1341,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1350,7 +1354,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-03"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1363,7 +1367,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-01"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1376,7 +1380,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-02"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1389,7 +1393,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-03"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1402,7 +1406,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-04"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1415,7 +1419,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-05"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1428,7 +1432,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-10"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1441,7 +1445,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-06"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1454,7 +1458,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-07"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1467,7 +1471,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-08"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1480,7 +1484,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="A-09"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1493,7 +1497,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-01"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1506,7 +1510,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-02"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1519,7 +1523,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-03"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1532,7 +1536,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-04"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1545,7 +1549,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-05"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1558,7 +1562,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-10"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1571,7 +1575,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-06"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1584,7 +1588,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-07"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1597,7 +1601,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-08"
                                             />
                                             <path
-                                                style={{ fill: "#7777ff", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1610,7 +1614,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="B-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1623,7 +1627,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1636,7 +1640,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1649,7 +1653,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1662,7 +1666,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1675,7 +1679,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1688,7 +1692,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1701,7 +1705,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1714,7 +1718,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1727,7 +1731,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1740,7 +1744,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="C-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1753,7 +1757,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-02"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1766,7 +1770,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-03"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1779,7 +1783,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1792,7 +1796,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1805,7 +1809,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1818,7 +1822,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1831,7 +1835,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1844,7 +1848,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1857,7 +1861,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1870,7 +1874,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="D-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1883,7 +1887,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1896,7 +1900,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1909,7 +1913,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1922,7 +1926,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1935,7 +1939,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1948,7 +1952,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1961,7 +1965,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1974,7 +1978,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -1987,7 +1991,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2000,7 +2004,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="E-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2013,7 +2017,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2026,7 +2030,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2039,7 +2043,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2052,7 +2056,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2065,7 +2069,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2078,7 +2082,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2091,7 +2095,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2104,7 +2108,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2117,7 +2121,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2130,7 +2134,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="F-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2143,7 +2147,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2156,7 +2160,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2169,7 +2173,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2182,7 +2186,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2195,7 +2199,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2208,7 +2212,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2221,7 +2225,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2234,7 +2238,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2247,7 +2251,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2260,7 +2264,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="G-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2273,7 +2277,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2286,7 +2290,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2299,7 +2303,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2312,7 +2316,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2325,7 +2329,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2338,7 +2342,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2351,7 +2355,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2364,7 +2368,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2377,7 +2381,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2390,7 +2394,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="H-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2403,7 +2407,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2416,7 +2420,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2429,7 +2433,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2442,7 +2446,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2455,7 +2459,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2468,7 +2472,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2481,7 +2485,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2494,7 +2498,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2507,7 +2511,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2520,7 +2524,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="I-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2533,7 +2537,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2546,7 +2550,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2559,7 +2563,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2572,7 +2576,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2585,7 +2589,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2598,7 +2602,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2611,7 +2615,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2624,7 +2628,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2637,7 +2641,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2650,7 +2654,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="J-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2663,7 +2667,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2676,7 +2680,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2689,7 +2693,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2702,7 +2706,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2715,7 +2719,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2728,7 +2732,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2741,7 +2745,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2754,7 +2758,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2767,7 +2771,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2780,7 +2784,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="K-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2793,7 +2797,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2806,7 +2810,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2819,7 +2823,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2832,7 +2836,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2845,7 +2849,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2858,7 +2862,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2871,7 +2875,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2884,7 +2888,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2897,7 +2901,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2910,7 +2914,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="L-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2923,7 +2927,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2936,7 +2940,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2949,7 +2953,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2962,7 +2966,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2975,7 +2979,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -2988,7 +2992,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3001,7 +3005,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3014,7 +3018,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3027,7 +3031,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3040,7 +3044,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="M-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3053,7 +3057,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3066,7 +3070,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3079,7 +3083,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3092,7 +3096,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3105,7 +3109,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3118,7 +3122,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3131,7 +3135,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3144,7 +3148,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3157,7 +3161,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3170,7 +3174,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="N-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3183,7 +3187,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3196,7 +3200,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3209,7 +3213,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3222,7 +3226,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3235,7 +3239,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3248,7 +3252,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3261,7 +3265,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3274,7 +3278,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3287,7 +3291,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3300,7 +3304,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="O-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3313,7 +3317,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3326,7 +3330,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3339,7 +3343,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3352,7 +3356,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3365,7 +3369,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3378,7 +3382,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3391,7 +3395,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3404,7 +3408,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3417,7 +3421,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3430,7 +3434,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="P-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3443,7 +3447,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3456,7 +3460,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3469,7 +3473,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3482,7 +3486,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3495,7 +3499,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3508,7 +3512,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3521,7 +3525,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3534,7 +3538,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3547,7 +3551,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3560,7 +3564,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="Q-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3573,7 +3577,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3586,7 +3590,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3599,7 +3603,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3612,7 +3616,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3625,7 +3629,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3638,7 +3642,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3651,7 +3655,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3664,7 +3668,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3677,7 +3681,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3690,7 +3694,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="R-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3703,7 +3707,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3716,7 +3720,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3729,7 +3733,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3742,7 +3746,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3755,7 +3759,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3768,7 +3772,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3781,7 +3785,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3794,7 +3798,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3807,7 +3811,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3820,7 +3824,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="S-12"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3833,7 +3837,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-04"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3846,7 +3850,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-05"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3859,7 +3863,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-06"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3872,7 +3876,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-07"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3885,7 +3889,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-08"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3898,7 +3902,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-13"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3911,7 +3915,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-09"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3924,7 +3928,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-10"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(
@@ -3937,7 +3941,7 @@ export const Evento300Sale = ({ handleClickInformation, setOpen }: any) => {
                                                 id="T-11"
                                             />
                                             <path
-                                                style={{ fill: "#2aff80", cursor: "pointer" }}
+                                                style={{ cursor: "pointer" }}
                                                 onClick={(event: any) => {
                                                     setOpen(true);
                                                     handleClickInformation(

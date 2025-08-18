@@ -56,7 +56,9 @@ export default function ProyectoId() {
                 dateEvent: info?.dateEvent,
                 flyerEvent: {
                     fileUrl: info?.urlFlyer,
-                }
+                },
+                precioEntradaGeneral: info?.precioEntradaGeneral,
+                precioEntradaPremium: info?.precioEntradaPremium,
             })
         }
     }, [info])
