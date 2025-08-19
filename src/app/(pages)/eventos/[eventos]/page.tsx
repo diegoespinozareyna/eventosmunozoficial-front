@@ -21,6 +21,7 @@ import { jwtDecode } from "jwt-decode"
 import axios from "axios"
 import { IoMdEye } from "react-icons/io"
 import moment from "moment-timezone"
+import { PopUp } from "@/app/components/popUp/PopUp"
 
 // Extend the Window interface to include VisanetCheckout
 declare global {
@@ -47,7 +48,7 @@ export default function Eventos() {
     console.log("formValues: ", formValues)
 
     const { apiCall, loading, error } = useApi()
-    const { openPopup, setOpenPopup, PopUp } = usePopUp()
+    const { openPopup, setOpenPopup } = usePopUp()
     const [isLoading, setIsLoading] = useState(true);
     const [loadingUpload, setLoadigUpload] = useState(false)
 
@@ -123,7 +124,7 @@ export default function Eventos() {
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
                 else if (match?.compraUserAntiguo == false && match?.status == "1") {
-                    obj1?.setAttribute('fill', "#efc600");
+                    obj1?.setAttribute('fill', "#afa");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
@@ -134,7 +135,7 @@ export default function Eventos() {
                 // }
                 else if (match?.status == "0") {
                     // obj1?.setAttribute('fill', Apis.COLOR_DISPONIBLE);
-                    obj1?.setAttribute('fill', "#ff0");
+                    obj1?.setAttribute('fill', "#efc600");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
@@ -620,296 +621,15 @@ export default function Eventos() {
         // setLoading(false);
     };
 
-
-    // //pago pasarela
-
-    // const openForm = () => {
-    //     window?.VisanetCheckout?.open();
-    // }
-
-    // // const [openPopup, setOpenPopup] = useState<boolean>(false);
-    // const [loading2, setLoading2] = useState(false);
-    // const [tokenSession77, setTokenSession77] = useState<any>(null);
-    // const [sessionPaso2, setSessionPaso2] = useState<any>(null);
-    // const [initialized, setInitialized] = useState(false);
-    // const [paymentInitialized, setPaymentInitialized] = useState(false);
-    // const initializationRef = useRef(false);
-
-    // const initializePaymentGateway = useCallback(async () => {
-    //     if (!getValues()?.pasarelaPay || initializationRef.current) return;
-
-    //     // Marcar como inicializado inmediatamente
-    //     initializationRef.current = true;
-    //     setPaymentInitialized(true);
-
-    //     console.log("reserva pasarelawedrfgfdsd")
-    //     const MERCHANT_ID = "650245394";
-    //     // const AMOUNT = "300";
-    //     const AMOUNT = Apis.PRECIO_PASARELA;
-    //     // const JS_URL = "https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true"; // test
-    //     const JS_URL = "https://static-content.vnforapps.com/v2/js/checkout.js"; // prod
-    //     const PUCHASE_NUMBER = Math.floor(Math.random() * (999999999999 - 1 + 1)) + 1; // único por transacción
-    //     let SECURITY_TOKEN = '';
-
-    //     const loadInit = async () => {
-
-    //         const loadingElement = document.getElementById('loading');
-    //         if (loadingElement) {
-    //             loadingElement.style.display = 'block';
-    //         }
-
-    //         try {
-    //             setLoading2(true)
-    //             // const res1 = await axios.get('https://nodejs-niubiz-lotexpres.onrender.com/api/auth/pasarelaNiubiz') // prd render servidor lento
-    //             const res1 = await axios.get('https://nodejs-niubiz-munoz.vercel.app/api/auth/pasarelaNiubiz') // prd render servidor lento
-    //             // const res1 = await axios.get('http://localhost:5000/api/auth/pasarelaNiubiz') // local
-    //             console.log(res1)
-
-    //             if (res1 == null) return;
-    //             SECURITY_TOKEN = res1.data.data;
-    //             // SECURITY_TOKEN = res1;
-    //             // setTokenSession77(res1)
-    //             setTokenSession77(res1)
-    //             getTokenNiubizSesion(res1);
-
-    //         } catch (error) {
-    //             alert('Error al generar el token de seguridad');
-    //             const loadingElement = document.getElementById('loading');
-    //             if (loadingElement) {
-    //                 loadingElement.style.display = 'none';
-    //             }
-    //             initializationRef.current = false;
-    //             setPaymentInitialized(false);
-    //         } finally {
-    //             setLoading2(false)
-    //             setValue("openPasarela", false)
-    //             setValue("pasarelaPay", false)
-    //         }
-    //     }
-    //     const getTokenNiubizSesion = async (securityToken: any) => {
-    //         // console.log(securityToken)
-    //         try {
-    //             // const sessionKey = await getSessionKey(MERCHANT_ID, securityToken, AMOUNT)
-    //             const sessionToken2 = {
-    //                 codigoComercio: MERCHANT_ID,
-    //                 tokenGenerado: securityToken.data.data,
-    //                 montoPagar: AMOUNT,
-    //                 //MDD
-    //                 MDD4: "diegoespinozareyna@gmail.com", // ID del usuario correo
-    //                 MDD21: 0, //
-    //                 MDD32: "73505082", // ID del usuario dni
-    //                 MDD75: 'Invitado', // Registrado o Invitado
-    //                 MDD77: 100 // Registrado o Invitado
-    //             }
-    //             // console.log(sessionToken2)
-    //             // const res2 = await axios.post('https://nodejs-niubiz-lotexpres.onrender.com/api/auth/pasarelaniubiz2', sessionToken2) // prd render servidor lento
-    //             const res2 = await axios.post('https://nodejs-niubiz-munoz.vercel.app/api/auth/pasarelaniubiz2', sessionToken2) // prd
-    //             // const res2 = await axios.post('http://localhost:5000/api/auth/pasarelaniubiz2', sessionToken2) // local
-    //             console.log(res2)
-    //             if (res2 == null) {
-    //                 console.log("res2 null")
-    //                 return
-    //             };
-    //             setSessionPaso2(res2?.data?.data)
-    //             await addNiubizScript(res2?.data?.data);
-    //         } catch (error) {
-    //             alert('Error al generar el token de sesión');
-    //             const loadingElement = document.getElementById('loading');
-    //             if (loadingElement) {
-    //                 loadingElement.style.display = 'none';
-    //             }
-    //         } finally {
-    //             // setLoading2(false)
-    //         }
-    //     }
-
-    //     const addNiubizScript = async (sessionKey: any) => {
-    //         const script = document.createElement('script');
-    //         script.src = JS_URL;
-    //         script.async = true;
-    //         // console.log(sessionKey)
-    //         script.onload = () => setConfigurationForm(sessionKey);
-    //         document.head.appendChild(script);
-    //     }
-
-    //     const setConfigurationForm = async (sessionKey: any) => {
-    //         //comprobar status
-    //         const form1 = window?.VisanetCheckout?.configure({
-    //             sessiontoken: `${sessionKey}`,
-    //             channel: 'web',
-    //             merchantid: "650245394",
-    //             purchasenumber: `${PUCHASE_NUMBER}`,
-    //             amount: AMOUNT,
-    //             expirationminutes: '20',
-    //             timeouturl: process.env.NEXT_PUBLIC_API_URL ? `${process.env.NEXT_PUBLIC_API_URL}/timeout` : 'http://localhost:3000/timeout',
-    //             merchantlogo: 'https://files.readme.io/296927b-LOGO-NIUBIZ-LATEST.svg',
-    //             // merchantlogo: <img src='https://res.cloudinary.com/dk5xdo8n1/image/upload/v1720914692/Niubiz_Logo_01_rjynld.png' alt="img" />,
-    //             formbuttoncolor: '#000000',
-    //             action: process.env.NEXT_PUBLIC_API_URL ? `${process.env.NEXT_PUBLIC_API_URL}/transaction` : 'http://localhost:3000/transaction',
-    //         });
-    //         // console.log(form1)
-    //         window?.VisanetCheckout?.open();
-    //         // No considerar la siguiente línea si desea enviar los valores generados por el formulario a su backend
-
-    //         if (window?.VisanetCheckout?.configuration) {
-    //             window.VisanetCheckout.configuration.complete = completePayment;
-    //         }
-    //         const loadingElement = document.getElementById('loading');
-    //         if (loadingElement) {
-    //             loadingElement.style.display = 'none';
-    //         }
-    //     }
-
-    //     const completePayment = async (response: any) => {
-    //         //comprobar status
-    //         // console.log(response)
-    //         // console.log(tokenSession77)
-    //         const loadingElement = document.getElementById('loading');
-    //         if (loadingElement) {
-    //             loadingElement.style.display = 'block';
-    //         }
-    //         const sessionToken3 = {
-    //             codigoComercio: MERCHANT_ID,
-    //             tokenGenerado2: response.token,
-    //             montoPagar: AMOUNT,
-    //             numeroAleatorio: PUCHASE_NUMBER,
-    //             tokenSession: SECURITY_TOKEN,
-    //             // tokenSession: tokenSession77?.data?.data,
-    //             // tokenSession: sessionPaso2,
-    //         }
-    //         try {
-    //             // console.log(sessionToken3)
-    //             // const res3 = await axios.post('https://nodejs-niubiz-lotexpres.onrender.com/api/auth/pasarelanuibiz3', sessionToken3) // prd render sercidor lento
-    //             const res3 = await axios.post('https://nodejs-niubiz-munoz.vercel.app/api/auth/pasarelanuibiz3', sessionToken3) // prd
-    //             // const res3 = await axios.post('http://localhost:5000/api/auth/pasarelanuibiz3', sessionToken3) // local
-    //             // const res3 = await getAuthorization(MERCHANT_ID, response.token, AMOUNT, PUCHASE_NUMBER, SECURITY_TOKEN)
-    //             console.log("]Larespuesta final es: ", res3)
-    //             // const authorizationResponse = await getAuthorization(MERCHANT_ID, response.token, AMOUNT, PUCHASE_NUMBER, SECURITY_TOKEN);
-    //             const authorizationResponseElement = document.getElementById('authorizationResponse');
-    //             if (authorizationResponseElement) {
-    //                 authorizationResponseElement.innerHTML = JSON.stringify(res3, undefined, 4);
-    //             }
-    //             const loadingElement = document.getElementById('loading');
-    //             if (loadingElement) {
-    //                 loadingElement.style.display = 'none';
-    //             }
-    //             // Redireccionar a una url front
-    //             if (res3.status === 200) {
-    //                 console.log("pago ok")
-    //                 onSubmit(getValues());
-    //                 // setOpen(false)
-    //                 // await reservarClientePlano(datosEnvio, res3?.data?.data?.order?.purchaseNumber)
-    //                 // // Swal.fire({
-    //                 // //     icon: "success",
-    //                 // //     title: "Reserva Exitosa",
-    //                 // //     text: `Lote Reservado con éxito!!. 
-    //                 // // Su lote de código ${data?.codLote} a sido reservado con éxito.`,
-    //                 // // });
-    //                 // Swal.fire({
-    //                 //     title: 'Exito',
-    //                 //     // text: "Esta acción no se puede deshacer",
-    //                 //     icon: 'success',
-    //                 //     // showCancelButton: true,
-    //                 //     confirmButtonColor: '#3085d6',
-    //                 //     cancelButtonColor: '#d33',
-    //                 //     confirmButtonText: 'OK',
-    //                 //     // cancelButtonText: 'No',
-    //                 //     showLoaderOnConfirm: true,
-    //                 //     allowOutsideClick: false,
-    //                 //     preConfirm: () => {
-    //                 //         setOpen(false)
-    //                 //         setValue('openFormDatosCliente', false)
-    //                 //         reset({
-    //                 //             ...getValues(),
-    //                 //             ...handleReset(showActionsPopupDatosCliente?.data),
-    //                 //         })
-    //                 //         fetchPropiedades()
-    //                 //         fethcDashboard()
-    //                 //         return
-    //                 //     },
-    //                 // });
-    //                 // setTimeout(() => {
-    //                 //     window.location.reload()
-    //                 // }, 1000)
-    //             }
-    //             else if (res3.status !== 200) {
-    //                 Swal.fire({
-    //                     icon: "warning",
-    //                     title: "Alerta",
-    //                     text: "Ocurrió un inconveniente con su pago, NO se hizo el cobro. Por su seguridad lo enviaremos a la página principal",
-    //                 });
-    //                 if (process.env.NEXT_PUBLIC_API_URL) {
-    //                     setTimeout(() => {
-    //                         window.location.replace(`${process.env.NEXT_PUBLIC_API_URL}`);
-    //                     }, 5000)
-    //                 }
-    //                 else {
-    //                     setTimeout(() => {
-    //                         window.location.replace("http://localhost:3000/");
-    //                     }, 5000)
-    //                 }
-    //             }
-    //         } catch (error) {
-    //             Swal.fire({
-    //                 icon: "warning",
-    //                 title: "Alerta",
-    //                 text: "Ocurrió un error con su pago, NO se hizo el cobro. Por su seguridad lo enviaremos a la página principal",
-    //             });
-    //             if (process.env.NEXT_PUBLIC_API_URL) {
-    //                 setTimeout(() => {
-    //                     window.location.replace(`${process.env.NEXT_PUBLIC_API_URL}`);
-    //                 }, 5000)
-    //             }
-    //             else {
-    //                 setTimeout(() => {
-    //                     window.location.replace("http://localhost:3000/");
-    //                 }, 5000)
-    //             }
-    //         } finally {
-    //             setLoading2(false)
-    //         }
-    //     }
-    //     //fin pasarela niubiz
-    //     loadInit()
-    // }, [getValues]);
-
-    // // Efecto que se ejecuta solo cuando cambia pasarelaPay a true
-    // useEffect(() => {
-    //     if (getValues()?.pasarelaPay && getValues()?.openPasarela && !paymentInitialized) {
-    //         initializePaymentGateway();
-    //     }
-    // }, [getValues()?.pasarelaPay, paymentInitialized, initializePaymentGateway]);
-
-
     return (
         <>
             {isLoading && <TicketLoaderMotion />}
             <div className="!max-w-full relative z-20 w-full flex items-center justify-center">
                 {
                     !openAsientos && info &&
-                    // <div className="relative w-full min-h-screen flex flex-col items-center justify-center">
-                    //     <div className="">
-                    //         <Image
-                    //             src={info?.urlFlyer}
-                    //             alt="Flyer"
-                    //             fill
-                    //             style={{ objectFit: "contain" }}
-                    //             onLoad={handleImageLoad}
-                    //             priority
-                    //         />
-                    //     </div>
-                    //     <div className="flex justify-center items-center w-full mt-[calc(100vh*0.9)]">
-                    //         <button
-                    //             className="bg-green-500 text-white px-4 py-[1rem] w-[350px] relative z-50 font-bold text-xl button-attention cursor-pointer rounded-lg"
-                    //             onClick={() => setOpenAsientos(true)}
-                    //         >
-                    //             COMPRAR ENTRADAS
-                    //         </button>
-                    //     </div>
-                    // </div>
-                    <div className="flex flex-col min-h-screen w-full">
+                    <div className="flex flex-col min-h-screen w-full pt-0.5">
                         {/* Imagen ocupando el 90% */}
-                        <div className="relative w-full" style={{ height: '90vh' }}>
+                        <div className="relative w-full" style={{ height: '91.5vh' }}>
                             <Image
                                 src={info?.urlFlyer}
                                 alt="Flyer"
@@ -921,7 +641,7 @@ export default function Eventos() {
                         </div>
 
                         {/* Botón ocupando el 10% */}
-                        <div className="w-full bg-white flex justify-center items-center" style={{ height: '10vh' }}>
+                        <div className="w-full bg-white flex justify-center items-center" style={{ height: '8.5vh' }}>
                             <button
                                 className="bg-green-500 text-white px-18 py-4 font-bold text-xl rounded-lg z-50 button-attention cursor-pointer"
                                 onClick={() => setOpenAsientos(true)}
@@ -946,20 +666,23 @@ export default function Eventos() {
                                 />
                             </button>
                         </div>
-                        <div className="pl-6 mt-3 text-lg font-bold uppercase">
+                        <div className="w-full text-center mb-0 font-bold text-base uppercase text-yellow-500 mt-1">
+                            {info?.title}
+                        </div>
+                        <div className="pl-6 mt-1 text-base font-bold uppercase">
                             Elija Asiento:
                         </div>
                         <div className="grid md:grid-cols-6 gap-2 mt-3 text-base font-bold uppercase justify-center items-center p-2 rounded-md bg-blue-100 m-5 shadow-xl">
                             <div className="flex flex-row justify-center items-center gap-1">
-                                <div className="rounded-full text-transparent text-xs bg-[#fff] border-1 border-slate-400">......</div>
-                                Disponible
+                                <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
+                                Disponible General
                             </div>
                             <div className="flex flex-row justify-center items-center gap-1">
-                                <div className="rounded-full text-transparent text-xs bg-[#7777ff]">......</div>
+                                <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
                                 Disponible Premium
                             </div>
                             <div className="flex flex-row justify-center items-center gap-1">
-                                <div className={`rounded-full text-transparent text-xs bg-[#ff0]`}>......</div>
+                                <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
                                 Reservado (P)
                             </div>
                             {/* <div className="flex flex-row justify-center items-center gap-1">
@@ -967,18 +690,18 @@ export default function Eventos() {
                                 Vendido
                             </div> */}
                             <div className="flex flex-row justify-center items-center gap-1">
-                                <div className={`rounded-full text-transparent text-xs bg-[#f33]`}>......</div>
+                                <div className={`rounded-full text-transparent text-base bg-[#f33]`}>......</div>
                                 Pendiente (Fecha)
                             </div>
                             {
                                 (getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") &&
                                 <>
                                     <div className="flex flex-row justify-center items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-xs bg-[#61baed]`}>......</div>
+                                        <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
                                         {`Vendido Asesor`}
                                     </div>
                                     <div className="flex flex-row justify-center items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-xs bg-[#efc600]`}>......</div>
+                                        <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
                                         {`Vendido Invitado`}
                                     </div>
                                 </>
@@ -987,11 +710,11 @@ export default function Eventos() {
                                 (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
                                 <>
                                     <div className="flex flex-row justify-center items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-xs bg-[#61baed]`}>......</div>
+                                        <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
                                         {`Vendido Asesor (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == true && x?.status == "1")?.length})`}
                                     </div>
                                     <div className="flex flex-row justify-center items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-xs bg-[#efc600]`}>......</div>
+                                        <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
                                         {`Vendido Invitado (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == false && x?.status == "1")?.length})`}
                                     </div>
                                 </>
@@ -1041,7 +764,18 @@ export default function Eventos() {
                                 }}><X className="rounded-full bg-blue-50 p-1" color="blue" /></div>
                                 <div className="flex flex-col justify-center items-center gap-0 bg-slate-200 rounded-t-lg w-full">
                                     <div className="flex justify-center items-center gap-2 p-2 rounded-lg w-full">
-                                        <div className="font-bold uppercase">Asiento</div>
+                                        {
+                                            !dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
+                                            <div className="font-bold uppercase text-slate-700">
+                                                {`Asiento ${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "(VIP)" : "(G)"}`}
+                                            </div>
+                                        }
+                                        {
+                                            dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
+                                            <div className="font-bold uppercase text-slate-700">
+                                                {`Asiento ${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "(VIP - " : "(G - "} S/. ${changeDecimales(dataAsientos?.precio)})`}
+                                            </div>
+                                        }
                                         <div className="rounded-sm bg-slate-50 px-2 py-0 text-center">{`${dataAsientos?.id}`}</div>
                                     </div>
                                     <div className="text-center gap-0 rounded-lg w-[133px]">
@@ -1121,13 +855,18 @@ export default function Eventos() {
                                                             const nombre = dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.nombres;
                                                             const nameEvento = info?.title;
                                                             const codAsiento = dataAsientos?.id;
+                                                            const direccionEvento = info?.direccion;
                                                             const fechaEvento = moment.tz(info?.dateEvent, "America/Lima").format("DD-MM-YYYY");
-                                                            // const qrUrl = "http://serverimages.inmobackend.site/uploads/1755237326240-evento1.1.jpg";
+                                                            const flyerEvento = info?.urlFlyer?.replace("http", "https");
 
-                                                            const mensaje = `Hola ${nombre}!! tu compra de entrada para el evento ${nameEvento} fue exitosa!!
+                                                            const mensaje = `Hola ${nombre}!! te saluda "Inmobiliaria Muñoz", tu compra de entrada para el evento "${nameEvento}" fue exitosa!! 
 Datos de Compra:
-- Asiento ${codAsiento}.
-- Fecha ${fechaEvento}`;
+- Pagó S/. ${changeDecimales(dataAsientos?.precio)}.
+- Asiento: ${(codAsiento?.includes("A") || codAsiento?.includes("B") || codAsiento?.includes("C")) ? "(VIP)" : "(General)"} ${codAsiento}.
+- Fecha: ${fechaEvento}.
+- Dirección: ${direccionEvento}.
+- Más información del Evento: 
+  ${flyerEvento}`;
 
                                                             const urlFinal = `https://wa.me/51${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular}?text=${encodeURIComponent(mensaje)}`;
                                                             window.open(urlFinal, "_blank");
@@ -1250,8 +989,8 @@ Datos de Compra:
                                                 </div>
                                                 {
                                                     dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.montoPasarela &&
-                                                    <div className="text-center text-sm mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-blue-200">
-                                                        {`Pago con Pasarela: S/. ${changeDecimales(dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.montoPasarela)}`}
+                                                    <div className="text-center text-sm mb-1 px-8 py-2 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-green-200 uppercase font-bold">
+                                                        {`Pagó con Pasarela: S/. ${changeDecimales(dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.montoPasarela)}`}
                                                     </div>
                                                 }
                                                 <div className="grid grid-cols-4 gap-2 justify-center items-start mt-2 px-3 mb-1">
@@ -1295,10 +1034,10 @@ Datos de Compra:
                 {
                     openPopup &&
                     <>
-                        <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, reset, loadingUpload, handleSearch, setOpen, dataAsientos }} />
+                        <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, reset, loadingUpload, handleSearch, setOpen, dataAsientos, setOpenPopup }} />
                     </>
                 }
-            </div>
+            </div >
         </>
     )
 }

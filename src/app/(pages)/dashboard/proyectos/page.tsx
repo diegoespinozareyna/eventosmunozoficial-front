@@ -3,10 +3,12 @@
 import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import useApi from "@/app/hooks/fetchData/useApi";
 import { Button, Card, CardContent, CardHeader, IconButton } from "@mui/material";
+import { jwtDecode } from "jwt-decode";
 import { Calendar, Edit, Edit2Icon, ExternalLink, Eye, EyeIcon, Plus, Users } from "lucide-react";
 import moment from "moment-timezone";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function DashBoard() {
 
@@ -14,6 +16,8 @@ export default function DashBoard() {
     const onlyUseffect = useRef(false)
     const { apiCall } = useApi()
     const [eventos, setEventos] = useState<any>([])
+
+    const { setValue, getValues } = useForm()
 
     const fetchEventos = async () => {
         try {
@@ -50,47 +54,66 @@ export default function DashBoard() {
         return filtro;
     });
 
+    useEffect(() => {
+        try {
+            const user = localStorage.getItem('auth-token');
+            const decoded: any = jwtDecode(user as string);
+            console.log('Datos del usuario:', decoded?.user);
+            setValue("user", decoded?.user);
+
+            console.log("decoded?.user: ", decoded?.user);
+        } catch (error) {
+            console.error('Error al obtener datos del usuario:', error);
+            setValue("user", []);
+        }
+    }, [])
+
     return (
         <div className="px-3 py-1 max-h-[calc(100vh-50px)]">
             <h1 className="text-3xl font-bold mb-7">Eventos</h1>
             <div className="flex flex-col gap-2">
-                <div className="-ml-2 p-0">
-                    <IconButton
-                        className="bg-blue-500 text-white rounded-full p-0"
-                        aria-label="Add to event"
-                        onClick={() => router.push(`/dashboard/proyectos/new`)}
-                    >
-                        <div className="flex flex-row justify-center items-center gap-2">
-                            <Plus className="w-7 h-7 bg-blue-500 text-white rounded-full p-1" />
+                {
+                    (getValues("user")?.userType == "admin" || getValues("user")?.userType == "super admin") &&
+                    <>
+                        <div className="-ml-2 p-0">
+                            <IconButton
+                                className="bg-blue-500 text-white rounded-full p-0"
+                                aria-label="Add to event"
+                                onClick={() => router.push(`/dashboard/proyectos/new`)}
+                            >
+                                <div className="flex flex-row justify-center items-center gap-2">
+                                    <Plus className="w-7 h-7 bg-blue-500 text-white rounded-full p-1" />
+                                    <div className="text-lg font-bold">
+                                        {`Agregar Nuevo Evento`}
+                                    </div>
+                                </div>
+                            </IconButton>
+                        </div>
+                        <div className="mb-1">
                             <div className="text-lg font-bold">
-                                {`Agregar Nuevo Evento`}
+                                <input
+                                    value={busqueda}
+                                    onChange={(e: any) => setBusqueda(e.target.value)}
+                                    className={`w-full sm:w-full md:w-1/2 bg-gray-100 rounded-md p-2 text-sm`}
+                                    placeholder="Titulo, capacidad"
+                                />
                             </div>
                         </div>
-                    </IconButton>
-                </div>
-                <div className="mb-1">
-                    <div className="text-lg font-bold">
-                        <input
-                            value={busqueda}
-                            onChange={(e: any) => setBusqueda(e.target.value)}
-                            className={`w-full sm:w-full md:w-1/2 bg-gray-100 rounded-md p-2 text-sm`}
-                            placeholder="Titulo, capacidad"
-                        />
-                    </div>
-                </div>
-                <div className="text-xs bg-white relative z-50 w-[80px] ml-2">Fecha Evento</div>
-                <div className="mb-5 -mt-3">
-                    <div className="text-lg font-bold">
-                        <input
-                            value={busqueda}
-                            type="date"
-                            onChange={(e: any) => setBusqueda(e.target.value)}
-                            className="w-full sm:w-full md:w-1/2 bg-gray-100 rounded-md p-2 text-sm"
-                            placeholder="Fecha de Evento"
-                        />
-                    </div>
-                </div>
-                <div className="w-[calc(100vw-65px)] h-[calc(100vh-280px)] overflow-y-auto flex flex-col justify-items-center-center gap-4 pb-5 pr-5">
+                        <div className="text-xs bg-white relative z-50 w-[80px] ml-2">Fecha Evento</div>
+                        <div className="mb-5 -mt-3">
+                            <div className="text-lg font-bold">
+                                <input
+                                    value={busqueda}
+                                    type="date"
+                                    onChange={(e: any) => setBusqueda(e.target.value)}
+                                    className="w-full sm:w-full md:w-1/2 bg-gray-100 rounded-md p-2 text-sm"
+                                    placeholder="Fecha de Evento"
+                                />
+                            </div>
+                        </div>
+                    </>
+                }
+                <div className={`w-[calc(100vw-65px)] ${(getValues("user")?.userType == "admin" || getValues("user")?.userType == "super admin") ? "h-[calc(100vh-280px)]" : "h-[calc(100vh-100px)]"} overflow-y-auto flex flex-col justify-items-center-center gap-4 pb-5 pr-5`}>
                     {
                         eventos?.length > 0 ?
                             datosFiltrados?.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((evento: any, index: any) => {
@@ -104,11 +127,12 @@ export default function DashBoard() {
                                                     </div>
                                                 </div>
                                                 <div className="flex flex-col md:flex-row gap-2">
-                                                    <Button variant="outlined" className="gap-2 bg-transparent">
+                                                    {/* <Button variant="outlined" className="gap-2 bg-transparent">
                                                         <Eye className="h-4 w-4" />
                                                         <div className="text-xs">Ver Asientos</div>
-                                                    </Button>
+                                                    </Button> */}
                                                     <Button
+                                                        disabled={getValues("user")?.userType !== "admin" && getValues("user")?.userType !== "super admin"}
                                                         onClick={() => router.push(`/dashboard/proyectos/${evento._id}`)}
                                                         variant="outlined"
                                                         className="gap-2 bg-transparent"

@@ -2041,6 +2041,21 @@ export const formCrearUsuario = [
         color: "bg-blue-500",
     },
     {
+        id: 631,
+        name: "direccion",
+        label: "Dirección Evento",
+        type: "text",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Dirección Evento",
+        description: "Dirección Evento",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+    {
         id: 64,
         name: "flyerEvent",
         label: "Flyer Evento",

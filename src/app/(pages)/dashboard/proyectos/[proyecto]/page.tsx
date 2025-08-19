@@ -59,6 +59,7 @@ export default function ProyectoId() {
                 },
                 precioEntradaGeneral: info?.precioEntradaGeneral,
                 precioEntradaPremium: info?.precioEntradaPremium,
+                direccion: info?.direccion,
             })
         }
     }, [info])

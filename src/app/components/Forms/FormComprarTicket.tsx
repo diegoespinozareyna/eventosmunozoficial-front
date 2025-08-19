@@ -155,7 +155,7 @@ export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, 
                                                     renderInput={(params) => (
                                                         <TextField
                                                             {...params}
-                                                            label="Buscar persona (DNI o nombres)"
+                                                            label="Patrocinador o Referido"
                                                             InputProps={{
                                                                 ...params.InputProps,
                                                                 endAdornment: (

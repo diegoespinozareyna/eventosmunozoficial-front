@@ -496,6 +496,6 @@ export const usePopUp = () => {
     return {
         openPopup,
         setOpenPopup,
-        PopUp,
+        // PopUp,
     }
 }
