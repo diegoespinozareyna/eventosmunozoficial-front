@@ -181,7 +181,7 @@ export default function Eventos() {
         if (params?.eventos !== "new" && params?.eventos !== "" && params?.eventos !== undefined && params?.eventos !== null) {
             fetchEventId(params?.eventos?.split("-")[1])
         }
-    }, [])
+    }, [params?.eventos])
 
     useEffect(() => {
         try {
@@ -193,18 +193,7 @@ export default function Eventos() {
             console.error('Error al obtener datos del usuario:', error);
             setValue("user", []);
         }
-    }, [])
-    // useEffect(() => {
-    //     try {
-    //         const user = localStorage.getItem('auth-token');
-    //         const decoded: any = jwtDecode(user as string);
-    //         console.log('Datos del usuario:', decoded?.user);
-    //         setValue("user", decoded?.user);
-    //     } catch (error) {
-    //         console.error('Error al obtener datos del usuario:', error);
-    //         setValue("user", []);
-    //     }
-    // }, [open, openAsientos, openPopup])
+    }, [open, openAsientos, openPopup])
 
     const handleVouchersAsiento = async (codAsiento: any, eventoId: any, idIcketAsiento: any) => {
         const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/eventos/vouchersEventosPorAsiento`
@@ -1140,7 +1129,7 @@ Datos de Compra:
 - Asiento ${codAsiento}.
 - Fecha ${fechaEvento}`;
 
-                                                            const urlFinal = `https://wa.me/51937050145?text=${encodeURIComponent(mensaje)}`;
+                                                            const urlFinal = `https://wa.me/51${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular}?text=${encodeURIComponent(mensaje)}`;
                                                             window.open(urlFinal, "_blank");
                                                         }}>
                                                             Enviar WSP
