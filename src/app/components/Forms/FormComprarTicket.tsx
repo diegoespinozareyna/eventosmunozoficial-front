@@ -1,4 +1,4 @@
-import { dataComprarTicket } from "@/app/configs/dataforms/dataForms";
+import { dataComprarTicket, dataComprarTicketPasarela } from "@/app/configs/dataforms/dataForms";
 import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import { handleApiReniec } from "@/app/functions/handleApiReniec";
 import { Autocomplete, Button, CircularProgress, IconButton, TextField } from "@mui/material";
@@ -36,7 +36,7 @@ export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, 
         <>
             <div className="flex flex-col gap-3">
                 {
-                    (dataComprarTicket)?.map((item: any, index: any) => {
+                    (getValues()?.siPasarelaPay === true ? dataComprarTicketPasarela : dataComprarTicket)?.map((item: any, index: any) => {
                         return (
                             <>
                                 {

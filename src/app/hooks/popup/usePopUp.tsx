@@ -1,32 +1,34 @@
 import { FormComprarTicket } from "@/app/components/Forms/FormComprarTicket"
 
-// Extend the Window interface to include VisanetCheckout
-declare global {
-    interface Window {
-        VisanetCheckout?: {
-            open: () => void;
-            configure: (config: any) => any;
-            configuration: {
-                complete: (response: any) => void;
-            };
-        };
-    }
-}
+// // Extend the Window interface to include VisanetCheckout
+// declare global {
+//     interface Window {
+//         VisanetCheckout?: {
+//             open: () => void;
+//             configure: (config: any) => any;
+//             configuration: {
+//                 complete: (response: any) => void;
+//             };
+//         };
+//     }
+// }
 import { Apis } from "@/app/configs/proyecto/proyectCurrent"
 import { StatusLotes } from "@/app/configs/proyecto/statusLotes";
 import { changeDecimales } from "@/app/functions/changeDecimales"
 import { Autocomplete, Button, CircularProgress, TextField } from "@mui/material"
 import axios from "axios"
 import { X } from "lucide-react"
-import { useCallback, useEffect, useState } from "react"
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react"
 import { Controller } from "react-hook-form"
 import Swal from "sweetalert2"
 
 export const usePopUp = () => {
     const [openPopup, setOpenPopup] = useState<boolean>(false)
 
+    const router = useRouter()
 
-    const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, loadingUpload }: any) => {
+    const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, loadingUpload, reset, setOpen, dataAsientos }: any) => {
 
         const [inputValue, setInputValue] = useState("")
         const [options, setOptions] = useState<any[]>([])
@@ -64,18 +66,29 @@ export const usePopUp = () => {
             window?.VisanetCheckout?.open();
         }
 
-        const [openPopup, setOpenPopup] = useState<boolean>(false);
+        // useEffect(() => {
+        //     setValue("montoPasarela", dataAsientos?.precio)
+        // }, []);
+
+        // const [openPopup, setOpenPopup] = useState<boolean>(false);
         const [loading2, setLoading2] = useState(false);
         const [tokenSession77, setTokenSession77] = useState<any>(null);
         const [sessionPaso2, setSessionPaso2] = useState<any>(null);
         const [initialized, setInitialized] = useState(false);
+        const [paymentInitialized, setPaymentInitialized] = useState(false);
+        const initializationRef = useRef(false);
 
         const initializePaymentGateway = useCallback(async () => {
-            if (!getValues()?.pasarelaPay || initialized) return;
+            if (!getValues()?.pasarelaPay || initializationRef.current) return;
+
+            // Marcar como inicializado inmediatamente
+            initializationRef.current = true;
+            setPaymentInitialized(true);
 
             console.log("reserva pasarelawedrfgfdsd")
             const MERCHANT_ID = "650245394";
             // const AMOUNT = "300";
+            // const AMOUNT = dataAsientos?.precio;
             const AMOUNT = Apis.PRECIO_PASARELA;
             // const JS_URL = "https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true"; // test
             const JS_URL = "https://static-content.vnforapps.com/v2/js/checkout.js"; // prod
@@ -100,7 +113,7 @@ export const usePopUp = () => {
                     SECURITY_TOKEN = res1.data.data;
                     // SECURITY_TOKEN = res1;
                     // setTokenSession77(res1)
-                    // setTokenSession77(res1)
+                    setTokenSession77(res1)
                     getTokenNiubizSesion(res1);
 
                 } catch (error) {
@@ -109,11 +122,12 @@ export const usePopUp = () => {
                     if (loadingElement) {
                         loadingElement.style.display = 'none';
                     }
+                    initializationRef.current = false;
+                    setPaymentInitialized(false);
                 } finally {
-                    // setLoading2(false)
+                    setLoading2(false)
                 }
             }
-
             const getTokenNiubizSesion = async (securityToken: any) => {
                 // console.log(securityToken)
                 try {
@@ -123,9 +137,9 @@ export const usePopUp = () => {
                         tokenGenerado: securityToken.data.data,
                         montoPagar: AMOUNT,
                         //MDD
-                        MDD4: getValues()?.emailCliente, // ID del usuario
-                        MDD21: 0, // 
-                        MDD32: getValues()?.documentoCliente, // ID del usuario
+                        MDD4: "diegoespinozareyna@gmail.com", // ID del usuario correo
+                        MDD21: 0, //
+                        MDD32: "73505082", // ID del usuario dni
                         MDD75: 'Invitado', // Registrado o Invitado
                         MDD77: 100 // Registrado o Invitado
                     }
@@ -138,7 +152,7 @@ export const usePopUp = () => {
                         console.log("res2 null")
                         return
                     };
-                    // setSessionPaso2(res2?.data?.data)
+                    setSessionPaso2(res2?.data?.data)
                     await addNiubizScript(res2?.data?.data);
                 } catch (error) {
                     alert('Error al generar el token de sesión');
@@ -224,40 +238,8 @@ export const usePopUp = () => {
                     // Redireccionar a una url front
                     if (res3.status === 200) {
                         console.log("pago ok")
-                        // setOpen(false)
-                        // await reservarClientePlano(datosEnvio, res3?.data?.data?.order?.purchaseNumber)
-                        // // Swal.fire({
-                        // //     icon: "success",
-                        // //     title: "Reserva Exitosa",
-                        // //     text: `Lote Reservado con éxito!!. 
-                        // // Su lote de código ${data?.codLote} a sido reservado con éxito.`,
-                        // // });
-                        // Swal.fire({
-                        //     title: 'Exito',
-                        //     // text: "Esta acción no se puede deshacer",
-                        //     icon: 'success',
-                        //     // showCancelButton: true,
-                        //     confirmButtonColor: '#3085d6',
-                        //     cancelButtonColor: '#d33',
-                        //     confirmButtonText: 'OK',
-                        //     // cancelButtonText: 'No',
-                        //     showLoaderOnConfirm: true,
-                        //     allowOutsideClick: false,
-                        //     preConfirm: () => {
-                        //         setOpen(false)
-                        //         setValue('openFormDatosCliente', false)
-                        //         reset({
-                        //             ...getValues(),
-                        //             ...handleReset(showActionsPopupDatosCliente?.data),
-                        //         })
-                        //         fetchPropiedades()
-                        //         fethcDashboard()
-                        //         return
-                        //     },
-                        // });
-                        // setTimeout(() => {
-                        //     window.location.reload()
-                        // }, 1000)
+                        onSubmit(getValues());
+                        router.push(`/dashboard/proyectos`)
                     }
                     else if (res3.status !== 200) {
                         Swal.fire({
@@ -298,13 +280,14 @@ export const usePopUp = () => {
             }
             //fin pasarela niubiz
             loadInit()
+        }, [getValues]);
 
-
-        }, [getValues, initialized]);
-
+        // Efecto que se ejecuta solo cuando cambia pasarelaPay a true
         useEffect(() => {
-            initializePaymentGateway();
-        }, [initializePaymentGateway]);
+            if (getValues()?.pasarelaPay && !paymentInitialized) {
+                initializePaymentGateway();
+            }
+        }, [getValues()?.pasarelaPay, paymentInitialized, initializePaymentGateway]);
 
         return (
             <>
@@ -312,33 +295,129 @@ export const usePopUp = () => {
                 <div className="absolute flex flex-col bg-white pb-4 z-50 shadow-xl rounded-lg modal-slide-up justify-start">
                     <div className="border-1 w-full text-center mb-3 cursor-pointer bg-blue-50 flex justify-center items-center rounded-t-lg" onClick={() => {
                         setOpenPopup(false)
+                        reset()
+                        setOpen(false)
                     }}><X color="blue" /></div>
                     <div className="flex flex-col gap-2 bg-[rgba(255,255,255,0.8)] rounded-lg p-3 px-3 mt-0 w-[350px] mx-2">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             {
-                                getValues()?.pasarelaPay &&
-                                <div className="uppercase text-center text-base font-bold text-black">
-                                    {"Datos Usuario"}
-                                    <div className="App">
-                                        <div className="loading" id='loading'></div>
-                                        <div className='hidden content'>
-                                            <div className="container mt-5">
-                                                <div className="hidden row">
-                                                    <div className='col-12 mt-3'>
-                                                        <button onClick={openForm} className='btn btn-primary'>Pagar</button>
-                                                    </div>
-                                                    <div className='col-12 mt-5'>
-                                                        <label>Response</label>
-                                                        <textarea id="authorizationResponse" className='form-control' readOnly rows={1}></textarea>
+                                getValues()?.siPasarelaPay &&
+                                <>
+                                    <div className="flex flex-col gap-3">
+                                        <FormComprarTicket {...{ getValues, setValue, handleSubmit, control, apiCall, loading, error }} />
+                                    </div>
+                                    <div className="mt-3">
+                                        <Controller
+                                            name={"patrocinadorId"}
+                                            control={control}
+                                            render={({ field }) => (
+                                                <Autocomplete
+                                                    options={options}
+                                                    getOptionLabel={(option) => option?.label || ""}
+                                                    isOptionEqualToValue={(option, value) => option?.value === value?.value}
+                                                    value={field.value || null}
+                                                    inputValue={inputValue}
+                                                    // Validation can be handled via the Controller or form logic
+                                                    onInputChange={(_, newInputValue) => {
+                                                        setInputValue(newInputValue)
+                                                        if (newInputValue.length >= 3) {
+                                                            handleSearch(newInputValue)
+                                                        }
+                                                    }}
+                                                    onChange={(_, newValue) => {
+                                                        field.onChange(newValue)
+                                                        if (newValue) {
+                                                            setInputValue(newValue.label)
+                                                            setOptions([newValue])
+                                                        } else {
+                                                            setInputValue("")
+                                                        }
+                                                    }}
+                                                    loading={loading22}
+                                                    filterOptions={(x) => x}
+                                                    renderInput={(params) => (
+                                                        <TextField
+                                                            {...params}
+                                                            required
+                                                            label="Buscar persona (DNI o nombres)"
+                                                            InputProps={{
+                                                                ...params.InputProps,
+                                                                endAdornment: (
+                                                                    <>
+                                                                        {loading22 && <CircularProgress size={20} />}
+                                                                        {params.InputProps.endAdornment}
+                                                                    </>
+                                                                ),
+                                                            }}
+                                                        />
+                                                    )}
+                                                />
+                                            )}
+                                        />
+                                    </div>
+                                    <div className="flex flex-row gap-3 w-full mt-2">
+                                        <Button
+                                            variant="contained"
+                                            color="success"
+                                            type="submit"
+                                            onClick={() => {
+                                                setValue("pasarelaPay", true)
+                                            }}
+                                            className="w-full"
+                                            disabled={
+                                                getValues()?.documentoUsuario == "" || getValues()?.documentoUsuario == null || getValues()?.documentoUsuario == undefined
+                                                ||
+                                                getValues()?.nombres == "" || getValues()?.nombres == null || getValues()?.nombres == undefined
+                                                ||
+                                                getValues()?.apellidoPaterno == "" || getValues()?.apellidoPaterno == null || getValues()?.apellidoPaterno == undefined
+                                                ||
+                                                getValues()?.apellidoMaterno == "" || getValues()?.apellidoMaterno == null || getValues()?.apellidoMaterno == undefined
+                                                ||
+                                                getValues()?.celular == "" || getValues()?.celular == null || getValues()?.celular == undefined
+                                                ||
+                                                getValues()?.patrocinadorId == "" || getValues()?.patrocinadorId == null || getValues()?.patrocinadorId == undefined
+                                                ||
+                                                getValues()?.pasarelaPay == true
+                                            }
+                                        >
+                                            <div className="flex flex-col items-center justify-center gap-2">
+                                                Comprar Ticket
+                                                {
+                                                    getValues()?.pasarelaPay &&
+                                                    <>
+                                                        <CircularProgress size={24} className="text-white" />
+                                                        Aperturando Pasarela de Pago, por favor espere...
+                                                    </>
+                                                }
+                                            </div>
+                                        </Button>
+                                    </div>
+                                    {
+                                        getValues()?.pasarelaPay &&
+                                        <div className="uppercase text-center text-base font-bold text-black">
+                                            {/* {"Datos Usuario"} */}
+                                            <div className="App">
+                                                <div className="loading" id='loading'></div>
+                                                <div className='hidden content'>
+                                                    <div className="container mt-5">
+                                                        <div className="hidden row">
+                                                            <div className='col-12 mt-3'>
+                                                                <button onClick={openForm} className='btn btn-primary'>Pagar</button>
+                                                            </div>
+                                                            <div className='col-12 mt-5'>
+                                                                <label>Response</label>
+                                                                <textarea id="authorizationResponse" className='form-control' readOnly rows={1}></textarea>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    }
+                                </>
                             }
                             {
-                                !getValues()?.pasarelaPay &&
+                                getValues()?.noPasarelaPay &&
                                 <div className="flex flex-col gap-3">
                                     <div className="uppercase text-center text-base font-bold text-black">
                                         {"Datos Usuario"}
