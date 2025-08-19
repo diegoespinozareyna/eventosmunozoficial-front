@@ -29,6 +29,10 @@ export default function Eventos() {
     const router = useRouter()
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
+
+    const formValues = watch();
+    console.log("formValues: ", formValues)
+
     const { apiCall, loading, error } = useApi()
     const { openPopup, setOpenPopup, PopUp } = usePopUp()
     const [isLoading, setIsLoading] = useState(true);
@@ -141,7 +145,7 @@ export default function Eventos() {
 
     useEffect(() => {
         fetchAsientosIdMatrix()
-        usersPatrocinaddores()
+        // usersPatrocinaddores()
     }, [info, openAsientos])
 
     const fetchEventId = async (id: string | string[]) => {
@@ -167,10 +171,15 @@ export default function Eventos() {
     }, [params?.eventos])
 
     useEffect(() => {
-        const user = localStorage.getItem('auth-token');
-        const decoded: any = jwtDecode(user as string);
-        console.log('Datos del usuario:', decoded?.user);
-        setValue("user", decoded?.user);
+        try {
+            const user = localStorage.getItem('auth-token');
+            const decoded: any = jwtDecode(user as string);
+            console.log('Datos del usuario:', decoded?.user);
+            setValue("user", decoded?.user);
+        } catch (error) {
+            console.error('Error al obtener datos del usuario:', error);
+            setValue("user", []);
+        }
     }, [open, openAsientos, openPopup])
 
     const handleVouchersAsiento = async (codAsiento: any, eventoId: any, idIcketAsiento: any) => {
@@ -270,9 +279,14 @@ export default function Eventos() {
 
     const onSubmit = async (data: any) => {
         console.log(data)
-        const user = localStorage.getItem('auth-token');
-        const decoded: any = jwtDecode(user as string);
-        console.log('Datos del usuario:', decoded?.user);
+        try {
+            const user = localStorage.getItem('auth-token');
+            const decoded: any = jwtDecode(user as string);
+            console.log('Datos del usuario:', decoded?.user);
+            setValue("userVenta", decoded?.user);
+        } catch (error) {
+            setValue("userVenta", null);
+        }
 
         const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/auth/compraAsiento`
         const jsonSend = {
@@ -282,7 +296,7 @@ export default function Eventos() {
             precio: dataAsientos?.precio,
             codMatrixTicket: params?.eventos?.split("-")[1],
             proyecto: Apis.PROYECTCURRENT,
-            usuarioRegistro: `${decoded?.user?.documentoUsuario} - ${decoded?.user?.nombres} ${decoded?.user?.apellidoPaterno} ${decoded?.user?.apellidoMaterno}`,
+            usuarioRegistro: `${getValues()?.userVenta?.documentoUsuario ?? "Invitado"} - ${getValues()?.userVenta?.nombres ?? "Invitado"} ${getValues()?.userVenta?.apellidoPaterno ?? "Invitado"} ${getValues()?.userVenta?.apellidoMaterno ?? "Invitado"}`,
             compraUserAntiguo: getValues(`UsuarioAntiguo`),
             fechaFin: moment.tz(new Date(), "America/Lima").add(7, "days").format("YYYY-MM-DDTHH:mm"),
         }
@@ -565,6 +579,32 @@ export default function Eventos() {
         }
     };
 
+    const [options, setOptions] = useState([]);
+    // const [loading, setLoading] = useState(false);
+
+    const handleSearch = async (query: any) => {
+        // setLoading(true);
+        try {
+            // const res = await axios.get(`/api/users/search?q=${query}`);
+            // setOptions(res.data);
+
+            const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/users/getPatrocinadoresUnique`
+            const response: any = await apiCall({
+                method: "get", endpoint: url, data: null, params: {
+                    proyecto: Apis.PROYECTCURRENT,
+                    query: query,
+                }
+            });
+            console.log("responseEventId: ", response?.data);
+            setValue("usersPatrocinadores", response?.data);
+
+
+        } catch (err) {
+            console.error('Error fetching users:', err);
+        }
+        // setLoading(false);
+    };
+
     return (
         <>
             {isLoading && <TicketLoaderMotion />}
@@ -654,14 +694,32 @@ export default function Eventos() {
                                 <div className={`rounded-full text-transparent text-xs bg-[#f33]`}>......</div>
                                 Pendiente (Fecha)
                             </div>
-                            <div className="flex flex-row justify-center items-center gap-1">
-                                <div className={`rounded-full text-transparent text-xs bg-[#61baed]`}>......</div>
-                                Vendido Asesor
-                            </div>
-                            <div className="flex flex-row justify-center items-center gap-1">
-                                <div className={`rounded-full text-transparent text-xs bg-[#efc600]`}>......</div>
-                                Vendido Invitado
-                            </div>
+                            {
+                                (getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") &&
+                                <>
+                                    <div className="flex flex-row justify-center items-center gap-1">
+                                        <div className={`rounded-full text-transparent text-xs bg-[#61baed]`}>......</div>
+                                        {`Vendido Asesor`}
+                                    </div>
+                                    <div className="flex flex-row justify-center items-center gap-1">
+                                        <div className={`rounded-full text-transparent text-xs bg-[#efc600]`}>......</div>
+                                        {`Vendido Invitado`}
+                                    </div>
+                                </>
+                            }
+                            {
+                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
+                                <>
+                                    <div className="flex flex-row justify-center items-center gap-1">
+                                        <div className={`rounded-full text-transparent text-xs bg-[#61baed]`}>......</div>
+                                        {`Vendido Asesor (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == true && x?.status == "1")?.length})`}
+                                    </div>
+                                    <div className="flex flex-row justify-center items-center gap-1">
+                                        <div className={`rounded-full text-transparent text-xs bg-[#efc600]`}>......</div>
+                                        {`Vendido Invitado (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == false && x?.status == "1")?.length})`}
+                                    </div>
+                                </>
+                            }
                         </div>
                         <div className="flex flex-col items-center justify-center w-full -mt-6">
                             {
@@ -727,30 +785,50 @@ export default function Eventos() {
                                     </div>
                                     {
                                         !dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
-                                        <>
-                                            <div className="flex justify-center items-center gap-2 mt-2 px-3 mb-1">
+                                        <div className="flex flex-col justify-center items-center gap-1">
+                                            <div className="flex justify-center items-center gap-2 mt-2 px-3">
                                                 {/* <button className="bg-green-500 text-[12px] text-white w-[21vw] py-2 px-2 rounded-sm font-bold text-xl cursor-pointer" onClick={() => setOpen(false)}>
                                                 RESERVAR CON TARJETA
                                             </button> */}
-                                                <button className="bg-blue-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => setOpenPopup(true)}>
-                                                    RESERVAR ASIENTO
+                                                <button className="bg-violet-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
+                                                    setOpenPopup(true)
+                                                    setValue("pasarelaPay", true)
+                                                }}>
+                                                    RESERVAR CON YAPE
                                                 </button>
                                             </div>
-                                        </>
+                                            <div className="flex justify-center items-center gap-2 px-3 mb-1">
+                                                {/* <button className="bg-green-500 text-[12px] text-white w-[21vw] py-2 px-2 rounded-sm font-bold text-xl cursor-pointer" onClick={() => setOpen(false)}>
+                                                RESERVAR CON TARJETA
+                                            </button> */}
+                                                <button className="bg-green-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
+                                                    setOpenPopup(true)
+                                                    setValue("pasarelaPay", false)
+                                                }}>
+                                                    RESERVAR CON VOUCHER
+                                                </button>
+                                            </div>
+                                        </div>
                                     }
                                     <div className="flex flex-col gap-3 justify-center items-center mt-0">
                                         {
                                             dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
                                             <>
                                                 {/* <div className="font-bold">Usuario</div> */}
-                                                <div className="text-center">
-                                                    {`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.nombres} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoPaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoMaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.documentoUsuario}`}
-                                                </div>
+                                                {
+                                                    (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
+                                                    <>
+                                                        <div className="text-center">
+                                                            {`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.nombres} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoPaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoMaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.documentoUsuario}`}
+                                                        </div>
+                                                    </>
+                                                }
                                                 <div className="flex flex-col gap-3 justify-center items-center mt-0 rounded-md bg-slate-50 px-2 py-1 my-2 mx-3">
                                                     <div className="font-bold  flex flex-row gap-2 justify-center items-center">
                                                         <div className="uppercase">Status</div>
                                                         <button
-                                                            className="bg-blue-500 text-white text-[10px] py-1 px-2 rounded-lg cursor-pointer"
+                                                            disabled={(getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") && true}
+                                                            className={`bg-blue-500 text-white text-[10px] py-1 px-2 rounded-lg cursor-pointer ${(getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") && "opacity-50 bg-slate-400"}`}
                                                             onClick={() => handleChangeState(dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?._id, dataAsientos?.id, "statusAsiento")}
                                                         >
                                                             Cambiar
@@ -767,139 +845,144 @@ export default function Eventos() {
                                     </div>
                                 </div>
                                 {
-                                    dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
-                                    // dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.compraUserAntiguo &&
-                                    <div className="flex flex-col gap-1 justify-start items-start mt-2 w-full">
-                                        <Controller
-                                            name={"fileUrl"}
-                                            control={control}
-                                            rules={{
-                                                validate: (value) => {
-                                                    if (false) {
-                                                        if (!value || !value.file) return `${"fileUrl"} es obligatorio`;
-                                                    }
-                                                    return true;
-                                                }
-                                            }}
-                                            render={({ field, fieldState }) => (
-                                                <div className="flex flex-row gap-1 justify-start items-center w-full">
-                                                    <Button
-                                                        variant="contained"
-                                                        component="label"
-                                                        disabled={(getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") && true}
-                                                        style={{ width: "100% !important", height: '25px' }}
-                                                        className="w-full py-1 fornt-bold"
-                                                    >
-                                                        + Voucher
-                                                        <input
-                                                            type="file"
-                                                            accept="image/*,application/pdf"
-                                                            hidden
-                                                            onChange={(e: any) => {
-                                                                const file = e.target.files[0];
-                                                                if (file) {
-                                                                    const fileUrl = URL.createObjectURL(file); // Crear URL para previsualización
-                                                                    field.onChange({ file, fileUrl }); // Guardar archivo y URL en el campo
-                                                                }
-                                                                setValue("fileEvent", e.target.files[0]);
-                                                            }}
-                                                        />
-                                                    </Button>
+                                    (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
+                                    <>
+                                        {
+                                            dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
+                                            // dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.compraUserAntiguo &&
+                                            <div className="flex flex-col gap-1 justify-start items-start mt-2 w-full">
+                                                <Controller
+                                                    name={"fileUrl"}
+                                                    control={control}
+                                                    rules={{
+                                                        validate: (value) => {
+                                                            if (false) {
+                                                                if (!value || !value.file) return `${"fileUrl"} es obligatorio`;
+                                                            }
+                                                            return true;
+                                                        }
+                                                    }}
+                                                    render={({ field, fieldState }) => (
+                                                        <div className="flex flex-row gap-1 justify-start items-center w-full">
+                                                            <Button
+                                                                variant="contained"
+                                                                component="label"
+                                                                disabled={(getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") && true}
+                                                                style={{ width: "100% !important", height: '25px' }}
+                                                                className="w-full py-1 fornt-bold"
+                                                            >
+                                                                + Voucher
+                                                                <input
+                                                                    type="file"
+                                                                    accept="image/*,application/pdf"
+                                                                    hidden
+                                                                    onChange={(e: any) => {
+                                                                        const file = e.target.files[0];
+                                                                        if (file) {
+                                                                            const fileUrl = URL.createObjectURL(file); // Crear URL para previsualización
+                                                                            field.onChange({ file, fileUrl }); // Guardar archivo y URL en el campo
+                                                                        }
+                                                                        setValue("fileEvent", e.target.files[0]);
+                                                                    }}
+                                                                />
+                                                            </Button>
 
-                                                    {getValues("fileUrl") !== "" && getValues("fileUrl") !== undefined && getValues("fileUrl") !== null && (
-                                                        <>
-                                                            {/* <IconButton
+                                                            {getValues("fileUrl") !== "" && getValues("fileUrl") !== undefined && getValues("fileUrl") !== null && (
+                                                                <>
+                                                                    {/* <IconButton
                                                                     onClick={() => window.open(getValues("fileUrl")?.fileUrl ?? getValues("fileUrl"), "_blank")}
                                                                     color="primary"
                                                                     aria-label="Ver imagen"
                                                                 >
                                                                     <IoMdEye />
                                                                 </IconButton> */}
-                                                            <div
-                                                                className="cursor-pointer"
-                                                                onClick={() => window.open(getValues(`fileUrl`)?.fileUrl ?? getValues(`fileUrl`), "_blank")}
-                                                            >
-                                                                <img
-                                                                    src={getValues(`fileUrl`)?.fileUrl ?? getValues(`fileUrl`)}
-                                                                    alt="Vista previa"
-                                                                    style={{ width: 100, height: "auto", marginTop: 0, borderRadius: 4 }}
-                                                                />
-                                                            </div>
-                                                            <div className="flex justify-center items-center gap-1">
-                                                                <button disabled={loadingUpload} className={`bg-green-500 text-[12px] text-white py-2 px-1 rounded-sm  font-bold text-xl cursor-pointer disabled:bg-gray-400 ${loadingUpload && "opacity-50"}`} onClick={() => handleAddVoucherAsiento(dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id), dataAsientos?.id)}>
-                                                                    <Upload
-                                                                        color="#fff"
-                                                                        size={15}
-                                                                    />
-                                                                </button>
-                                                                <button className="bg-red-500 text-[12px] text-white py-2 px-1 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => setValue(`fileUrl`, "")}>
-                                                                    <X
-                                                                        color="#fff"
-                                                                        size={15}
-                                                                    />
-                                                                </button>
-                                                            </div>
-                                                        </>
-                                                    )}
+                                                                    <div
+                                                                        className="cursor-pointer"
+                                                                        onClick={() => window.open(getValues(`fileUrl`)?.fileUrl ?? getValues(`fileUrl`), "_blank")}
+                                                                    >
+                                                                        <img
+                                                                            src={getValues(`fileUrl`)?.fileUrl ?? getValues(`fileUrl`)}
+                                                                            alt="Vista previa"
+                                                                            style={{ width: 100, height: "auto", marginTop: 0, borderRadius: 4 }}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center gap-1">
+                                                                        <button disabled={loadingUpload} className={`bg-green-500 text-[12px] text-white py-2 px-1 rounded-sm  font-bold text-xl cursor-pointer disabled:bg-gray-400 ${loadingUpload && "opacity-50"}`} onClick={() => handleAddVoucherAsiento(dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id), dataAsientos?.id)}>
+                                                                            <Upload
+                                                                                color="#fff"
+                                                                                size={15}
+                                                                            />
+                                                                        </button>
+                                                                        <button className="bg-red-500 text-[12px] text-white py-2 px-1 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => setValue(`fileUrl`, "")}>
+                                                                            <X
+                                                                                color="#fff"
+                                                                                size={15}
+                                                                            />
+                                                                        </button>
+                                                                    </div>
+                                                                </>
+                                                            )}
 
-                                                    {/* Mensaje de error si no hay archivo */}
-                                                    {fieldState.error && (
-                                                        <span style={{ color: "red", fontSize: "0.8rem" }}>{fieldState.error.message}</span>
-                                                    )}
-                                                </div>
-                                            )}
-                                        />
-
-                                    </div>
-                                }
-                                {
-                                    dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
-                                    <>
-                                        <div className="flex justify-center gap-2 items-center mx-2 px-2 w-full mt-2">
-                                            <div className="mt-0 uppercase font-bold text-sm">
-                                                {`Vouchers Totales: ${getValues()?.vouchersAsiento?.length ?? 0}`}
-                                            </div>
-                                            <div className="flex flex-row gap-1 justify-start items-start mt-0">
-                                                <div className="bg-yellow-500 rounded-full px-1 w-full text-center">
-                                                    {`${getValues()?.vouchersAsiento?.filter((x: any) => x.status == "0")?.length ?? 0}`}
-                                                </div>
-                                                <div className="bg-green-500 rounded-full px-1 w-full text-center">
-                                                    {`${getValues()?.vouchersAsiento?.filter((x: any) => x.status == "1")?.length ?? 0}`}
-                                                </div>
-                                                <div className="bg-red-500 rounded-full px-1 w-full text-center">
-                                                    {`${getValues()?.vouchersAsiento?.filter((x: any) => x.status == "2")?.length ?? 0}`}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="grid grid-cols-4 gap-2 justify-center items-start mt-2 px-3 mb-1">
-                                            {
-                                                getValues()?.vouchersAsiento?.map((item: any, index: number) => {
-                                                    return (
-                                                        <div
-                                                            className="flex flex-col gap-0 justify-between items-center border-2 border-slate-200 rounded-md h-full" key={index}
-                                                            onClick={() => handleChangeState(item?._id, item?.codAsiento, "statusVoucher")}
-                                                        >
-                                                            <div
-                                                                className="cursor-pointer h-full"
-                                                            // onClick={() => window.open(item?.url, "_blank")}
-                                                            >
-                                                                <img
-                                                                    src={item?.url}
-                                                                    alt="Vista previa"
-                                                                    className="max-h-[120px] w-auto object-contain"
-                                                                />
-                                                            </div>
-                                                            <div
-                                                                className={`${item?.status === "1" ? "bg-green-500" : item?.status === "0" ? "bg-yellow-500" : item?.status === "2" && "bg-red-500"} rounded-md px-1 w-full text-center text-sm mt-1`}
-                                                            >
-                                                                {item?.status === "1" ? "Aprobado" : item?.status === "0" ? "Pendiente" : item?.status === "2" && "Rechazado"}
-                                                            </div>
-                                                            <div className="text-center text-xs ">{item?.comentario}</div>
+                                                            {/* Mensaje de error si no hay archivo */}
+                                                            {fieldState.error && (
+                                                                <span style={{ color: "red", fontSize: "0.8rem" }}>{fieldState.error.message}</span>
+                                                            )}
                                                         </div>
-                                                    )
-                                                })
-                                            }
-                                        </div>
+                                                    )}
+                                                />
+
+                                            </div>
+                                        }
+                                        {
+                                            dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
+                                            <>
+                                                <div className="flex justify-center gap-2 items-center mx-2 px-2 w-full mt-2">
+                                                    <div className="mt-0 uppercase font-bold text-sm">
+                                                        {`Vouchers Totales: ${getValues()?.vouchersAsiento?.length ?? 0}`}
+                                                    </div>
+                                                    <div className="flex flex-row gap-1 justify-start items-start mt-0">
+                                                        <div className="bg-yellow-500 rounded-full px-1 w-full text-center">
+                                                            {`${getValues()?.vouchersAsiento?.filter((x: any) => x.status == "0")?.length ?? 0}`}
+                                                        </div>
+                                                        <div className="bg-green-500 rounded-full px-1 w-full text-center">
+                                                            {`${getValues()?.vouchersAsiento?.filter((x: any) => x.status == "1")?.length ?? 0}`}
+                                                        </div>
+                                                        <div className="bg-red-500 rounded-full px-1 w-full text-center">
+                                                            {`${getValues()?.vouchersAsiento?.filter((x: any) => x.status == "2")?.length ?? 0}`}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="grid grid-cols-4 gap-2 justify-center items-start mt-2 px-3 mb-1">
+                                                    {
+                                                        getValues()?.vouchersAsiento?.map((item: any, index: number) => {
+                                                            return (
+                                                                <div
+                                                                    className="flex flex-col gap-0 justify-between items-center border-2 border-slate-200 rounded-md h-full" key={index}
+                                                                    onClick={() => handleChangeState(item?._id, item?.codAsiento, "statusVoucher")}
+                                                                >
+                                                                    <div
+                                                                        className="cursor-pointer h-full"
+                                                                    // onClick={() => window.open(item?.url, "_blank")}
+                                                                    >
+                                                                        <img
+                                                                            src={item?.url}
+                                                                            alt="Vista previa"
+                                                                            className="max-h-[120px] w-auto object-contain"
+                                                                        />
+                                                                    </div>
+                                                                    <div
+                                                                        className={`${item?.status === "1" ? "bg-green-500" : item?.status === "0" ? "bg-yellow-500" : item?.status === "2" && "bg-red-500"} rounded-md px-1 w-full text-center text-sm mt-1`}
+                                                                    >
+                                                                        {item?.status === "1" ? "Aprobado" : item?.status === "0" ? "Pendiente" : item?.status === "2" && "Rechazado"}
+                                                                    </div>
+                                                                    <div className="text-center text-xs ">{item?.comentario}</div>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </>
+                                        }
                                     </>
                                 }
 
@@ -910,7 +993,7 @@ export default function Eventos() {
                 {
                     openPopup &&
                     <>
-                        <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, reset, loadingUpload }} />
+                        <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, reset, loadingUpload, handleSearch }} />
                     </>
                 }
             </div>

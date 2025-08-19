@@ -1,15 +1,37 @@
 import { dataComprarTicket } from "@/app/configs/dataforms/dataForms";
+import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import { handleApiReniec } from "@/app/functions/handleApiReniec";
-import { Autocomplete, Button, IconButton, TextField } from "@mui/material";
+import { Autocomplete, Button, CircularProgress, IconButton, TextField } from "@mui/material";
 import moment from "moment-timezone";
+import { useState } from "react";
 import { Controller } from "react-hook-form";
 import { IoMdEye } from "react-icons/io";
 
-export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, apiCall, loading, error }: any) => {
+export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, apiCall }: any) => {
 
     console.log("getValues uduario antiguo: ", getValues("UsuarioAntiguo"));
     const userOld = getValues("UsuarioAntiguo");
 
+    const [inputValues, setInputValues] = useState<Record<string, string>>({});
+
+
+    const [inputValue, setInputValue] = useState("");
+    const [options, setOptions] = useState<any[]>([]);
+    const [loading, setLoading] = useState(false);
+
+    // 🔍 Buscar en el backend cada vez que el usuario escribe
+    const handleSearch = async (query: any) => {
+        setLoading(true);
+        try {
+            const res = await fetch(`${Apis.URL_APOIMENT_BACKEND_DEV}/api/users/getPatrocinadoresUnique`);
+            const data = await res.json();
+            setOptions(data.users); // tu backend debe retornar `users`
+        } catch (err) {
+            console.error("Error al buscar usuarios:", err);
+        } finally {
+            setLoading(false);
+        }
+    };
     return (
         <>
             <div className="flex flex-col gap-3">
@@ -87,6 +109,62 @@ export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, 
                                                             fullWidth
                                                             error={!!fieldState.error}
                                                             helperText={fieldState.error ? fieldState.error.message : ""}
+                                                        />
+                                                    )}
+                                                />
+                                            )}
+                                        />
+                                    </div>
+                                }
+                                {
+                                    item.type === "selectSpecial" &&
+                                    <div className="mt-0">
+                                        <Controller
+                                            name={item.name}
+                                            control={control}
+                                            render={({ field }) => (
+                                                <Autocomplete
+                                                    options={options}
+                                                    getOptionLabel={(option) =>
+                                                        typeof option === "string"
+                                                            ? option
+                                                            : `${option.nombres ?? ""} ${option.apellidoPaterno ?? ""} ${option.apellidoMaterno ?? ""} - ${option.documentoUsuario ?? ""}`
+                                                    }
+                                                    isOptionEqualToValue={(opt, val) => opt._id === val._id}
+                                                    value={field.value || null}
+                                                    inputValue={inputValue}
+                                                    onInputChange={(_, newInputValue) => {
+                                                        setInputValue(newInputValue);
+                                                        if (newInputValue.length >= 3) {
+                                                            handleSearch(newInputValue);
+                                                        }
+                                                    }}
+                                                    onChange={(_, newValue) => {
+                                                        field.onChange(newValue);
+                                                        if (newValue) {
+                                                            setInputValue(
+                                                                `${newValue.nombres ?? ""} ${newValue.apellidoPaterno ?? ""} ${newValue.apellidoMaterno ?? ""}`
+                                                            );
+                                                            setOptions([newValue]);
+                                                        } else {
+                                                            setInputValue("");
+                                                        }
+                                                    }}
+                                                    loading={loading}
+                                                    filterOptions={(x) => x} // evitamos el filtrado interno
+                                                    renderInput={(params) => (
+                                                        <TextField
+                                                            {...params}
+                                                            label="Buscar persona (DNI o nombres)"
+                                                            InputProps={{
+                                                                ...params.InputProps,
+                                                                endAdornment: (
+                                                                    <>
+                                                                        {loading && <CircularProgress size={20} />}
+                                                                        {params.InputProps.endAdornment}
+                                                                    </>
+                                                                ),
+                                                            }}
                                                         />
                                                     )}
                                                 />
