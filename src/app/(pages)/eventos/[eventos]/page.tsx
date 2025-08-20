@@ -791,11 +791,8 @@ export default function Eventos() {
                                     </div>
                                     {
                                         !dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
-                                        <div className="flex flex-col justify-center items-center gap-1">
+                                        <div className="flex flex-col justify-center items-center gap-1 mb-1">
                                             <div className="flex justify-center items-center gap-2 mt-2 px-3">
-                                                {/* <button className="bg-green-500 text-[12px] text-white w-[21vw] py-2 px-2 rounded-sm font-bold text-xl cursor-pointer" onClick={() => setOpen(false)}>
-                                                RESERVAR CON TARJETA
-                                            </button> */}
                                                 <button className="bg-violet-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
                                                     setOpenPopup(true)
                                                     setValue("siPasarelaPay", true)
@@ -804,17 +801,17 @@ export default function Eventos() {
                                                     RESERVAR CON YAPE
                                                 </button>
                                             </div>
-                                            <div className="flex justify-center items-center gap-2 px-3 mb-1">
-                                                {/* <button className="bg-green-500 text-[12px] text-white w-[21vw] py-2 px-2 rounded-sm font-bold text-xl cursor-pointer" onClick={() => setOpen(false)}>
-                                                RESERVAR CON TARJETA
-                                            </button> */}
-                                                <button className="bg-green-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
-                                                    setOpenPopup(true)
-                                                    setValue("noPasarelaPay", true)
-                                                }}>
-                                                    RESERVAR CON VOUCHER
-                                                </button>
-                                            </div>
+                                            {
+                                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
+                                                <div className="flex justify-center items-center gap-2 px-3 mb-1">
+                                                    <button className="bg-green-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
+                                                        setOpenPopup(true)
+                                                        setValue("noPasarelaPay", true)
+                                                    }}>
+                                                        RESERVAR CON VOUCHER
+                                                    </button>
+                                                </div>
+                                            }
                                         </div>
                                     }
                                     <div className="flex flex-col gap-3 justify-center items-center mt-0">
@@ -848,7 +845,7 @@ export default function Eventos() {
                                                     </div>
                                                 </div>
                                                 {
-                                                    dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "1" && dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular !== "" && dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular !== null && dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular !== undefined &&
+                                                    dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "1" && dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular !== "" && dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular !== null && dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular !== undefined && (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
                                                     <div className="mb-2 -mt-3">
                                                         <button className="bg-green-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
                                                             console.log("enviar wsp")

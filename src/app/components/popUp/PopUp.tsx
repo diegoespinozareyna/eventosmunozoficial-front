@@ -72,8 +72,8 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
         console.log("reserva pasarelawedrfgfdsd")
         const MERCHANT_ID = "650245394";
         // const AMOUNT = "300";
-        // const AMOUNT = dataAsientos?.precio;
-        const AMOUNT = Apis.PRECIO_PASARELA;
+        const AMOUNT = dataAsientos?.precio;
+        // const AMOUNT = Apis.PRECIO_PASARELA;
         // const JS_URL = "https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true"; // test
         const JS_URL = "https://static-content.vnforapps.com/v2/js/checkout.js"; // prod
         const PUCHASE_NUMBER = Math.floor(Math.random() * (999999999999 - 1 + 1)) + 1; // único por transacción
