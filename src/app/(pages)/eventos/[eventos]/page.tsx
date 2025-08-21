@@ -109,7 +109,17 @@ export default function Eventos() {
                 const diferencia2 = fechaEvento.getTime() - hoy.getTime();
                 // console.log("diferencia: ", diferencia);
 
-                if (
+                if (match?.isTicketsPendings > 0 && match?.status !== "1") {
+                    obj1?.setAttribute('fill', "#ff0");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (match?.isPasarela == true && match?.status !== "1") {
+                    obj1?.setAttribute('fill', "#ff0");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (
                     (
                         diferencia <= 3 * milisegundosEnUnDia
                         || diferencia2 <= 6 * milisegundosEnUnDia
@@ -281,6 +291,7 @@ export default function Eventos() {
                     });
                     handleVouchersAsiento(jsonPagoAsiento?.codAsiento, params?.eventos?.split("-")[1], data?._id)
                     setValue(`fileUrl`, "")
+                    fetchAsientosIdMatrix()
                 }
             }
         } catch (error) {
@@ -356,7 +367,6 @@ export default function Eventos() {
                         });
                         setOpen(false)
                         setOpenPopup(false)
-                        fetchAsientosIdMatrix()
 
                         const urlVoucher = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/eventos/newVoucherEventos`
                         const jsonPagoAsiento = {
@@ -403,6 +413,7 @@ export default function Eventos() {
             }
             finally {
                 setLoadigUpload(false)
+                fetchAsientosIdMatrix()
             }
         }
         else {
@@ -435,7 +446,6 @@ export default function Eventos() {
                     })
                     setOpen(false)
                     setOpenPopup(false)
-                    fetchAsientosIdMatrix()
                 } else {
                     Swal.fire({
                         title: 'Error!',
@@ -457,6 +467,9 @@ export default function Eventos() {
             }
             catch (error) {
                 console.error('Error al enviar datos:', error);
+            }
+            finally {
+                fetchAsientosIdMatrix()
             }
         }
     }
@@ -682,9 +695,16 @@ export default function Eventos() {
                                 Disponible Premium
                             </div>
                             <div className="flex flex-row justify-center items-center gap-1">
-                                <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
-                                Reservado (P)
+                                <div className="flex flex-row justify-center items-center gap-1">
+                                    <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
+                                    <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
+                                </div>
+                                Reservado (P/N)
                             </div>
+                            {/* <div className="flex flex-row justify-center items-center gap-1">
+                                <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
+                                Reservado (N)
+                            </div> */}
                             {/* <div className="flex flex-row justify-center items-center gap-1">
                                 <div className={`rounded-full text-transparent text-xs bg-[#00ffff]`}>......</div>
                                 Vendido
