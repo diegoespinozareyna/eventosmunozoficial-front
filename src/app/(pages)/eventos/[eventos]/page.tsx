@@ -802,7 +802,7 @@ export default function Eventos() {
                                                 </button>
                                             </div>
                                             {
-                                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
+                                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin" || getValues()?.user?.role == "user asesor") &&
                                                 <div className="flex justify-center items-center gap-2 px-3 mb-1">
                                                     <button className="bg-green-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
                                                         setOpenPopup(true)
@@ -962,7 +962,6 @@ Datos de Compra:
                                                         </div>
                                                     )}
                                                 />
-
                                             </div>
                                         }
                                         {
