@@ -713,9 +713,9 @@ export default function Eventos() {
                         <div className="w-full text-center mb-0 font-bold text-base uppercase text-yellow-500 mt-1">
                             {info?.title}
                         </div>
-                        <div className="pl-6 mt-1 text-base font-bold uppercase flex justify-between items-center">
+                        <div className="pl-6 mt-1 text-base font-bold uppercase flex justify-between items-center mb-3">
                             <div>
-                                Elija Asiento:
+                                Entradas:
                             </div>
                             {
                                 (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
@@ -728,23 +728,52 @@ export default function Eventos() {
                                 </div>
                             }
                         </div>
-                        <div className="grid md:grid-cols-7 gap-2 mt-3 text-base font-bold uppercase justify-center items-center p-2 rounded-md bg-blue-100 m-5 shadow-xl">
-                            <div className="flex flex-row justify-center items-center gap-1">
+
+                        <div className="flex flex-col items-center justify-center w-full -mt">
+                            {
+                                (
+                                    info?.capacity === "200" &&
+                                    <div className="text-center text-4xl px-8 border- rounded-lg shadow-2xl bg-blue-500 border-blue-300 border-4 mx-1">
+                                    {/* <div className="text-center text-4xl px-8 border-2 rounded-lg shadow-2xl bg-gradient-to-t from-blue-400 to-blue-600"> */}
+                                        <Evento200Sale {...{ handleClickInformation, setOpen }} />
+                                    </div>
+                                )
+                            }
+                            {
+                                (
+                                    info?.capacity === "250" &&
+                                    <div className="text-center text-4xl px-8 border-2 rounded-lg shadow-2xl bg-gradient-to-r from-blue-200 to-blue-600">
+                                        <Evento250Sale {...{ handleClickInformation, setOpen }} />
+                                    </div>
+                                )
+                            }
+                            {
+                                (
+                                    info?.capacity === "300" &&
+                                    <div className="text-center text-4xl px-8 border-2 rounded-lg shadow-2xl bg-gradient-to-r from-blue-200 to-blue-600">
+                                        <Evento300Sale {...{ handleClickInformation, setOpen }} />
+                                    </div>
+                                )
+                            }
+                        </div>
+
+                        <div className="grid md:grid-cols-4 gap-2 -mt- text-base font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
+                            <div className="flex flex-row justify-start items-center gap-1">
                                 <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
                                 Entrada Disponible
                             </div>
-                            <div className="flex flex-row justify-center items-center gap-1">
+                            <div className="flex flex-row justify-start items-center gap-1">
                                 <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
                                 Entrada VIP
                             </div>
-                            <div className="flex flex-row justify-center items-center gap-1">
+                            <div className="flex flex-row justify-start items-center gap-1">
                                 <div className="flex flex-row justify-center items-center gap-1">
                                     <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
                                     {/* <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div> */}
                                 </div>
                                 Reservado
                             </div>
-                            <div className="flex flex-row justify-center items-center gap-1">
+                            <div className="flex flex-row justify-start items-center gap-1">
                                 <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
                                 Seguimiento
                             </div>
@@ -752,18 +781,18 @@ export default function Eventos() {
                                 <div className={`rounded-full text-transparent text-xs bg-[#00ffff]`}>......</div>
                                 Vendido
                             </div> */}
-                            <div className="flex flex-row justify-center items-center gap-1">
+                            <div className="flex flex-row justify-start items-center gap-1">
                                 <div className={`rounded-full text-transparent text-base bg-[#f33]`}>......</div>
                                 Por Vencer
                             </div>
                             {
                                 (getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") &&
                                 <>
-                                    <div className="flex flex-row justify-center items-center gap-1">
+                                    <div className="flex flex-row justify-start items-center gap-1">
                                         <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
                                         {`Vendido Asesor`}
                                     </div>
-                                    <div className="flex flex-row justify-center items-center gap-1">
+                                    <div className="flex flex-row justify-start items-center gap-1">
                                         <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
                                         {`Vendido Invitado`}
                                     </div>
@@ -772,41 +801,15 @@ export default function Eventos() {
                             {
                                 (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
                                 <>
-                                    <div className="flex flex-row justify-center items-center gap-1">
+                                    <div className="flex flex-row justify-start items-center gap-1">
                                         <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
                                         {`Vendido Asesor (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == true && x?.status == "1")?.length})`}
                                     </div>
-                                    <div className="flex flex-row justify-center items-center gap-1">
+                                    <div className="flex flex-row justify-start items-center gap-1">
                                         <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
                                         {`Vendido Invitado (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == false && x?.status == "1")?.length})`}
                                     </div>
                                 </>
-                            }
-                        </div>
-                        <div className="flex flex-col items-center justify-center w-full -mt-6">
-                            {
-                                (
-                                    info?.capacity === "200" &&
-                                    <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-blue-200">
-                                        <Evento200Sale {...{ handleClickInformation, setOpen }} />
-                                    </div>
-                                )
-                            }
-                            {
-                                (
-                                    info?.capacity === "250" &&
-                                    <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-blue-200">
-                                        <Evento250Sale {...{ handleClickInformation, setOpen }} />
-                                    </div>
-                                )
-                            }
-                            {
-                                (
-                                    info?.capacity === "300" &&
-                                    <div className="text-center text-4xl mb-10 px-8 pt-10 border-2 rounded-lg shadow-2xl mx-5 mt-5 bg-blue-200">
-                                        <Evento300Sale {...{ handleClickInformation, setOpen }} />
-                                    </div>
-                                )
                             }
                         </div>
                     </div>
