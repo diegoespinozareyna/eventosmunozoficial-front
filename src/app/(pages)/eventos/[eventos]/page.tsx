@@ -12,7 +12,7 @@ import { Evento250Sale } from "@/app/components/Escenarios/Evento250/Evento250Sa
 import { Evento300Sale } from "@/app/components/Escenarios/Evento300/Evento300Sale"
 import Swal from "sweetalert2"
 import { StatusLotes } from "@/app/configs/proyecto/statusLotes"
-import { ChevronsLeft, Upload, X } from "lucide-react"
+import { ChevronsLeft, FileText, SquaresExclude, Upload, X } from "lucide-react"
 import { changeDecimales } from "@/app/functions/changeDecimales"
 import { usePopUp } from "@/app/hooks/popup/usePopUp"
 import Image from "next/image"
@@ -22,6 +22,9 @@ import axios from "axios"
 import { IoMdEye } from "react-icons/io"
 import moment from "moment-timezone"
 import { PopUp } from "@/app/components/popUp/PopUp"
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
+import { PiMicrosoftExcelLogoLight } from "react-icons/pi";
 
 // Extend the Window interface to include VisanetCheckout
 declare global {
@@ -634,6 +637,34 @@ export default function Eventos() {
         // setLoading(false);
     };
 
+    const handleDownload = () => {
+        const cleanData: any[] = dataAsientosComprados.map((item: any) => ({
+            Documento: item.documentoUsuario,
+            Nombres: item.nombres,
+            Paterno: item.apellidoPaterno,
+            Materno: item.apellidoMaterno,
+            Celular: item.celular || '',
+            Asiento: item.codAsiento,
+            Precio: item.precio,
+            // Proyecto: item.proyecto,
+            RegistroPor: item.usuarioRegistro,
+            FechaFin: item.fechaFin,
+            FechaCreacion: item.createdAt,
+            Estado: item.status == "0" ? 'Pendiente Pago' : item.status == "1" ? 'Vendido' : item.status == "2" ? 'Liberado' : 'Bloqueado',
+            '¿Pasarela?': item.isPasarela ? 'Sí' : 'No',
+            '¿Compra Asesor/Invitado?': item.compraUserAntiguo ? 'Asesor' : 'Invitado',
+            Vouchers: item.vouchersTotales?.map((v: any) => v.url).join('\n') || ''
+        }));
+
+        const worksheet: any = XLSX.utils.json_to_sheet(cleanData);
+        const workbook: any = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Reporte');
+
+        const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+        const blob: any = new Blob([excelBuffer], { type: 'application/octet-stream' });
+        saveAs(blob, 'reporte.xlsx');
+    };
+
     return (
         <>
             {isLoading && <TicketLoaderMotion />}
@@ -682,8 +713,20 @@ export default function Eventos() {
                         <div className="w-full text-center mb-0 font-bold text-base uppercase text-yellow-500 mt-1">
                             {info?.title}
                         </div>
-                        <div className="pl-6 mt-1 text-base font-bold uppercase">
-                            Elija Asiento:
+                        <div className="pl-6 mt-1 text-base font-bold uppercase flex justify-between items-center">
+                            <div>
+                                Elija Asiento:
+                            </div>
+                            {
+                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
+                                <div className="pr-5">
+                                    <button
+                                        className="bg-green-600 text-white px-2 py-2 rounded-lg font-bold text-xl cursor-pointer flex justify-center items-center"
+                                        onClick={handleDownload}>
+                                        <PiMicrosoftExcelLogoLight className="h-5 w-5" />
+                                    </button>
+                                </div>
+                            }
                         </div>
                         <div className="grid md:grid-cols-6 gap-2 mt-3 text-base font-bold uppercase justify-center items-center p-2 rounded-md bg-blue-100 m-5 shadow-xl">
                             <div className="flex flex-row justify-center items-center gap-1">
