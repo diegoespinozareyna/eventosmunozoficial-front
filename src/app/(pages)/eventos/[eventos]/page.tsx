@@ -728,33 +728,33 @@ export default function Eventos() {
                                 </div>
                             }
                         </div>
-                        <div className="grid md:grid-cols-6 gap-2 mt-3 text-base font-bold uppercase justify-center items-center p-2 rounded-md bg-blue-100 m-5 shadow-xl">
+                        <div className="grid md:grid-cols-7 gap-2 mt-3 text-base font-bold uppercase justify-center items-center p-2 rounded-md bg-blue-100 m-5 shadow-xl">
                             <div className="flex flex-row justify-center items-center gap-1">
                                 <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
-                                Disponible General
+                                Entrada Disponible
                             </div>
                             <div className="flex flex-row justify-center items-center gap-1">
                                 <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
-                                Disponible Premium
+                                Entrada VIP
                             </div>
                             <div className="flex flex-row justify-center items-center gap-1">
                                 <div className="flex flex-row justify-center items-center gap-1">
                                     <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
-                                    <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
+                                    {/* <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div> */}
                                 </div>
-                                Reservado (P/N)
+                                Reservado
                             </div>
-                            {/* <div className="flex flex-row justify-center items-center gap-1">
+                            <div className="flex flex-row justify-center items-center gap-1">
                                 <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
-                                Reservado (N)
-                            </div> */}
+                                Seguimiento
+                            </div>
                             {/* <div className="flex flex-row justify-center items-center gap-1">
                                 <div className={`rounded-full text-transparent text-xs bg-[#00ffff]`}>......</div>
                                 Vendido
                             </div> */}
                             <div className="flex flex-row justify-center items-center gap-1">
                                 <div className={`rounded-full text-transparent text-base bg-[#f33]`}>......</div>
-                                Pendiente (Fecha)
+                                Por Vencer
                             </div>
                             {
                                 (getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") &&
