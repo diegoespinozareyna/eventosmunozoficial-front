@@ -676,18 +676,16 @@ export default function Eventos() {
             <div className="!max-w-full relative z-20 w-full flex items-center justify-center">
                 {
                     !openAsientos && info &&
-                    <div className="flex flex-col min-h-screen w-full pt-0.5">
+                    <div className="relative flex flex-col min-h-screen w-full pt-0.5">
                         {/* Imagen ocupando el 90% */}
-                        <div className="relative w-full" style={{ height: '95vh' }}>
-                            <Image
-                                src={info?.urlFlyer}
-                                alt="Flyer"
-                                fill
-                                style={{ objectFit: 'contain', objectPosition: 'center' }}
-                                onLoad={handleImageLoad}
-                                priority
-                            />
-                        </div>
+                        <Image
+                            src={info?.urlFlyer}
+                            alt="Flyer"
+                            fill
+                            className="object-contain object-top"
+                            onLoad={handleImageLoad}
+                            priority
+                        />
 
                         {/* Botón ocupando el 10% */}
                         <div className="absolute w-full bg-transparent flex justify-center items-center bottom-[20%]">
