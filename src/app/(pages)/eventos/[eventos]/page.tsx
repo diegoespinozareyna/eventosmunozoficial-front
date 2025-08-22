@@ -719,7 +719,7 @@ export default function Eventos() {
                             {/* <div>
                                 Entradas:
                             </div> */}
-                            {
+                            {/* {
                                 (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
                                 <div className="pr-5">
                                     <button
@@ -728,7 +728,7 @@ export default function Eventos() {
                                         <PiMicrosoftExcelLogoLight className="h-5 w-5" />
                                     </button>
                                 </div>
-                            }
+                            } */}
                         </div>
 
                         <div className="flex flex-col items-center justify-center w-full -mt">
