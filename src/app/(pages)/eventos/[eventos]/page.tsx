@@ -678,7 +678,7 @@ export default function Eventos() {
                     !openAsientos && info &&
                     <div className="flex flex-col min-h-screen w-full pt-0.5">
                         {/* Imagen ocupando el 90% */}
-                        <div className="relative w-full" style={{ height: '100vh' }}>
+                        <div className="relative w-full" style={{ height: '95vh' }}>
                             <Image
                                 src={info?.urlFlyer}
                                 alt="Flyer"
@@ -690,7 +690,7 @@ export default function Eventos() {
                         </div>
 
                         {/* Botón ocupando el 10% */}
-                        <div className="absolute w-full bg-transparent flex justify-center items-center bottom-6">
+                        <div className="absolute w-full bg-transparent flex justify-center items-center bottom-[20%]">
                             <button
                                 className="bg-green-500 w-full text-white px-18 py-4 font-bold text-xl rounded-lg z-50 button-attention cursor-pointer"
                                 onClick={() => setOpenAsientos(true)}
