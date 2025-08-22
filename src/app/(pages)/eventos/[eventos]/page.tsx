@@ -153,7 +153,9 @@ export default function Eventos() {
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
                 else if (obj1?.id?.includes("A") || obj1?.id?.includes("B") || obj1?.id?.includes("C")) {
-                    obj1?.setAttribute('fill', "#7777ff");
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
@@ -666,7 +668,7 @@ export default function Eventos() {
     };
 
     return (
-        <>
+        <div className="bg-blue-500 h-[100vh]">
             {isLoading && <TicketLoaderMotion />}
             <div className="!max-w-full relative z-20 w-full flex items-center justify-center">
                 {
@@ -697,9 +699,9 @@ export default function Eventos() {
                 }
                 {
                     openAsientos &&
-                    <div className="flex flex-col">
+                    <div className="flex flex-col -mt-3">
                         <div>
-                            <button className="bg-blue-500 text-white px-3 py-3 relative z-20 font-bold text-xl cursor-pointer rounded-lg ml-5 mt-2 flex justify-center items-center"
+                            <button className="bg-blue-500 text-white px-2 py-2 relative z-20 font-bold text-xl cursor-pointer rounded-lg ml-5 mt-2 flex justify-center items-center"
                                 onClick={() => {
                                     setIsLoading(true);
                                     setOpenAsientos(false)
@@ -710,13 +712,13 @@ export default function Eventos() {
                                 />
                             </button>
                         </div>
-                        <div className="w-full text-center mb-0 font-bold text-base uppercase text-yellow-500 mt-1">
+                        <div className="w-full text-center mb-0 font-bold text-base uppercase text-yellow-500 -mt-3">
                             {info?.title}
                         </div>
-                        <div className="pl-6 mt-1 text-base font-bold uppercase flex justify-between items-center mb-3">
-                            <div>
+                        <div className="pl-6 text-base font-bold uppercase flex justify-between items-center mb-3 -mt-3">
+                            {/* <div>
                                 Entradas:
-                            </div>
+                            </div> */}
                             {
                                 (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
                                 <div className="pr-5">
@@ -733,8 +735,8 @@ export default function Eventos() {
                             {
                                 (
                                     info?.capacity === "200" &&
-                                    <div className="text-center text-4xl px-8 border- rounded-lg shadow-2xl bg-blue-500 border-blue-300 border-4 mx-1">
-                                    {/* <div className="text-center text-4xl px-8 border-2 rounded-lg shadow-2xl bg-gradient-to-t from-blue-400 to-blue-600"> */}
+                                    <div className="h-[80vh] md:h-[200vh] text-center text-4xl mx-3 px-1 md:mx-8 border- rounded-lg shadow-2xl bg-blue-600">
+                                        {/* <div className="text-center text-4xl px-8 border-2 rounded-lg shadow-2xl bg-gradient-to-t from-blue-400 to-blue-600"> */}
                                         <Evento200Sale {...{ handleClickInformation, setOpen }} />
                                     </div>
                                 )
@@ -757,14 +759,14 @@ export default function Eventos() {
                             }
                         </div>
 
-                        <div className="grid md:grid-cols-4 gap-2 -mt- text-base font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
-                            <div className="flex flex-row justify-start items-center gap-1">
-                                <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
-                                Entrada Disponible
-                            </div>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 -mt- text-xs font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
                             <div className="flex flex-row justify-start items-center gap-1">
                                 <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
                                 Entrada VIP
+                            </div>
+                            <div className="flex flex-row justify-start items-center gap-1">
+                                <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
+                                General
                             </div>
                             <div className="flex flex-row justify-start items-center gap-1">
                                 <div className="flex flex-row justify-center items-center gap-1">
@@ -773,10 +775,10 @@ export default function Eventos() {
                                 </div>
                                 Reservado
                             </div>
-                            <div className="flex flex-row justify-start items-center gap-1">
+                            {/* <div className="flex flex-row justify-start items-center gap-1">
                                 <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
                                 Seguimiento
-                            </div>
+                            </div> */}
                             {/* <div className="flex flex-row justify-center items-center gap-1">
                                 <div className={`rounded-full text-transparent text-xs bg-[#00ffff]`}>......</div>
                                 Vendido
@@ -790,11 +792,11 @@ export default function Eventos() {
                                 <>
                                     <div className="flex flex-row justify-start items-center gap-1">
                                         <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
-                                        {`Vendido Asesor`}
+                                        {`Vendido`}
                                     </div>
                                     <div className="flex flex-row justify-start items-center gap-1">
                                         <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
-                                        {`Vendido Invitado`}
+                                        {`Invitado`}
                                     </div>
                                 </>
                             }
@@ -1100,6 +1102,6 @@ Datos de Compra:
                     </>
                 }
             </div >
-        </>
+        </div>
     )
 }
