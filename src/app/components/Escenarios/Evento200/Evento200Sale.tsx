@@ -8507,7 +8507,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                     </g>
                                     <foreignObject x="50" y="700" width="400" height="1000">
                                         <div>
-                                            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-xs font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
+                                            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-xs font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl mt-7">
                                                 {/* <div className="flex flex-row justify-start items-center gap-1">
                                                     <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
                                                     Entrada VIP

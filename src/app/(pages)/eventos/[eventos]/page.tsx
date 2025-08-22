@@ -44,6 +44,9 @@ export default function Eventos() {
     const params: any = useParams()
     console.log("params: ", params?.eventos)
     const router = useRouter()
+    if (params?.eventos === "CONVENCION-BIENES-RAICES") {
+        router.push(`/eventos/CONVENCIÓN%20EN%20BIENES%20RAÍCES-68857e9349183618fc16a323`)
+    }
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
 
@@ -675,7 +678,7 @@ export default function Eventos() {
                     !openAsientos && info &&
                     <div className="flex flex-col min-h-screen w-full pt-0.5">
                         {/* Imagen ocupando el 90% */}
-                        <div className="relative w-full" style={{ height: '91.5vh' }}>
+                        <div className="relative w-full" style={{ height: '100vh' }}>
                             <Image
                                 src={info?.urlFlyer}
                                 alt="Flyer"
@@ -687,9 +690,9 @@ export default function Eventos() {
                         </div>
 
                         {/* Botón ocupando el 10% */}
-                        <div className="w-full bg-white flex justify-center items-center" style={{ height: '8.5vh' }}>
+                        <div className="absolute w-full bg-transparent flex justify-center items-center bottom-6">
                             <button
-                                className="bg-green-500 text-white px-18 py-4 font-bold text-xl rounded-lg z-50 button-attention cursor-pointer"
+                                className="bg-green-500 w-full text-white px-18 py-4 font-bold text-xl rounded-lg z-50 button-attention cursor-pointer"
                                 onClick={() => setOpenAsientos(true)}
                             >
                                 COMPRAR ENTRADAS
@@ -826,13 +829,13 @@ export default function Eventos() {
                                         {
                                             !dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
                                             <div className="font-bold uppercase text-slate-700">
-                                                {`Asiento ${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "(VIP)" : "(G)"}`}
+                                                {`${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "VIP (V)" : "GENERAL (G)"}`}
                                             </div>
                                         }
                                         {
                                             dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
                                             <div className="font-bold uppercase text-slate-700">
-                                                {`Asiento ${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "(VIP - " : "(G - "} S/. ${changeDecimales(dataAsientos?.precio)})`}
+                                                {`${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "(VIP (V) - " : "(GENERAL (G) - "} S/. ${changeDecimales(dataAsientos?.precio)})`}
                                             </div>
                                         }
                                         <div className="rounded-sm bg-slate-50 px-2 py-0 text-center">{`${dataAsientos?.id}`}</div>
