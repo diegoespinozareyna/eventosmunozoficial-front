@@ -51,7 +51,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             // transform: "scale(1)",
                                         }
                                     }
-                                    className="h-[100vh] sm:h-[100vh] md:h-[310vh] w-[100%] md:w-[90%] scale-[1.1] md:scale-[1] mt-5"
+                                    className="h-[100vh] sm:h-[100vh] md:h-[310vh] w-[100%] md:w-[90%] scale-[1.1] md:scale-[1] mt-10"
                                     preserveAspectRatio="xMidYMin meet"
                                 >
                                     <g>

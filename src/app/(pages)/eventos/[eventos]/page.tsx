@@ -688,7 +688,7 @@ export default function Eventos() {
                         />
 
                         {/* Botón ocupando el 10% */}
-                        <div className="absolute w-full bg-transparent flex justify-center items-center bottom-[20%]">
+                        <div className="absolute w-full bg-transparent flex justify-center items-center bottom-[15%]">
                             <button
                                 className="bg-green-500 w-full text-white px-18 py-4 font-bold text-xl rounded-lg z-50 button-attention cursor-pointer"
                                 onClick={() => setOpenAsientos(true)}
