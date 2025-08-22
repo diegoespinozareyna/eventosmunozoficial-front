@@ -2,7 +2,7 @@ import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import { ArrowDownUp } from "lucide-react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
-export const Evento200Sale = ({ handleClickInformation, setOpen }: any) => {
+export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, dataAsientosComprados }: any) => {
     return (
         <div className="-mt-">
             <TransformWrapper
@@ -51,7 +51,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen }: any) => {
                                             // transform: "scale(1)",
                                         }
                                     }
-                                    className="h-[80vh] md:h-[200vh] w-[100%] md:w-[90%] scale-[1.1] md:scale-[1] md:-ml-10"
+                                    className="h-[100vh] sm:h-[100vh] md:h-[310vh] w-[100%] md:w-[90%] scale-[1.1] md:scale-[1] mt-5"
                                     preserveAspectRatio="xMidYMin meet"
                                 >
                                     <g>
@@ -8505,6 +8505,91 @@ export const Evento200Sale = ({ handleClickInformation, setOpen }: any) => {
                                         </g>
 
                                     </g>
+                                    <foreignObject x="50" y="700" width="400" height="1000">
+                                        <div>
+                                            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-xs font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
+                                                {/* <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
+                                                    Entrada VIP
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#fff] border border-slate-400">......</div>
+                                                    General
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#efc600]">......</div>
+                                                    Reservado
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#f33]">......</div>
+                                                    Por Vencer
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#efc600]">......</div>
+                                                    Reservado
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#f33]">......</div>
+                                                    Por Vencer
+                                                </div> */}
+                                                {/* Agrega lógica condicional aquí si es un componente React */}
+                                                {/* Otros bloques según el rol */}
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
+                                                    Entrada VIP
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
+                                                    General
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="flex flex-row justify-center items-center gap-1">
+                                                        <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
+                                                        {/* <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div> */}
+                                                    </div>
+                                                    Reservado
+                                                </div>
+                                                {/* <div className="flex flex-row justify-start items-center gap-1">
+                                <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
+                                Seguimiento
+                            </div> */}
+                                                {/* <div className="flex flex-row justify-center items-center gap-1">
+                                <div className={`rounded-full text-transparent text-xs bg-[#00ffff]`}>......</div>
+                                Vendido
+                            </div> */}
+                                                <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className={`rounded-full text-transparent text-base bg-[#f33]`}>......</div>
+                                                    Por Vencer
+                                                </div>
+                                                {
+                                                    (getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") &&
+                                                    <>
+                                                        <div className="flex flex-row justify-start items-center gap-1">
+                                                            <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
+                                                            {`Vendido`}
+                                                        </div>
+                                                        <div className="flex flex-row justify-start items-center gap-1">
+                                                            <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
+                                                            {`Invitado`}
+                                                        </div>
+                                                    </>
+                                                }
+                                                {
+                                                    (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
+                                                    <>
+                                                        <div className="flex flex-row justify-start items-center gap-1">
+                                                            <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
+                                                            {`Vendido Asesor (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == true && x?.status == "1")?.length})`}
+                                                        </div>
+                                                        <div className="flex flex-row justify-start items-center gap-1">
+                                                            <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
+                                                            {`Vendido Invitado (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == false && x?.status == "1")?.length})`}
+                                                        </div>
+                                                    </>
+                                                }
+                                            </div>
+                                        </div>
+                                    </foreignObject>
                                 </svg>
                             </div>
                         </TransformComponent>

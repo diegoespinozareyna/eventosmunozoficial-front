@@ -735,9 +735,9 @@ export default function Eventos() {
                             {
                                 (
                                     info?.capacity === "200" &&
-                                    <div className="h-[80vh] md:h-[200vh] text-center text-4xl mx-3 px-1 md:mx-8 border- rounded-lg shadow-2xl bg-blue-600">
+                                    <div className="h-[80vh] md:h-[270vh] text-center text-4xl mx-3 px-1 md:mx-8 border- rounded-lg shadow-2xl bg-blue-600">
                                         {/* <div className="text-center text-4xl px-8 border-2 rounded-lg shadow-2xl bg-gradient-to-t from-blue-400 to-blue-600"> */}
-                                        <Evento200Sale {...{ handleClickInformation, setOpen }} />
+                                        <Evento200Sale {...{ handleClickInformation, setOpen, getValues, dataAsientosComprados }} />
                                     </div>
                                 )
                             }
@@ -759,7 +759,7 @@ export default function Eventos() {
                             }
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 -mt- text-xs font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
+                        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-2 -mt- text-xs font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
                             <div className="flex flex-row justify-start items-center gap-1">
                                 <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
                                 Entrada VIP
@@ -771,18 +771,9 @@ export default function Eventos() {
                             <div className="flex flex-row justify-start items-center gap-1">
                                 <div className="flex flex-row justify-center items-center gap-1">
                                     <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
-                                    {/* <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div> */}
                                 </div>
                                 Reservado
                             </div>
-                            {/* <div className="flex flex-row justify-start items-center gap-1">
-                                <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div>
-                                Seguimiento
-                            </div> */}
-                            {/* <div className="flex flex-row justify-center items-center gap-1">
-                                <div className={`rounded-full text-transparent text-xs bg-[#00ffff]`}>......</div>
-                                Vendido
-                            </div> */}
                             <div className="flex flex-row justify-start items-center gap-1">
                                 <div className={`rounded-full text-transparent text-base bg-[#f33]`}>......</div>
                                 Por Vencer
@@ -813,7 +804,7 @@ export default function Eventos() {
                                     </div>
                                 </>
                             }
-                        </div>
+                        </div> */}
                     </div>
                 }
                 {
