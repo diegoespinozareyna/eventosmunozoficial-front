@@ -12,7 +12,7 @@ import { Evento250Sale } from "@/app/components/Escenarios/Evento250/Evento250Sa
 import { Evento300Sale } from "@/app/components/Escenarios/Evento300/Evento300Sale"
 import Swal from "sweetalert2"
 import { StatusLotes } from "@/app/configs/proyecto/statusLotes"
-import { ChevronsLeft, FileText, SquaresExclude, Upload, X } from "lucide-react"
+import { ChevronsLeft, Edit2Icon, FileText, SquaresExclude, Upload, X } from "lucide-react"
 import { changeDecimales } from "@/app/functions/changeDecimales"
 import { usePopUp } from "@/app/hooks/popup/usePopUp"
 import Image from "next/image"
@@ -115,7 +115,19 @@ export default function Eventos() {
                 const diferencia2 = fechaEvento.getTime() - hoy.getTime();
                 // console.log("diferencia: ", diferencia);
 
-                if (match?.isTicketsPendings > 0 && match?.status !== "1") {
+                if (match?.status == "4") {
+                    // obj1?.setAttribute('fill', Apis.COLOR_DISPONIBLE);
+                    obj1?.setAttribute('fill', "#61baed");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (match?.status == "5") {
+                    // obj1?.setAttribute('fill', Apis.COLOR_DISPONIBLE);
+                    obj1?.setAttribute('fill', "#afa");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (match?.isTicketsPendings > 0 && match?.status !== "1") {
                     obj1?.setAttribute('fill', "#ff0");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
@@ -322,6 +334,7 @@ export default function Eventos() {
         }
 
         const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/auth/compraAsiento`
+        const url2 = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/auth/editarAsiento`
         const jsonSend = {
             ...data,
             status: "0",
@@ -424,7 +437,7 @@ export default function Eventos() {
                 fetchAsientosIdMatrix()
             }
         }
-        else {
+        else if (getValues()?.cambiarStatusAsiento !== true) {
             try {
                 const response = await apiCall({
                     method: "post", endpoint: url, data: { ...jsonSend, montoPasarela: getValues()?.montoPasarela }
@@ -480,6 +493,71 @@ export default function Eventos() {
                 fetchAsientosIdMatrix()
             }
         }
+        else if (getValues()?.cambiarStatusAsiento == true) { // cambiar datos de usuario (editar)
+            try {
+                const response = await apiCall({
+                    method: "patch", endpoint: url2, data: {
+                        id: getValues()?.idEditarAsiento,
+                        nombres: data?.nombres,
+                        apellidoPaterno: data?.apellidoPaterno,
+                        apellidoMaterno: data?.apellidoMaterno,
+                        celular: data?.celular,
+                        documentoUsuario: data?.documentoUsuario,
+                        patrocinadorId: data?.patrocinadorId,
+                        compraUserAntiguo: getValues()?.UsuarioAntiguo,
+                    }
+                })
+                console.log("responsefuianl: ", response)
+                if (response.status === 201) {
+                    Swal.fire({
+                        title: 'Éxito',
+                        text: 'Se edito asiento con éxito',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        // showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        // cancelButtonColor: '#d33',
+                        // cancelButtonText: 'No',
+                        showLoaderOnConfirm: true,
+                        allowOutsideClick: false,
+                        timer: 3000,
+                        // preConfirm: () => {
+                        //     router.push(`/dashboard/verUsuarios`);
+                        //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
+                        //     return
+                        // },
+                    });
+                    reset({
+                        usersPatrocinadores: getValues()?.usersPatrocinadores,
+                    })
+                    setOpen(false)
+                    setOpenPopup(false)
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'No se ha podido edito asiento',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        // cancelButtonText: 'No',
+                        showLoaderOnConfirm: true,
+                        allowOutsideClick: false,
+                        // preConfirm: () => {
+                        //     return
+                        // },
+                    });
+                }
+
+            }
+            catch (error) {
+                console.error('Error al enviar datos:', error);
+            }
+            finally {
+                fetchAsientosIdMatrix()
+            }
+        }
     }
 
     const handleChangeState = async (id: string, codAsiento: any, key: any) => {
@@ -495,6 +573,8 @@ export default function Eventos() {
               <option value="0">Pendiente</option>
               <option value="1">Aprobado</option>
               <option value="3">Liberar</option>
+              <option value="4">No Disponible Asesor</option>
+              <option value="5">No Disponible Invitado</option>
             </select>
             <textarea id="comentario" class="swal2-textarea" placeholder="Escribe un comentario"></textarea>
           ` : key == "statusVoucher" && `
@@ -876,16 +956,32 @@ export default function Eventos() {
                                     }
                                     <div className="flex flex-col gap-3 justify-center items-center mt-0">
                                         {
-                                            dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
+                                            (dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)) &&
                                             <>
                                                 {/* <div className="font-bold">Usuario</div> */}
                                                 {
                                                     (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
-                                                    <>
-                                                        <div className="text-center">
-                                                            {`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.nombres} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoPaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoMaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.documentoUsuario} / ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular}`}
-                                                        </div>
-                                                    </>
+
+                                                    (dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
+                                                        <div className="flex flex-row gap-1 justify-start items-start mt-0 px-2">
+                                                            <div className="text-center">
+                                                                {`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.nombres} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoPaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.apellidoMaterno} ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.documentoUsuario} / ${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.celular}`}
+                                                            </div>
+                                                            <button className="bg-green-500 text-[12px] text-white py-2 px-2 rounded-sm font-bold cursor-pointer" onClick={() => {
+                                                                setOpenPopup(true)
+                                                                // setValue("siPasarelaPay", true)
+                                                                // setValue("montoPasarela", dataAsientos?.precio)
+                                                                setValue("cambiarStatusAsiento", true)
+                                                                setValue("idEditarAsiento", dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?._id)
+                                                                console.log("cambiarStatusAsiento: ")
+                                                            }}>
+                                                                <Edit2Icon
+                                                                    color="#fff"
+                                                                    size={15}
+                                                                />
+                                                            </button>
+                                                        </div>)
+
                                                 }
                                                 <div className="flex flex-col gap-3 justify-center items-center mt-0 rounded-md bg-slate-50 px-2 py-1 my-2 mx-3">
                                                     <div className="font-bold  flex flex-row gap-2 justify-center items-center">
@@ -899,9 +995,9 @@ export default function Eventos() {
                                                         </button>
                                                     </div>
                                                     <div
-                                                        className={`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "0" ? "text-yellow-500" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "1" ? "text-green-500" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "2" ? "text-red-500" : "text-yellow-500"} text-center -mt-3 px-2`}
+                                                        className={`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "0" ? "text-yellow-500" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "1" ? "text-green-500" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "2" ? "text-red-500" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "4" ? "No text-red-500" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "5" ? "text-red-500" : "text-green-500"} text-center -mt-3 px-2`}
                                                     >
-                                                        {`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "0" ? "Reservado (Pendiente de Aprobación por pagos o fecha)" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "1" ? "Vendido" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "2" ? "Rechazado" : "Rechazado"}`}
+                                                        {`${dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "0" ? "Reservado (Pendiente de Aprobación por pagos o fecha)" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "1" ? "Vendido" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "2" ? "Rechazado" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "4" ? "No Disponible Asesor" : dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id)?.status == "5" ? "No Disponible Invitado" : "Disponible"}`}
                                                     </div>
                                                 </div>
                                                 {
@@ -1094,6 +1190,6 @@ Datos de Compra:
                     </>
                 }
             </div >
-        </div>
+        </div >
     )
 }

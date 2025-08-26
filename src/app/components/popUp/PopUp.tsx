@@ -285,7 +285,7 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                 <div className="flex flex-col gap-2 bg-[rgba(255,255,255,0.8)] rounded-lg p-3 px-3 mt-0 w-[350px] mx-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {
-                            getValues()?.siPasarelaPay &&
+                            getValues()?.siPasarelaPay && getValues()?.cambiarStatusAsiento !== true &&
                             <>
                                 <div className="flex flex-col gap-3">
                                     <FormComprarTicket {...{ getValues, setValue, handleSubmit, control, apiCall, loading, error }} />
@@ -401,7 +401,7 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                             </>
                         }
                         {
-                            getValues()?.noPasarelaPay &&
+                            getValues()?.noPasarelaPay && getValues()?.cambiarStatusAsiento !== true &&
                             <div className="flex flex-col gap-3">
                                 <div className="uppercase text-center text-base font-bold text-black">
                                     {"Datos Usuario"}
@@ -467,6 +467,77 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                                         disabled={loading || loadingUpload}
                                     >
                                         Comprar Ticket
+                                    </Button>
+                                </div>
+                            </div>
+                        }
+                        {
+                            getValues()?.cambiarStatusAsiento == true &&
+                            <div className="flex flex-col gap-3">
+                                <div className="uppercase text-center text-base font-bold text-black">
+                                    {"Datos Usuario"}
+                                </div>
+                                <div className="flex flex-col gap-3">
+                                    <FormComprarTicket {...{ getValues, setValue, handleSubmit, control, apiCall, loading, error }} />
+                                </div>
+                                <div className="mt-0">
+                                    <Controller
+                                        name={"patrocinadorId"}
+                                        control={control}
+                                        render={({ field }) => (
+                                            <Autocomplete
+                                                options={options}
+                                                getOptionLabel={(option) => option?.label || ""}
+                                                isOptionEqualToValue={(option, value) => option?.value === value?.value}
+                                                value={field.value || null}
+                                                inputValue={inputValue}
+                                                // Validation can be handled via the Controller or form logic
+                                                onInputChange={(_, newInputValue) => {
+                                                    setInputValue(newInputValue)
+                                                    if (newInputValue.length >= 3) {
+                                                        handleSearch(newInputValue)
+                                                    }
+                                                }}
+                                                onChange={(_, newValue) => {
+                                                    field.onChange(newValue)
+                                                    if (newValue) {
+                                                        setInputValue(newValue.label)
+                                                        setOptions([newValue])
+                                                    } else {
+                                                        setInputValue("")
+                                                    }
+                                                }}
+                                                loading={loading22}
+                                                filterOptions={(x) => x}
+                                                renderInput={(params) => (
+                                                    <TextField
+                                                        {...params}
+                                                        required
+                                                        label="Buscar persona (DNI o nombres)"
+                                                        InputProps={{
+                                                            ...params.InputProps,
+                                                            endAdornment: (
+                                                                <>
+                                                                    {loading22 && <CircularProgress size={20} />}
+                                                                    {params.InputProps.endAdornment}
+                                                                </>
+                                                            ),
+                                                        }}
+                                                    />
+                                                )}
+                                            />
+                                        )}
+                                    />
+                                </div>
+                                <div className="flex flex-row gap-3 w-full">
+                                    <Button
+                                        variant="contained"
+                                        color="success"
+                                        type="submit"
+                                        className="w-full"
+                                        disabled={loading || loadingUpload}
+                                    >
+                                        Editar Datos
                                     </Button>
                                 </div>
                             </div>
