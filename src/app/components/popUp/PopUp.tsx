@@ -220,26 +220,42 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                     loadingElement.style.display = 'none';
                 }
                 // Redireccionar a una url front
-                if (res3.status === 200) {
+                console.log("pago ok", res3)
+                console.log("pago ok", res3?.data?.data?.dataMap?.STATUS)
+                console.log("pago ok", res3?.data?.data?.dataMap?.STATUS == "Authorized")
+                if (res3?.data?.data?.dataMap?.STATUS == "Authorized") {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Pago exitoso",
+                        text: `Reservó su asiento con éxito, un ejecutivo se comunicará con usted en la brevedad posible`,
+                    });
+                    console.log("pago ok", res3)
                     console.log("pago ok")
                     onSubmit(getValues());
                     window.location.reload()
                 }
-                else if (res3.status !== 200) {
+                else if (res3?.data?.data?.dataMap?.STATUS !== "Authorized") {
+                    console.log("pago ok", res3?.data?.data?.data?.ACTION_DESCRIPTION
+                    )
                     Swal.fire({
                         icon: "warning",
-                        title: "Alerta",
-                        text: "Ocurrió un inconveniente con su pago, NO se hizo el cobro. Por su seguridad lo enviaremos a la página principal",
+                        title: "Ocurrió un inconveniente con su pago",
+                        text: `Error: ${res3?.data?.data?.data?.ACTION_DESCRIPTION}, por su seguridad se le enviará a la página principal`,
                     });
                     if (process.env.NEXT_PUBLIC_API_URL) {
                         setTimeout(() => {
-                            window.location.replace(`${process.env.NEXT_PUBLIC_API_URL}`);
-                        }, 5000)
+                            window.location.reload()
+                        }, 7000)
                     }
                     else {
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Ocurrió un inconveniente con su pago",
+                            text: `Error: ${res3?.data?.data?.data?.ACTION_DESCRIPTION}, por su seguridad se le enviará a la página principal`,
+                        });
                         setTimeout(() => {
-                            window.location.replace("http://localhost:3000/");
-                        }, 5000)
+                            window.location.reload()
+                        }, 7000)
                     }
                 }
             } catch (error) {

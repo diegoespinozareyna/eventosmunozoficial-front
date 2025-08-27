@@ -89,7 +89,7 @@ export const usePopUp = () => {
             const MERCHANT_ID = "650245394";
             // const AMOUNT = "300";
             // const AMOUNT = dataAsientos?.precio;
-            const AMOUNT = Apis.PRECIO_PASARELA;
+            const AMOUNT = 1;
             // const JS_URL = "https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true"; // test
             const JS_URL = "https://static-content.vnforapps.com/v2/js/checkout.js"; // prod
             const PUCHASE_NUMBER = Math.floor(Math.random() * (999999999999 - 1 + 1)) + 1; // único por transacción
@@ -181,7 +181,7 @@ export const usePopUp = () => {
                     channel: 'web',
                     merchantid: "650245394",
                     purchasenumber: `${PUCHASE_NUMBER}`,
-                    amount: AMOUNT,
+                    amount: 1,
                     expirationminutes: '20',
                     timeouturl: process.env.NEXT_PUBLIC_API_URL ? `${process.env.NEXT_PUBLIC_API_URL}/timeout` : 'http://localhost:3000/timeout',
                     merchantlogo: 'https://files.readme.io/296927b-LOGO-NIUBIZ-LATEST.svg',
@@ -213,7 +213,7 @@ export const usePopUp = () => {
                 const sessionToken3 = {
                     codigoComercio: MERCHANT_ID,
                     tokenGenerado2: response.token,
-                    montoPagar: AMOUNT,
+                    montoPagar: 1,
                     numeroAleatorio: PUCHASE_NUMBER,
                     tokenSession: SECURITY_TOKEN,
                     // tokenSession: tokenSession77?.data?.data,
