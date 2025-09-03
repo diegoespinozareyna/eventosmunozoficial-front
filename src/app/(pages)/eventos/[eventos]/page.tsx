@@ -163,11 +163,21 @@ export default function Eventos() {
                 // }
                 else if (match?.status == "0") {
                     // obj1?.setAttribute('fill', Apis.COLOR_DISPONIBLE);
-                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#efc600"); // color dorado
+                    obj1?.setAttribute('fill', "#e9afdd"); // color rosado
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
-                else if (obj1?.id?.includes("A") || obj1?.id?.includes("B") || obj1?.id?.includes("C")) {
+                else if (obj1?.id?.includes("A") || obj1?.id?.includes("B")) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    obj1?.setAttribute('fill', "#efc600"); // color dorado
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (obj1?.id?.includes("C") || obj1?.id?.includes("D")) {
                     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
                     // obj1?.setAttribute('fill', "#6F0A6F");
                     // obj1?.setAttribute('fill', "#8B5CF6");
@@ -247,7 +257,7 @@ export default function Eventos() {
         setDataAsientos(
             {
                 id: codAsiento,
-                precio: (codAsiento?.includes("A") || codAsiento?.includes("B") || codAsiento?.includes("C")) ? info?.precioEntradaPremium : info?.precioEntradaGeneral
+                precio: (codAsiento?.includes("A") || codAsiento?.includes("B")) ? info?.precioEntradaPlatinium : (codAsiento?.includes("C") || codAsiento?.includes("D")) ? info?.precioEntradaPremium : info?.precioEntradaGeneral
             }
         )
         const ticketsAsientosno3 = await fetchAsientosIdMatrix()
@@ -800,7 +810,7 @@ export default function Eventos() {
                             {/* <div>
                                 Entradas:
                             </div> */}
-                            {/* {
+                            {
                                 (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
                                 <div className="pr-5">
                                     <button
@@ -809,7 +819,7 @@ export default function Eventos() {
                                         <PiMicrosoftExcelLogoLight className="h-5 w-5" />
                                     </button>
                                 </div>
-                            } */}
+                            }
                         </div>
 
                         <div className="flex flex-col items-center justify-center w-full -mt">
@@ -839,53 +849,6 @@ export default function Eventos() {
                                 )
                             }
                         </div>
-
-                        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-2 -mt- text-xs font-bold uppercase justify-center items-start p-2 rounded-md bg-blue-100 m-5 shadow-xl">
-                            <div className="flex flex-row justify-start items-center gap-1">
-                                <div className="rounded-full text-transparent text-base bg-[#7777ff]">......</div>
-                                Entrada VIP
-                            </div>
-                            <div className="flex flex-row justify-start items-center gap-1">
-                                <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
-                                General
-                            </div>
-                            <div className="flex flex-row justify-start items-center gap-1">
-                                <div className="flex flex-row justify-center items-center gap-1">
-                                    <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
-                                </div>
-                                Reservado
-                            </div>
-                            <div className="flex flex-row justify-start items-center gap-1">
-                                <div className={`rounded-full text-transparent text-base bg-[#f33]`}>......</div>
-                                Por Vencer
-                            </div>
-                            {
-                                (getValues()?.user?.role !== "admin" && getValues()?.user?.role !== "super admin") &&
-                                <>
-                                    <div className="flex flex-row justify-start items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
-                                        {`Vendido`}
-                                    </div>
-                                    <div className="flex flex-row justify-start items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
-                                        {`Invitado`}
-                                    </div>
-                                </>
-                            }
-                            {
-                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin") &&
-                                <>
-                                    <div className="flex flex-row justify-start items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-base bg-[#61baed]`}>......</div>
-                                        {`Vendido Asesor (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == true && x?.status == "1")?.length})`}
-                                    </div>
-                                    <div className="flex flex-row justify-start items-center gap-1">
-                                        <div className={`rounded-full text-transparent text-base bg-[#afa]`}>......</div>
-                                        {`Vendido Invitado (${dataAsientosComprados?.filter((x: any) => x?.compraUserAntiguo == false && x?.status == "1")?.length})`}
-                                    </div>
-                                </>
-                            }
-                        </div> */}
                     </div>
                 }
                 {
@@ -941,17 +904,17 @@ export default function Eventos() {
                                                     RESERVAR CON YAPE
                                                 </button>
                                             </div>
-                                            {
-                                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin" || getValues()?.user?.role == "user asesor") &&
-                                                <div className="flex justify-center items-center gap-2 px-3 mb-1">
-                                                    <button className="bg-green-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
-                                                        setOpenPopup(true)
-                                                        setValue("noPasarelaPay", true)
-                                                    }}>
-                                                        RESERVAR CON VOUCHER
-                                                    </button>
-                                                </div>
-                                            }
+                                            {/* {
+                                                (getValues()?.user?.role == "admin" || getValues()?.user?.role == "super admin" || getValues()?.user?.role == "user asesor") && */}
+                                            <div className="flex justify-center items-center gap-2 px-3 mb-1">
+                                                <button className="bg-green-500 text-[12px] text-white w-full py-2 px-2 rounded-sm  font-bold text-xl cursor-pointer" onClick={() => {
+                                                    setOpenPopup(true)
+                                                    setValue("noPasarelaPay", true)
+                                                }}>
+                                                    RESERVAR CON VOUCHER
+                                                </button>
+                                            </div>
+                                            {/* } */}
                                         </div>
                                     }
                                     <div className="flex flex-col gap-3 justify-center items-center mt-0">

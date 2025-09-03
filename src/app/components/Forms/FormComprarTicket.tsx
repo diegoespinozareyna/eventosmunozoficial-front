@@ -2,6 +2,7 @@ import { dataCambiarStatusAsiento, dataComprarTicket, dataComprarTicketPasarela 
 import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import { handleApiReniec } from "@/app/functions/handleApiReniec";
 import { Autocomplete, Button, CircularProgress, IconButton, TextField } from "@mui/material";
+import { X } from "lucide-react";
 import moment from "moment-timezone";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
@@ -58,7 +59,7 @@ export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, 
                                                     type={item.type === "date" ? "datetime-local" : "text"}
                                                     fullWidth
                                                     required={item.required}
-                                                    // disabled={item.disabled}
+                                                    disabled={item.disabled === true ? true : false}
                                                     InputLabelProps={{
                                                         shrink: true,
                                                     }}
@@ -192,14 +193,9 @@ export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, 
                                             render={({ field, fieldState }) => (
                                                 <div className="flex flex-col gap-1 justify-start items-start">
                                                     <div>
-                                                        {/* {
-                                                            userOld &&
-                                                            <div>{"El Usuario es Antiguo debe subir voucher de Manera Obligatoria:"}</div>
-                                                        } */}
                                                         <Button
                                                             variant="contained"
                                                             component="label"
-                                                            // disabled={row?.status !== SendStatus?.APPROVED}
                                                             style={{ textTransform: "none" }}
                                                         >
                                                             {"Seleccionar Voucher (Obligatorio)"}
@@ -220,23 +216,29 @@ export const FormComprarTicket = ({ getValues, setValue, handleSubmit, control, 
                                                     </div>
 
                                                     {getValues(`${item.name}`) !== "" && getValues(`${item.name}`) !== undefined && getValues(`${item.name}`) !== null && (
-                                                        // <IconButton
-                                                        //     onClick={() => window.open(getValues(`${item.name}`)?.fileUrl ?? getValues(`${item.name}`), "_blank")}
-                                                        //     color="primary"
-                                                        //     aria-label="Ver imagen"
-                                                        // >
-                                                        //     <IoMdEye />
-                                                        // </IconButton>
-                                                        <div
-                                                            className="cursor-pointer"
-                                                            onClick={() => window.open(getValues(`${item.name}`)?.fileUrl ?? getValues(`${item.name}`), "_blank")}
-                                                        >
-                                                            <img
-                                                                src={getValues(`${item.name}`)?.fileUrl}
-                                                                alt="Vista previa"
-                                                                style={{ width: 100, height: "auto", marginTop: 8, borderRadius: 4 }}
-                                                            />
-                                                        </div>
+                                                        <>
+                                                            <>
+                                                                <div
+                                                                    className="relative z-50 cursor-pointer"
+                                                                    onClick={() => {
+                                                                        // setPreviewUrl(null)
+                                                                        setValue(`${item.name}`, null);
+                                                                    }}
+                                                                >
+                                                                    <X color="red" size={20} />
+                                                                </div>
+                                                            </>
+                                                            <div
+                                                                className="cursor-pointer"
+                                                                onClick={() => window.open(getValues(`${item.name}`)?.fileUrl ?? getValues(`${item.name}`), "_blank")}
+                                                            >
+                                                                <img
+                                                                    src={getValues(`${item.name}`)?.fileUrl}
+                                                                    alt="Vista previa"
+                                                                    style={{ width: 100, height: "auto", marginTop: 8, borderRadius: 4 }}
+                                                                />
+                                                            </div>
+                                                        </>
                                                     )}
 
                                                     {/* Mensaje de error si no hay archivo */}

@@ -55,10 +55,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                     preserveAspectRatio="xMidYMin meet"
                                 >
                                     <g>
-                                        <g
-                                            id="onlyAsientos"
-                                            transform="matrix(0.45,0,0,0.45,-73,20)"
-                                        >
+                                        <g id="onlyAsientos" transform="matrix(0.45,0,0,0.45,-73,20)">
                                             <path
                                                 onClick={(event: any) => {
                                                     setOpen(true);
@@ -1180,14 +1177,11 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 id="T-09"
                                             />
                                         </g>
-                                        <g
-                                            id="etiquetasAsientos"
-                                            transform="matrix(0.45,0,0,0.45,-76,22)"
-                                        >
+                                        <g id="etiquetasAsientos" transform="matrix(0.45,0,0,0.45,-76,22)">
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1217,7 +1211,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1247,7 +1241,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1277,7 +1271,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1307,7 +1301,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1337,7 +1331,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1367,7 +1361,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1397,7 +1391,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1427,7 +1421,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1457,7 +1451,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1637,7 +1631,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1667,7 +1661,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1697,7 +1691,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1727,7 +1721,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1757,7 +1751,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2087,7 +2081,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2117,7 +2111,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2147,7 +2141,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2177,7 +2171,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2207,7 +2201,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2237,7 +2231,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2267,7 +2261,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2297,7 +2291,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2327,7 +2321,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2357,7 +2351,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#fff",
+                                                    fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2537,7 +2531,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2567,7 +2561,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2597,7 +2591,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2627,7 +2621,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2657,7 +2651,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7185,10 +7179,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 </tspan>
                                             </text>
                                         </g>
-                                        <g
-                                            id="etiquetasFilas"
-                                            transform="matrix(0.45,0,0,0.45,-73,20)"
-                                        >
+                                        <g id="etiquetasFilas" transform="matrix(0.45,0,0,0.45,-73,20)">
                                             <text
                                                 style={{
                                                     fontSize: "40px",
@@ -8213,7 +8204,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 id="path43"
                                             />
                                         </g>
-                                        <g id="corchetesvip" transform="matrix(6,0,0,1.5,-10,-10)">
+                                        <g id="corchetesvip" transform="matrix(6,0,0,1,-10,25)">
                                             <rect
                                                 style={{ fill: "#efc600" }}
                                                 id="rect2"
@@ -8241,7 +8232,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 transform="matrix(-2.0450469e-4,0.99999998,-0.99976115,-0.0218551,0,0)"
                                             />
                                         </g>
-                                        <g id="corchetesvip2" transform="translate(100, 0) scale(-1, 1) matrix(6,0,0,1.5,-410,-10)">
+                                        <g id="corchetesvip2" transform="translate(100, 0) scale(-1, 1) matrix(6,0,0,1,-410,25)">
                                             <rect
                                                 style={{ fill: "#efc600" }}
                                                 id="rect2"
@@ -8269,8 +8260,63 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 transform="matrix(-2.0450469e-4,0.99999998,-0.99976115,-0.0218551,0,0)"
                                             />
                                         </g>
-                                        <g id="corchetesgeneral" transform="matrix(6,0,0,1.7,-10,-32)"
-                                        >
+                                        <g id="corchetesvip2.0" transform="matrix(6,0,0,1,-10,90)">
+                                            <rect
+                                                style={{ fill: "#efc600" }}
+                                                id="rect2"
+                                                width="0.59204644"
+                                                height="37.475342"
+                                                x="15.124095"
+                                                y="88.322563"
+                                            />
+                                            <rect
+                                                style={{ fill: "#efc600" }}
+                                                id="rect2"
+                                                width="0.59204513"
+                                                height="2.0828078"
+                                                x="125.46742"
+                                                y="-17.200228"
+                                                transform="matrix(-2.0450469e-4,0.99999998,-0.99976115,-0.0218551,0,0)"
+                                            />
+                                            <rect
+                                                style={{ fill: "#efc600" }}
+                                                id="rect2"
+                                                width="0.59204513"
+                                                height="2.0828078"
+                                                x="87.402382"
+                                                y="-17.209131"
+                                                transform="matrix(-2.0450469e-4,0.99999998,-0.99976115,-0.0218551,0,0)"
+                                            />
+                                        </g>
+                                        <g id="corchetesvip2.2.0" transform="translate(100, 0) scale(-1, 1) matrix(6,0,0,1,-410,90)">
+                                            <rect
+                                                style={{ fill: "#efc600" }}
+                                                id="rect2"
+                                                width="0.59204644"
+                                                height="37.475342"
+                                                x="15.124095"
+                                                y="88.322563"
+                                            />
+                                            <rect
+                                                style={{ fill: "#efc600" }}
+                                                id="rect2"
+                                                width="0.59204513"
+                                                height="2.0828078"
+                                                x="125.46742"
+                                                y="-17.200228"
+                                                transform="matrix(-2.0450469e-4,0.99999998,-0.99976115,-0.0218551,0,0)"
+                                            />
+                                            <rect
+                                                style={{ fill: "#efc600" }}
+                                                id="rect2"
+                                                width="0.59204513"
+                                                height="2.0828078"
+                                                x="87.402382"
+                                                y="-17.209131"
+                                                transform="matrix(-2.0450469e-4,0.99999998,-0.99976115,-0.0218551,0,0)"
+                                            />
+                                        </g>
+                                        <g id="corchetesgeneral1" transform="matrix(6,0,0,1.6,-10,13)">
                                             <rect
                                                 style={{ fill: "#efc600" }}
                                                 id="rect2"
@@ -8298,10 +8344,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 transform="matrix(-2.0450469e-4,0.99999998,-0.99976115,-0.0218551,0,0)"
                                             />
                                         </g>
-                                        <g
-                                            id="corchetesgeneral"
-                                            transform="translate(100, 0) scale(-1, 1) matrix(6,0,0,1.7,-412,-32)"
-                                        >
+                                        <g id="corchetesgeneral2" transform="translate(100, 0) scale(-1, 1) matrix(6,0,0,1.6,-412,13)">
                                             <rect
                                                 style={{ fill: "#efc600" }}
                                                 id="rect2"
@@ -8330,10 +8373,10 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             />
                                         </g>
 
-                                        <g id="corchetesgeneral" transform="matrix(1.5,0,0,1.7,60,-32)">
+                                        <g id="textocorchetesgeneralvip1" transform="matrix(1.5,0,0,1.7,60,-32)">
                                             <text
                                                 // // // xml:space="preserve"
-                                                transform="matrix(0.9,0,0,0.9,-10,-225)"
+                                                transform="matrix(0.9,0,0,0.9,-20,-225)"
                                                 id="text3"
                                                 // // // // style="white-space:pre;shape-inside:url(#rect4);fill:#d35f5f"
                                                 style={{
@@ -8345,14 +8388,37 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 }}
                                             >
                                                 <tspan x="11.392578" y="361.64914" id="tspan1">
-                                                    V
+                                                    Plat
                                                 </tspan>
-                                                <tspan x="14" y="376.64914" id="tspan2">
+                                                {/* <tspan x="14" y="376.64914" id="tspan2">
                                                     I
                                                 </tspan>
                                                 <tspan x="11.392578" y="391.64914" id="tspan3">
                                                     P
+                                                </tspan> */}
+                                            </text>
+                                            <text
+                                                // // // xml:space="preserve"
+                                                transform="matrix(0.9,0,0,0.9,-20,-187)"
+                                                id="text3"
+                                                // // // // style="white-space:pre;shape-inside:url(#rect4);fill:#d35f5f"
+                                                style={{
+                                                    fontSize: "13px",
+                                                    fill: "#efc600",
+                                                    stroke: "#000",
+                                                    strokeWidth: "0.1",
+                                                    cursor: "pointer",
+                                                }}
+                                            >
+                                                <tspan x="11.392578" y="361.64914" id="tspan1">
+                                                    VIP
                                                 </tspan>
+                                                {/* <tspan x="14" y="376.64914" id="tspan2">
+                                                    I
+                                                </tspan>
+                                                <tspan x="11.392578" y="391.64914" id="tspan3">
+                                                    P
+                                                </tspan> */}
                                             </text>
                                             <text
                                                 // // // xml:space="preserve"
@@ -8391,10 +8457,10 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             </text>
                                         </g>
 
-                                        <g id="corchetesgeneral" transform="matrix(1.5,0,0,1.7,425,-32)">
+                                        <g id="textocorchetesgeneralvip2" transform="matrix(1.5,0,0,1.7,425,-32)">
                                             <text
                                                 // // // xml:space="preserve"
-                                                transform="matrix(0.9,0,0,0.9,-10,-225)"
+                                                transform="matrix(0.9,0,0,0.9,-12,-225)"
                                                 id="text3"
                                                 // // // // style="white-space:pre;shape-inside:url(#rect4);fill:#d35f5f"
                                                 style={{
@@ -8406,14 +8472,37 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                 }}
                                             >
                                                 <tspan x="11.392578" y="361.64914" id="tspan1">
-                                                    V
+                                                    Plat
                                                 </tspan>
-                                                <tspan x="14" y="376.64914" id="tspan2">
+                                                {/* <tspan x="14" y="376.64914" id="tspan2">
                                                     I
                                                 </tspan>
                                                 <tspan x="11.392578" y="391.64914" id="tspan3">
                                                     P
+                                                </tspan> */}
+                                            </text>
+                                            <text
+                                                // // // xml:space="preserve"
+                                                transform="matrix(0.9,0,0,0.9,-12,-187)"
+                                                id="text3"
+                                                // // // // style="white-space:pre;shape-inside:url(#rect4);fill:#d35f5f"
+                                                style={{
+                                                    fontSize: "13px",
+                                                    fill: "#efc600",
+                                                    stroke: "#000",
+                                                    strokeWidth: "0.1",
+                                                    cursor: "pointer",
+                                                }}
+                                            >
+                                                <tspan x="11.392578" y="361.64914" id="tspan1">
+                                                    VIP
                                                 </tspan>
+                                                {/* <tspan x="14" y="376.64914" id="tspan2">
+                                                    I
+                                                </tspan>
+                                                <tspan x="11.392578" y="391.64914" id="tspan3">
+                                                    P
+                                                </tspan> */}
                                             </text>
                                             <text
                                                 // // // xml:space="preserve"
@@ -8539,12 +8628,16 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                     Entrada VIP
                                                 </div>
                                                 <div className="flex flex-row justify-start items-center gap-1">
+                                                    <div className="rounded-full text-transparent text-base bg-[#efc600] border-1 border-slate-400">......</div>
+                                                    Entrada Platinium
+                                                </div>
+                                                <div className="flex flex-row justify-start items-center gap-1">
                                                     <div className="rounded-full text-transparent text-base bg-[#fff] border-1 border-slate-400">......</div>
                                                     General
                                                 </div>
                                                 <div className="flex flex-row justify-start items-center gap-1">
                                                     <div className="flex flex-row justify-center items-center gap-1">
-                                                        <div className={`rounded-full text-transparent text-base bg-[#efc600]`}>......</div>
+                                                        <div className={`rounded-full text-transparent text-base bg-[#e9afdd]`}>......</div>
                                                         {/* <div className={`rounded-full text-transparent text-base bg-[#ff0]`}>......</div> */}
                                                     </div>
                                                     Reservado

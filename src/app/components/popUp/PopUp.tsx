@@ -9,6 +9,7 @@ import { Controller } from "react-hook-form"
 import { Autocomplete, Button, CircularProgress, TextField } from "@mui/material"
 import { X } from "lucide-react"
 import { usePopUp } from "@/app/hooks/popup/usePopUp"
+import { changeDecimales } from "@/app/functions/changeDecimales"
 
 export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, loadingUpload, reset, setOpen, dataAsientos, setOpenPopup }: any) => {
 
@@ -422,6 +423,20 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                                 <div className="uppercase text-center text-base font-bold text-black">
                                     {"Datos Usuario"}
                                 </div>
+                                <div className="flex flex-col justify-center items-center gap-1 mb-3">
+                                    <div>
+                                        {`Debe realizar el pago total de S/. ${changeDecimales(dataAsientos?.precio)} por cualquiera de los siguientes medios de pago: `}
+                                    </div>
+                                    <img src="/transferenciamunoz.jpg" alt="transferencia" className="w-[80%] h-auto" />
+                                    <div className="flex flex-col justify-center items-center gap-0 mt-1">
+                                        <div className="font-bold text-xs text-red-500 mt-1">
+                                            {`* El voucher que seleccione debe ser de: S/. ${changeDecimales(dataAsientos?.precio)} `}
+                                        </div>
+                                        <div className="font-bold text-xs text-red-500 mt-1 uppercase">
+                                            {`(Caso contrario se rechazará su reserva)`}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="flex flex-col gap-3">
                                     <FormComprarTicket {...{ getValues, setValue, handleSubmit, control, apiCall, loading, error }} />
                                 </div>
@@ -484,6 +499,27 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                                     >
                                         Comprar Ticket
                                     </Button>
+                                    <Button
+                                        onClick={() => {
+                                            setOpen(false)
+                                            setOpenPopup(false)
+                                            reset()
+                                        }}
+                                        variant="contained"
+                                        color="error"
+                                        type="button"
+                                        // className="w-full"
+                                        disabled={loading || loadingUpload}
+                                    >
+                                        {"Cancelar"}
+                                    </Button>
+                                    {/* <div className="border-0 w-full text-center mb-1 cursor-pointer flex justify-center items-center rounded-t-lg sm:rounded-t-none" onClick={() => {
+                                        setOpen(false)
+                                        setOpenPopup(false)
+                                        reset()
+                                    }}>
+                                        <X className="rounded-full bg-blue-50 p-1" color="blue" />
+                                    </div> */}
                                 </div>
                             </div>
                         }
