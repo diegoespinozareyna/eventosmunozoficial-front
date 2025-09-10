@@ -47,6 +47,12 @@ export default function Eventos() {
     if (params?.eventos === "CONVENCION-BIENES-RAICES") {
         router.push(`/eventos/CONVENCIÓN%20EN%20BIENES%20RAÍCES-68857e9349183618fc16a323`)
     }
+    if (params?.eventos === "MENTALIDAD-RIQUEZA-CON-STEFANNY-BERDEJO") {
+        router.push(`/eventos/Mentalidad%20de%20Riqueza%20con%20Stefanny%20Berdejo-68c0ab127a2ea9f46af9ae24`)
+    }
+    if (params?.eventos === "GRAN-CONVENCION-BIENES-RAICES-CON-SANDRO-MELENDEZ") {
+        router.push(`/eventos/GRAN%20CONVENCION%20BIENES%20RAICES%20CON%20SANDRO%20MELENDEZ-68b7631fc9be927a69141fc3`)
+    }
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
 
