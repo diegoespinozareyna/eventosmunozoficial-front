@@ -798,7 +798,7 @@ export default function Eventos() {
                     openAsientos &&
                     <div className="flex flex-col -mt-3">
                         <div>
-                            <button className="bg-blue-500 text-white px-2 py-2 relative z-20 font-bold text-xl cursor-pointer rounded-lg ml-5 mt-2 flex justify-center items-center"
+                            <button className="bg-transparent text-white px-2 py-2 relative z-20 font-bold text-xl cursor-pointer rounded-lg ml-5 mt-1 flex justify-center items-center"
                                 onClick={() => {
                                     setIsLoading(true);
                                     setOpenAsientos(false)
@@ -809,7 +809,7 @@ export default function Eventos() {
                                 />
                             </button>
                         </div>
-                        <div className="w-full text-center mb-0 font-bold text-base uppercase text-yellow-500 -mt-3">
+                        <div className="w-full text-center mb-0 font-bold text-base uppercase text-white -mt-1">
                             {info?.title}
                         </div>
                         <div className="pl-6 text-base font-bold uppercase flex justify-between items-center mb-3 -mt-3">
