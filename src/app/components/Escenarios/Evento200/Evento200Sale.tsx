@@ -8543,7 +8543,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
 
                                         <g
                                             id="etiquetasIzquierderecha"
-                                            transform="matrix(0.45,0,0,0.45,-76,4)"
+                                            transform="matrix(0.45,0,0,0.45,-86,4)"
                                         >
                                             <text
                                                 style={{
@@ -8565,7 +8565,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                     y="215.93341"
                                                 // // style="fill:#000000;stroke-width:57.101"
                                                 >
-                                                    Fila Izquierda
+                                                    Platea Izquierda
                                                 </tspan>
                                             </text>
                                             <text
@@ -8588,7 +8588,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                                     y="215.93341"
                                                 // // style="fill:#000000;stroke-width:57.101"
                                                 >
-                                                    Fila Derecha
+                                                    Platea Derecha
                                                 </tspan>
                                             </text>
                                         </g>
