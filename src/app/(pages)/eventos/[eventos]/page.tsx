@@ -62,6 +62,9 @@ export default function Eventos() {
     if (params?.eventos === "MENTALIDAD.DE.RIQUEZA.CON.STEFANNY.BERDEJO") {
         router.push(`/eventos/MENTALIDAD.DE.RIQUEZA.CON.STEFANNY.BERDEJO-68c0ab127a2ea9f46af9ae24`)
     }
+    if (params?.eventos === "CONVENCION.PARA.AGENTES.INMOBILIARIOS") {
+        router.push(`/eventos/CONVENCION.PARA.AGENTES.INMOBILIARIOS-68c4a54d7a2ea9f46af9b0c5`)
+    }
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
 
