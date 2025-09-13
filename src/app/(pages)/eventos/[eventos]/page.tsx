@@ -41,6 +41,12 @@ declare global {
 
 export default function Eventos() {
 
+    const [info, setInfo] = useState<any>(null)
+
+    useEffect(() => {
+        console.log("info: ", info)
+    }, [info])
+
     const params: any = useParams()
     console.log("params: ", params?.eventos)
     const router = useRouter()
@@ -52,6 +58,9 @@ export default function Eventos() {
     }
     if (params?.eventos === "GRAN-CONVENCION-BIENES-RAICES-CON-SANDRO-MELENDEZ") {
         router.push(`/eventos/GRAN%20CONVENCION%20BIENES%20RAICES%20CON%20SANDRO%20MELENDEZ-68b7631fc9be927a69141fc3`)
+    }
+    if (params?.eventos === "CONVENCION.PARA.AGENTES.INMOBILIARIOS") {
+        router.push(`/eventos/CONVENCION.PARA.AGENTES.INMOBILIARIOS-68c4a54d7a2ea9f46af9b0c5`)
     }
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
@@ -66,7 +75,6 @@ export default function Eventos() {
 
     const [openAsientos, setOpenAsientos] = useState(false)
 
-    const [info, setInfo] = useState<any>(null)
     const [open, setOpen] = useState(false)
     // const [openPopup, setOpenPopup] = useState(false)
     const [dataAsientos, setDataAsientos] = useState<any>(null)
@@ -174,22 +182,1613 @@ export default function Eventos() {
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
-                else if (obj1?.id?.includes("A") || obj1?.id?.includes("B")) {
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
                     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                    obj1?.setAttribute('fill', "#efc600"); // color dorado
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color morado asiento vip
                     // obj1?.setAttribute('fill', "#6F0A6F");
                     // obj1?.setAttribute('fill', "#8B5CF6");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
                 }
-                else if (obj1?.id?.includes("C") || obj1?.id?.includes("D")) {
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    obj1?.setAttribute('fill', "#efc600"); // color dorado asiento premium
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
                     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
                     // obj1?.setAttribute('fill', "#6F0A6F");
                     // obj1?.setAttribute('fill', "#8B5CF6");
                     obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
                 }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                        || obj1?.id?.includes("K")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                        || obj1?.id?.includes("K")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
+                    // obj1?.setAttribute('fill', "#6F0A6F");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                        || obj1?.id?.includes("K")
+                        || obj1?.id?.includes("L")
+                    )
+                ) {
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                    // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
+                    obj1?.setAttribute('fill', "#efc600");
+                    // obj1?.setAttribute('fill', "#8B5CF6");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                    obj1?.setAttribute('precio', info?.precioEntradaPremium)
+                }
+                // else if (obj1?.id?.includes("A") || obj1?.id?.includes("B")) {
+                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                //     obj1?.setAttribute('fill', "#efc600"); // color dorado
+                //     // obj1?.setAttribute('fill', "#6F0A6F");
+                //     // obj1?.setAttribute('fill', "#8B5CF6");
+                //     obj1?.setAttribute('stroke', '#333');
+                //     obj1?.setAttribute('stroke', '#333');
+                //     obj1?.setAttribute('stroke-width', '0.3')
+                // }
+                // else if (obj1?.id?.includes("C") || obj1?.id?.includes("D")) {
+                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                //     // obj1?.setAttribute('fill', "#6F0A6F");
+                //     // obj1?.setAttribute('fill', "#8B5CF6");
+                //     obj1?.setAttribute('stroke', '#333');
+                //     obj1?.setAttribute('stroke-width', '0.3')
+                // }
                 else {
                     obj1?.setAttribute('fill', "#efefef");
                     obj1?.setAttribute('stroke', '#333');
@@ -256,14 +1855,15 @@ export default function Eventos() {
         setValue("vouchersAsiento", response?.data?.filter((x: any) => x?.status !== "3"));
     }
 
-    const handleClickInformation = async (codAsiento: any, valueBoolean: boolean) => {
+    const handleClickInformation = async (codAsiento: any, valueBoolean: boolean, precioAll: any) => {
         console.log('Click en la información', codAsiento);
         console.log('Click en la valueBoolean', valueBoolean);
+        console.log('Click en la precioAll', precioAll);
         console.log('Click info', info);
         setDataAsientos(
             {
                 id: codAsiento,
-                precio: (codAsiento?.includes("A") || codAsiento?.includes("B")) ? info?.precioEntradaPlatinium : (codAsiento?.includes("C") || codAsiento?.includes("D")) ? info?.precioEntradaPremium : info?.precioEntradaGeneral
+                precio: precioAll ?? info?.precioEntradaGeneral
             }
         )
         const ticketsAsientosno3 = await fetchAsientosIdMatrix()
@@ -876,13 +2476,13 @@ export default function Eventos() {
                                         {
                                             !dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
                                             <div className="font-bold uppercase text-slate-700">
-                                                {`${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "VIP (V)" : "GENERAL (G)"}`}
+                                                {`${(dataAsientos?.precio == info?.precioEntradaPlatinium) ? "VIP (V)" : (dataAsientos?.precio == info?.precioEntradaPremium) ? "Premium (P)" : "GENERAL (G)"}`}
                                             </div>
                                         }
                                         {
                                             dataAsientosComprados?.find((x: any) => x?.codAsiento == dataAsientos?.id) &&
                                             <div className="font-bold uppercase text-slate-700">
-                                                {`${(dataAsientos?.id?.includes("A") || dataAsientos?.id?.includes("B") || dataAsientos?.id?.includes("C")) ? "(VIP (V) - " : "(GENERAL (G) - "} S/. ${changeDecimales(dataAsientos?.precio)})`}
+                                                {`${(dataAsientos?.precio == info?.precioEntradaPlatinium) ? "(VIP (V) -" : (dataAsientos?.precio == info?.precioEntradaPremium) ? "(Premium (P) -" : "(GENERAL (G) -"} S/. ${changeDecimales(dataAsientos?.precio)})`}
                                             </div>
                                         }
                                         <div className="rounded-sm bg-slate-50 px-2 py-0 text-center">{`${dataAsientos?.id}`}</div>
@@ -984,7 +2584,7 @@ export default function Eventos() {
                                                             const mensaje = `Hola ${nombre}!! te saluda "Inmobiliaria Muñoz", tu compra de entrada para el evento "${nameEvento}" fue exitosa!! 
 Datos de Compra:
 - Pagó S/. ${changeDecimales(dataAsientos?.precio)}.
-- Asiento: ${(codAsiento?.includes("A") || codAsiento?.includes("B") || codAsiento?.includes("C")) ? "(VIP)" : "(General)"} ${codAsiento}.
+- Asiento: ${(dataAsientos?.precio == info?.precioEntradaPlatinium) ? "VIP (V)" : (dataAsientos?.precio == info?.precioEntradaPremium) ? "Premium (P)" : "GENERAL (G)"} ${codAsiento}.
 - Fecha: ${fechaEvento}.
 - Dirección: ${direccionEvento}.
 - Más información del Evento: 

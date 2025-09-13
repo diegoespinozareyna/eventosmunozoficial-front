@@ -172,7 +172,11 @@ export default function DashBoard() {
                                             <div className="flex items-center justify-between w-full">
                                                 <p className="text-sm text-gray-500">{`Creado el ${moment.tz(evento.createdAt, "America/Lima").format("DD/MM/YYYY HH:mm")}`}</p>
                                                 <div className="flex gap-2">
-                                                    <Button onClick={() => router.push(`/eventos/${evento.title}-${evento._id}`)} className="gap-2">
+                                                    <Button onClick={() => router.push(`/eventos/${evento.title
+                                                        ?.normalize("NFD")                       // separa tildes de las letras
+                                                        ?.replace(/[\u0300-\u036f]/g, "")        // elimina las marcas de acento
+                                                        ?.replace(/\s+/g, ".")                   // reemplaza espacios por guiones
+                                                        ?.toUpperCase()}-${evento._id}`)} className="gap-2">
                                                         <ExternalLink className="h-4 w-4" />
                                                         Ir al Evento
                                                     </Button>
@@ -199,6 +203,6 @@ export default function DashBoard() {
                     }
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
