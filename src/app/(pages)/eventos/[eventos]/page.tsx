@@ -59,8 +59,8 @@ export default function Eventos() {
     if (params?.eventos === "GRAN-CONVENCION-BIENES-RAICES-CON-SANDRO-MELENDEZ") {
         router.push(`/eventos/GRAN%20CONVENCION%20BIENES%20RAICES%20CON%20SANDRO%20MELENDEZ-68b7631fc9be927a69141fc3`)
     }
-    if (params?.eventos === "CONVENCION.PARA.AGENTES.INMOBILIARIOS") {
-        router.push(`/eventos/CONVENCION.PARA.AGENTES.INMOBILIARIOS-68c4a54d7a2ea9f46af9b0c5`)
+    if (params?.eventos === "MENTALIDAD.DE.RIQUEZA.CON.STEFANNY.BERDEJO") {
+        router.push(`/eventos/MENTALIDAD.DE.RIQUEZA.CON.STEFANNY.BERDEJO-68c0ab127a2ea9f46af9ae24`)
     }
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
