@@ -1861,7 +1861,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1894,7 +1894,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1927,7 +1927,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1960,7 +1960,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -1993,7 +1993,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2026,7 +2026,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2059,7 +2059,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2092,7 +2092,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2125,7 +2125,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2158,7 +2158,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2191,7 +2191,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2224,7 +2224,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2257,7 +2257,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2290,7 +2290,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2323,7 +2323,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2356,7 +2356,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2389,7 +2389,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2422,7 +2422,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2455,7 +2455,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2488,7 +2488,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2521,7 +2521,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2554,7 +2554,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2587,7 +2587,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2620,7 +2620,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2653,7 +2653,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2686,7 +2686,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2719,7 +2719,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2752,7 +2752,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2785,7 +2785,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2818,7 +2818,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2851,7 +2851,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2884,7 +2884,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2917,7 +2917,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2950,7 +2950,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -2983,7 +2983,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3016,7 +3016,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3049,7 +3049,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3082,7 +3082,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3115,7 +3115,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3148,7 +3148,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3181,7 +3181,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3214,7 +3214,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3247,7 +3247,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3280,7 +3280,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3313,7 +3313,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3346,7 +3346,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3379,7 +3379,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3412,7 +3412,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3445,7 +3445,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3478,7 +3478,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3511,7 +3511,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3544,7 +3544,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3577,7 +3577,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3610,7 +3610,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3643,7 +3643,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3676,7 +3676,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3709,7 +3709,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3742,7 +3742,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3775,7 +3775,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3808,7 +3808,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3841,7 +3841,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3874,7 +3874,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3907,7 +3907,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3940,7 +3940,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -3973,7 +3973,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4006,7 +4006,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4039,7 +4039,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4072,7 +4072,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4105,7 +4105,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4138,7 +4138,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4171,7 +4171,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4204,7 +4204,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4237,7 +4237,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4270,7 +4270,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4303,7 +4303,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4336,7 +4336,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4369,7 +4369,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4402,7 +4402,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4435,7 +4435,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4468,7 +4468,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4501,7 +4501,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4534,7 +4534,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4567,7 +4567,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4600,7 +4600,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4633,7 +4633,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4666,7 +4666,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4699,7 +4699,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4732,7 +4732,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4765,7 +4765,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4798,7 +4798,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4831,7 +4831,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4864,7 +4864,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4897,7 +4897,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4930,7 +4930,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4963,7 +4963,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -4996,7 +4996,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5029,7 +5029,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5062,7 +5062,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5095,7 +5095,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5128,7 +5128,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5161,7 +5161,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5194,7 +5194,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5227,7 +5227,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5260,7 +5260,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5293,7 +5293,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5326,7 +5326,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5359,7 +5359,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5392,7 +5392,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5425,7 +5425,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5458,7 +5458,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5491,7 +5491,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5524,7 +5524,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5557,7 +5557,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5590,7 +5590,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5623,7 +5623,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5656,7 +5656,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5689,7 +5689,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5722,7 +5722,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5755,7 +5755,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5788,7 +5788,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5821,7 +5821,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5854,7 +5854,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5887,7 +5887,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5920,7 +5920,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5953,7 +5953,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -5986,7 +5986,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6019,7 +6019,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6052,7 +6052,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6085,7 +6085,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6118,7 +6118,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6151,7 +6151,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6184,7 +6184,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6217,7 +6217,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6250,7 +6250,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6283,7 +6283,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6316,7 +6316,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6349,7 +6349,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6382,7 +6382,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6415,7 +6415,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6448,7 +6448,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6481,7 +6481,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6514,7 +6514,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6547,7 +6547,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6580,7 +6580,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6613,7 +6613,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6646,7 +6646,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6679,7 +6679,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6712,7 +6712,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6745,7 +6745,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6778,7 +6778,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6811,7 +6811,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6844,7 +6844,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6877,7 +6877,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6910,7 +6910,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6943,7 +6943,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -6976,7 +6976,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7009,7 +7009,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7042,7 +7042,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7075,7 +7075,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7108,7 +7108,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7141,7 +7141,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7174,7 +7174,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7207,7 +7207,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7240,7 +7240,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7273,7 +7273,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7306,7 +7306,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7339,7 +7339,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7372,7 +7372,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7405,7 +7405,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7438,7 +7438,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7471,7 +7471,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7504,7 +7504,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7537,7 +7537,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7570,7 +7570,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7603,7 +7603,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7636,7 +7636,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7669,7 +7669,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7702,7 +7702,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7735,7 +7735,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7768,7 +7768,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7801,7 +7801,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7834,7 +7834,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7867,7 +7867,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7900,7 +7900,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7933,7 +7933,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7966,7 +7966,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -7999,7 +7999,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8032,7 +8032,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8065,7 +8065,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8098,7 +8098,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8131,7 +8131,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8164,7 +8164,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8197,7 +8197,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8230,7 +8230,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8263,7 +8263,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8296,7 +8296,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8329,7 +8329,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8362,7 +8362,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8395,7 +8395,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8428,7 +8428,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "22px",
-                                                    fill: "#000",
+                                                    // fill: "#000",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                     cursor: "pointer",
@@ -8463,7 +8463,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8487,7 +8487,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8511,7 +8511,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8535,7 +8535,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8559,7 +8559,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8583,7 +8583,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8607,7 +8607,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8631,7 +8631,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8655,7 +8655,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8679,7 +8679,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8703,7 +8703,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8727,7 +8727,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8751,7 +8751,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8775,7 +8775,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8799,7 +8799,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8823,7 +8823,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8847,7 +8847,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8871,7 +8871,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8895,7 +8895,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8919,7 +8919,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8943,7 +8943,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8967,7 +8967,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -8991,7 +8991,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9015,7 +9015,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9039,7 +9039,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9063,7 +9063,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9087,7 +9087,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9111,7 +9111,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9135,7 +9135,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9159,7 +9159,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9183,7 +9183,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9207,7 +9207,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9231,7 +9231,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9255,7 +9255,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9279,7 +9279,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9303,7 +9303,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9327,7 +9327,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9351,7 +9351,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9375,7 +9375,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}
@@ -9399,7 +9399,7 @@ export const Evento200Sale = ({ handleClickInformation, setOpen, getValues, data
                                             <text
                                                 style={{
                                                     fontSize: "40px",
-                                                    fill: "#000",
+                                                    fill: "#fff",
                                                     stroke: "#000",
                                                     strokeWidth: "0.2",
                                                 }}

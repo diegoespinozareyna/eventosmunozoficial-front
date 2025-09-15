@@ -65,6 +65,9 @@ export default function Eventos() {
     if (params?.eventos === "CONVENCION.PARA.AGENTES.INMOBILIARIOS") {
         router.push(`/eventos/CONVENCION.PARA.AGENTES.INMOBILIARIOS-68c4a54d7a2ea9f46af9b0c5`)
     }
+    if (params?.eventos === "JAVIER_CUBAS") {
+        router.push(`/eventos/CONVENCION.CON.JAVIER.CUBAS-68c4a54d7a2ea9f46af9b0c5`)
+    }
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
 
@@ -1796,6 +1799,1154 @@ export default function Eventos() {
                     obj1?.setAttribute('fill', "#efefef");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                }
+            })
+            const texts = document.querySelectorAll(`#${Apis.PROYECTCURRENT} text`);
+            texts.forEach(obj1 => {
+                const match = response?.data?.find((obj2: any) => obj2?.codAsiento === obj1?.id && obj2?.status !== "3");
+                // console.log("match: ", match)
+                const hoy = new Date();
+                const fechaFin = new Date(match?.fechaFin); // Asegúrate de que sea Date
+                // console.log("fechaFin: ", fechaFin)
+                const fechaEvento = new Date(info?.dateEvent) // Asegúrate de que sea Date
+                // if (fechaEvento !== null && fechaEvento !== undefined) {
+                //     console.log(info?.dateEvent, fechaEvento)
+                // }
+
+                const milisegundosEnUnDia = 24 * 60 * 60 * 1000;
+                const diferencia = fechaFin.getTime() - hoy.getTime();
+                const diferencia2 = fechaEvento.getTime() - hoy.getTime();
+                // console.log("diferencia: ", diferencia);
+                if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "#FFF");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "#FFF");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 10
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 10
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 20
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 20
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                    console.log("entro aqui 30-30");
+                    obj1?.setAttribute('fill', "#FFF");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                    obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 30
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 30
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 40
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 40
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 50
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                        || obj1?.id?.includes("K")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 50
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("F")
+                        || obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                        || obj1?.id?.includes("K")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                //
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("A")
+                        || obj1?.id?.includes("B")
+                        || obj1?.id?.includes("C")
+                        || obj1?.id?.includes("D")
+                        || obj1?.id?.includes("E")
+                        || obj1?.id?.includes("F")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#fff");
+                }
+                else if (
+                    (
+                        info?.cantidadPlatinium == 60
+                        && info?.cantidadPremium == 60
+                    )
+                    &&
+                    (
+                        obj1?.id?.includes("G")
+                        || obj1?.id?.includes("H")
+                        || obj1?.id?.includes("I")
+                        || obj1?.id?.includes("J")
+                        || obj1?.id?.includes("K")
+                        || obj1?.id?.includes("L")
+                    )
+                ) {
+                     obj1?.setAttribute('fill', "#000");
+                }
+                // else if (obj1?.id?.includes("A") || obj1?.id?.includes("B")) {
+                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                //     obj1?.setAttribute('fill', "#efc600"); // color dorado
+                //     // obj1?.setAttribute('fill', "#6F0A6F");
+                //     // obj1?.setAttribute('fill', "#8B5CF6");
+                //     obj1?.setAttribute('stroke', '#333');
+                //     obj1?.setAttribute('stroke', '#333');
+                //     obj1?.setAttribute('stroke-width', '0.3')
+                // }
+                // else if (obj1?.id?.includes("C") || obj1?.id?.includes("D")) {
+                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
+                //     // obj1?.setAttribute('fill', "#6F0A6F");
+                //     // obj1?.setAttribute('fill', "#8B5CF6");
+                //     obj1?.setAttribute('stroke', '#333');
+                //     obj1?.setAttribute('stroke-width', '0.3')
+                // }
+                else {
+                    obj1?.setAttribute('fill', "#000");
+                    // obj1?.setAttribute('stroke', '#333');
+                    // obj1?.setAttribute('stroke-width', '0.3')
                 }
             })
             // }
