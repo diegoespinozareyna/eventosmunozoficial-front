@@ -1,0 +1,36 @@
+@keyframes pulseAttention {
+    0%, 100% {
+      opacity: 1;
+      background-color: #22c55e; /* green-500 */
+    }
+    50% {
+      opacity: 0.6;
+      background-color: #16a34a; /* green-600 */
+    }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+  }
+  
+  .button-attention {
+    animation: pulseAttention 1.5s ease-in-out infinite, shake 0.5s linear infinite;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .modal-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }

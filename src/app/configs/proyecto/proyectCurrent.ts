@@ -6,8 +6,8 @@ export const Apis = {
     // URL_APOIMENT_BACKEND_DEV: "http://191.96.251.76:3001",
     // URL_APOIMENT_BACKEND_DEV: "https://inmobackend.site",
     // URL_APOIMENT_BACKEND_DEV: "https://inmobackend.store",
-    // URL_APOIMENT_BACKEND_DEV: "http://localhost:7000",
-    URL_APOIMENT_BACKEND_DEV: "https://apieventosmunoz.inmunoz.com",
+    URL_APOIMENT_BACKEND_DEV: "http://localhost:7000",
+    // URL_APOIMENT_BACKEND_DEV: "https://apieventosmunoz.inmunoz.com",
     // URL_APOIMENT_BACKEND_DEV2: "http://localhost:5000",
     URL_APOIMENT_BACKEND_DEV2: "https://serverimages.inmobackend.site",
     //DATOS PROYECTO
@@ -119,6 +119,16 @@ export const Apis = {
             id: 4,
             description: "Valle Hermoso Cañete",
             name: "vallehermosocanete",
+        },
+    ],
+    SEDES_VISITA_BUS: [
+        {
+            value: "0",
+            label: "paracas",
+        },
+        {
+            value: "1",
+            label: "vallehermosocanete",
         },
     ]
 };

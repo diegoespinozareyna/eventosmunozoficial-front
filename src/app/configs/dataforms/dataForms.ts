@@ -2190,6 +2190,72 @@ export const formCrearUsuario = [
     },
 ]
 
+// Form crear usuario
+export const formCrearVisita = [
+    {
+        id: 62,
+        name: "titulo",
+        label: "Titulo Visita",
+        type: "text",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Titulo Visita",
+        description: "Titulo Visita",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+    {
+        id: 63,
+        name: "fechaVisita",
+        label: "Fecha Visita",
+        type: "date",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Fecha Visita",
+        description: "Fecha Visita",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+    {
+        id: 1222,
+        name: "destino",
+        label: "Destino",
+        type: "select",
+        options: [
+            { value: "200", label: "200 Personas" },
+            { value: "250", label: "250 Personas" },
+            { value: "300", label: "300 Personas" },
+        ],
+        placeholder: "Destino",
+        description: "Destino",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+    {
+        id: 122,
+        name: "precioAsiento",
+        label: "Precio Asiento S/.",
+        type: "number",
+        options: [
+            { value: "200", label: "200 Personas" },
+            { value: "250", label: "250 Personas" },
+            { value: "300", label: "300 Personas" },
+        ],
+        placeholder: "Precio Asiento S/.",
+        description: "Precio Asiento S/.",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+]
+
 export const dataComprarTicket = [
     {
         id: 1,

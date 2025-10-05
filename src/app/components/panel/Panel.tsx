@@ -12,7 +12,7 @@ import { IconButton } from '@mui/material';
 import { Apis } from '@/app/configs/proyecto/proyectCurrent';
 import { useConfigStore, useUserStore } from '@/app/store/userStore';
 import { useRouter } from 'next/navigation';
-import { LogOut, MapIcon, OutdentIcon, Presentation } from 'lucide-react';
+import { Bus, LogOut, MapIcon, OutdentIcon, Presentation } from 'lucide-react';
 
 function Panel({ open, setOpen }: any) {
 
@@ -34,8 +34,16 @@ function Panel({ open, setOpen }: any) {
                 {
                     id: 1,
                     title: "Eventos",
-                    href: `/dashboard/plano`,
+                    href: `/dashboard/proyectos`,
                     icon: <Presentation />,
+                    display: true,
+                    outSession: false
+                },
+                {
+                    id: 1,
+                    title: "Pasajes",
+                    href: `/dashboard/pasajes`,
+                    icon: <Bus />,
                     display: true,
                     outSession: false
                 },
@@ -133,6 +141,9 @@ function Panel({ open, setOpen }: any) {
                                                         if (menu.outSession) {
                                                             localStorage.removeItem("auth-token")
                                                             router.push("/")
+                                                        }
+                                                        else {
+                                                            router.push(menu.href)
                                                         }
                                                     }
                                                     } key={index} className={`text-white text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-500 rounded-md mt-4 border-1 border-[rgba(0,0,0,0.05)] border-solid`}

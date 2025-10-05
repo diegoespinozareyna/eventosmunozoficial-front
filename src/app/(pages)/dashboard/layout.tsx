@@ -1,7 +1,7 @@
 "use client"
 
 import { Geist, Geist_Mono } from "next/font/google";
-import "../../../globals.css";
+import "../../globals.css";
 import Panel from "@/app/components/panel/Panel";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
