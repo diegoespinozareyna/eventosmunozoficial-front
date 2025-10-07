@@ -2,7 +2,7 @@
 
 import { Apis } from "@/app/configs/proyecto/proyectCurrent"
 import useApi from "@/app/hooks/fetchData/useApi"
-import { Button, IconButton, TextField } from "@mui/material"
+import { Autocomplete, Button, IconButton, TextField } from "@mui/material"
 import { useParams, useRouter } from "next/navigation"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { Controller, useFieldArray, useForm } from "react-hook-form"
@@ -12,7 +12,7 @@ import { Evento250Sale } from "@/app/components/Escenarios/Evento250/Evento250Sa
 import { Evento300Sale } from "@/app/components/Escenarios/Evento300/Evento300Sale"
 import Swal from "sweetalert2"
 import { StatusLotes } from "@/app/configs/proyecto/statusLotes"
-import { ChevronsLeft, Edit2Icon, FileText, SquaresExclude, Upload, X } from "lucide-react"
+import { ChevronsLeft, Circle, CircuitBoard, Edit2Icon, FileText, Octagon, OctagonIcon, SquaresExclude, Upload, X } from "lucide-react"
 import { changeDecimales } from "@/app/functions/changeDecimales"
 import { usePopUp } from "@/app/hooks/popup/usePopUp"
 import Image from "next/image"
@@ -27,6 +27,7 @@ import { saveAs } from 'file-saver';
 import { PiMicrosoftExcelLogoLight } from "react-icons/pi";
 import { Bus50 } from "@/app/components/sprinterssvg/Bus50"
 import { handleApiReniec } from "@/app/functions/handleApiReniec"
+import { handleApiReniec2 } from "@/app/functions/handleApiReniec2"
 
 // Extend the Window interface to include VisanetCheckout
 declare global {
@@ -51,7 +52,7 @@ export default function Eventos() {
     }, [info])
 
     const params: any = useParams()
-    console.log("params: ", params?.visitas)
+    // console.log("params: ", params?.visitas)
 
     const { getValues, setValue, handleSubmit, control, watch, reset } = useForm()
 
@@ -61,7 +62,7 @@ export default function Eventos() {
     });
 
     const formValues = watch();
-    console.log("formValues: ", formValues)
+    // console.log("formValues: ", formValues)
 
     const { apiCall, loading, error } = useApi()
     const { openPopup, setOpenPopup } = usePopUp()
@@ -73,6 +74,15 @@ export default function Eventos() {
     const [open, setOpen] = useState(false)
     const [dataAsientos, setDataAsientos] = useState<any>(null)
     const [dataAsientosComprados, setDataAsientosComprados] = useState<any>(null)
+    const [idAgregante, setIdAgregante] = useState<any>(2)
+    const [valorRef, setValorRef] = useState<any>(2)
+    const [change1, setChange1] = useState(false)
+    const [arrAsientoSeleccionados, setArrAsientoSeleccionados] = useState<any>([])
+    const [getInitialStateFirstAsiento, setGetInitialStateFirstAsiento] = useState(2)
+
+    useEffect(() => {
+        console.log("arrAsientoSeleccionados: ", arrAsientoSeleccionados)
+    }, [arrAsientoSeleccionados])
 
     const usersPatrocinaddores = async () => {
         const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/users/getUsersPatrocinadores`
@@ -104,11 +114,19 @@ export default function Eventos() {
             setDataAsientosComprados(response?.data?.filter((x: any) => x?.status !== "3"));
             console.log(info?.dateEvent)
 
+            // let ref = 2;
+
+            // if (idAgregante == 2) {
+            //     ref = idAgregante
+
             // if (response?.data?.length > 0) {
-            const paths = document.querySelectorAll(`#${Apis.PROYECTCURRENT} path`);
-            paths.forEach(obj1 => {
+            const paths: any = document.querySelectorAll(`#${Apis.PROYECTCURRENT} path`);
+            const matchAll = response?.data?.filter((obj2: any) => obj2?.status !== "3")?.length;
+            console.log("matchAll: ", matchAll)
+            paths.forEach((obj1: any) => {
                 const match = response?.data?.find((obj2: any) => obj2?.codAsiento === obj1?.id && obj2?.status !== "3");
-                // console.log("match: ", match)
+                setGetInitialStateFirstAsiento(matchAll + 2)
+                setValorRef(matchAll + 2)
                 const hoy = new Date();
                 const fechaFin = new Date(match?.fechaFin); // Asegúrate de que sea Date
                 // console.log("fechaFin: ", fechaFin)
@@ -120,1682 +138,105 @@ export default function Eventos() {
                 const milisegundosEnUnDia = 24 * 60 * 60 * 1000;
                 const diferencia = fechaFin.getTime() - hoy.getTime();
                 const diferencia2 = fechaEvento.getTime() - hoy.getTime();
-                // console.log("diferencia: ", diferencia);
 
-                // if (match?.status == "4") {
-                //     // obj1?.setAttribute('fill', Apis.COLOR_DISPONIBLE);
-                //     obj1?.setAttribute('fill', "#61baed");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else if (match?.status == "5") {
-                //     // obj1?.setAttribute('fill', Apis.COLOR_DISPONIBLE);
-                //     obj1?.setAttribute('fill', "#afa");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else if (match?.isTicketsPendings > 0 && match?.status !== "1") {
-                //     obj1?.setAttribute('fill', "#ff0");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else if (match?.isPasarela == true && match?.status !== "1") {
-                //     obj1?.setAttribute('fill', "#ff0");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else if (
-                //     (
-                //         diferencia <= 3 * milisegundosEnUnDia
-                //         || diferencia2 <= 6 * milisegundosEnUnDia
-                //     ) && diferencia > 0 && match?.status == "0") {
-                //     obj1?.setAttribute('fill', "#f55");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else if (match?.compraUserAntiguo == true && match?.status == "1") {
-                //     obj1?.setAttribute('fill', "#61baed");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else if (match?.compraUserAntiguo == false && match?.status == "1") {
-                //     obj1?.setAttribute('fill', "#afa");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // // else if (match?.status == "1") {
-                // //     obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
-                // //     obj1?.setAttribute('stroke', '#333');
-                // //     obj1?.setAttribute('stroke-width', '0.3')
-                // // }
-                // else if (match?.status == "0") {
-                //     // obj1?.setAttribute('fill', Apis.COLOR_DISPONIBLE);
-                //     // obj1?.setAttribute('fill', "#efc600"); // color dorado
-                //     obj1?.setAttribute('fill', "#e9afdd"); // color rosado
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("B")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     obj1?.setAttribute('fill', "#efc600"); // color dorado asiento premium
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 10
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("G")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 10
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 20
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 20
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 30
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 30
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 40
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //         || obj1?.id?.includes("J")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 40
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //         || obj1?.id?.includes("J")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //         || obj1?.id?.includes("J")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 50
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //         || obj1?.id?.includes("J")
-                //         || obj1?.id?.includes("K")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 50
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("F")
-                //         || obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //         || obj1?.id?.includes("J")
-                //         || obj1?.id?.includes("K")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // //
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("A")
-                //         || obj1?.id?.includes("B")
-                //         || obj1?.id?.includes("C")
-                //         || obj1?.id?.includes("D")
-                //         || obj1?.id?.includes("E")
-                //         || obj1?.id?.includes("F")
-                //     )
-                // ) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#efc600"); // color morado asiento vip
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPlatinium)
-                // }
-                // else if (
-                //     (
-                //         info?.cantidadPlatinium == 60
-                //         && info?.cantidadPremium == 60
-                //     )
-                //     &&
-                //     (
-                //         obj1?.id?.includes("G")
-                //         || obj1?.id?.includes("H")
-                //         || obj1?.id?.includes("I")
-                //         || obj1?.id?.includes("J")
-                //         || obj1?.id?.includes("K")
-                //         || obj1?.id?.includes("L")
-                //     )
-                // ) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)"); // color dorado asiento premium
-                //     obj1?.setAttribute('fill', "#efc600");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                //     obj1?.setAttribute('precio', info?.precioEntradaPremium)
-                // }
-                // else if (obj1?.id?.includes("A") || obj1?.id?.includes("B")) {
-                //     // obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     obj1?.setAttribute('fill', "#efc600"); // color dorado
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else if (obj1?.id?.includes("C") || obj1?.id?.includes("D")) {
-                //     obj1?.setAttribute('fill', "rgba(111, 10, 111, 0.6)");
-                //     // obj1?.setAttribute('fill', "#6F0A6F");
-                //     // obj1?.setAttribute('fill', "#8B5CF6");
-                //     obj1?.setAttribute('stroke', '#333');
-                //     obj1?.setAttribute('stroke-width', '0.3')
-                // }
-                // else {
-                if (match?.status == "1") {
-                    obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
+
+                if (match?.status == "0") {
+                    // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
+                    obj1?.setAttribute('fill', "#f9bc38");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (arrAsientoSeleccionados?.find((x: any) => x == obj1?.id)) {
+                    // console.log("arrAsientoSeleccionados", arrAsientoSeleccionados)
+                    // console.log("obj1?.id", obj1?.id)
+                    // console.log("valorRef", valorRef)
+                    obj1?.setAttribute('fill', "#ccf"); // azul asiento no disponible
+                    obj1?.setAttribute('stroke', '#00f');
+                    obj1?.setAttribute('stroke-width', '0.7')
+                }
+                // else if (obj1?.id == idAgregante) {
+                //     obj1?.setAttribute('fill', "#aaf"); // azul asiento no disponible
+                //     obj1?.setAttribute('stroke', '#f00');
+                //     obj1?.setAttribute('stroke-width', '0.3')
+                // }
+                else if (Number(obj1?.id?.split("-")[1]) == 1) {
+                    // console.log("arrAsientoSeleccionados", arrAsientoSeleccionados)
+                    // console.log("obj1?.id", obj1?.id)
+                    // console.log("valorRef", valorRef)
+                    obj1?.setAttribute('fill', "#aaa"); // plomo asiento no disponible
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (Number(obj1?.id?.split("-")[1]) == (matchAll + 2) && Number(obj1?.id?.split("-")[1]) != 1) {
+                    // console.log("arrAsientoSeleccionados", arrAsientoSeleccionados)
+                    // console.log("obj1?.id", obj1?.id)
+                    // console.log("valorRef", valorRef)
+                    obj1?.setAttribute('fill', "#ffc"); // amarillo claro asiento disponible
+                    obj1?.setAttribute('stroke', '#000');
+                    obj1?.setAttribute('stroke-width', '0.6')
                 }
                 else {
-                    obj1?.setAttribute('fill', "#efefef");
+                    // console.log("arrAsientoSeleccionados", arrAsientoSeleccionados)
+                    // console.log("obj1?.id", obj1?.id)
+                    // console.log("valorRef", valorRef)
+
+                    obj1?.setAttribute('fill', "#aaa");
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
-                // }
+                // setValorRef((prev: any) => (prev) + 1)
             })
             // }
+            // }
+            return (response?.data?.filter((x: any) => x?.status !== "3"))
+        } catch (error) {
+            console.error('Error al obtener datos del usuario:', error);
+        }
+    }
+
+    const fetchAsientosIdMatrix2 = async () => {
+        try {
+            const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/getAsientosIdMatrix`
+            const response = await apiCall({
+                method: "get", endpoint: url, data: null, params: {
+                    proyecto: Apis.PROYECTCURRENT,
+                    idMatrix: params?.visitas?.split("-")[1],
+                }
+            });
+            console.log("responseEventId: ", response?.data);
+            setDataAsientosComprados(response?.data?.filter((x: any) => x?.status !== "3"));
+            console.log(info?.dateEvent)
+            const paths = document.querySelectorAll(`#${Apis.PROYECTCURRENT} path`);
+            paths.forEach(obj1 => {
+                const match = response?.data?.find((obj2: any) => obj2?.codAsiento === obj1?.id && obj2?.status !== "3");
+                const matchAll = response?.data?.filter((obj2: any) => obj2?.codAsiento === obj1?.id && obj2?.status !== "3")?.length;
+                console.log("matchAll: ", matchAll)
+                if (match?.status == "0") {
+                    obj1?.setAttribute('fill', "#f9bc38");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (arrAsientoSeleccionados?.find((x: any) => x == obj1?.id)) {
+                    obj1?.setAttribute('fill', "#ccf"); // azul asiento no disponible
+                    obj1?.setAttribute('stroke', '#00f');
+                    obj1?.setAttribute('stroke-width', '0.7')
+                }
+                else if (Number(obj1?.id?.split("-")[1]) == 1) {
+                    obj1?.setAttribute('fill', "#aaa"); // plomo asiento no disponible
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (Number(obj1?.id?.split("-")[1]) == valorRef && Number(obj1?.id?.split("-")[1]) != 1) {
+                    obj1?.setAttribute('fill', "#ffc"); // amarillo claro asiento disponible
+                    obj1?.setAttribute('stroke', '#000');
+                    obj1?.setAttribute('stroke-width', '0.6')
+                }
+                else {
+                    obj1?.setAttribute('fill', "#aaa");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.3')
+                }
+            })
             return (response?.data?.filter((x: any) => x?.status !== "3"))
         } catch (error) {
             console.error('Error al obtener datos del usuario:', error);
@@ -1806,6 +247,11 @@ export default function Eventos() {
         fetchAsientosIdMatrix()
         // usersPatrocinaddores()
     }, [info])
+
+    useEffect(() => {
+        fetchAsientosIdMatrix2()
+        // usersPatrocinaddores()
+    }, [change1])
 
     const fetchEventId = async (id: string | string[]) => {
         try {
@@ -1855,40 +301,44 @@ export default function Eventos() {
         setValue("vouchersAsiento", response?.data?.filter((x: any) => x?.status !== "3"));
     }
 
+    // useEffect(() => {
+    //     console.log("valorRef: ", valorRef)
+    // }, [valorRef])
+
     const handleClickInformation = async (codAsiento: any, valueBoolean: boolean, precioAll: any) => {
         console.log('Click en la información', codAsiento);
         console.log('Click en la valueBoolean', valueBoolean);
         console.log('Click en la precioAll', precioAll);
         console.log('Click info', info);
-        append({
-            // status: String, // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
-            // documentoUsuario: String,
-            // nombres: String,
-            // apellidoPaterno: String,
-            // apellidoMaterno: String,
-            // celular: String,
-            codAsiento: codAsiento, // numero de asiento
-            precio: info?.precioAsiento,
-            codMatrixTicket: info?._id, // codigo id de evento
-            // fileUrl: String,
-            // compraUserAntiguo: Boolean,
-            // proyecto: String,
-            // usuarioRegistro: String,
-            // patrocinadorId: String,
-            // fechaFin: Date,
-            // montoPasarela: String,
-        })
-        // setDataAsientos(
-        //     {
-        //         id: codAsiento,
-        //         precio: precioAll ?? info?.precioEntradaGeneral
-        //     }
-        // )
-        // const ticketsAsientosno3 = await fetchAsientosIdMatrix()
-        // console.log("ticketsAsientosno3: ", ticketsAsientosno3)
-        // console.log("ticketsAsientosno3: ", ticketsAsientosno3?.find((x: any) => x?.codAsiento == codAsiento))
-        // handleVouchersAsiento(codAsiento, params?.eventos?.split("-")[1], ticketsAsientosno3?.find((x: any) => x?.codAsiento == codAsiento)?._id)
-        // setValue("fileUrl", dataAsientosComprados?.find((x: any) => x?.codAsiento == id)?.fileUrl)
+        let ref = 2;
+
+        if (Number(codAsiento?.split("-")[1]) == valorRef) {
+            if (
+                idAgregante == codAsiento
+                &&
+                Number(codAsiento?.split("-")[1]) !== getInitialStateFirstAsiento
+            ) {
+                console.log("entre99", Number(codAsiento?.split("-")[1]))
+                null
+            }
+            else {
+                console.log("entre2", Number(codAsiento?.split("-")[1]))
+                setIdAgregante(codAsiento)
+                setValorRef((prev: any) => Number(prev) + 1)
+                setChange1(!change1)
+                setArrAsientoSeleccionados([...arrAsientoSeleccionados, codAsiento])
+                append({
+                    codAsiento: codAsiento, // numero de asiento
+                    precio: info?.precioAsiento,
+                    codMatrixTicket: info?._id, // codigo id de evento
+                })
+            }
+        }
+        else {
+            setValorRef(valorRef)
+            setIdAgregante(codAsiento)
+            setChange1(!change1)
+        }
     }
 
     const handleImageLoad = () => {
@@ -1957,30 +407,61 @@ export default function Eventos() {
     }
 
     const onSubmit = async (data: any) => {
-        console.log(data)
+        // console.log(data)
         try {
             const user = localStorage.getItem('auth-token');
             const decoded: any = jwtDecode(user as string);
-            console.log('Datos del usuario:', decoded?.user);
+            // console.log('Datos del usuario:', decoded?.user);
             setValue("userVenta", decoded?.user);
         } catch (error) {
             setValue("userVenta", null);
         }
 
-        const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/auth/compraAsiento`
-        const url2 = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/auth/editarAsiento`
+        const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/compraAsientoAll`
+        const url2 = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editarAsiento`
         const jsonSend = {
-            ...data,
+            asientos: data?.asientos,
             status: "0",
-            codAsiento: dataAsientos?.id,
-            precio: dataAsientos?.precio,
-            codMatrixTicket: params?.eventos?.split("-")[1],
             proyecto: Apis.PROYECTCURRENT,
             usuarioRegistro: `${getValues()?.userVenta?.documentoUsuario ?? "Invitado"} - ${getValues()?.userVenta?.nombres ?? "Invitado"} ${getValues()?.userVenta?.apellidoPaterno ?? "Invitado"} ${getValues()?.userVenta?.apellidoMaterno ?? "Invitado"}`,
             compraUserAntiguo: getValues(`UsuarioAntiguo`),
             fechaFin: moment.tz(new Date(), "America/Lima").add(7, "days").format("YYYY-MM-DDTHH:mm"),
         }
         console.log("jsonSend: ", jsonSend)
+
+        const montoTotalPasarela = getValues()?.asientos?.reduce((acum: any, item: any) => {
+            return (Number(acum) + Number(item.precio))
+        }, 0)
+        console.log("montoTotalPasarela: ", montoTotalPasarela)
+
+        const grupoAsientosComprados = getValues()?.asientos?.map((item: any, index: any) => {
+            return item.codAsiento
+        })
+
+        const jsonAsientosAll = getValues()?.asientos?.map((item: any, index: any) => {
+            return {
+                status: "0", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
+                documentoUsuario: item.documentoUsuario,
+                nombres: item.nombres,
+                apellidoPaterno: item.apellidoPaterno,
+                apellidoMaterno: item.apellidoMaterno,
+                celular: item.celular,
+                email: item.email,
+                codAsiento: item.codAsiento, // numero de asiento
+                precio: item.precio,
+                codMatrixTicket: item.codMatrixTicket, // codigo id de evento
+                // fileUrl: String,
+                compraUserAntiguo: item.UsuarioAntiguo,
+                proyecto: Apis.PROYECTCURRENT,
+                usuarioRegistro: `${getValues()?.userVenta?.documentoUsuario ?? "Invitado"} - ${getValues()?.userVenta?.nombres ?? "Invitado"} ${getValues()?.userVenta?.apellidoPaterno ?? "Invitado"} ${getValues()?.userVenta?.apellidoMaterno ?? "Invitado"}`,
+                // patrocinadorId: String,
+                fechaFin: moment.tz(new Date(), "America/Lima").add(7, "days").format("YYYY-MM-DDTHH:mm"),
+                montoPasarela: montoTotalPasarela?.toString(),
+                grupoAsientosComprados: grupoAsientosComprados.join(','),
+                paradero: item.paradero,
+            }
+        })
+        console.log("jsonAsientosAll: ", jsonAsientosAll)
 
         if (getValues()?.fileEvent !== "" && getValues()?.fileEvent !== undefined && getValues()?.fileEvent !== null) {
             try {
@@ -1994,14 +475,24 @@ export default function Eventos() {
                     },
                 });
                 if (res.status == 200) {
+                    // const response = await apiCall({
+                    //     method: "post", endpoint: url, data: { ...jsonSend, fileUrl: res.data.url }
+                    // })
+                    // console.log("responsefuianl: ", response)
                     const response = await apiCall({
-                        method: "post", endpoint: url, data: { ...jsonSend, fileUrl: res.data.url }
+                        method: "post", endpoint: url, data: jsonAsientosAll?.map((item: any, index: any) => {
+                            return {
+                                ...item,
+                                fileUrl: res.data.url,
+                                patrocinadorId: getValues()?.patrocinadorId ?? "",
+                            }
+                        })
                     })
-                    console.log("responsefuianl: ", response)
+                    console.log("response: ", response)
                     if (response.status === 201) {
                         Swal.fire({
                             title: 'Éxito',
-                            text: 'Se reservó asiento con éxito',
+                            text: 'Se compró el/los asiento(s) con éxito',
                             icon: 'success',
                             confirmButtonText: 'OK',
                             // showCancelButton: true,
@@ -2010,38 +501,15 @@ export default function Eventos() {
                             // cancelButtonText: 'No',
                             showLoaderOnConfirm: true,
                             allowOutsideClick: false,
-                            timer: 3000,
                             // preConfirm: () => {
                             //     router.push(`/dashboard/verUsuarios`);
                             //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
                             //     return
                             // },
                         });
-                        reset({
-                            usersPatrocinadores: getValues()?.usersPatrocinadores,
-                        });
-                        setOpen(false)
-                        setOpenPopup(false)
-
-                        const urlVoucher = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/eventos/newVoucherEventos`
-                        const jsonPagoAsiento = {
-                            //id reconocimiento
-                            codEvento: params?.eventos?.split("-")[1],
-                            idTicketAsiento: response?.data?._id,
-                            nOperacion: new Date().getTime(),
-                            codAsiento: dataAsientos?.id,
-                            //datos pago
-                            fechaPago: moment.tz(new Date(), "America/Lima").format("YYYY-MM-DDTHH:mm"),
-                            documentoUsuario: data?.documentoUsuario,
-                            proyecto: Apis.PROYECTCURRENT,
-                            url: res.data.url,
-                            // status
-                            status: "0", // "0" pendiente, "1" aprobado, "2" rechazado
-                        }
-                        const responseVoucher = await apiCall({
-                            method: "post", endpoint: urlVoucher, data: jsonPagoAsiento
-                        })
-                        console.log("responseVoucher: ", responseVoucher)
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 800);
                     } else {
                         Swal.fire({
                             title: 'Error!',
@@ -2067,131 +535,131 @@ export default function Eventos() {
                 console.error('Error al enviar datos:', error);
             }
             finally {
-                setLoadigUpload(false)
-                fetchAsientosIdMatrix()
+                // setLoadigUpload(false)
+                // fetchAsientosIdMatrix()
             }
         }
-        else if (getValues()?.cambiarStatusAsiento !== true) {
-            try {
-                const response = await apiCall({
-                    method: "post", endpoint: url, data: { ...jsonSend, montoPasarela: getValues()?.montoPasarela }
-                })
-                console.log("responsefuianl: ", response)
-                if (response.status === 201) {
-                    Swal.fire({
-                        title: 'Éxito',
-                        text: 'Se reservó asiento con éxito',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        // showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        // cancelButtonColor: '#d33',
-                        // cancelButtonText: 'No',
-                        showLoaderOnConfirm: true,
-                        allowOutsideClick: false,
-                        timer: 3000,
-                        // preConfirm: () => {
-                        //     router.push(`/dashboard/verUsuarios`);
-                        //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
-                        //     return
-                        // },
-                    });
-                    reset({
-                        usersPatrocinadores: getValues()?.usersPatrocinadores,
-                    })
-                    setOpen(false)
-                    setOpenPopup(false)
-                } else {
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'No se ha podido reservar asiento',
-                        icon: 'error',
-                        confirmButtonText: 'OK',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        // cancelButtonText: 'No',
-                        showLoaderOnConfirm: true,
-                        allowOutsideClick: false,
-                        // preConfirm: () => {
-                        //     return
-                        // },
-                    });
-                }
+        // else if (getValues()?.cambiarStatusAsiento !== true) {
+        //     try {
+        //         const response = await apiCall({
+        //             method: "post", endpoint: url, data: { ...jsonSend, montoPasarela: getValues()?.montoPasarela }
+        //         })
+        //         console.log("responsefuianl: ", response)
+        //         if (response.status === 201) {
+        //             Swal.fire({
+        //                 title: 'Éxito',
+        //                 text: 'Se reservó asiento con éxito',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'OK',
+        //                 // showCancelButton: true,
+        //                 confirmButtonColor: '#3085d6',
+        //                 // cancelButtonColor: '#d33',
+        //                 // cancelButtonText: 'No',
+        //                 showLoaderOnConfirm: true,
+        //                 allowOutsideClick: false,
+        //                 timer: 3000,
+        //                 // preConfirm: () => {
+        //                 //     router.push(`/dashboard/verUsuarios`);
+        //                 //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
+        //                 //     return
+        //                 // },
+        //             });
+        //             reset({
+        //                 usersPatrocinadores: getValues()?.usersPatrocinadores,
+        //             })
+        //             setOpen(false)
+        //             setOpenPopup(false)
+        //         } else {
+        //             Swal.fire({
+        //                 title: 'Error!',
+        //                 text: 'No se ha podido reservar asiento',
+        //                 icon: 'error',
+        //                 confirmButtonText: 'OK',
+        //                 showCancelButton: true,
+        //                 confirmButtonColor: '#3085d6',
+        //                 cancelButtonColor: '#d33',
+        //                 // cancelButtonText: 'No',
+        //                 showLoaderOnConfirm: true,
+        //                 allowOutsideClick: false,
+        //                 // preConfirm: () => {
+        //                 //     return
+        //                 // },
+        //             });
+        //         }
 
-            }
-            catch (error) {
-                console.error('Error al enviar datos:', error);
-            }
-            finally {
-                fetchAsientosIdMatrix()
-            }
-        }
-        else if (getValues()?.cambiarStatusAsiento == true) { // cambiar datos de usuario (editar)
-            try {
-                const response = await apiCall({
-                    method: "patch", endpoint: url2, data: {
-                        id: getValues()?.idEditarAsiento,
-                        nombres: data?.nombres,
-                        apellidoPaterno: data?.apellidoPaterno,
-                        apellidoMaterno: data?.apellidoMaterno,
-                        celular: data?.celular,
-                        documentoUsuario: data?.documentoUsuario,
-                        patrocinadorId: data?.patrocinadorId,
-                        compraUserAntiguo: getValues()?.UsuarioAntiguo,
-                    }
-                })
-                console.log("responsefuianl: ", response)
-                if (response.status === 201) {
-                    Swal.fire({
-                        title: 'Éxito',
-                        text: 'Se edito asiento con éxito',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        // showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        // cancelButtonColor: '#d33',
-                        // cancelButtonText: 'No',
-                        showLoaderOnConfirm: true,
-                        allowOutsideClick: false,
-                        timer: 3000,
-                        // preConfirm: () => {
-                        //     router.push(`/dashboard/verUsuarios`);
-                        //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
-                        //     return
-                        // },
-                    });
-                    reset({
-                        usersPatrocinadores: getValues()?.usersPatrocinadores,
-                    })
-                    setOpen(false)
-                    setOpenPopup(false)
-                } else {
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'No se ha podido edito asiento',
-                        icon: 'error',
-                        confirmButtonText: 'OK',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        // cancelButtonText: 'No',
-                        showLoaderOnConfirm: true,
-                        allowOutsideClick: false,
-                        // preConfirm: () => {
-                        //     return
-                        // },
-                    });
-                }
+        //     }
+        //     catch (error) {
+        //         console.error('Error al enviar datos:', error);
+        //     }
+        //     finally {
+        //         fetchAsientosIdMatrix()
+        //     }
+        // }
+        // else if (getValues()?.cambiarStatusAsiento == true) { // cambiar datos de usuario (editar)
+        //     try {
+        //         const response = await apiCall({
+        //             method: "patch", endpoint: url2, data: {
+        //                 id: getValues()?.idEditarAsiento,
+        //                 nombres: data?.nombres,
+        //                 apellidoPaterno: data?.apellidoPaterno,
+        //                 apellidoMaterno: data?.apellidoMaterno,
+        //                 celular: data?.celular,
+        //                 documentoUsuario: data?.documentoUsuario,
+        //                 patrocinadorId: data?.patrocinadorId,
+        //                 compraUserAntiguo: getValues()?.UsuarioAntiguo,
+        //             }
+        //         })
+        //         console.log("responsefuianl: ", response)
+        //         if (response.status === 201) {
+        //             Swal.fire({
+        //                 title: 'Éxito',
+        //                 text: 'Se edito asiento con éxito',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'OK',
+        //                 // showCancelButton: true,
+        //                 confirmButtonColor: '#3085d6',
+        //                 // cancelButtonColor: '#d33',
+        //                 // cancelButtonText: 'No',
+        //                 showLoaderOnConfirm: true,
+        //                 allowOutsideClick: false,
+        //                 timer: 3000,
+        //                 // preConfirm: () => {
+        //                 //     router.push(`/dashboard/verUsuarios`);
+        //                 //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
+        //                 //     return
+        //                 // },
+        //             });
+        //             reset({
+        //                 usersPatrocinadores: getValues()?.usersPatrocinadores,
+        //             })
+        //             setOpen(false)
+        //             setOpenPopup(false)
+        //         } else {
+        //             Swal.fire({
+        //                 title: 'Error!',
+        //                 text: 'No se ha podido edito asiento',
+        //                 icon: 'error',
+        //                 confirmButtonText: 'OK',
+        //                 showCancelButton: true,
+        //                 confirmButtonColor: '#3085d6',
+        //                 cancelButtonColor: '#d33',
+        //                 // cancelButtonText: 'No',
+        //                 showLoaderOnConfirm: true,
+        //                 allowOutsideClick: false,
+        //                 // preConfirm: () => {
+        //                 //     return
+        //                 // },
+        //             });
+        //         }
 
-            }
-            catch (error) {
-                console.error('Error al enviar datos:', error);
-            }
-            finally {
-                fetchAsientosIdMatrix()
-            }
-        }
+        //     }
+        //     catch (error) {
+        //         console.error('Error al enviar datos:', error);
+        //     }
+        //     finally {
+        //         fetchAsientosIdMatrix()
+        //     }
+        // }
     }
 
     const handleChangeState = async (id: string, codAsiento: any, key: any) => {
@@ -2347,6 +815,12 @@ export default function Eventos() {
         const blob: any = new Blob([excelBuffer], { type: 'application/octet-stream' });
         saveAs(blob, 'reporte.xlsx');
     };
+
+    useEffect(() => {
+        setValue("sumaTotalPago", getValues()?.asientos?.reduce((acum: any, item: any) => {
+            return Number(acum) + Number(item.precio)
+        }, 0))
+    }, [change1])
 
     return (
         <div className="bg-blue-500 h-[100vh]">
@@ -2519,7 +993,7 @@ export default function Eventos() {
                                                     Total Pasajeros:
                                                 </div>
                                                 <div className='font-bold text-green-400'>
-                                                    {`${"0"}`}
+                                                    {`${getInitialStateFirstAsiento - 2}`}
                                                 </div>
                                             </div>
                                             <div className='flex flex-col w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
@@ -2545,9 +1019,43 @@ export default function Eventos() {
                                     <div id='asientosBuses' className='flex flex-col w-full gap-2'>
                                         <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2'>
                                             <div className='flex w-full justify-between'>
-                                                <div className='flex justify-center items-center gap-4'>
-                                                    <div className='scale-200 -mt-2'>
+                                                <div className='flex justify-center items-center gap-4 mt-4'>
+                                                    {/* <div className='scale-200 -mt-2'>
                                                         🚌
+                                                    </div> */}
+                                                    <div className='scale-100 -mt-2 flex flex-col justify-start items-start gap-2'>
+                                                        <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
+                                                            <Circle className="h-5 w-5 bg-[#f9bc38] rounded-full" />
+                                                            <div>
+                                                                <h1 className='text-md font-bold'>
+                                                                    {`${"Ocupado"}`}
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                        <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
+                                                            <Circle className="h-5 w-5 bg-[#ffc] rounded-full" />
+                                                            <div>
+                                                                <h1 className='text-md font-bold'>
+                                                                    {`${"Disponible"}`}
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                        <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
+                                                            <Circle color="#00f" className="h-5 w-5 bg-[#ccf] rounded-full border border-[00f]" />
+                                                            <div>
+                                                                <h1 className='text-md font-bold'>
+                                                                    {`${"Seleccionado"}`}
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                        <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
+                                                            <Circle className="h-5 w-5 bg-[#ccc] rounded-full" />
+                                                            <div>
+                                                                <h1 className='text-md font-bold'>
+                                                                    {`${"No Disponible"}`}
+                                                                </h1>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div>
                                                         <h1 className='text-xl font-bold'>
@@ -2555,9 +1063,9 @@ export default function Eventos() {
                                                         </h1>
                                                     </div>
                                                 </div>
-                                                <div className='flex justify-center items-center gap-1'>
-                                                    <div className='bg-white p-1 text-center'>
-                                                        {`Ocupados: ${"0"}/50`}
+                                                <div className='flex justify-center items-center gap-0'>
+                                                    <div className='scale-110 bg-white p-1'>
+                                                        🚌{`Ocupados: ${getInitialStateFirstAsiento - 2}/50`}
                                                     </div>
                                                     <div>
                                                         {/* <button className='bg-blue-400 text-white rounded-lg px-2 py-1 font-semibold'>
@@ -2566,132 +1074,256 @@ export default function Eventos() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className='relative w-full grid grid-cols-1 md:grid-cols-2 gap-2'>
-                                                {/* asientos svgx */}
-                                                <div className='relative w-full h-[650px] md:h-[450px] border border-slate-300'>
-                                                    {/* <Sprinter10 /> */}
-                                                    <Bus50 {...{ handleClickInformation }} />
-                                                </div>
-                                                <div className="flex flex-col gap-3 justify-center items-center">
-                                                    {
-                                                        fields.map((item: any, index: any) => {
-                                                            return (
-                                                                <div key={index} className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-lg">
-                                                                    <div className="w-full flex gap-4 justify-between items-center pb-4">
-                                                                        <div className="text-xs font-bold">
-                                                                            {`Asiento: ${item.codAsiento?.split("-")[1]}`}
+                                            <form onSubmit={handleSubmit(onSubmit)}>
+                                                <div className='relative w-full grid grid-cols-1 md:grid-cols-2 gap-2'>
+                                                    {/* asientos svgx */}
+                                                    <div>
+                                                        <div className='relative w-full h-[1020px] md:h-[750px] border border-slate-300 rounded-md'>
+                                                            {/* <Sprinter10 /> */}
+                                                            <Bus50 {...{ handleClickInformation }} />
+                                                        </div>
+                                                        {/* {
+                                                            getValues()?.asientos?.length > 0 &&
+                                                            <div className="mt-2">
+                                                                <Button className="w-full" variant="contained" color="success" type="submit">Comprar Asientos</Button>
+                                                            </div>
+                                                        } */}
+                                                    </div>
+                                                    <div className="flex flex-col gap-3 justify-start items-center">
+                                                        {
+                                                            fields.map((item: any, index: any) => {
+                                                                return (
+                                                                    <div key={index} className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-lg">
+                                                                        <div className="w-full flex gap-4 justify-between items-center pb-4">
+                                                                            <div className="text-xs font-bold">
+                                                                                {`Asiento: ${item.codAsiento?.split("-")[1]}`}
+                                                                            </div>
+                                                                            <div className="text-xs font-bold">
+                                                                                {`Precio: S/.${changeDecimales(item.precio)}`}
+                                                                            </div>
+                                                                            {
+                                                                                (index + 1 == fields.length) &&
+                                                                                <div
+                                                                                    className="cursor-pointer bg-red-500 text-white rounded-full p-1"
+                                                                                    onClick={() => {
+                                                                                        // if (Number(item.codAsiento?.split("-")[1]) !== 2) {
+                                                                                        remove(index)
+                                                                                        setIdAgregante(null)
+                                                                                        setValorRef((prev: any) => Number(prev) - 1)
+                                                                                        setChange1(!change1)
+                                                                                        setArrAsientoSeleccionados((prev: any) => prev.filter((x: any) => x !== item.codAsiento))
+                                                                                        // }
+                                                                                    }}
+                                                                                >
+                                                                                    <X className="h-3 w-3" />
+                                                                                </div>
+                                                                            }
                                                                         </div>
-                                                                        <div className="text-xs font-bold">
-                                                                            {`Precio: S/.${changeDecimales(item.precio)}`}
+                                                                        <div className="flex flex-col gap-0 mb-3">
+                                                                            <Controller
+                                                                                name={`asientos[${index}].documentoUsuario`}
+                                                                                control={control}
+                                                                                render={({ field }) => (
+                                                                                    <TextField
+                                                                                        {...field}
+                                                                                        label="Documento Usuario"
+                                                                                        variant="outlined"
+                                                                                        size="small"
+                                                                                        type="text"
+                                                                                        fullWidth
+                                                                                        // disabled={item.disabled}
+                                                                                        InputLabelProps={{
+                                                                                            shrink: true,
+                                                                                        }}
+                                                                                        required={true}
+                                                                                        onChange={(e) => {
+                                                                                            let value = e.target.value;
+                                                                                            if (value?.length > 12) value = value.slice(0, 12); // Máximo 12 caracteres
+                                                                                            if (value.length === 8) {
+                                                                                                console.log("reniec");
+                                                                                                handleApiReniec2(value, "dniCliente", setValue, apiCall, index);
+                                                                                            }
+
+                                                                                            field.onChange(value);
+                                                                                        }}
+                                                                                    />
+                                                                                )}
+                                                                            />
+                                                                            <div className="text-xs text-blue-500 font-bold uppercase">
+                                                                                {`${getValues()?.asientos?.[index]?.nombres ?? ""} ${getValues()?.asientos?.[index]?.apellidoPaterno ?? ""} ${getValues()?.asientos?.[index]?.apellidoMaterno ?? ""}`}
+                                                                            </div>
                                                                         </div>
-                                                                        <div className="cursor-pointer bg-red-500 text-white rounded-full p-1" onClick={() => remove(index)}>
-                                                                            <X className="h-3 w-3" />
+                                                                        <Controller
+                                                                            name={`asientos.${index}.celular`}
+                                                                            control={control}
+                                                                            render={({ field }) => (
+                                                                                <TextField
+                                                                                    {...field}
+                                                                                    required={true}
+                                                                                    label="Celular"
+                                                                                    variant="outlined"
+                                                                                    size="small"
+                                                                                    type="text"
+                                                                                    fullWidth
+                                                                                    // disabled={item.disabled}
+                                                                                    InputLabelProps={{
+                                                                                        shrink: true,
+                                                                                    }}
+                                                                                    onChange={(e) => {
+                                                                                        let value = e.target.value;
+                                                                                        field.onChange(value);
+                                                                                    }}
+                                                                                />
+                                                                            )}
+                                                                        />
+                                                                        <Controller
+                                                                            name={`asientos.${index}.email`}
+                                                                            control={control}
+                                                                            render={({ field }) => (
+                                                                                <TextField
+                                                                                    {...field}
+                                                                                    label="Correo"
+                                                                                    variant="outlined"
+                                                                                    size="small"
+                                                                                    type="text"
+                                                                                    fullWidth
+                                                                                    // disabled={item.disabled}
+                                                                                    InputLabelProps={{
+                                                                                        shrink: true,
+                                                                                    }}
+                                                                                    required={true}
+                                                                                    onChange={(e) => {
+                                                                                        let value = e.target.value;
+                                                                                        field.onChange(value);
+                                                                                    }}
+                                                                                />
+                                                                            )}
+                                                                        />
+                                                                        <div className="w-full">
+                                                                            <Controller
+                                                                                name={`asientos.${index}.paradero`}
+                                                                                control={control}
+                                                                                // rules={item.required ? { required: `${item.label} es obligatorio` } : {}}
+                                                                                render={({ field, fieldState }) => (
+                                                                                    <Autocomplete
+                                                                                        options={
+                                                                                            info?.destino == 1 ?
+                                                                                                [
+                                                                                                    { value: 1, label: "Orbes" },
+                                                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                                                    { value: 3, label: "Parque Zonal" },
+                                                                                                    { value: 4, label: "Puente San Luis" },
+                                                                                                    { value: 5, label: "Km. 40" },
+                                                                                                    { value: 6, label: "Pucusana" },
+                                                                                                    { value: 7, label: "Ñaña" },
+                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                                                ]
+                                                                                                :
+                                                                                                info?.destino == 0 ?
+                                                                                                    [
+                                                                                                        { value: 1, label: "Orbes" },
+                                                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                                                        { value: 3, label: "Parque Zonal" },
+                                                                                                        { value: 4, label: "Puente San Luis" },
+                                                                                                        { value: 5, label: "Km. 40" },
+                                                                                                        { value: 6, label: "Pucusana" },
+                                                                                                        { value: 7, label: "Cerro Azul" },
+                                                                                                        { value: 8, label: "Ñaña" },
+                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                                                    ]
+                                                                                                    :
+                                                                                                    []
+                                                                                        }
+                                                                                        getOptionLabel={(option) => option.label}
+                                                                                        isOptionEqualToValue={(option, value) => option.value === value.value}
+                                                                                        value={(
+                                                                                            info?.destino == 1 ?
+                                                                                                [
+                                                                                                    { value: 1, label: "Orbes" },
+                                                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                                                    { value: 3, label: "Parque Zonal" },
+                                                                                                    { value: 4, label: "Puente San Luis" },
+                                                                                                    { value: 5, label: "Km. 40" },
+                                                                                                    { value: 6, label: "Pucusana" },
+                                                                                                    { value: 7, label: "Ñaña" },
+                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                                                ]
+                                                                                                :
+                                                                                                info?.destino == 0 ?
+                                                                                                    [
+                                                                                                        { value: 1, label: "Orbes" },
+                                                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                                                        { value: 3, label: "Parque Zonal" },
+                                                                                                        { value: 4, label: "Puente San Luis" },
+                                                                                                        { value: 5, label: "Km. 40" },
+                                                                                                        { value: 6, label: "Pucusana" },
+                                                                                                        { value: 7, label: "Cerro Azul" },
+                                                                                                        { value: 8, label: "Ñaña" },
+                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                                                    ]
+                                                                                                    :
+                                                                                                    []
+                                                                                        ).find((opt: any) => opt.value === field.value) || null}
+                                                                                        onChange={(_, selectedOption) => {
+                                                                                            field.onChange(selectedOption?.value ?? null);
+                                                                                        }}
+                                                                                        renderInput={(params) => (
+                                                                                            <TextField
+                                                                                                {...params}
+                                                                                                required={true}
+                                                                                                label={"Paradero"}
+                                                                                                margin="dense"
+                                                                                                fullWidth
+                                                                                                sx={{
+                                                                                                    height: "40px",
+                                                                                                    padding: "0px",
+                                                                                                    margin: "0px",
+                                                                                                    "& .MuiOutlinedInput-notchedOutline": {
+                                                                                                        // borderColor: "transparent",
+                                                                                                        height: "45px",
+                                                                                                        paddingBottom: "5px",
+                                                                                                        marginBottom: "5px",
+                                                                                                    },
+                                                                                                }}
+                                                                                            // error={!!fieldState.error}
+                                                                                            // helperText={fieldState.error ? fieldState.error.message : ""}
+                                                                                            />
+                                                                                        )}
+                                                                                    />
+                                                                                )}
+                                                                            />
                                                                         </div>
                                                                     </div>
-                                                                    <Controller
-                                                                        name={`asientos[${index}].documentoUsuario`}
-                                                                        control={control}
-                                                                        render={({ field }) => (
-                                                                            <TextField
-                                                                                {...field}
-                                                                                label="Documento Usuario"
-                                                                                variant="outlined"
-                                                                                size="small"
-                                                                                type="text"
-                                                                                fullWidth
-                                                                                // disabled={item.disabled}
-                                                                                InputLabelProps={{
-                                                                                    shrink: true,
-                                                                                }}
-                                                                                required={item.required}
-                                                                                onChange={(e) => {
-                                                                                    let value = e.target.value;
-                                                                                    if (value?.length > 12) value = value.slice(0, 12); // Máximo 12 caracteres
-                                                                                    if (value.length === 8) {
-                                                                                        console.log("reniec");
-                                                                                        handleApiReniec(value, "dniCliente", setValue, apiCall, "0");
-                                                                                    }
-
-                                                                                    field.onChange(value);
-                                                                                }}
-                                                                            />
-                                                                        )}
-                                                                    />
-                                                                    <Controller
-                                                                        name={`asientos[${index}].nombres`}
-                                                                        control={control}
-                                                                        render={({ field }) => (
-                                                                            <TextField
-                                                                                {...field}
-                                                                                label="Nombres"
-                                                                                variant="outlined"
-                                                                                size="small"
-                                                                                type="text"
-                                                                                fullWidth
-                                                                                // disabled={item.disabled}
-                                                                                InputLabelProps={{
-                                                                                    shrink: true,
-                                                                                }}
-                                                                                // required={item.required}
-                                                                                onChange={(e) => {
-                                                                                    let value = e.target.value;
-                                                                                    field.onChange(value);
-                                                                                }}
-                                                                            />
-                                                                        )}
-                                                                    />
-                                                                    <Controller
-                                                                        name={`asientos[${index}].apellidoPaterno`}
-                                                                        control={control}
-                                                                        render={({ field }) => (
-                                                                            <TextField
-                                                                                {...field}
-                                                                                label="Apellido Paterno"
-                                                                                variant="outlined"
-                                                                                size="small"
-                                                                                type="text"
-                                                                                fullWidth
-                                                                                // disabled={item.disabled}
-                                                                                InputLabelProps={{
-                                                                                    shrink: true,
-                                                                                }}
-                                                                                // required={item.required}
-                                                                                onChange={(e) => {
-                                                                                    let value = e.target.value;
-                                                                                    field.onChange(value);
-                                                                                }}
-                                                                            />
-                                                                        )}
-                                                                    />
-                                                                    <Controller
-                                                                        name={`asientos[${index}].apellidoMaterno`}
-                                                                        control={control}
-                                                                        render={({ field }) => (
-                                                                            <TextField
-                                                                                {...field}
-                                                                                label="Apellido Materno"
-                                                                                variant="outlined"
-                                                                                size="small"
-                                                                                type="text"
-                                                                                fullWidth
-                                                                                // disabled={item.disabled}
-                                                                                InputLabelProps={{
-                                                                                    shrink: true,
-                                                                                }}
-                                                                                // required={item.required}
-                                                                                onChange={(e) => {
-                                                                                    let value = e.target.value;
-                                                                                    field.onChange(value);
-                                                                                }}
-                                                                            />
-                                                                        )}
-                                                                    />
-                                                                </div>
-                                                            )
-                                                        })
-                                                    }
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                {
+                                                    getValues()?.asientos?.length > 0 &&
+                                                    <div className="mt-1 w-full">
+                                                        <Button
+                                                            className="w-full"
+                                                            variant="contained"
+                                                            color="success"
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setOpenPopup(true)
+                                                                setValue("comprarAsientos", true)
+                                                                setValue("pasarelaPay", false)
+                                                                setValue("siPasarelaPay", false)
+                                                                setValue("dataPoUp", {
+                                                                    title: `Subir Voucher`,
+                                                                    infoOrder: "new",
+                                                                    action: "subirVoucher",
+                                                                })
+                                                            }}
+                                                        >
+                                                            {`Comprar (Total: S/. ${changeDecimales(getValues()?.sumaTotalPago)})`}
+                                                        </Button>
+                                                    </div>
+                                                }
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

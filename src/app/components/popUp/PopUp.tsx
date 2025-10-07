@@ -296,7 +296,7 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
             <div className="absolute flex flex-col bg-white pb-4 z-50 shadow-xl rounded-lg modal-slide-up justify-start">
                 <div className="border-1 w-full text-center mb-3 cursor-pointer bg-blue-50 flex justify-center items-center rounded-t-lg" onClick={() => {
                     setOpenPopup(false)
-                    reset()
+                    getValues()?.comprarAsientos !== true && reset()
                     setOpen(false)
                 }}><X color="blue" /></div>
                 <div className="flex flex-col gap-2 bg-[rgba(255,255,255,0.8)] rounded-lg p-3 px-3 mt-0 w-[350px] mx-2">
@@ -520,6 +520,107 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                                     }}>
                                         <X className="rounded-full bg-blue-50 p-1" color="blue" />
                                     </div> */}
+                                </div>
+                            </div>
+                        }
+                        {
+                            getValues()?.comprarAsientos &&
+                            <div className="flex flex-col gap-3">
+                                {/* <div className="uppercase text-center text-base font-bold text-black">
+                                    {"Datos Usuario"}
+                                </div> */}
+                                <div className="flex flex-col justify-center items-center gap-1 mb-3">
+                                    <div>
+                                        {`Debe realizar el pago total de S/. ${changeDecimales(getValues()?.sumaTotalPago)} por cualquiera de los siguientes medios de pago: `}
+                                    </div>
+                                    <img src="/transferenciamunoz.jpg" alt="transferencia" className="w-[80%] h-auto" />
+                                    <div className="flex flex-col justify-center items-center gap-0 mt-1">
+                                        <div className="font-bold text-xs text-red-500 mt-1">
+                                            {`* El voucher que seleccione debe ser de: S/. ${changeDecimales(getValues()?.sumaTotalPago)} `}
+                                        </div>
+                                        <div className="font-bold text-xs text-red-500 mt-1 uppercase">
+                                            {`(Caso contrario se rechazará su compra)`}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-3">
+                                    <FormComprarTicket {...{ getValues, setValue, handleSubmit, control, apiCall, loading, error }} />
+                                </div>
+                                {
+                                    getValues()?.user?.length == 0 &&
+                                    <div className="mt-0">
+                                        <Controller
+                                            name={"patrocinadorId"}
+                                            control={control}
+                                            render={({ field }) => (
+                                                <Autocomplete
+                                                    options={options}
+                                                    getOptionLabel={(option) => option?.label || ""}
+                                                    isOptionEqualToValue={(option, value) => option?.value === value?.value}
+                                                    value={field.value || null}
+                                                    inputValue={inputValue}
+                                                    // Validation can be handled via the Controller or form logic
+                                                    onInputChange={(_, newInputValue) => {
+                                                        setInputValue(newInputValue)
+                                                        if (newInputValue.length >= 3) {
+                                                            handleSearch(newInputValue)
+                                                        }
+                                                    }}
+                                                    onChange={(_, newValue) => {
+                                                        field.onChange(newValue)
+                                                        if (newValue) {
+                                                            setInputValue(newValue.label)
+                                                            setOptions([newValue])
+                                                        } else {
+                                                            setInputValue("")
+                                                        }
+                                                    }}
+                                                    loading={loading22}
+                                                    filterOptions={(x) => x}
+                                                    renderInput={(params) => (
+                                                        <TextField
+                                                            {...params}
+                                                            required
+                                                            label="¿Quién lo invitó? (Escriba su nombre)"
+                                                            InputProps={{
+                                                                ...params.InputProps,
+                                                                endAdornment: (
+                                                                    <>
+                                                                        {loading22 && <CircularProgress size={20} />}
+                                                                        {params.InputProps.endAdornment}
+                                                                    </>
+                                                                ),
+                                                            }}
+                                                        />
+                                                    )}
+                                                />
+                                            )}
+                                        />
+                                    </div>
+                                }
+                                <div className="flex flex-row gap-3 w-full">
+                                    <Button
+                                        variant="contained"
+                                        color="success"
+                                        type="submit"
+                                        className="w-full"
+                                        disabled={loading || loadingUpload}
+                                    >
+                                        {`Total: S/. ${changeDecimales(getValues()?.sumaTotalPago)}`}
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            setOpen(false)
+                                            setOpenPopup(false)
+                                        }}
+                                        variant="contained"
+                                        color="error"
+                                        type="button"
+                                        // className="w-full"
+                                        disabled={loading || loadingUpload}
+                                    >
+                                        {"Cancelar"}
+                                    </Button>
                                 </div>
                             </div>
                         }

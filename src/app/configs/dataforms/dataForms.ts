@@ -2472,6 +2472,24 @@ export const dataCambiarStatusAsiento = [
     // },
 ]
 
+export const dataComprarAsientos = [
+    {
+        id: 64,
+        name: "fileUrl",
+        label: "Seleccione Voucher",
+        type: "file",
+        options: [
+            { value: "1", label: "Activo" },
+            { value: "0", label: "Inactivo" },
+        ],
+        placeholder: "Seleccione Voucher",
+        description: "Seleccione Voucher",
+        required: true,
+        icon: "fa fa-file-alt",
+        color: "bg-blue-500",
+    },
+]
+
 export const dataComprarTicketPasarela = [
     {
         id: 1,

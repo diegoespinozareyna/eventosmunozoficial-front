@@ -20,7 +20,7 @@ export const Bus50 = ({ handleClickInformation }: any) => {
                         <TransformComponent> */}
             <div id={Apis.PROYECTCURRENT} className="flex justify-center items-center -mt-0">
                 <svg
-                    viewBox="-70 0 350 700"
+                    viewBox="0 0 200 700"
                     fill="currentColor"
                     className="w-full h-full"
                 >
@@ -802,7 +802,7 @@ export const Bus50 = ({ handleClickInformation }: any) => {
                                     y="119.58419"
                                 // // style="fill:#000000;stroke-width:0.631078"
                                 >
-                                    01
+                                    {"01"}
                                 </tspan>
                             </text>
                             <text
@@ -1798,11 +1798,11 @@ export const Bus50 = ({ handleClickInformation }: any) => {
                                 <tspan
                                     // sodipodi:role="line"
                                     id="tspan1"
-                                    x="48"
-                                    y="70.299194"
+                                    x="84"
+                                    y="72"
                                 // // style="fill:#000000;stroke-width:0.443437"
                                 >
-                                    COND.
+                                    Conductor
                                 </tspan>
                             </text>
                         </g>
