@@ -5,7 +5,7 @@ import useApi from "@/app/hooks/fetchData/useApi"
 import { Autocomplete, Button, IconButton, TextField } from "@mui/material"
 import { useParams, useRouter } from "next/navigation"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { Controller, useFieldArray, useForm } from "react-hook-form"
+import { Controller, set, useFieldArray, useForm } from "react-hook-form"
 import "./styleButton.css"
 import { Evento200Sale } from "@/app/components/Escenarios/Evento200/Evento200Sale"
 import { Evento250Sale } from "@/app/components/Escenarios/Evento250/Evento250Sale"
@@ -412,12 +412,16 @@ export default function Eventos() {
             setIdAgregante(codAsiento)
             setChange1(!change1)
             const asientoSelect = dataAsientosComprados.find((x: any) => x?.codAsiento == codAsiento)
+            setValorAsientoPatch(asientoSelect)
             if (usuarioActivo?._id !== asientoSelect?.patrocinadorId) {
                 Swal.fire({
                     icon: "error",
                     title: "Error!",
                     text: "No tiene permiso para realizar esta acción",
                 });
+            }
+            else if (usuarioActivo?._id == asientoSelect?.patrocinadorId && asientoSelect?.status !== "1") {
+                handleEditAsiento(asientoSelect, codAsiento)
             }
             console.log("asientoSelect: ", asientoSelect)
         }
@@ -927,6 +931,80 @@ export default function Eventos() {
         });
     };
 
+    const [openPopupFinal, setOpenPopupFinal] = useState(false)
+    const [valorAsientoPatch, setValorAsientoPatch] = useState<any>(null)
+
+    const handleEditAsiento = async (asientoSelect: any, data: any) => {
+        const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editarAsiento`
+        setOpenPopupFinal(true)
+    }
+
+    const handleEditAsientoFinal = async () => {
+
+        try {
+            const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editAsientoAll`
+
+            const jsonAsientosAll = {
+                id: valorAsientoPatch?._id,
+                status: "1",
+                documentoUsuario: getValues()?.documentoUsuario,
+                nombres: getValues()?.nombres ?? "",
+                apellidoPaterno: getValues()?.apellidoPaterno ?? "",
+                apellidoMaterno: getValues()?.apellidoMaterno ?? "",
+                celular: getValues()?.celular ?? "",
+                email: getValues()?.email ?? "",
+            }
+            console.log("jsonAsientosAll: ", jsonAsientosAll)
+
+            const response = await apiCall({
+                method: "patch", endpoint: url, data: jsonAsientosAll
+            })
+            console.log("responsefuianl: ", response)
+            if (response.status === 201) {
+                Swal.fire({
+                    title: 'Éxito',
+                    text: 'Se edite el asiento con éxito',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    // showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    // cancelButtonColor: '#d33',
+                    // cancelButtonText: 'No',
+                    showLoaderOnConfirm: true,
+                    allowOutsideClick: false,
+                    // preConfirm: () => {
+                    //     router.push(`/dashboard/verUsuarios`);
+                    //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
+                    //     return
+                    // },
+                });
+                // reset({
+                //     usersPatrocinadores: getValues()?.usersPatrocinadores,
+                // })
+                // setOpen(false)
+                // setOpenPopup(false)
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'No se ha podido editar el asiento',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    // cancelButtonText: 'No',
+                    showLoaderOnConfirm: true,
+                    allowOutsideClick: false,
+                    // preConfirm: () => {
+                    //     return
+                    // },
+                });
+            }
+        } catch (error) {
+            console.error('Error al enviar datos:', error);
+        }
+    }
+
     return (
         <div className="bg-blue-500 h-[100vh]">
             {/* {isLoading && <TicketLoaderMotion />} */}
@@ -1405,6 +1483,261 @@ export default function Eventos() {
                     openPopup &&
                     <>
                         <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, reset, loadingUpload, handleSearch, setOpen, dataAsientos, setOpenPopup, usuarioActivo }} />
+                    </>
+                }
+                {
+                    openPopupFinal &&
+                    <>
+                        <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] z-50" />
+                        <div className="absolute flex flex-col bg-white pb-4 z-50 shadow-xl rounded-lg modal-slide-up justify-start">
+                            <div className="border-1 w-full text-center mb-3 cursor-pointer bg-blue-50 flex justify-center items-center rounded-t-lg" onClick={() => {
+                                setOpenPopupFinal(false)
+                                reset({
+                                    ...getValues(),
+                                    documentoUsuario: null,
+                                    nombres: null,
+                                    apellidoPaterno: null,
+                                    apellidoMaterno: null,
+                                    celular: null,
+                                    email: null,
+                                    paradero: null,
+                                })
+                            }}><X color="blue" /></div>
+                            <>
+                                <form className="relative"
+                                //  onSubmit={handleSubmit(onValid, onInvalid)}
+                                >
+                                    <div className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-lg">
+                                        <div className="w-full flex gap-4 justify-between items-center pb-4">
+                                            <div className="text-xs font-bold">
+                                                {/* {`Asiento: ${item.codAsiento?.split("-")[1]}`} */}
+                                                {`Asiento: `}
+                                            </div>
+                                            <div className="text-xs font-bold">
+                                                {/* {`Precio: S/.${changeDecimales(item.precio)}`} */}
+                                                {`Precio: S/.`}
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col gap-0 mb-3">
+                                            <Controller
+                                                name={`documentoUsuario`}
+                                                control={control}
+                                                rules={{
+                                                    required: "El documento es obligatorio",
+                                                    minLength: {
+                                                        value: 8,
+                                                        message: "Debe tener al menos 8 dígitos",
+                                                    },
+                                                }}
+                                                render={({ field, fieldState }) => (
+                                                    <TextField
+                                                        {...field}
+                                                        label="Documento Usuario"
+                                                        variant="outlined"
+                                                        size="small"
+                                                        type="text"
+                                                        fullWidth
+                                                        // disabled={item.disabled}
+                                                        error={!!fieldState.error}
+                                                        helperText={fieldState.error?.message}
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }}
+                                                        required={true}
+                                                        onChange={(e) => {
+                                                            let value = e.target.value;
+                                                            if (value?.length > 12) value = value.slice(0, 12); // Máximo 12 caracteres
+                                                            if (value.length === 8) {
+                                                                console.log("reniec");
+                                                                handleApiReniec(value, "dniCliente", setValue, apiCall, "index");
+                                                            }
+
+                                                            field.onChange(value);
+                                                        }}
+                                                    />
+                                                )}
+                                            />
+                                            <div className="text-xs text-blue-500 font-bold uppercase">
+                                                {`${getValues()?.nombres ?? ""} ${getValues()?.apellidoPaterno ?? ""} ${getValues()?.apellidoMaterno ?? ""}`}
+                                            </div>
+                                        </div>
+                                        <Controller
+                                            name={`celular`}
+                                            control={control}
+                                            rules={{
+                                                required: "El celular es obligatorio",
+                                                pattern: {
+                                                    value: /^[0-9]{9}$/,
+                                                    message: "Debe tener 9 dígitos numéricos",
+                                                },
+                                            }}
+                                            render={({ field, fieldState }) => (
+                                                <TextField
+                                                    {...field}
+                                                    required={true}
+                                                    label="Celular"
+                                                    variant="outlined"
+                                                    size="small"
+                                                    type="text"
+                                                    fullWidth
+                                                    // disabled={item.disabled}
+                                                    error={!!fieldState.error}
+                                                    helperText={fieldState.error?.message}
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                    onChange={(e) => {
+                                                        let value = e.target.value;
+                                                        field.onChange(value);
+                                                    }}
+                                                />
+                                            )}
+                                        />
+                                        <Controller
+                                            name={`email`}
+                                            control={control}
+                                            rules={{
+                                                required: "El correo es obligatorio",
+                                                pattern: {
+                                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                    message: "Debe ser un correo válido",
+                                                },
+                                            }}
+                                            render={({ field, fieldState }) => (
+                                                <TextField
+                                                    {...field}
+                                                    label="Correo"
+                                                    variant="outlined"
+                                                    size="small"
+                                                    type="text"
+                                                    fullWidth
+                                                    // disabled={item.disabled}
+                                                    error={!!fieldState.error}
+                                                    helperText={fieldState.error?.message}
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                    required={true}
+                                                    onChange={(e) => {
+                                                        let value = e.target.value;
+                                                        field.onChange(value);
+                                                    }}
+                                                />
+                                            )}
+                                        />
+                                        <div className="w-full">
+                                            <Controller
+                                                name={`paradero`}
+                                                control={control}
+                                                rules={{
+                                                    required: "Debe seleccionar un paradero",
+                                                }}
+                                                render={({ field, fieldState }) => (
+                                                    <Autocomplete
+                                                        options={
+                                                            info?.destino == 1 ?
+                                                                [
+                                                                    { value: 1, label: "Orbes" },
+                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                    { value: 3, label: "Parque Zonal" },
+                                                                    { value: 4, label: "Puente San Luis" },
+                                                                    { value: 5, label: "Km. 40" },
+                                                                    { value: 6, label: "Pucusana" },
+                                                                    { value: 7, label: "Ñaña" },
+                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                ]
+                                                                :
+                                                                info?.destino == 0 ?
+                                                                    [
+                                                                        { value: 1, label: "Orbes" },
+                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                        { value: 3, label: "Parque Zonal" },
+                                                                        { value: 4, label: "Puente San Luis" },
+                                                                        { value: 5, label: "Km. 40" },
+                                                                        { value: 6, label: "Pucusana" },
+                                                                        { value: 7, label: "Cerro Azul" },
+                                                                        { value: 8, label: "Ñaña" },
+                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                    ]
+                                                                    :
+                                                                    []
+                                                        }
+                                                        getOptionLabel={(option) => option.label}
+                                                        isOptionEqualToValue={(option, value) => option.value === value.value}
+                                                        value={(
+                                                            info?.destino == 1 ?
+                                                                [
+                                                                    { value: 1, label: "Orbes" },
+                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                    { value: 3, label: "Parque Zonal" },
+                                                                    { value: 4, label: "Puente San Luis" },
+                                                                    { value: 5, label: "Km. 40" },
+                                                                    { value: 6, label: "Pucusana" },
+                                                                    { value: 7, label: "Ñaña" },
+                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                ]
+                                                                :
+                                                                info?.destino == 0 ?
+                                                                    [
+                                                                        { value: 1, label: "Orbes" },
+                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                        { value: 3, label: "Parque Zonal" },
+                                                                        { value: 4, label: "Puente San Luis" },
+                                                                        { value: 5, label: "Km. 40" },
+                                                                        { value: 6, label: "Pucusana" },
+                                                                        { value: 7, label: "Cerro Azul" },
+                                                                        { value: 8, label: "Ñaña" },
+                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                    ]
+                                                                    :
+                                                                    []
+                                                        ).find((opt: any) => opt.value === field.value) || null}
+                                                        onChange={(_, selectedOption) => {
+                                                            field.onChange(selectedOption?.value ?? null);
+                                                        }}
+                                                        renderInput={(params) => (
+                                                            <TextField
+                                                                {...params}
+                                                                required={true}
+                                                                label={"Paradero"}
+                                                                margin="dense"
+                                                                fullWidth
+                                                                sx={{
+                                                                    height: "40px",
+                                                                    padding: "0px",
+                                                                    margin: "0px",
+                                                                    "& .MuiOutlinedInput-notchedOutline": {
+                                                                        // borderColor: "transparent",
+                                                                        height: "45px",
+                                                                        paddingBottom: "5px",
+                                                                        marginBottom: "5px",
+                                                                    },
+                                                                }}
+                                                                error={!!fieldState.error}
+                                                                helperText={fieldState.error?.message}
+                                                            />
+                                                        )}
+                                                    />
+                                                )}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <Button
+                                            variant="contained"
+                                            color="success"
+                                            type="button"
+                                            className="w-full"
+                                            onClick={() => {
+                                                handleEditAsientoFinal()
+                                            }}
+                                        >
+                                            {`Editar`}
+                                        </Button>
+                                    </div>
+                                </form>
+                            </>
+                        </div>
                     </>
                 }
             </div >

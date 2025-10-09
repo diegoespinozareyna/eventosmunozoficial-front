@@ -47,6 +47,8 @@ export const handleApiReniec = async (dni: any, key: string, setValue: any, apiC
                 setValue(`nombres`, apiReniec?.data?.data?.nombres || apiReniec?.data?.nombres);
                 setValue(`apellidoPaterno`, apiReniec?.data?.data?.apellido_paterno || apiReniec?.data?.apellidoPaterno);
                 setValue(`apellidoMaterno`, apiReniec?.data?.data?.apellido_materno || apiReniec?.data?.apellidoMaterno);
+                setValue(`asientos.celular`, (apiReniec?.data?.data?.celular ?? "") || (apiReniec?.data?.celular ?? ""));
+                setValue(`asientos.email`, (apiReniec?.data?.data?.email ?? "") || (apiReniec?.data?.email ?? ""));
 
                 return;
             }
@@ -55,7 +57,8 @@ export const handleApiReniec = async (dni: any, key: string, setValue: any, apiC
                 setValue(`nombres`, "");
                 setValue(`apellidoPaterno`, "");
                 setValue(`apellidoMaterno`, "");
-                setValue(`celular`, "");
+                setValue(`asientos.celular`, "");
+                setValue(`asientos.email`, "");
 
             }
         }
@@ -66,7 +69,8 @@ export const handleApiReniec = async (dni: any, key: string, setValue: any, apiC
                 setValue(`nombres`, apiReniecMe?.data?.nombres);
                 setValue(`apellidoPaterno`, apiReniecMe?.data?.apellidoPaterno);
                 setValue(`apellidoMaterno`, apiReniecMe?.data?.apellidoMaterno);
-                setValue(`celular`, apiReniecMe?.data?.celular);
+                setValue(`asientos.celular`, apiReniecMe?.data?.celular ?? "");
+                setValue(`asientos.email`, apiReniecMe?.data?.email ?? "");
 
             }
             else {
@@ -74,7 +78,8 @@ export const handleApiReniec = async (dni: any, key: string, setValue: any, apiC
                 setValue(`nombres`, apiReniecMe?.data?.nombres);
                 setValue(`apellidoPaterno`, apiReniecMe?.data?.apellidoPaterno);
                 setValue(`apellidoMaterno`, apiReniecMe?.data?.apellidoMaterno);
-                setValue(`celular`, apiReniecMe?.data?.celular);
+                setValue(`asientos.celular`, apiReniecMe?.data?.celular ?? "");
+                setValue(`asientos.email`, apiReniecMe?.data?.email ?? "");
             }
         }
 
