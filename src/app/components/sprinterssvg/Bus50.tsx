@@ -1,8 +1,28 @@
 import { Apis } from "@/app/configs/proyecto/proyectCurrent";
 import { ArrowDownUp } from "lucide-react";
+import { useEffect, useState } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export const Bus50 = ({ handleClickInformation }: any) => {
+
+    const [viewBox, setViewBox] = useState("0 0 200 700"); // default móvil
+
+    useEffect(() => {
+        const mq = window.matchMedia("(min-width: 768px)"); // md breakpoint de Tailwind
+        const updateViewBox = (e: any) => {
+            if (e.matches) {
+                setViewBox("0 0 300 900"); // vista laptop
+            } else {
+                setViewBox("0 0 200 700"); // vista celular
+            }
+        };
+
+        updateViewBox(mq); // ejecuta al montar
+        mq.addEventListener("change", updateViewBox);
+
+        return () => mq.removeEventListener("change", updateViewBox);
+    }, []);
+
     return (
         <div className="">
             {/* <TransformWrapper
@@ -20,14 +40,14 @@ export const Bus50 = ({ handleClickInformation }: any) => {
                         <TransformComponent> */}
             <div id={Apis.PROYECTCURRENT} className="flex justify-center items-center -mt-0">
                 <svg
-                    viewBox="0 0 200 700"
+                    viewBox={viewBox}
                     fill="currentColor"
                     className="w-full h-full"
                 >
                     <g id="bordeexterno">
                         <g id="bordeexterno">
                             <path
-                                style={{ fill: "#ececec" }}
+                                style={{ fill: "rgba(135, 206, 250, 0.4)" }}
                                 d="M 13.370192,347.73037 V 33.341287 l 8.41899,-3.828443 C 65.742261,9.5256666 111.79314,6.1463714 155.93177,19.669225 c 10.56908,3.238075 13.9022,4.534842 27.12786,10.554243 l 9.91569,4.512937 V 348.42792 662.11944 H 103.17276 13.370192 Z"
                                 id="path24"
                             />

@@ -8,6 +8,7 @@ interface User {
     historico: string;
     membresia: string;
     nombres: string;
+    email: string;
     password: string;
     repeticionUsuario: string;
     role: string;

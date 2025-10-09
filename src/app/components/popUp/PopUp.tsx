@@ -11,7 +11,7 @@ import { X } from "lucide-react"
 import { usePopUp } from "@/app/hooks/popup/usePopUp"
 import { changeDecimales } from "@/app/functions/changeDecimales"
 
-export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, loadingUpload, reset, setOpen, dataAsientos, setOpenPopup }: any) => {
+export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, loadingUpload, reset, setOpen, dataAsientos, setOpenPopup, usuarioActivo }: any) => {
 
     // const { openPopup, setOpenPopup } = usePopUp()
 
@@ -536,10 +536,10 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                                     <img src="/transferenciamunoz.jpg" alt="transferencia" className="w-[80%] h-auto" />
                                     <div className="flex flex-col justify-center items-center gap-0 mt-1">
                                         <div className="font-bold text-xs text-red-500 mt-1">
-                                            {`* El voucher que seleccione debe ser de: S/. ${changeDecimales(getValues()?.sumaTotalPago)} `}
+                                            {`* El voucher que seleccione debe ser VÁLIDO y del monto de: S/. ${changeDecimales(getValues()?.sumaTotalPago)} `}
                                         </div>
                                         <div className="font-bold text-xs text-red-500 mt-1 uppercase">
-                                            {`(Caso contrario se rechazará su compra)`}
+                                            {`${usuarioActivo?.role == "user asesor" ? "(Caso contrario se rechazará su compra y puede estar sujeto a sanción de parte de la inmobiliaria. Revise bien antes de subir el voucher)" : "(Caso contrario se rechazará su compra)"}`}
                                         </div>
                                     </div>
                                 </div>
@@ -606,7 +606,7 @@ export const PopUp = ({ onSubmit, handleSubmit, control, apiCall, loading, error
                                         className="w-full"
                                         disabled={loading || loadingUpload}
                                     >
-                                        {`Total: S/. ${changeDecimales(getValues()?.sumaTotalPago)}`}
+                                        {`Pagar: S/. ${changeDecimales(getValues()?.sumaTotalPago)}`}
                                     </Button>
                                     <Button
                                         onClick={() => {

@@ -79,7 +79,7 @@ export const Apis = {
     LINK_GITHUB: "https://github.com/ubuntunetworkpe",
     LINK_LIBRO_RECLAMACIONES: "https://reclamovirtual.pe/reclamar/grupovycinmobiliario/grupovycinmobiliarialibroreclamaciones",
     //COLORES STATUS
-    COLOR_VENDIDO_CONTADO: "#00ffff",
+    COLOR_VENDIDO_CONTADO: "#61baed",
     COLOR_VENDIDO_FINANCIADO: "#2ad3b3",
     COLOR_NO_DISPONIBLE: "#2aff80",
     COLOR_DISPONIBLE: "#efefef",

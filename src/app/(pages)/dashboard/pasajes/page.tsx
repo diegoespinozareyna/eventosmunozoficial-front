@@ -113,7 +113,7 @@ export default function DashBoard() {
                         </div> */}
                     </>
                 }
-                <div className={`w-[calc(100vw-65px)] ${(getValues("user")?.userType == "admin" || getValues("user")?.userType == "super admin") ? "h-[calc(100vh-280px)]" : "h-[calc(100vh-100px)]"} overflow-y-auto flex flex-col justify-items-center-center gap-4 pb-5 pr-5`}>
+                <div className={`w-[calc(100vwv)] md:w-[calc(100vw-320px)] ${(getValues("user")?.userType == "admin" || getValues("user")?.userType == "super admin") ? "h-[calc(100vh-280px)]" : "h-[calc(100vh-100px)]"} overflow-y-auto flex flex-col justify-items-center-center gap-4 pb-5 pr-5`}>
                     {
                         eventos?.length > 0 ?
                             eventos?.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((evento: any, index: any) => {

@@ -28,6 +28,7 @@ import { PiMicrosoftExcelLogoLight } from "react-icons/pi";
 import { Bus50 } from "@/app/components/sprinterssvg/Bus50"
 import { handleApiReniec } from "@/app/functions/handleApiReniec"
 import { handleApiReniec2 } from "@/app/functions/handleApiReniec2"
+import { useUserStore } from "@/app/store/userStore"
 
 // Extend the Window interface to include VisanetCheckout
 declare global {
@@ -46,6 +47,9 @@ export default function Eventos() {
 
     const [info, setInfo] = useState<any>(null)
     const router = useRouter()
+
+    // const usuarioActivo = useUserStore(state => state.user)
+    // console.log(usuarioActivo)
 
     useEffect(() => {
         console.log("info: ", info)
@@ -140,11 +144,19 @@ export default function Eventos() {
                 const diferencia2 = fechaEvento.getTime() - hoy.getTime();
 
 
-                if (match?.status == "0") {
+                if (match?.status == "1") {
+                    // console.log("match?.status", match)
                     // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
-                    obj1?.setAttribute('fill', "#f9bc38");
+                    obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (match?.status == "0") {
+                    // console.log("match?.status", match)
+                    // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
+                    obj1?.setAttribute('fill', "#f9bc38");
+                    obj1?.setAttribute('stroke', match?.patrocinadorId == usuarioActivo?._id ? "#f00" : '#333');
+                    obj1?.setAttribute('stroke-width', match?.patrocinadorId == usuarioActivo?._id ? "1" : '0.3')
                 }
                 else if (arrAsientoSeleccionados?.find((x: any) => x == obj1?.id)) {
                     // console.log("arrAsientoSeleccionados", arrAsientoSeleccionados)
@@ -171,7 +183,7 @@ export default function Eventos() {
                     // console.log("arrAsientoSeleccionados", arrAsientoSeleccionados)
                     // console.log("obj1?.id", obj1?.id)
                     // console.log("valorRef", valorRef)
-                    obj1?.setAttribute('fill', "#ffc"); // amarillo claro asiento disponible
+                    obj1?.setAttribute('fill', "#fff"); // amarillo claro asiento disponible
                     obj1?.setAttribute('stroke', '#000');
                     obj1?.setAttribute('stroke-width', '0.6')
                 }
@@ -211,10 +223,17 @@ export default function Eventos() {
                 const match = response?.data?.find((obj2: any) => obj2?.codAsiento === obj1?.id && obj2?.status !== "3");
                 const matchAll = response?.data?.filter((obj2: any) => obj2?.codAsiento === obj1?.id && obj2?.status !== "3")?.length;
                 console.log("matchAll: ", matchAll)
-                if (match?.status == "0") {
-                    obj1?.setAttribute('fill', "#f9bc38");
+                if (match?.status == "1") {
+                    // console.log("match?.status", match)
+                    // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
+                    obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
                     obj1?.setAttribute('stroke', '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (match?.status == "0") {
+                    obj1?.setAttribute('fill', "#f9bc38");
+                    obj1?.setAttribute('stroke', match?.patrocinadorId == usuarioActivo?._id ? "#f00" : '#333');
+                    obj1?.setAttribute('stroke-width', match?.patrocinadorId == usuarioActivo?._id ? "1" : '0.3')
                 }
                 else if (arrAsientoSeleccionados?.find((x: any) => x == obj1?.id)) {
                     obj1?.setAttribute('fill', "#ccf"); // azul asiento no disponible
@@ -227,7 +246,7 @@ export default function Eventos() {
                     obj1?.setAttribute('stroke-width', '0.3')
                 }
                 else if (Number(obj1?.id?.split("-")[1]) == valorRef && Number(obj1?.id?.split("-")[1]) != 1) {
-                    obj1?.setAttribute('fill', "#ffc"); // amarillo claro asiento disponible
+                    obj1?.setAttribute('fill', "#fff"); // amarillo claro asiento disponible
                     obj1?.setAttribute('stroke', '#000');
                     obj1?.setAttribute('stroke-width', '0.6')
                 }
@@ -287,6 +306,25 @@ export default function Eventos() {
         }
     }, [open, openAsientos, openPopup])
 
+    const [usuarioActivo, setUsuarioActivo] = useState<any>(null)
+
+    useEffect(() => {
+        try {
+            const user = localStorage.getItem('auth-token');
+            const decoded: any = jwtDecode(user as string);
+            console.log('Datos del usuario:', decoded?.user);
+            setValue("user", decoded?.user);
+            setUsuarioActivo(decoded?.user)
+        } catch (error) {
+            console.error('Error al obtener datos del usuario:', error);
+            setValue("user", []);
+        }
+    }, [])
+
+    // useEffect(() => {
+    //     console.log(usuarioActivo)
+    // }, [usuarioActivo])
+
     const handleVouchersAsiento = async (codAsiento: any, eventoId: any, idIcketAsiento: any) => {
         const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/eventos/vouchersEventosPorAsiento`
         const response: any = await apiCall({
@@ -327,17 +365,61 @@ export default function Eventos() {
                 setValorRef((prev: any) => Number(prev) + 1)
                 setChange1(!change1)
                 setArrAsientoSeleccionados([...arrAsientoSeleccionados, codAsiento])
-                append({
-                    codAsiento: codAsiento, // numero de asiento
-                    precio: info?.precioAsiento,
-                    codMatrixTicket: info?._id, // codigo id de evento
-                })
+                if (usuarioActivo?.role == "admin" || usuarioActivo?.role == "super admin" || usuarioActivo?.role == "user asesor") {
+
+                    const montoTotalPasarela = getValues()?.asientos?.reduce((acum: any, item: any) => {
+                        return (Number(acum) + Number(item.precio))
+                    }, 0)
+                    console.log("montoTotalPasarela: ", montoTotalPasarela)
+
+                    const grupoAsientosComprados = getValues()?.asientos?.map((item: any, index: any) => {
+                        return item.codAsiento
+                    })
+
+                    append({
+                        status: "0", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
+                        documentoUsuario: usuarioActivo.documentoUsuario,
+                        nombres: usuarioActivo.nombres,
+                        apellidoPaterno: usuarioActivo.apellidoPaterno,
+                        apellidoMaterno: usuarioActivo.apellidoMaterno,
+                        celular: usuarioActivo.celular,
+                        email: usuarioActivo.email,
+                        codAsiento: codAsiento, // numero de asiento
+                        precio: info?.precioAsiento,
+                        codMatrixTicket: info?._id, // codigo id de evento
+                        // fileUrl: String,
+                        compraUserAntiguo: true,
+                        proyecto: Apis.PROYECTCURRENT,
+                        usuarioRegistro: `${usuarioActivo?.documentoUsuario ?? "Invitado"} - ${usuarioActivo?.nombres ?? "Invitado"} ${usuarioActivo?.apellidoPaterno ?? "Invitado"} ${usuarioActivo?.apellidoMaterno ?? "Invitado"}`,
+                        patrocinadorId: usuarioActivo._id,
+                        fechaFin: moment.tz(new Date(), "America/Lima").add(7, "days").format("YYYY-MM-DDTHH:mm"),
+                        montoPasarela: montoTotalPasarela?.toString(),
+                        grupoAsientosComprados: grupoAsientosComprados.join(','),
+                        paradero: "0",
+                    })
+                }
+                else {
+                    append({
+                        codAsiento: codAsiento, // numero de asiento
+                        precio: info?.precioAsiento,
+                        codMatrixTicket: info?._id, // codigo id de evento
+                    })
+                }
             }
         }
         else {
             setValorRef(valorRef)
             setIdAgregante(codAsiento)
             setChange1(!change1)
+            const asientoSelect = dataAsientosComprados.find((x: any) => x?.codAsiento == codAsiento)
+            if (usuarioActivo?._id !== asientoSelect?.patrocinadorId) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error!",
+                    text: "No tiene permiso para realizar esta acción",
+                });
+            }
+            console.log("asientoSelect: ", asientoSelect)
         }
     }
 
@@ -440,7 +522,7 @@ export default function Eventos() {
 
         const jsonAsientosAll = getValues()?.asientos?.map((item: any, index: any) => {
             return {
-                status: "0", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
+                status: (usuarioActivo?.role !== "super admin" && usuarioActivo?.role !== "admin" && usuarioActivo?.role !== "user asesor") ? "1" : "0", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
                 documentoUsuario: item.documentoUsuario,
                 nombres: item.nombres,
                 apellidoPaterno: item.apellidoPaterno,
@@ -454,7 +536,7 @@ export default function Eventos() {
                 compraUserAntiguo: item.UsuarioAntiguo,
                 proyecto: Apis.PROYECTCURRENT,
                 usuarioRegistro: `${getValues()?.userVenta?.documentoUsuario ?? "Invitado"} - ${getValues()?.userVenta?.nombres ?? "Invitado"} ${getValues()?.userVenta?.apellidoPaterno ?? "Invitado"} ${getValues()?.userVenta?.apellidoMaterno ?? "Invitado"}`,
-                // patrocinadorId: String,
+                patrocinadorId: item?.patrocinadorId,
                 fechaFin: moment.tz(new Date(), "America/Lima").add(7, "days").format("YYYY-MM-DDTHH:mm"),
                 montoPasarela: montoTotalPasarela?.toString(),
                 grupoAsientosComprados: grupoAsientosComprados.join(','),
@@ -484,7 +566,7 @@ export default function Eventos() {
                             return {
                                 ...item,
                                 fileUrl: res.data.url,
-                                patrocinadorId: getValues()?.patrocinadorId ?? "",
+                                patrocinadorId: getValues()?.patrocinadorId?._id ?? usuarioActivo?._id,
                             }
                         })
                     })
@@ -822,13 +904,36 @@ export default function Eventos() {
         }, 0))
     }, [change1])
 
+    const onValid = (data: any) => {
+        console.log("form validado, proceder con compra", data);
+        setOpenPopup(true)
+        setValue("comprarAsientos", true)
+        setValue("pasarelaPay", false)
+        setValue("siPasarelaPay", false)
+        setValue("dataPoUp", {
+            title: `Subir Voucher`,
+            infoOrder: "new",
+            action: "subirVoucher",
+        })
+    };
+
+    const onInvalid = (errors: any) => {
+        console.log("errores:", errors);
+        // aquí podrías abrir el popup o mostrar mensajes
+        Swal.fire({
+            icon: "error",
+            title: "Error!",
+            text: "No se ha podido enviar el formulario, por favor verifica los campos",
+        });
+    };
+
     return (
         <div className="bg-blue-500 h-[100vh]">
             {/* {isLoading && <TicketLoaderMotion />} */}
             <div className="!max-w-full relative z-20 w-full flex items-center justify-center bg-blue-500">
                 {
                     true &&
-                    <div className="bg-blue-500 flex flex-col -mt-3">
+                    <div className="bg-blue-500 flex flex-col -mt-3 w-full">
                         <div>
                             <button className="bg-blue-500 text-white px-2 py-2 relative z-20 font-bold text-xl cursor-pointer rounded-lg ml-0 mt-2 flex justify-center items-center"
                                 onClick={() => {
@@ -840,12 +945,9 @@ export default function Eventos() {
                                 />
                             </button>
                         </div>
-                        {/* <div className="w-full text-center mb-0 font-bold text-base uppercase text-white -mt-1">
-                            {info?.titulo}
-                        </div> */}
                         <>
-                            <div className='flex flex-col bg-blue-500 justify-start items-center gap-4 p-4 w-full px-5 overflow-y-auto'>
-                                <div className='flex flex-col justify-center items-center w-full md:w-3/4 max-w-4xl gap-4'>
+                            <div className='flex flex-col bg-blue-500 justify-start items-center gap-4 p-4 w-full px-1 overflow-y-auto'>
+                                <div className='flex flex-col justify-center items-center w-full md:w-full max-w-4xl gap-4'>
                                     <div className='flex flex-col gap-1 justify-center items-center'>
                                         <h1 className='text-center text-white text-2xl font-bold'>
                                             {info?.titulo}
@@ -854,133 +956,6 @@ export default function Eventos() {
                                             {moment.tz(info?.fechaVisita, "America/Lima").format("DD/MM/YYYY")}
                                         </h1>
                                     </div>
-
-                                    {/* tipo buses */}
-                                    {/* <div id='typeBuses' className='flex flex-col w-full gap-2'>
-                                        <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2'>
-                                            <div className='flex w-full justify-between'>
-                                                <div className='flex justify-center items-center gap-4'>
-                                                    <div className='scale-200 -mt-2'>
-                                                        🚐
-                                                    </div>
-                                                    <div>
-                                                        <h1 className='text-xl font-bold'>
-                                                            {`${"Sprinter 10"}`}
-                                                        </h1>
-                                                        <p className='text-sm font-semibold'>
-                                                            {`${"Capacidad: 10 pasajeros"}`}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className='flex justify-center items-center gap-1'>
-                                                    <div className='rounded-lg border border-slate-400 bg-white p-1 text-center'>
-                                                        {`${"0"}/10`}
-                                                    </div>
-                                                    <div>
-                                                        <button className='bg-blue-400 text-white rounded-lg px-2 py-1 font-semibold'>
-                                                            Activo
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2'>
-                                            <div className='flex w-full justify-between'>
-                                                <div className='flex justify-center items-center gap-4'>
-                                                    <div className='scale-200 -mt-2'>
-                                                        🚌
-                                                    </div>
-                                                    <div>
-                                                        <h1 className='text-xl font-bold'>
-                                                            {`${"Sprinter 17"}`}
-                                                        </h1>
-                                                        <p className='text-sm font-semibold'>
-                                                            {`${"Capacidad: 17 pasajeros"}`}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className='flex justify-center items-center gap-1'>
-                                                    <div className='rounded-lg border border-slate-400 bg-white p-1 text-center'>
-                                                        {`${"0"}/17`}
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2'>
-                                            <div className='flex w-full justify-between'>
-                                                <div className='flex justify-center items-center gap-4'>
-                                                    <div className='scale-200 -mt-2'>
-                                                        🚌
-                                                    </div>
-                                                    <div>
-                                                        <h1 className='text-xl font-bold'>
-                                                            {`${"Sprinter 20"}`}
-                                                        </h1>
-                                                        <p className='text-sm font-semibold'>
-                                                            {`${"Capacidad: 20 pasajeros"}`}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className='flex justify-center items-center gap-1'>
-                                                    <div className='rounded-lg border border-slate-400 bg-white p-1 text-center'>
-                                                        {`${"0"}/20`}
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2'>
-                                            <div className='flex w-full justify-between'>
-                                                <div className='flex justify-center items-center gap-4'>
-                                                    <div className='scale-200 -mt-2'>
-                                                        🚍
-                                                    </div>
-                                                    <div>
-                                                        <h1 className='text-xl font-bold'>
-                                                            {`${"Mini Bus 30"}`}
-                                                        </h1>
-                                                        <p className='text-sm font-semibold'>
-                                                            {`${"Capacidad: 30 pasajeros"}`}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className='flex justify-center items-center gap-1'>
-                                                    <div className='rounded-lg border border-slate-400 bg-white p-1 text-center'>
-                                                        {`${"0"}/30`}
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2'>
-                                            <div className='flex w-full justify-between'>
-                                                <div className='flex justify-center items-center gap-4'>
-                                                    <div className='scale-200 -mt-2'>
-                                                        🚌
-                                                    </div>
-                                                    <div>
-                                                        <h1 className='text-xl font-bold'>
-                                                            {`${"Bus 50"}`}
-                                                        </h1>
-                                                        <p className='text-sm font-semibold'>
-                                                            {`${"Capacidad: 50 pasajeros"}`}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className='flex justify-center items-center gap-1'>
-                                                    <div className='rounded-lg border border-slate-400 bg-white p-1 text-center'>
-                                                        {`${"0"}/50`}
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> */}
 
                                     {/* contadores */}
                                     <div id='counters' className='flex flex-col w-full gap-2'>
@@ -1004,36 +979,36 @@ export default function Eventos() {
                                                     {`${"0"}`}
                                                 </div>
                                             </div>
-                                            {/* <div className='flex flex-col w-full px-2 py-1 border rounded-lg border-orange-100 bg-orange-50'>
-                                                <div>
-                                                    Vehiculo Actual:
-                                                </div>
-                                                <div className='font-bold text-orange-400'>
-                                                    {`${"Sprinter 10"}`}
-                                                </div>
-                                            </div> */}
                                         </div>
                                     </div>
 
                                     {/* asientosBuses */}
                                     <div id='asientosBuses' className='flex flex-col w-full gap-2'>
-                                        <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2'>
+                                        <div className='flex flex-col gap-4 justify-center items-center bg-white rounded-lg px-3 py-2 pb-20'>
                                             <div className='flex w-full justify-between'>
                                                 <div className='flex justify-center items-center gap-4 mt-4'>
                                                     {/* <div className='scale-200 -mt-2'>
                                                         🚌
                                                     </div> */}
-                                                    <div className='scale-100 -mt-2 flex flex-col justify-start items-start gap-2'>
+                                                    <div className='scale-100 -mt-2 flex flex-col md:flex-row justify-start items-start gap-2'>
                                                         <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
-                                                            <Circle className="h-5 w-5 bg-[#f9bc38] rounded-full" />
+                                                            <Circle className="h-5 w-5 bg-[#61baed] rounded-full" />
                                                             <div>
                                                                 <h1 className='text-md font-bold'>
-                                                                    {`${"Ocupado"}`}
+                                                                    {`${"Vendido"}`}
                                                                 </h1>
                                                             </div>
                                                         </div>
                                                         <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
-                                                            <Circle className="h-5 w-5 bg-[#ffc] rounded-full" />
+                                                            <Circle className="h-5 w-5 bg-[#f9bc38] rounded-full" />
+                                                            <div>
+                                                                <h1 className='text-md font-bold'>
+                                                                    {`${"Reservado"}`}
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                        <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
+                                                            <Circle className="h-5 w-5 bg-[#fff] rounded-full" />
                                                             <div>
                                                                 <h1 className='text-md font-bold'>
                                                                     {`${"Disponible"}`}
@@ -1074,252 +1049,347 @@ export default function Eventos() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <form onSubmit={handleSubmit(onSubmit)}>
-                                                <div className='relative w-full grid grid-cols-1 md:grid-cols-2 gap-2'>
+                                            <div className="text-center text-xs text-red-500 font-bold uppercase">
+                                                {"Seleccione asientos Disponibles (Blancos) *"}
+                                            </div>
+                                            <form className="relative" onSubmit={handleSubmit(onValid, onInvalid)}>
+                                                <div className='relative w-full h-full grid grid-cols-1 md:grid-cols-2 gap-2 justify-between'>
                                                     {/* asientos svgx */}
                                                     <div>
-                                                        <div className='relative w-full h-[1020px] md:h-[750px] border border-slate-300 rounded-md'>
+                                                        <div className='relative w-full h-[1220px] md:h-[1120px] md:w-[450px] border border-slate-300 rounded-md'>
                                                             {/* <Sprinter10 /> */}
                                                             <Bus50 {...{ handleClickInformation }} />
                                                         </div>
-                                                        {/* {
-                                                            getValues()?.asientos?.length > 0 &&
-                                                            <div className="mt-2">
-                                                                <Button className="w-full" variant="contained" color="success" type="submit">Comprar Asientos</Button>
-                                                            </div>
-                                                        } */}
                                                     </div>
                                                     <div className="flex flex-col gap-3 justify-start items-center">
+                                                        Asientos Seleccionados:
                                                         {
-                                                            fields.map((item: any, index: any) => {
-                                                                return (
-                                                                    <div key={index} className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-lg">
-                                                                        <div className="w-full flex gap-4 justify-between items-center pb-4">
-                                                                            <div className="text-xs font-bold">
-                                                                                {`Asiento: ${item.codAsiento?.split("-")[1]}`}
-                                                                            </div>
-                                                                            <div className="text-xs font-bold">
-                                                                                {`Precio: S/.${changeDecimales(item.precio)}`}
-                                                                            </div>
-                                                                            {
-                                                                                (index + 1 == fields.length) &&
-                                                                                <div
-                                                                                    className="cursor-pointer bg-red-500 text-white rounded-full p-1"
-                                                                                    onClick={() => {
-                                                                                        // if (Number(item.codAsiento?.split("-")[1]) !== 2) {
-                                                                                        remove(index)
-                                                                                        setIdAgregante(null)
-                                                                                        setValorRef((prev: any) => Number(prev) - 1)
-                                                                                        setChange1(!change1)
-                                                                                        setArrAsientoSeleccionados((prev: any) => prev.filter((x: any) => x !== item.codAsiento))
-                                                                                        // }
-                                                                                    }}
-                                                                                >
-                                                                                    <X className="h-3 w-3" />
-                                                                                </div>
-                                                                            }
+                                                            fields.length == 0
+                                                                ?
+                                                                <div className="text-xs text-[#ffc] font-bold ml-10 bg-red-500 rounded-md px-2 py-1">
+                                                                    "No ha seleccionado ningun asiento, SELECCIONE LOS ASIENTOS DISPONIBLES(COLOR BLANCO)"
+                                                                </div>
+                                                                :
+                                                                (usuarioActivo?.role !== "admin" && usuarioActivo?.role !== "super admin" && usuarioActivo?.role !== "user asesor")
+                                                                    ?
+                                                                    <div>
+                                                                        <div className="text-left text-xs text-red-500 font-bold uppercase mb-4">
+                                                                            Completar Datos:
                                                                         </div>
-                                                                        <div className="flex flex-col gap-0 mb-3">
-                                                                            <Controller
-                                                                                name={`asientos[${index}].documentoUsuario`}
-                                                                                control={control}
-                                                                                render={({ field }) => (
-                                                                                    <TextField
-                                                                                        {...field}
-                                                                                        label="Documento Usuario"
-                                                                                        variant="outlined"
-                                                                                        size="small"
-                                                                                        type="text"
-                                                                                        fullWidth
-                                                                                        // disabled={item.disabled}
-                                                                                        InputLabelProps={{
-                                                                                            shrink: true,
-                                                                                        }}
-                                                                                        required={true}
-                                                                                        onChange={(e) => {
-                                                                                            let value = e.target.value;
-                                                                                            if (value?.length > 12) value = value.slice(0, 12); // Máximo 12 caracteres
-                                                                                            if (value.length === 8) {
-                                                                                                console.log("reniec");
-                                                                                                handleApiReniec2(value, "dniCliente", setValue, apiCall, index);
+                                                                        {
+                                                                            fields.map((item: any, index: any) => {
+                                                                                return (
+                                                                                    <div key={index} className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-lg">
+                                                                                        <div className="w-full flex gap-4 justify-between items-center pb-4">
+                                                                                            <div className="text-xs font-bold">
+                                                                                                {`Asiento: ${item.codAsiento?.split("-")[1]}`}
+                                                                                            </div>
+                                                                                            <div className="text-xs font-bold">
+                                                                                                {`Precio: S/.${changeDecimales(item.precio)}`}
+                                                                                            </div>
+                                                                                            {
+                                                                                                (index + 1 == fields.length) &&
+                                                                                                <div
+                                                                                                    className="cursor-pointer bg-red-500 text-white rounded-full p-1"
+                                                                                                    onClick={() => {
+                                                                                                        // if (Number(item.codAsiento?.split("-")[1]) !== 2) {
+                                                                                                        remove(index)
+                                                                                                        setIdAgregante(null)
+                                                                                                        setValorRef((prev: any) => Number(prev) - 1)
+                                                                                                        setChange1(!change1)
+                                                                                                        setArrAsientoSeleccionados((prev: any) => prev.filter((x: any) => x !== item.codAsiento))
+                                                                                                        // }
+                                                                                                    }}
+                                                                                                >
+                                                                                                    <div className="flex flex-row gap-1 justify-center items-center">
+                                                                                                        <X className="h-3 w-3" />
+                                                                                                        <div>Eliminar</div>
+                                                                                                    </div>
+                                                                                                </div>
                                                                                             }
-
-                                                                                            field.onChange(value);
-                                                                                        }}
-                                                                                    />
-                                                                                )}
-                                                                            />
-                                                                            <div className="text-xs text-blue-500 font-bold uppercase">
-                                                                                {`${getValues()?.asientos?.[index]?.nombres ?? ""} ${getValues()?.asientos?.[index]?.apellidoPaterno ?? ""} ${getValues()?.asientos?.[index]?.apellidoMaterno ?? ""}`}
-                                                                            </div>
-                                                                        </div>
-                                                                        <Controller
-                                                                            name={`asientos.${index}.celular`}
-                                                                            control={control}
-                                                                            render={({ field }) => (
-                                                                                <TextField
-                                                                                    {...field}
-                                                                                    required={true}
-                                                                                    label="Celular"
-                                                                                    variant="outlined"
-                                                                                    size="small"
-                                                                                    type="text"
-                                                                                    fullWidth
-                                                                                    // disabled={item.disabled}
-                                                                                    InputLabelProps={{
-                                                                                        shrink: true,
-                                                                                    }}
-                                                                                    onChange={(e) => {
-                                                                                        let value = e.target.value;
-                                                                                        field.onChange(value);
-                                                                                    }}
-                                                                                />
-                                                                            )}
-                                                                        />
-                                                                        <Controller
-                                                                            name={`asientos.${index}.email`}
-                                                                            control={control}
-                                                                            render={({ field }) => (
-                                                                                <TextField
-                                                                                    {...field}
-                                                                                    label="Correo"
-                                                                                    variant="outlined"
-                                                                                    size="small"
-                                                                                    type="text"
-                                                                                    fullWidth
-                                                                                    // disabled={item.disabled}
-                                                                                    InputLabelProps={{
-                                                                                        shrink: true,
-                                                                                    }}
-                                                                                    required={true}
-                                                                                    onChange={(e) => {
-                                                                                        let value = e.target.value;
-                                                                                        field.onChange(value);
-                                                                                    }}
-                                                                                />
-                                                                            )}
-                                                                        />
-                                                                        <div className="w-full">
-                                                                            <Controller
-                                                                                name={`asientos.${index}.paradero`}
-                                                                                control={control}
-                                                                                // rules={item.required ? { required: `${item.label} es obligatorio` } : {}}
-                                                                                render={({ field, fieldState }) => (
-                                                                                    <Autocomplete
-                                                                                        options={
-                                                                                            info?.destino == 1 ?
-                                                                                                [
-                                                                                                    { value: 1, label: "Orbes" },
-                                                                                                    { value: 2, label: "Tottus Atocongo" },
-                                                                                                    { value: 3, label: "Parque Zonal" },
-                                                                                                    { value: 4, label: "Puente San Luis" },
-                                                                                                    { value: 5, label: "Km. 40" },
-                                                                                                    { value: 6, label: "Pucusana" },
-                                                                                                    { value: 7, label: "Ñaña" },
-                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
-                                                                                                ]
-                                                                                                :
-                                                                                                info?.destino == 0 ?
-                                                                                                    [
-                                                                                                        { value: 1, label: "Orbes" },
-                                                                                                        { value: 2, label: "Tottus Atocongo" },
-                                                                                                        { value: 3, label: "Parque Zonal" },
-                                                                                                        { value: 4, label: "Puente San Luis" },
-                                                                                                        { value: 5, label: "Km. 40" },
-                                                                                                        { value: 6, label: "Pucusana" },
-                                                                                                        { value: 7, label: "Cerro Azul" },
-                                                                                                        { value: 8, label: "Ñaña" },
-                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
-                                                                                                    ]
-                                                                                                    :
-                                                                                                    []
-                                                                                        }
-                                                                                        getOptionLabel={(option) => option.label}
-                                                                                        isOptionEqualToValue={(option, value) => option.value === value.value}
-                                                                                        value={(
-                                                                                            info?.destino == 1 ?
-                                                                                                [
-                                                                                                    { value: 1, label: "Orbes" },
-                                                                                                    { value: 2, label: "Tottus Atocongo" },
-                                                                                                    { value: 3, label: "Parque Zonal" },
-                                                                                                    { value: 4, label: "Puente San Luis" },
-                                                                                                    { value: 5, label: "Km. 40" },
-                                                                                                    { value: 6, label: "Pucusana" },
-                                                                                                    { value: 7, label: "Ñaña" },
-                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
-                                                                                                ]
-                                                                                                :
-                                                                                                info?.destino == 0 ?
-                                                                                                    [
-                                                                                                        { value: 1, label: "Orbes" },
-                                                                                                        { value: 2, label: "Tottus Atocongo" },
-                                                                                                        { value: 3, label: "Parque Zonal" },
-                                                                                                        { value: 4, label: "Puente San Luis" },
-                                                                                                        { value: 5, label: "Km. 40" },
-                                                                                                        { value: 6, label: "Pucusana" },
-                                                                                                        { value: 7, label: "Cerro Azul" },
-                                                                                                        { value: 8, label: "Ñaña" },
-                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
-                                                                                                    ]
-                                                                                                    :
-                                                                                                    []
-                                                                                        ).find((opt: any) => opt.value === field.value) || null}
-                                                                                        onChange={(_, selectedOption) => {
-                                                                                            field.onChange(selectedOption?.value ?? null);
-                                                                                        }}
-                                                                                        renderInput={(params) => (
-                                                                                            <TextField
-                                                                                                {...params}
-                                                                                                required={true}
-                                                                                                label={"Paradero"}
-                                                                                                margin="dense"
-                                                                                                fullWidth
-                                                                                                sx={{
-                                                                                                    height: "40px",
-                                                                                                    padding: "0px",
-                                                                                                    margin: "0px",
-                                                                                                    "& .MuiOutlinedInput-notchedOutline": {
-                                                                                                        // borderColor: "transparent",
-                                                                                                        height: "45px",
-                                                                                                        paddingBottom: "5px",
-                                                                                                        marginBottom: "5px",
+                                                                                        </div>
+                                                                                        <div className="flex flex-col gap-0 mb-3">
+                                                                                            <Controller
+                                                                                                name={`asientos[${index}].documentoUsuario`}
+                                                                                                control={control}
+                                                                                                rules={{
+                                                                                                    required: "El documento es obligatorio",
+                                                                                                    minLength: {
+                                                                                                        value: 8,
+                                                                                                        message: "Debe tener al menos 8 dígitos",
                                                                                                     },
                                                                                                 }}
-                                                                                            // error={!!fieldState.error}
-                                                                                            // helperText={fieldState.error ? fieldState.error.message : ""}
+                                                                                                render={({ field, fieldState }) => (
+                                                                                                    <TextField
+                                                                                                        {...field}
+                                                                                                        label="Documento Usuario"
+                                                                                                        variant="outlined"
+                                                                                                        size="small"
+                                                                                                        type="text"
+                                                                                                        fullWidth
+                                                                                                        // disabled={item.disabled}
+                                                                                                        error={!!fieldState.error}
+                                                                                                        helperText={fieldState.error?.message}
+                                                                                                        InputLabelProps={{
+                                                                                                            shrink: true,
+                                                                                                        }}
+                                                                                                        required={true}
+                                                                                                        onChange={(e) => {
+                                                                                                            let value = e.target.value;
+                                                                                                            if (value?.length > 12) value = value.slice(0, 12); // Máximo 12 caracteres
+                                                                                                            if (value.length === 8) {
+                                                                                                                console.log("reniec");
+                                                                                                                handleApiReniec2(value, "dniCliente", setValue, apiCall, index);
+                                                                                                            }
+
+                                                                                                            field.onChange(value);
+                                                                                                        }}
+                                                                                                    />
+                                                                                                )}
                                                                                             />
-                                                                                        )}
-                                                                                    />
-                                                                                )}
-                                                                            />
-                                                                        </div>
+                                                                                            <div className="text-xs text-blue-500 font-bold uppercase">
+                                                                                                {`${getValues()?.asientos?.[index]?.nombres ?? ""} ${getValues()?.asientos?.[index]?.apellidoPaterno ?? ""} ${getValues()?.asientos?.[index]?.apellidoMaterno ?? ""}`}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <Controller
+                                                                                            name={`asientos.${index}.celular`}
+                                                                                            control={control}
+                                                                                            rules={{
+                                                                                                required: "El celular es obligatorio",
+                                                                                                pattern: {
+                                                                                                    value: /^[0-9]{9}$/,
+                                                                                                    message: "Debe tener 9 dígitos numéricos",
+                                                                                                },
+                                                                                            }}
+                                                                                            render={({ field, fieldState }) => (
+                                                                                                <TextField
+                                                                                                    {...field}
+                                                                                                    required={true}
+                                                                                                    label="Celular"
+                                                                                                    variant="outlined"
+                                                                                                    size="small"
+                                                                                                    type="text"
+                                                                                                    fullWidth
+                                                                                                    // disabled={item.disabled}
+                                                                                                    error={!!fieldState.error}
+                                                                                                    helperText={fieldState.error?.message}
+                                                                                                    InputLabelProps={{
+                                                                                                        shrink: true,
+                                                                                                    }}
+                                                                                                    onChange={(e) => {
+                                                                                                        let value = e.target.value;
+                                                                                                        field.onChange(value);
+                                                                                                    }}
+                                                                                                />
+                                                                                            )}
+                                                                                        />
+                                                                                        <Controller
+                                                                                            name={`asientos.${index}.email`}
+                                                                                            control={control}
+                                                                                            rules={{
+                                                                                                required: "El correo es obligatorio",
+                                                                                                pattern: {
+                                                                                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                                                                    message: "Debe ser un correo válido",
+                                                                                                },
+                                                                                            }}
+                                                                                            render={({ field, fieldState }) => (
+                                                                                                <TextField
+                                                                                                    {...field}
+                                                                                                    label="Correo"
+                                                                                                    variant="outlined"
+                                                                                                    size="small"
+                                                                                                    type="text"
+                                                                                                    fullWidth
+                                                                                                    // disabled={item.disabled}
+                                                                                                    error={!!fieldState.error}
+                                                                                                    helperText={fieldState.error?.message}
+                                                                                                    InputLabelProps={{
+                                                                                                        shrink: true,
+                                                                                                    }}
+                                                                                                    required={true}
+                                                                                                    onChange={(e) => {
+                                                                                                        let value = e.target.value;
+                                                                                                        field.onChange(value);
+                                                                                                    }}
+                                                                                                />
+                                                                                            )}
+                                                                                        />
+                                                                                        <div className="w-full">
+                                                                                            <Controller
+                                                                                                name={`asientos.${index}.paradero`}
+                                                                                                control={control}
+                                                                                                rules={{
+                                                                                                    required: "Debe seleccionar un paradero",
+                                                                                                }}
+                                                                                                render={({ field, fieldState }) => (
+                                                                                                    <Autocomplete
+                                                                                                        options={
+                                                                                                            info?.destino == 1 ?
+                                                                                                                [
+                                                                                                                    { value: 1, label: "Orbes" },
+                                                                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                                                                    { value: 3, label: "Parque Zonal" },
+                                                                                                                    { value: 4, label: "Puente San Luis" },
+                                                                                                                    { value: 5, label: "Km. 40" },
+                                                                                                                    { value: 6, label: "Pucusana" },
+                                                                                                                    { value: 7, label: "Ñaña" },
+                                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                                                                ]
+                                                                                                                :
+                                                                                                                info?.destino == 0 ?
+                                                                                                                    [
+                                                                                                                        { value: 1, label: "Orbes" },
+                                                                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                                                                        { value: 3, label: "Parque Zonal" },
+                                                                                                                        { value: 4, label: "Puente San Luis" },
+                                                                                                                        { value: 5, label: "Km. 40" },
+                                                                                                                        { value: 6, label: "Pucusana" },
+                                                                                                                        { value: 7, label: "Cerro Azul" },
+                                                                                                                        { value: 8, label: "Ñaña" },
+                                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                                                                    ]
+                                                                                                                    :
+                                                                                                                    []
+                                                                                                        }
+                                                                                                        getOptionLabel={(option) => option.label}
+                                                                                                        isOptionEqualToValue={(option, value) => option.value === value.value}
+                                                                                                        value={(
+                                                                                                            info?.destino == 1 ?
+                                                                                                                [
+                                                                                                                    { value: 1, label: "Orbes" },
+                                                                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                                                                    { value: 3, label: "Parque Zonal" },
+                                                                                                                    { value: 4, label: "Puente San Luis" },
+                                                                                                                    { value: 5, label: "Km. 40" },
+                                                                                                                    { value: 6, label: "Pucusana" },
+                                                                                                                    { value: 7, label: "Ñaña" },
+                                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                                                                ]
+                                                                                                                :
+                                                                                                                info?.destino == 0 ?
+                                                                                                                    [
+                                                                                                                        { value: 1, label: "Orbes" },
+                                                                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                                                                        { value: 3, label: "Parque Zonal" },
+                                                                                                                        { value: 4, label: "Puente San Luis" },
+                                                                                                                        { value: 5, label: "Km. 40" },
+                                                                                                                        { value: 6, label: "Pucusana" },
+                                                                                                                        { value: 7, label: "Cerro Azul" },
+                                                                                                                        { value: 8, label: "Ñaña" },
+                                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                                                                    ]
+                                                                                                                    :
+                                                                                                                    []
+                                                                                                        ).find((opt: any) => opt.value === field.value) || null}
+                                                                                                        onChange={(_, selectedOption) => {
+                                                                                                            field.onChange(selectedOption?.value ?? null);
+                                                                                                        }}
+                                                                                                        renderInput={(params) => (
+                                                                                                            <TextField
+                                                                                                                {...params}
+                                                                                                                required={true}
+                                                                                                                label={"Paradero"}
+                                                                                                                margin="dense"
+                                                                                                                fullWidth
+                                                                                                                sx={{
+                                                                                                                    height: "40px",
+                                                                                                                    padding: "0px",
+                                                                                                                    margin: "0px",
+                                                                                                                    "& .MuiOutlinedInput-notchedOutline": {
+                                                                                                                        // borderColor: "transparent",
+                                                                                                                        height: "45px",
+                                                                                                                        paddingBottom: "5px",
+                                                                                                                        marginBottom: "5px",
+                                                                                                                    },
+                                                                                                                }}
+                                                                                                                error={!!fieldState.error}
+                                                                                                                helperText={fieldState.error?.message}
+                                                                                                            />
+                                                                                                        )}
+                                                                                                    />
+                                                                                                )}
+                                                                                            />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                )
+                                                                            })
+                                                                        }
                                                                     </div>
-                                                                )
-                                                            })
+                                                                    :
+                                                                    (usuarioActivo?.role == "admin" || usuarioActivo?.role == "super admin" || usuarioActivo?.role == "user asesor")
+                                                                    &&
+                                                                    fields.map((item: any, index: any) => {
+                                                                        return (
+                                                                            <div key={index} className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-xl bg-blue-50">
+                                                                                <div className="w-full md:w-[300px] grid grid-cols-3 gap-4 justify-center items-center pb-4">
+                                                                                    <div className="text-xs font-bold">
+                                                                                        {`Asiento: ${item.codAsiento?.split("-")[1]}`}
+                                                                                    </div>
+                                                                                    <div className="text-xs font-bold">
+                                                                                        {`Precio: S/.${changeDecimales(item.precio)}`}
+                                                                                    </div>
+                                                                                    {
+                                                                                        (index + 1 == fields.length) &&
+                                                                                        <div
+                                                                                            className="cursor-pointer bg-red-500 text-white rounded-full p-1"
+                                                                                            onClick={() => {
+                                                                                                // if (Number(item.codAsiento?.split("-")[1]) !== 2) {
+                                                                                                remove(index)
+                                                                                                setIdAgregante(null)
+                                                                                                setValorRef((prev: any) => Number(prev) - 1)
+                                                                                                setChange1(!change1)
+                                                                                                setArrAsientoSeleccionados((prev: any) => prev.filter((x: any) => x !== item.codAsiento))
+                                                                                                // }
+                                                                                            }}
+                                                                                        >
+                                                                                            <div className="flex flex-row gap-1 justify-center items-center">
+                                                                                                <X className="h-3 w-3" />
+                                                                                                <div>Eliminar</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    }
+                                                                                </div>
+                                                                            </div>
+                                                                        )
+                                                                    })
                                                         }
                                                     </div>
                                                 </div>
                                                 {
                                                     getValues()?.asientos?.length > 0 &&
-                                                    <div className="mt-1 w-full">
+                                                    <div className="mt-1 w-full fixed bottom-1 left-0 right-0 px-3">
                                                         <Button
                                                             className="w-full"
                                                             variant="contained"
-                                                            color="success"
-                                                            type="button"
+                                                            color={"success"}
+                                                            type="submit"
                                                             onClick={() => {
-                                                                setOpenPopup(true)
-                                                                setValue("comprarAsientos", true)
-                                                                setValue("pasarelaPay", false)
-                                                                setValue("siPasarelaPay", false)
-                                                                setValue("dataPoUp", {
-                                                                    title: `Subir Voucher`,
-                                                                    infoOrder: "new",
-                                                                    action: "subirVoucher",
-                                                                })
+                                                                (usuarioActivo?.role !== "admin" && usuarioActivo?.role !== "super admin" && usuarioActivo?.role !== "user asesor") && window.scrollTo({ top: document.body.scrollHeight, left: 0, behavior: 'smooth' });
                                                             }}
+                                                        // onClick={() => {
+                                                        //     setOpenPopup(true)
+                                                        //     setValue("comprarAsientos", true)
+                                                        //     setValue("pasarelaPay", false)
+                                                        //     setValue("siPasarelaPay", false)
+                                                        //     setValue("dataPoUp", {
+                                                        //         title: `Subir Voucher`,
+                                                        //         infoOrder: "new",
+                                                        //         action: "subirVoucher",
+                                                        //     })
+                                                        // }}
                                                         >
-                                                            {`Comprar (Total: S/. ${changeDecimales(getValues()?.sumaTotalPago)})`}
+                                                            <div>
+                                                                <div>
+                                                                    {`Asiento(s): ${arrAsientoSeleccionados?.map((x: any) => (x?.split("-")[1]))?.join(', ')}`}
+                                                                </div>
+                                                                <div className="text-base text-white">
+                                                                    {`Total: S/. ${changeDecimales(getValues()?.sumaTotalPago)}`}
+                                                                </div>
+                                                                <div className="text-base text-white font-bold uppercase">
+                                                                    {`COMPRAR AQUÍ`}
+                                                                </div>
+                                                            </div>
                                                         </Button>
                                                     </div>
                                                 }
@@ -1334,7 +1404,7 @@ export default function Eventos() {
                 {
                     openPopup &&
                     <>
-                        <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, reset, loadingUpload, handleSearch, setOpen, dataAsientos, setOpenPopup }} />
+                        <PopUp {...{ onSubmit, handleSubmit, control, apiCall, loading, error, getValues, setValue, reset, loadingUpload, handleSearch, setOpen, dataAsientos, setOpenPopup, usuarioActivo }} />
                     </>
                 }
             </div >
