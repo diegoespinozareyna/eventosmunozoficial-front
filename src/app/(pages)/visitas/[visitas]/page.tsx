@@ -12,7 +12,7 @@ import { Evento250Sale } from "@/app/components/Escenarios/Evento250/Evento250Sa
 import { Evento300Sale } from "@/app/components/Escenarios/Evento300/Evento300Sale"
 import Swal from "sweetalert2"
 import { StatusLotes } from "@/app/configs/proyecto/statusLotes"
-import { ChevronsLeft, Circle, CircuitBoard, Edit2Icon, FileText, Octagon, OctagonIcon, SquaresExclude, Upload, X } from "lucide-react"
+import { ChevronsLeft, Circle, CircuitBoard, Edit2Icon, File, FileText, Octagon, OctagonIcon, SquaresExclude, Upload, X } from "lucide-react"
 import { changeDecimales } from "@/app/functions/changeDecimales"
 import { usePopUp } from "@/app/hooks/popup/usePopUp"
 import Image from "next/image"
@@ -29,6 +29,8 @@ import { Bus50 } from "@/app/components/sprinterssvg/Bus50"
 import { handleApiReniec } from "@/app/functions/handleApiReniec"
 import { handleApiReniec2 } from "@/app/functions/handleApiReniec2"
 import { useUserStore } from "@/app/store/userStore"
+// import { jsPDF } from "jspdf";
+// import "jspdf-autotable";
 
 // Extend the Window interface to include VisanetCheckout
 declare global {
@@ -42,6 +44,8 @@ declare global {
         };
     }
 }
+
+type AsientoRaw = any; // adapta según tu tipado real
 
 export default function Eventos() {
 
@@ -66,7 +70,7 @@ export default function Eventos() {
     });
 
     const formValues = watch();
-    // console.log("formValues: ", formValues)
+    console.log("formValues: ", formValues)
 
     const { apiCall, loading, error } = useApi()
     const { openPopup, setOpenPopup } = usePopUp()
@@ -148,8 +152,15 @@ export default function Eventos() {
                     // console.log("match?.status", match)
                     // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
                     obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
-                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', match?.patrocinadorId == usuarioActivo?._id ? "#f00" : '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (match?.status == "99") {
+                    // console.log("match?.status", match)
+                    // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
+                    obj1?.setAttribute('fill', "#fff");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.7')
                 }
                 else if (match?.status == "0") {
                     // console.log("match?.status", match)
@@ -227,8 +238,15 @@ export default function Eventos() {
                     // console.log("match?.status", match)
                     // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
                     obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
-                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke', match?.patrocinadorId == usuarioActivo?._id ? "#f00" : '#333');
                     obj1?.setAttribute('stroke-width', '0.3')
+                }
+                else if (match?.status == "99") {
+                    // console.log("match?.status", match)
+                    // obj1?.setAttribute('fill', Apis.COLOR_VENDIDO_CONTADO);
+                    obj1?.setAttribute('fill', "#fff");
+                    obj1?.setAttribute('stroke', '#333');
+                    obj1?.setAttribute('stroke-width', '0.7')
                 }
                 else if (match?.status == "0") {
                     obj1?.setAttribute('fill', "#f9bc38");
@@ -377,13 +395,13 @@ export default function Eventos() {
                     })
 
                     append({
-                        status: "0", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
-                        documentoUsuario: usuarioActivo.documentoUsuario,
-                        nombres: usuarioActivo.nombres,
-                        apellidoPaterno: usuarioActivo.apellidoPaterno,
-                        apellidoMaterno: usuarioActivo.apellidoMaterno,
-                        celular: usuarioActivo.celular,
-                        email: usuarioActivo.email,
+                        status: "1", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
+                        documentoUsuario: null,
+                        nombres: null,
+                        apellidoPaterno: null,
+                        apellidoMaterno: null,
+                        celular: null,
+                        email: null,
                         codAsiento: codAsiento, // numero de asiento
                         precio: info?.precioAsiento,
                         codMatrixTicket: info?._id, // codigo id de evento
@@ -413,14 +431,17 @@ export default function Eventos() {
             setChange1(!change1)
             const asientoSelect = dataAsientosComprados.find((x: any) => x?.codAsiento == codAsiento)
             setValorAsientoPatch(asientoSelect)
-            if (usuarioActivo?._id !== asientoSelect?.patrocinadorId) {
+            if (asientoSelect !== undefined && (usuarioActivo?.role == "admin" || usuarioActivo?.role == "super admin")) {
+                handleEditAsiento(asientoSelect, codAsiento)
+            }
+            else if (usuarioActivo?._id !== asientoSelect?.patrocinadorId) {
                 Swal.fire({
                     icon: "error",
                     title: "Error!",
                     text: "No tiene permiso para realizar esta acción",
                 });
             }
-            else if (usuarioActivo?._id == asientoSelect?.patrocinadorId && asientoSelect?.status !== "1") {
+            else if (asientoSelect == "99" && (usuarioActivo?._id == asientoSelect?.patrocinadorId && asientoSelect?.status !== "1") || (usuarioActivo?._id == asientoSelect?.patrocinadorId && (usuarioActivo?.role == "admin" || usuarioActivo?.role == "super admin"))) {
                 handleEditAsiento(asientoSelect, codAsiento)
             }
             console.log("asientoSelect: ", asientoSelect)
@@ -526,7 +547,7 @@ export default function Eventos() {
 
         const jsonAsientosAll = getValues()?.asientos?.map((item: any, index: any) => {
             return {
-                status: (usuarioActivo?.role !== "super admin" && usuarioActivo?.role !== "admin" && usuarioActivo?.role !== "user asesor") ? "1" : "0", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
+                status: "1", // "0": pendiente, "1": aprobado, "2": rechazado, "3": anulado
                 documentoUsuario: item.documentoUsuario,
                 nombres: item.nombres,
                 apellidoPaterno: item.apellidoPaterno,
@@ -625,127 +646,6 @@ export default function Eventos() {
                 // fetchAsientosIdMatrix()
             }
         }
-        // else if (getValues()?.cambiarStatusAsiento !== true) {
-        //     try {
-        //         const response = await apiCall({
-        //             method: "post", endpoint: url, data: { ...jsonSend, montoPasarela: getValues()?.montoPasarela }
-        //         })
-        //         console.log("responsefuianl: ", response)
-        //         if (response.status === 201) {
-        //             Swal.fire({
-        //                 title: 'Éxito',
-        //                 text: 'Se reservó asiento con éxito',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'OK',
-        //                 // showCancelButton: true,
-        //                 confirmButtonColor: '#3085d6',
-        //                 // cancelButtonColor: '#d33',
-        //                 // cancelButtonText: 'No',
-        //                 showLoaderOnConfirm: true,
-        //                 allowOutsideClick: false,
-        //                 timer: 3000,
-        //                 // preConfirm: () => {
-        //                 //     router.push(`/dashboard/verUsuarios`);
-        //                 //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
-        //                 //     return
-        //                 // },
-        //             });
-        //             reset({
-        //                 usersPatrocinadores: getValues()?.usersPatrocinadores,
-        //             })
-        //             setOpen(false)
-        //             setOpenPopup(false)
-        //         } else {
-        //             Swal.fire({
-        //                 title: 'Error!',
-        //                 text: 'No se ha podido reservar asiento',
-        //                 icon: 'error',
-        //                 confirmButtonText: 'OK',
-        //                 showCancelButton: true,
-        //                 confirmButtonColor: '#3085d6',
-        //                 cancelButtonColor: '#d33',
-        //                 // cancelButtonText: 'No',
-        //                 showLoaderOnConfirm: true,
-        //                 allowOutsideClick: false,
-        //                 // preConfirm: () => {
-        //                 //     return
-        //                 // },
-        //             });
-        //         }
-
-        //     }
-        //     catch (error) {
-        //         console.error('Error al enviar datos:', error);
-        //     }
-        //     finally {
-        //         fetchAsientosIdMatrix()
-        //     }
-        // }
-        // else if (getValues()?.cambiarStatusAsiento == true) { // cambiar datos de usuario (editar)
-        //     try {
-        //         const response = await apiCall({
-        //             method: "patch", endpoint: url2, data: {
-        //                 id: getValues()?.idEditarAsiento,
-        //                 nombres: data?.nombres,
-        //                 apellidoPaterno: data?.apellidoPaterno,
-        //                 apellidoMaterno: data?.apellidoMaterno,
-        //                 celular: data?.celular,
-        //                 documentoUsuario: data?.documentoUsuario,
-        //                 patrocinadorId: data?.patrocinadorId,
-        //                 compraUserAntiguo: getValues()?.UsuarioAntiguo,
-        //             }
-        //         })
-        //         console.log("responsefuianl: ", response)
-        //         if (response.status === 201) {
-        //             Swal.fire({
-        //                 title: 'Éxito',
-        //                 text: 'Se edito asiento con éxito',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'OK',
-        //                 // showCancelButton: true,
-        //                 confirmButtonColor: '#3085d6',
-        //                 // cancelButtonColor: '#d33',
-        //                 // cancelButtonText: 'No',
-        //                 showLoaderOnConfirm: true,
-        //                 allowOutsideClick: false,
-        //                 timer: 3000,
-        //                 // preConfirm: () => {
-        //                 //     router.push(`/dashboard/verUsuarios`);
-        //                 //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
-        //                 //     return
-        //                 // },
-        //             });
-        //             reset({
-        //                 usersPatrocinadores: getValues()?.usersPatrocinadores,
-        //             })
-        //             setOpen(false)
-        //             setOpenPopup(false)
-        //         } else {
-        //             Swal.fire({
-        //                 title: 'Error!',
-        //                 text: 'No se ha podido edito asiento',
-        //                 icon: 'error',
-        //                 confirmButtonText: 'OK',
-        //                 showCancelButton: true,
-        //                 confirmButtonColor: '#3085d6',
-        //                 cancelButtonColor: '#d33',
-        //                 // cancelButtonText: 'No',
-        //                 showLoaderOnConfirm: true,
-        //                 allowOutsideClick: false,
-        //                 // preConfirm: () => {
-        //                 //     return
-        //                 // },
-        //             });
-        //         }
-
-        //     }
-        //     catch (error) {
-        //         console.error('Error al enviar datos:', error);
-        //     }
-        //     finally {
-        //         fetchAsientosIdMatrix()
-        //     }
-        // }
     }
 
     const handleChangeState = async (id: string, codAsiento: any, key: any) => {
@@ -875,32 +775,226 @@ export default function Eventos() {
     };
 
     const handleDownload = () => {
-        const cleanData: any[] = dataAsientosComprados.map((item: any) => ({
-            Documento: item.documentoUsuario,
-            Nombres: item.nombres,
-            Paterno: item.apellidoPaterno,
-            Materno: item.apellidoMaterno,
-            Celular: item.celular || '',
-            Asiento: item.codAsiento,
-            Precio: item.precio,
-            // Proyecto: item.proyecto,
-            RegistroPor: item.usuarioRegistro,
-            FechaFin: item.fechaFin,
-            FechaCreacion: item.createdAt,
-            Estado: item.status == "0" ? 'Pendiente Pago' : item.status == "1" ? 'Vendido' : item.status == "2" ? 'Liberado' : 'Bloqueado',
-            '¿Pasarela?': item.isPasarela ? 'Sí' : 'No',
-            '¿Compra Asesor/Invitado?': item.compraUserAntiguo ? 'Asesor' : 'Invitado',
-            Vouchers: item.vouchersTotales?.map((v: any) => v.url).join('\n') || ''
-        }));
+        const cleanData = dataAsientosComprados
+            ?.filter((X: any) => X?.status === "1")
+            .map((item: any) => ({
+                Documento: item.documentoUsuario,
+                Nombres: item.nombres,
+                Paterno: item.apellidoPaterno,
+                Materno: item.apellidoMaterno,
+                Celular: item.celular || "",
+                Asiento: item.codAsiento?.split("-")[1],
+                Precio: item.precio,
+                "Grupo de Asientos":
+                    (item.grupoAsientosComprados?.includes("Fue editado único:"))
+                        ? item.grupoAsientosComprados
+                        :
+                        item.grupoAsientosComprados?.split(",").map((x: any) => x.split("-")[1]).join(", "),
+                RegistroPor: item.usuarioRegistro,
+                FechaFin: item.fechaFin,
+                FechaCreacion: item.createdAt,
+                Estado:
+                    item.status == "0"
+                        ? "Pendiente Pago"
+                        : item.status == "1"
+                            ? "Vendido"
+                            : item.status == "2"
+                                ? "Liberado"
+                                : "Bloqueado",
+                "¿Pasarela?": item.isPasarela ? "Sí" : "No",
+                "¿Compra Asesor/Invitado?": item.compraUserAntiguo ? "Asesor" : "Invitado",
+                Vouchers: item.fileUrl,
+            })) ?? [];
 
-        const worksheet: any = XLSX.utils.json_to_sheet(cleanData);
-        const workbook: any = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(workbook, worksheet, 'Reporte');
+        // Si no hay filas, salimos o generamos un Excel con solo título
+        if (cleanData.length === 0) {
+            // Crear hoja vacía con título
+            const wsEmpty: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([[`${info?.titulo} / Fecha de Visita: ${moment.tz(info?.fechaVisita, "America/Lima").format("DD/MM/YYYY")}`]]);
+            // opcional: merges no necesarios (solo 1 columna)
+            const wbEmpty = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wbEmpty, wsEmpty, "Reporte");
+            const bufferEmpty = XLSX.write(wbEmpty, { bookType: "xlsx", type: "array" });
+            saveAs(new Blob([bufferEmpty], { type: "application/octet-stream" }), "reporte.xlsx");
+            return;
+        }
 
-        const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-        const blob: any = new Blob([excelBuffer], { type: 'application/octet-stream' });
-        saveAs(blob, 'reporte.xlsx');
+        // 1) Crear worksheet con los datos empezando en A2 para dejar A1 para el título
+        //    json_to_sheet escribiría encabezados en la fila 2.
+        const worksheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([[]]); // Create an empty worksheet
+        XLSX.utils.sheet_add_json(worksheet, cleanData, { origin: "A2" }); // Add JSON data starting at A2
+
+        // 2) Añadir título en A1
+        XLSX.utils.sheet_add_aoa(worksheet, [[`${info?.titulo} / Fecha de Visita: ${moment.tz(info?.fechaVisita, "America/Lima").format("DD/MM/YYYY")}`]], { origin: "A1" });
+
+        // 3) Determinar cuántas columnas existen para combinar desde A1 hasta la última columna
+        let totalColumnsIndex = 0;
+        if (worksheet["!ref"]) {
+            const range = XLSX.utils.decode_range(worksheet["!ref"]);
+            totalColumnsIndex = range.e.c; // índice 0-based de la última columna
+        } else {
+            // fallback seguro: número de columnas = keys del primer objeto - 1 (0-based)
+            totalColumnsIndex = Object.keys(cleanData[0]).length - 1;
+        }
+
+        // 4) Combinar la fila del título (A1 -> últimaColumna1)
+        const merge = {
+            s: { r: 0, c: 0 }, // start row 0 (A1)
+            e: { r: 0, c: totalColumnsIndex }, // end same row, last column
+        };
+        worksheet["!merges"] = worksheet["!merges"] ? [...worksheet["!merges"], merge] : [merge];
+
+        // 5) (Opcional) Intentar aplicar estilo al título y a la fila encabezado.
+        // Nota: la librería xlsx (sheetjs) no aplica estilos al exportar por defecto.
+        // Para estilos reales en XLSX necesitarías xlsx-style o una solución server-side.
+        try {
+            // título en A1
+            if (!worksheet["A1"]) worksheet["A1"] = { t: "s", v: `${info?.titulo} / Fecha de Visita: ${moment.tz(info?.fechaVisita, "America/Lima").format("DD/MM/YYYY")}` } as any;
+            (worksheet["A1"] as any).s = {
+                font: { bold: true, sz: 14 },
+                alignment: { horizontal: "center" },
+            };
+
+            // encabezados están en la fila 2 -> r = 1 (fila 2), iteramos columnas A..ultima
+            const headerRowIndex = 1; // 0-based
+            for (let c = 0; c <= totalColumnsIndex; c++) {
+                const cellAddress = XLSX.utils.encode_cell({ r: headerRowIndex, c });
+                if (worksheet[cellAddress]) {
+                    (worksheet[cellAddress] as any).s = {
+                        font: { bold: true },
+                        alignment: { horizontal: "center" },
+                    };
+                }
+            }
+        } catch (e) {
+            // ignorar si la librería no soporta estilos en la build actual
+            // console.warn("No se pudieron aplicar estilos (si usas xlsx-style se verán).", e);
+        }
+
+        // 6) Crear workbook y descargar
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Reporte");
+        const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+        const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+        saveAs(blob, "reporte.xlsx");
     };
+
+    // const formatPrice = (p: any) => {
+    //     const n = Number(p) || 0;
+    //     return n.toFixed(2);
+    // };
+
+    // const handleDownloadPDF = (dataAsientosComprados: AsientoRaw[] | undefined) => {
+    //     // 1) preparar datos filtrados
+    //     const cleanData = (dataAsientosComprados ?? [])
+    //         .filter((x: any) => x?.status === "1")
+    //         .map((item: any) => ({
+    //             Documento: item.documentoUsuario ?? "",
+    //             Nombres: item.nombres ?? "",
+    //             Paterno: item.apellidoPaterno ?? "",
+    //             Materno: item.apellidoMaterno ?? "",
+    //             Celular: item.celular || "",
+    //             Asiento: item.codAsiento?.split("-")[1] ?? "",
+    //             Precio: formatPrice(item.precio),
+    //             "Grupo de Asientos": item.grupoAsientosComprados
+    //                 ? item.grupoAsientosComprados.split(",").map((x: string) => x.split("-")[1]).join(", ")
+    //                 : "",
+    //             RegistroPor: item.usuarioRegistro ?? "",
+    //             FechaFin: item.fechaFin ?? "",
+    //             FechaCreacion: item.createdAt ?? "",
+    //             Estado:
+    //                 item.status == "0"
+    //                     ? "Pendiente Pago"
+    //                     : item.status == "1"
+    //                         ? "Vendido"
+    //                         : item.status == "2"
+    //                             ? "Liberado"
+    //                             : "Bloqueado",
+    //             "¿Pasarela?": item.isPasarela ? "Sí" : "No",
+    //             "¿Compra Asesor/Invitado?": item.compraUserAntiguo ? "Asesor" : "Invitado",
+    //             Vouchers: Array.isArray(item.fileUrl) ? item.fileUrl.join(", ") : item.fileUrl || "",
+    //         }));
+
+    //     // 2) crear doc
+    //     const doc = new jsPDF({
+    //         orientation: "landscape", // más ancho para muchas columnas
+    //         unit: "pt",
+    //         format: "a4",
+    //     });
+
+    //     const title = "Visita a proyecto";
+    //     const fecha = new Date().toLocaleString(); // si quieres fecha en título, usa `${title} - ${fecha}`
+    //     const pageWidth = doc.internal.pageSize.getWidth();
+
+    //     // Título (centrado)
+    //     doc.setFontSize(18);
+    //     doc.setFont("helvetica", "bold");
+    //     doc.text(title, pageWidth / 2, 40, { align: "center" });
+    //     doc.setFontSize(10);
+    //     doc.setFont("helvetica", "normal");
+    //     doc.text(`Generado: ${fecha}`, pageWidth - 40, 40, { align: "right" });
+
+    //     // si no hay datos, generar PDF con solo título
+    //     if (cleanData.length === 0) {
+    //         doc.setFontSize(12);
+    //         doc.text("No hay registros para mostrar.", pageWidth / 2, 120, { align: "center" });
+    //         doc.save("reporte.pdf");
+    //         return;
+    //     }
+
+    //     // 3) preparar headers y rows para autoTable
+    //     const headers = Object.keys(cleanData[0]).map((k) => ({ header: k, dataKey: k }));
+
+    //     const body = cleanData.map((row) => {
+    //         // asegúrate que las celdas sean string o number
+    //         const mapped: Record<string, string | number> = {};
+    //         for (const key of Object.keys(row)) {
+    //             mapped[key] = (row as Record<string, any>)[key] ?? "";
+    //         }
+    //         return mapped;
+    //     });
+
+    //     // 4) configurar autoTable
+    //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //     // @ts-ignore - autoTable no está en los tipos de jsPDF por defecto en algunas versiones
+    //     (doc as any).autoTable({
+    //         startY: 70, // debajo del título
+    //         head: [headers.map((h) => h.header)],
+    //         body: body.map((r) => Object.values(r)),
+    //         styles: {
+    //             fontSize: 9,
+    //             cellPadding: 6,
+    //         },
+    //         headStyles: {
+    //             fillColor: [22, 78, 159], // azulish
+    //             textColor: 255,
+    //             halign: "center",
+    //             valign: "middle",
+    //             fontStyle: "bold",
+    //         },
+    //         alternateRowStyles: {
+    //             fillColor: [245, 245, 245],
+    //         },
+    //         columnStyles: {
+    //             // por ejemplo, ajustar ancho para columna Precio o Documento
+    //             5: { cellWidth: 40 }, // Asiento (ajusta según posición de columna)
+    //             // puedes mapear dinámicamente si conoces índices
+    //         },
+    //         // margin: { top: 70, left: 20, right: 20, bottom: 40 },
+    //         didDrawPage: (dataArg: any) => {
+    //             // cabecera adicional / pie de página si quieres
+    //             const page = doc.getNumberOfPages();
+    //             doc.setFontSize(9);
+    //             doc.text(`Página ${page}`, pageWidth - 40, doc.internal.pageSize.getHeight() - 10, {
+    //                 align: "right",
+    //             });
+    //         },
+    //         // opciones de paginado y overflow automáticas
+    //         showHead: "everyPage",
+    //     });
+
+    //     // 5) guardar pdf
+    //     doc.save("reporte.pdf");
+    // };
 
     useEffect(() => {
         setValue("sumaTotalPago", getValues()?.asientos?.reduce((acum: any, item: any) => {
@@ -909,6 +1003,11 @@ export default function Eventos() {
     }, [change1])
 
     const onValid = (data: any) => {
+        window.scrollTo({
+            top: document.body.scrollHeight / 2 - window.innerHeight / 2,
+            left: 0,
+            behavior: 'smooth'
+        });
         console.log("form validado, proceder con compra", data);
         setOpenPopup(true)
         setValue("comprarAsientos", true)
@@ -936,78 +1035,264 @@ export default function Eventos() {
 
     const handleEditAsiento = async (asientoSelect: any, data: any) => {
         const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editarAsiento`
-        setOpenPopupFinal(true)
+        if (asientoSelect?.status == "99") {
+            Swal.fire({
+                title: `Asiento ${asientoSelect?.codAsiento?.split("-")[1]}`,
+                text: "",
+                icon: "info",
+                confirmButtonText: "Editar",
+                confirmButtonColor: "#2563eb", // azul
+                allowOutsideClick: true,
+                allowEscapeKey: false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    console.log("Se presionó Editar");
+                    setOpenPopupFinal(true)
+                }
+            });
+        }
+        else {
+            Swal.fire({
+                title: `Asiento ${asientoSelect?.codAsiento?.split("-")[1]}`,
+                text: "Selecciona una acción",
+                icon: "warning",
+                showDenyButton: true,  // botón secundario
+                showCancelButton: true, // usamos este como tercer botón
+                confirmButtonText: "Ver Datos",
+                denyButtonText: "Editar",
+                cancelButtonText: "Liberar",
+                confirmButtonColor: "#2563eb", // azul
+                denyButtonColor: "#f59e0b", // amarillo
+                cancelButtonColor: "#dc2626", // rojo
+                allowOutsideClick: true,
+                allowEscapeKey: false,
+            }).then((result) => {
+                if (result.isDenied) {
+                    console.log("Se presionó Editar");
+                    setOpenPopupFinal(true)
+                }
+                else if (result.dismiss === Swal.DismissReason.cancel) {
+                    console.log("Se presionó Liberar");
+                    Swal.fire({
+                        title: "Liberar",
+                        text: "¿Estás seguro de liberar este asiento?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonText: "Sí",
+                        cancelButtonText: "No",
+                        confirmButtonColor: "#3085d6", // azul (Tailwind blue-600)
+                        cancelButtonColor: "#dc2626", // rojo (Tailwind red-600)
+                        allowOutsideClick: false, // no cerrar al hacer click fuera
+                        allowEscapeKey: false, // no cerrar con escape
+                    }).then((result2) => {
+                        if (result2.isConfirmed) {
+                            console.log("Se presionó Sí");
+                            console.log("Se presionó Sí", asientoSelect);
+                            try {
+                                const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editAsientoAll`
+
+                                const jsonAsientosAll = {
+                                    id: asientoSelect?._id,
+                                    status: "99",
+                                    documentoUsuario: " ",
+                                    nombres: " ",
+                                    apellidoPaterno: " ",
+                                    apellidoMaterno: " ",
+                                    celular: " ",
+                                    email: " ",
+                                    fileUrl: " ",
+                                    grupoAsientosComprados: " ",
+                                }
+                                console.log("jsonAsientosAll: ", jsonAsientosAll)
+
+                                apiCall({
+                                    method: "patch", endpoint: url, data: jsonAsientosAll
+                                }).then((response) => {
+                                    console.log("responsefuianl: ", response)
+                                    if (response.status === 201) {
+                                        Swal.fire({
+                                            title: 'Éxito',
+                                            text: 'Se liberó el asiento con éxito',
+                                            icon: 'success',
+                                            confirmButtonText: 'OK',
+                                            confirmButtonColor: '#3085d6',
+                                            showLoaderOnConfirm: true,
+                                            allowOutsideClick: false,
+                                        });
+                                        fetchAsientosIdMatrix2()
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Error!',
+                                            text: 'No se ha podido editar el asiento',
+                                            icon: 'error',
+                                            confirmButtonText: 'OK',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                            showLoaderOnConfirm: true,
+                                            allowOutsideClick: false,
+                                        });
+                                    }
+                                });
+                            }
+                            catch (error) {
+                                console.error('Error al enviar datos:', error);
+                            }
+                        } else {
+                            console.log("Se presionó No");
+                        }
+                    });
+                }
+                else if (result.isConfirmed) {
+                    console.log("Se presionó ver datos");
+                    Swal.fire({
+                        title: `Asiento N° ${asientoSelect.codAsiento?.split("-")[1]}`,
+                        html: `
+                        <div style="text-align: left; font-size: 15px;">
+                            <p><b>DNI:</b> ${asientoSelect.documentoUsuario}</p>
+                            <p><b>Cliente:</b> ${asientoSelect.nombres} ${asientoSelect.apellidoPaterno} ${asientoSelect.apellidoMaterno}</p>
+                            <p><b>Celular:</b> ${asientoSelect.celular}</p>
+                            <p><b>Email:</b> ${asientoSelect.email}</p>
+                            <p><b>Precio:</b> S/. ${changeDecimales(asientoSelect.precio)}</p>
+                            <p><b>Grupo de asientos:</b> ${asientoSelect.grupoAsientosComprados?.split(',').map((x: any) => x.split('-')[1]).join(', ')}</p>
+                            <p><b>Voucher subido:</b></p>
+                            <div style="text-align: center; margin-top: 15px;">
+                              <img 
+                                src="${asientoSelect.fileUrl}" 
+                                alt="Imagen del asiento" 
+                                id="img-asiento"
+                                style="max-width: 200px; border-radius: 10px; cursor: pointer; transition: transform 0.2s;"
+                              />
+                            </div>
+                          </div>
+                        `,
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        confirmButtonColor: "#2563eb",
+                        width: 400,
+                    });
+                }
+            });
+        }
     }
 
     const handleEditAsientoFinal = async () => {
 
-        try {
-            const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editAsientoAll`
+        if (valorAsientoPatch?.status == "99") {
+            setLoadigUpload(true)
+            // if (!getValues()?.fileEvent && !getValues(`flyerEvent`)?.fileUrl) return alert("Selecciona una imagen");
+            const formData = new FormData();
+            formData.append("image", getValues()?.fileEvent);
+            const res = await axios.post(`${Apis.URL_APOIMENT_BACKEND_DEV2}/upload`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+            if (res.status == 200) {
+                try {
+                    const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editAsientoAll`
+                    const jsonAsientosAll = {
+                        id: valorAsientoPatch?._id,
+                        status: "1",
+                        documentoUsuario: getValues()?.documentoUsuario,
+                        nombres: getValues()?.nombres ?? "",
+                        apellidoPaterno: getValues()?.apellidoPaterno ?? "",
+                        apellidoMaterno: getValues()?.apellidoMaterno ?? "",
+                        celular: getValues()?.celular ?? "",
+                        email: getValues()?.email ?? "",
+                        fileUrl: res.data.url,
+                        grupoAsientosComprados: `Fue editado único: ${valorAsientoPatch?.codAsiento?.split("-")[1]}`,
+                    }
+                    console.log("jsonAsientosAll: ", jsonAsientosAll)
 
-            const jsonAsientosAll = {
-                id: valorAsientoPatch?._id,
-                status: "1",
-                documentoUsuario: getValues()?.documentoUsuario,
-                nombres: getValues()?.nombres ?? "",
-                apellidoPaterno: getValues()?.apellidoPaterno ?? "",
-                apellidoMaterno: getValues()?.apellidoMaterno ?? "",
-                celular: getValues()?.celular ?? "",
-                email: getValues()?.email ?? "",
+                    const response = await apiCall({
+                        method: "patch", endpoint: url, data: jsonAsientosAll
+                    })
+                    console.log("responsefuianl: ", response)
+                    if (response.status === 201) {
+                        Swal.fire({
+                            title: 'Éxito',
+                            text: 'Se editó el asiento con éxito.',
+                            icon: 'success',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#3085d6',
+                            showLoaderOnConfirm: true,
+                            allowOutsideClick: false,
+                        });
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 1000);
+                    } else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'No se ha podido editar el asiento',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            showLoaderOnConfirm: true,
+                            allowOutsideClick: false,
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error al enviar datos:', error);
+                }
             }
-            console.log("jsonAsientosAll: ", jsonAsientosAll)
-
-            const response = await apiCall({
-                method: "patch", endpoint: url, data: jsonAsientosAll
-            })
-            console.log("responsefuianl: ", response)
-            if (response.status === 201) {
-                Swal.fire({
-                    title: 'Éxito',
-                    text: 'Se edite el asiento con éxito',
-                    icon: 'success',
-                    confirmButtonText: 'OK',
-                    // showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    // cancelButtonColor: '#d33',
-                    // cancelButtonText: 'No',
-                    showLoaderOnConfirm: true,
-                    allowOutsideClick: false,
-                    // preConfirm: () => {
-                    //     router.push(`/dashboard/verUsuarios`);
-                    //     // window.location.href = `/dashboard/${Apis.PROYECTCURRENT}`;
-                    //     return
-                    // },
-                });
-                // reset({
-                //     usersPatrocinadores: getValues()?.usersPatrocinadores,
-                // })
-                // setOpen(false)
-                // setOpenPopup(false)
-            } else {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'No se ha podido editar el asiento',
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    // cancelButtonText: 'No',
-                    showLoaderOnConfirm: true,
-                    allowOutsideClick: false,
-                    // preConfirm: () => {
-                    //     return
-                    // },
-                });
-            }
-        } catch (error) {
-            console.error('Error al enviar datos:', error);
         }
+        else {
+            try {
+                const url = `${Apis.URL_APOIMENT_BACKEND_DEV}/api/pasajes/editAsientoAll`
+
+                const jsonAsientosAll = {
+                    id: valorAsientoPatch?._id,
+                    status: "1",
+                    documentoUsuario: getValues()?.documentoUsuario,
+                    nombres: getValues()?.nombres ?? "",
+                    apellidoPaterno: getValues()?.apellidoPaterno ?? "",
+                    apellidoMaterno: getValues()?.apellidoMaterno ?? "",
+                    celular: getValues()?.celular ?? "",
+                    email: getValues()?.email ?? "",
+                }
+                console.log("jsonAsientosAll: ", jsonAsientosAll)
+
+                const response = await apiCall({
+                    method: "patch", endpoint: url, data: jsonAsientosAll
+                })
+                console.log("responsefuianl: ", response)
+                if (response.status === 201) {
+                    Swal.fire({
+                        title: 'Éxito',
+                        text: 'Se editó el asiento con éxito..',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#3085d6',
+                        showLoaderOnConfirm: true,
+                        allowOutsideClick: false,
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'No se ha podido editar el asiento',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        showLoaderOnConfirm: true,
+                        allowOutsideClick: false,
+                    });
+                }
+            } catch (error) {
+                console.error('Error al enviar datos:', error);
+            }
+        }
+
+
     }
 
     return (
         <div className="bg-blue-500 h-[100vh]">
-            {/* {isLoading && <TicketLoaderMotion />} */}
             <div className="!max-w-full relative z-20 w-full flex items-center justify-center bg-blue-500">
                 {
                     true &&
@@ -1040,24 +1325,78 @@ export default function Eventos() {
                                         <div className='text-white flex justify-start items-start gap-4 font-bold uppercase'>
                                             {/* Contadores */}
                                         </div>
-                                        <div className='flex w-full flex-col md:flex-row gap-1 justify-center items-center bg-white rounded-lg px-3 py-2'>
-                                            <div className='flex flex-col w-full px-2 py-1 border rounded-lg border-green-100 bg-green-50'>
-                                                <div>
-                                                    Total Pasajeros:
+                                        {
+                                            (usuarioActivo?.role == "admin" || usuarioActivo?.role == "super admin") &&
+                                            <div className='flex w-full flex-col md:flex-row gap-1 justify-center items-center bg-white rounded-lg px-3 py-2'>
+                                                <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-green-100 bg-green-50'>
+                                                    <div>
+                                                        Total Pasajeros:
+                                                    </div>
+                                                    <div className='font-bold text-green-400'>
+                                                        {`${dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length}`}
+                                                    </div>
                                                 </div>
-                                                <div className='font-bold text-green-400'>
-                                                    {`${getInitialStateFirstAsiento - 2}`}
+                                                <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
+                                                    <div>
+                                                        {"Bus 10:"}
+                                                    </div>
+                                                    <div className='font-bold text-blue-400'>
+                                                        {`${dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length <= 10 ? "1" : "0"}`}
+                                                    </div>
                                                 </div>
+                                                <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
+                                                    <div>
+                                                        {"Buses 17:"}
+                                                    </div>
+                                                    <div className='font-bold text-blue-400'>
+                                                        {`${dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length >= 11 && dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length <= 17 ? "1" : "0"}`}
+                                                    </div>
+                                                </div>
+                                                <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
+                                                    <div>
+                                                        {"Buses 20:"}
+                                                    </div>
+                                                    <div className='font-bold text-blue-400'>
+                                                        {`${dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length >= 18 && dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length <= 20 ? "1" : "0"}`}
+                                                    </div>
+                                                </div>
+                                                <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
+                                                    <div>
+                                                        {"Buses 30:"}
+                                                    </div>
+                                                    <div className='font-bold text-blue-400'>
+                                                        {`${dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length >= 21 && dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length <= 30 ? "1" : "0"}`}
+                                                    </div>
+                                                </div>
+                                                <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
+                                                    <div>
+                                                        {"Buses 50:"}
+                                                    </div>
+                                                    <div className='font-bold text-blue-400'>
+                                                        {`${dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length >= 31 && dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length <= 50 ? "1" : "0"}`}
+                                                    </div>
+                                                </div>
+                                                <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
+                                                    {/* <div>
+                                                        {"Buses 50:"}
+                                                    </div> */}
+                                                    <div onClick={handleDownload} className='font-bold text-green-400 flex justify-start items-center gap-2'>
+                                                        <File className="h-5 w-5 text-green-400" />
+                                                        <div>
+                                                            Excel Pasajeros
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {/* <div className='flex flex-row gap-2 w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
+                                                    <div onClick={() => handleDownloadPDF(dataAsientosComprados)} className='font-bold text-green-400 flex justify-start items-center gap-2'>
+                                                        <File className="h-5 w-5 text-green-400" />
+                                                        <div>
+                                                            PDF Pasajeros
+                                                        </div>
+                                                    </div>
+                                                </div> */}
                                             </div>
-                                            <div className='flex flex-col w-full px-2 py-1 border rounded-lg border-blue-100 bg-blue-50'>
-                                                <div>
-                                                    {"Buses Completados: (50)"}
-                                                </div>
-                                                <div className='font-bold text-blue-400'>
-                                                    {`${"0"}`}
-                                                </div>
-                                            </div>
-                                        </div>
+                                        }
                                     </div>
 
                                     {/* asientosBuses */}
@@ -1077,14 +1416,14 @@ export default function Eventos() {
                                                                 </h1>
                                                             </div>
                                                         </div>
-                                                        <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
+                                                        {/* <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
                                                             <Circle className="h-5 w-5 bg-[#f9bc38] rounded-full" />
                                                             <div>
                                                                 <h1 className='text-md font-bold'>
                                                                     {`${"Reservado"}`}
                                                                 </h1>
                                                             </div>
-                                                        </div>
+                                                        </div> */}
                                                         <div className='scale-100 -mt-2 flex justify-center items-center gap-2'>
                                                             <Circle className="h-5 w-5 bg-[#fff] rounded-full" />
                                                             <div>
@@ -1118,7 +1457,7 @@ export default function Eventos() {
                                                 </div>
                                                 <div className='flex justify-center items-center gap-0'>
                                                     <div className='scale-110 bg-white p-1'>
-                                                        🚌{`Ocupados: ${getInitialStateFirstAsiento - 2}/50`}
+                                                        🚌{`Ocupados: ${dataAsientosComprados?.filter((x: any) => x?.status == "1")?.length}/50`}
                                                     </div>
                                                     <div>
                                                         {/* <button className='bg-blue-400 text-white rounded-lg px-2 py-1 font-semibold'>
@@ -1264,13 +1603,13 @@ export default function Eventos() {
                                                                                         <Controller
                                                                                             name={`asientos.${index}.email`}
                                                                                             control={control}
-                                                                                            rules={{
-                                                                                                required: "El correo es obligatorio",
-                                                                                                pattern: {
-                                                                                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                                                                                    message: "Debe ser un correo válido",
-                                                                                                },
-                                                                                            }}
+                                                                                            // rules={{
+                                                                                            //     required: "El correo es obligatorio",
+                                                                                            //     pattern: {
+                                                                                            //         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                                                            //         message: "Debe ser un correo válido",
+                                                                                            //     },
+                                                                                            // }}
                                                                                             render={({ field, fieldState }) => (
                                                                                                 <TextField
                                                                                                     {...field}
@@ -1280,12 +1619,12 @@ export default function Eventos() {
                                                                                                     type="text"
                                                                                                     fullWidth
                                                                                                     // disabled={item.disabled}
-                                                                                                    error={!!fieldState.error}
-                                                                                                    helperText={fieldState.error?.message}
+                                                                                                    // error={!!fieldState.error}
+                                                                                                    // helperText={fieldState.error?.message}
                                                                                                     InputLabelProps={{
                                                                                                         shrink: true,
                                                                                                     }}
-                                                                                                    required={true}
+                                                                                                    required={false}
                                                                                                     onChange={(e) => {
                                                                                                         let value = e.target.value;
                                                                                                         field.onChange(value);
@@ -1397,40 +1736,250 @@ export default function Eventos() {
                                                                     :
                                                                     (usuarioActivo?.role == "admin" || usuarioActivo?.role == "super admin" || usuarioActivo?.role == "user asesor")
                                                                     &&
-                                                                    fields.map((item: any, index: any) => {
-                                                                        return (
-                                                                            <div key={index} className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-xl bg-blue-50">
-                                                                                <div className="w-full md:w-[300px] grid grid-cols-3 gap-4 justify-center items-center pb-4">
-                                                                                    <div className="text-xs font-bold">
-                                                                                        {`Asiento: ${item.codAsiento?.split("-")[1]}`}
-                                                                                    </div>
-                                                                                    <div className="text-xs font-bold">
-                                                                                        {`Precio: S/.${changeDecimales(item.precio)}`}
-                                                                                    </div>
-                                                                                    {
-                                                                                        (index + 1 == fields.length) &&
-                                                                                        <div
-                                                                                            className="cursor-pointer bg-red-500 text-white rounded-full p-1"
-                                                                                            onClick={() => {
-                                                                                                // if (Number(item.codAsiento?.split("-")[1]) !== 2) {
-                                                                                                remove(index)
-                                                                                                setIdAgregante(null)
-                                                                                                setValorRef((prev: any) => Number(prev) - 1)
-                                                                                                setChange1(!change1)
-                                                                                                setArrAsientoSeleccionados((prev: any) => prev.filter((x: any) => x !== item.codAsiento))
-                                                                                                // }
-                                                                                            }}
-                                                                                        >
-                                                                                            <div className="flex flex-row gap-1 justify-center items-center">
-                                                                                                <X className="h-3 w-3" />
-                                                                                                <div>Eliminar</div>
+                                                                    <div>
+                                                                        <div className="text-left text-xs text-red-500 font-bold uppercase mb-4">
+                                                                            Completar Datos:
+                                                                        </div>
+                                                                        {
+                                                                            fields.map((item: any, index: any) => {
+                                                                                return (
+                                                                                    <div key={index} className="flex flex-col gap-1 justify-start items-start border border-slate-300 rounded-md px-3 py-2 shadow-lg">
+                                                                                        <div className="w-full flex gap-4 justify-between items-center pb-4">
+                                                                                            <div className="text-xs font-bold">
+                                                                                                {`Asiento: ${item.codAsiento?.split("-")[1]}`}
+                                                                                            </div>
+                                                                                            <div className="text-xs font-bold">
+                                                                                                {`Precio: S/.${changeDecimales(item.precio)}`}
+                                                                                            </div>
+                                                                                            {
+                                                                                                (index + 1 == fields.length) &&
+                                                                                                <div
+                                                                                                    className="cursor-pointer bg-red-500 text-white rounded-full p-1"
+                                                                                                    onClick={() => {
+                                                                                                        // if (Number(item.codAsiento?.split("-")[1]) !== 2) {
+                                                                                                        remove(index)
+                                                                                                        setIdAgregante(null)
+                                                                                                        setValorRef((prev: any) => Number(prev) - 1)
+                                                                                                        setChange1(!change1)
+                                                                                                        setArrAsientoSeleccionados((prev: any) => prev.filter((x: any) => x !== item.codAsiento))
+                                                                                                        // }
+                                                                                                    }}
+                                                                                                >
+                                                                                                    <div className="flex flex-row gap-1 justify-center items-center">
+                                                                                                        <X className="h-3 w-3" />
+                                                                                                        <div>Eliminar</div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            }
+                                                                                        </div>
+                                                                                        <div className="flex flex-col gap-0 mb-3">
+                                                                                            <Controller
+                                                                                                name={`asientos[${index}].documentoUsuario`}
+                                                                                                control={control}
+                                                                                                rules={{
+                                                                                                    required: "El documento es obligatorio",
+                                                                                                    minLength: {
+                                                                                                        value: 8,
+                                                                                                        message: "Debe tener al menos 8 dígitos",
+                                                                                                    },
+                                                                                                }}
+                                                                                                render={({ field, fieldState }) => (
+                                                                                                    <TextField
+                                                                                                        {...field}
+                                                                                                        label="Documento Usuario"
+                                                                                                        variant="outlined"
+                                                                                                        size="small"
+                                                                                                        type="text"
+                                                                                                        fullWidth
+                                                                                                        // disabled={item.disabled}
+                                                                                                        error={!!fieldState.error}
+                                                                                                        helperText={fieldState.error?.message}
+                                                                                                        InputLabelProps={{
+                                                                                                            shrink: true,
+                                                                                                        }}
+                                                                                                        required={true}
+                                                                                                        onChange={(e) => {
+                                                                                                            let value = e.target.value;
+                                                                                                            if (value?.length > 12) value = value.slice(0, 12); // Máximo 12 caracteres
+                                                                                                            if (value.length === 8) {
+                                                                                                                console.log("reniec");
+                                                                                                                handleApiReniec2(value, "dniCliente", setValue, apiCall, index);
+                                                                                                            }
+
+                                                                                                            field.onChange(value);
+                                                                                                        }}
+                                                                                                    />
+                                                                                                )}
+                                                                                            />
+                                                                                            <div className="text-xs text-blue-500 font-bold uppercase">
+                                                                                                {`${getValues()?.asientos?.[index]?.nombres ?? ""} ${getValues()?.asientos?.[index]?.apellidoPaterno ?? ""} ${getValues()?.asientos?.[index]?.apellidoMaterno ?? ""}`}
                                                                                             </div>
                                                                                         </div>
-                                                                                    }
-                                                                                </div>
-                                                                            </div>
-                                                                        )
-                                                                    })
+                                                                                        <Controller
+                                                                                            name={`asientos.${index}.celular`}
+                                                                                            control={control}
+                                                                                            rules={{
+                                                                                                required: "El celular es obligatorio",
+                                                                                                pattern: {
+                                                                                                    value: /^[0-9]{9}$/,
+                                                                                                    message: "Debe tener 9 dígitos numéricos",
+                                                                                                },
+                                                                                            }}
+                                                                                            render={({ field, fieldState }) => (
+                                                                                                <TextField
+                                                                                                    {...field}
+                                                                                                    required={true}
+                                                                                                    label="Celular"
+                                                                                                    variant="outlined"
+                                                                                                    size="small"
+                                                                                                    type="text"
+                                                                                                    fullWidth
+                                                                                                    // disabled={item.disabled}
+                                                                                                    error={!!fieldState.error}
+                                                                                                    helperText={fieldState.error?.message}
+                                                                                                    InputLabelProps={{
+                                                                                                        shrink: true,
+                                                                                                    }}
+                                                                                                    onChange={(e) => {
+                                                                                                        let value = e.target.value;
+                                                                                                        field.onChange(value);
+                                                                                                    }}
+                                                                                                />
+                                                                                            )}
+                                                                                        />
+                                                                                        <Controller
+                                                                                            name={`asientos.${index}.email`}
+                                                                                            control={control}
+                                                                                            // rules={{
+                                                                                            //     required: "El correo es obligatorio",
+                                                                                            //     pattern: {
+                                                                                            //         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                                                            //         message: "Debe ser un correo válido",
+                                                                                            //     },
+                                                                                            // }}
+                                                                                            render={({ field, fieldState }) => (
+                                                                                                <TextField
+                                                                                                    {...field}
+                                                                                                    label="Correo"
+                                                                                                    variant="outlined"
+                                                                                                    size="small"
+                                                                                                    type="text"
+                                                                                                    fullWidth
+                                                                                                    // disabled={item.disabled}
+                                                                                                    error={!!fieldState.error}
+                                                                                                    helperText={fieldState.error?.message}
+                                                                                                    InputLabelProps={{
+                                                                                                        shrink: true,
+                                                                                                    }}
+                                                                                                    required={false}
+                                                                                                    onChange={(e) => {
+                                                                                                        let value = e.target.value;
+                                                                                                        field.onChange(value);
+                                                                                                    }}
+                                                                                                />
+                                                                                            )}
+                                                                                        />
+                                                                                        <div className="w-full">
+                                                                                            <Controller
+                                                                                                name={`asientos.${index}.paradero`}
+                                                                                                control={control}
+                                                                                                rules={{
+                                                                                                    required: "Debe seleccionar un paradero",
+                                                                                                }}
+                                                                                                render={({ field, fieldState }) => (
+                                                                                                    <Autocomplete
+                                                                                                        options={
+                                                                                                            info?.destino == 1 ?
+                                                                                                                [
+                                                                                                                    { value: 1, label: "Orbes" },
+                                                                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                                                                    { value: 3, label: "Parque Zonal" },
+                                                                                                                    { value: 4, label: "Puente San Luis" },
+                                                                                                                    { value: 5, label: "Km. 40" },
+                                                                                                                    { value: 6, label: "Pucusana" },
+                                                                                                                    { value: 7, label: "Ñaña" },
+                                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                                                                ]
+                                                                                                                :
+                                                                                                                info?.destino == 0 ?
+                                                                                                                    [
+                                                                                                                        { value: 1, label: "Orbes" },
+                                                                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                                                                        { value: 3, label: "Parque Zonal" },
+                                                                                                                        { value: 4, label: "Puente San Luis" },
+                                                                                                                        { value: 5, label: "Km. 40" },
+                                                                                                                        { value: 6, label: "Pucusana" },
+                                                                                                                        { value: 7, label: "Cerro Azul" },
+                                                                                                                        { value: 8, label: "Ñaña" },
+                                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                                                                    ]
+                                                                                                                    :
+                                                                                                                    []
+                                                                                                        }
+                                                                                                        getOptionLabel={(option) => option.label}
+                                                                                                        isOptionEqualToValue={(option, value) => option.value === value.value}
+                                                                                                        value={(
+                                                                                                            info?.destino == 1 ?
+                                                                                                                [
+                                                                                                                    { value: 1, label: "Orbes" },
+                                                                                                                    { value: 2, label: "Tottus Atocongo" },
+                                                                                                                    { value: 3, label: "Parque Zonal" },
+                                                                                                                    { value: 4, label: "Puente San Luis" },
+                                                                                                                    { value: 5, label: "Km. 40" },
+                                                                                                                    { value: 6, label: "Pucusana" },
+                                                                                                                    { value: 7, label: "Ñaña" },
+                                                                                                                    { value: 8, label: "Tottus Puente Piedra" },
+                                                                                                                ]
+                                                                                                                :
+                                                                                                                info?.destino == 0 ?
+                                                                                                                    [
+                                                                                                                        { value: 1, label: "Orbes" },
+                                                                                                                        { value: 2, label: "Tottus Atocongo" },
+                                                                                                                        { value: 3, label: "Parque Zonal" },
+                                                                                                                        { value: 4, label: "Puente San Luis" },
+                                                                                                                        { value: 5, label: "Km. 40" },
+                                                                                                                        { value: 6, label: "Pucusana" },
+                                                                                                                        { value: 7, label: "Cerro Azul" },
+                                                                                                                        { value: 8, label: "Ñaña" },
+                                                                                                                        { value: 9, label: "Tottus Puente Piedra" },
+                                                                                                                    ]
+                                                                                                                    :
+                                                                                                                    []
+                                                                                                        ).find((opt: any) => opt.value === field.value) || null}
+                                                                                                        onChange={(_, selectedOption) => {
+                                                                                                            field.onChange(selectedOption?.value ?? null);
+                                                                                                        }}
+                                                                                                        renderInput={(params) => (
+                                                                                                            <TextField
+                                                                                                                {...params}
+                                                                                                                required={true}
+                                                                                                                label={"Paradero"}
+                                                                                                                margin="dense"
+                                                                                                                fullWidth
+                                                                                                                sx={{
+                                                                                                                    height: "40px",
+                                                                                                                    padding: "0px",
+                                                                                                                    margin: "0px",
+                                                                                                                    "& .MuiOutlinedInput-notchedOutline": {
+                                                                                                                        // borderColor: "transparent",
+                                                                                                                        height: "45px",
+                                                                                                                        paddingBottom: "5px",
+                                                                                                                        marginBottom: "5px",
+                                                                                                                    },
+                                                                                                                }}
+                                                                                                                error={!!fieldState.error}
+                                                                                                                helperText={fieldState.error?.message}
+                                                                                                            />
+                                                                                                        )}
+                                                                                                    />
+                                                                                                )}
+                                                                                            />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                )
+                                                                            })
+                                                                        }
+                                                                    </div>
                                                         }
                                                     </div>
                                                 </div>
@@ -1443,7 +1992,7 @@ export default function Eventos() {
                                                             color={"success"}
                                                             type="submit"
                                                             onClick={() => {
-                                                                (usuarioActivo?.role !== "admin" && usuarioActivo?.role !== "super admin" && usuarioActivo?.role !== "user asesor") && window.scrollTo({ top: document.body.scrollHeight, left: 0, behavior: 'smooth' });
+                                                                window.scrollTo({ top: document.body.scrollHeight, left: 0, behavior: 'smooth' });
                                                             }}
                                                         // onClick={() => {
                                                         //     setOpenPopup(true)
@@ -1459,7 +2008,7 @@ export default function Eventos() {
                                                         >
                                                             <div>
                                                                 <div>
-                                                                    {`Asiento(s): ${arrAsientoSeleccionados?.map((x: any) => (x?.split("-")[1]))?.join(', ')}`}
+                                                                    {`Asiento(s) Seleccionado(s): ${arrAsientoSeleccionados?.map((x: any) => (x?.split("-")[1]))?.join(', ')}`}
                                                                 </div>
                                                                 <div className="text-base text-white">
                                                                     {`Total: S/. ${changeDecimales(getValues()?.sumaTotalPago)}`}
@@ -1543,7 +2092,7 @@ export default function Eventos() {
                                                         InputLabelProps={{
                                                             shrink: true,
                                                         }}
-                                                        required={true}
+                                                        required={valorAsientoPatch?.status == "99" && true}
                                                         onChange={(e) => {
                                                             let value = e.target.value;
                                                             if (value?.length > 12) value = value.slice(0, 12); // Máximo 12 caracteres
@@ -1574,7 +2123,7 @@ export default function Eventos() {
                                             render={({ field, fieldState }) => (
                                                 <TextField
                                                     {...field}
-                                                    required={true}
+                                                    required={valorAsientoPatch?.status == "99" && true}
                                                     label="Celular"
                                                     variant="outlined"
                                                     size="small"
@@ -1617,7 +2166,7 @@ export default function Eventos() {
                                                     InputLabelProps={{
                                                         shrink: true,
                                                     }}
-                                                    required={true}
+                                                    required={valorAsientoPatch?.status == "99" && true}
                                                     onChange={(e) => {
                                                         let value = e.target.value;
                                                         field.onChange(value);
@@ -1698,7 +2247,7 @@ export default function Eventos() {
                                                         renderInput={(params) => (
                                                             <TextField
                                                                 {...params}
-                                                                required={true}
+                                                                required={valorAsientoPatch?.status == "99" && true}
                                                                 label={"Paradero"}
                                                                 margin="dense"
                                                                 fullWidth
@@ -1721,6 +2270,77 @@ export default function Eventos() {
                                                 )}
                                             />
                                         </div>
+                                        {
+                                            valorAsientoPatch?.status == "99" &&
+                                            <div>
+                                                <Controller
+                                                    name={"fileUrl"}
+                                                    control={control}
+                                                    rules={{
+                                                        validate: (value) => {
+                                                            return `Voucher es obligatorio`
+                                                        }
+                                                    }}
+                                                    render={({ field, fieldState }) => (
+                                                        <div className="flex flex-col gap-1 justify-start items-start">
+                                                            <div>
+                                                                <Button
+                                                                    variant="contained"
+                                                                    component="label"
+                                                                    style={{ textTransform: "none" }}
+                                                                >
+                                                                    {"Seleccionar Voucher (Obligatorio)"}
+                                                                    <input
+                                                                        type="file"
+                                                                        accept="image/*,application/pdf"
+                                                                        hidden
+                                                                        onChange={(e: any) => {
+                                                                            const file = e.target.files[0];
+                                                                            if (file) {
+                                                                                const fileUrl = URL.createObjectURL(file); // Crear URL para previsualización
+                                                                                field.onChange({ file, fileUrl }); // Guardar archivo y URL en el campo
+                                                                            }
+                                                                            setValue("fileEvent", e.target.files[0]);
+                                                                        }}
+                                                                    />
+                                                                </Button>
+                                                            </div>
+
+                                                            {getValues("fileUrl") !== "" && getValues("fileUrl") !== undefined && getValues("fileUrl") !== null && (
+                                                                <>
+                                                                    <>
+                                                                        <div
+                                                                            className="relative z-50 cursor-pointer"
+                                                                            onClick={() => {
+                                                                                // setPreviewUrl(null)
+                                                                                setValue("fileUrl", null);
+                                                                            }}
+                                                                        >
+                                                                            <X color="red" size={20} />
+                                                                        </div>
+                                                                    </>
+                                                                    <div
+                                                                        className="cursor-pointer"
+                                                                        onClick={() => window.open(getValues("fileUrl")?.fileUrl ?? getValues("fileUrl"), "_blank")}
+                                                                    >
+                                                                        <img
+                                                                            src={getValues("fileUrl")?.fileUrl}
+                                                                            alt="Vista previa"
+                                                                            style={{ width: 100, height: "auto", marginTop: 8, borderRadius: 4 }}
+                                                                        />
+                                                                    </div>
+                                                                </>
+                                                            )}
+
+                                                            {/* Mensaje de error si no hay archivo */}
+                                                            {fieldState.error && (
+                                                                <span style={{ color: "red", fontSize: "0.8rem" }}>{fieldState.error.message}</span>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                />
+                                            </div>
+                                        }
                                     </div>
                                     <div>
                                         <Button
@@ -1729,10 +2349,34 @@ export default function Eventos() {
                                             type="button"
                                             className="w-full"
                                             onClick={() => {
-                                                handleEditAsientoFinal()
+                                                if (
+                                                    (getValues()?.documentoUsuario == "" || getValues()?.documentoUsuario == null || getValues()?.documentoUsuario == undefined)
+                                                    &&
+                                                    (getValues()?.nombres == "" || getValues()?.nombres == null || getValues()?.nombres == undefined)
+                                                    &&
+                                                    (getValues()?.apellidoPaterno == "" || getValues()?.apellidoPaterno == null || getValues()?.apellidoPaterno == undefined)
+                                                    &&
+                                                    (getValues()?.apellidoMaterno == "" || getValues()?.apellidoMaterno == null || getValues()?.apellidoMaterno == undefined)
+                                                    &&
+                                                    (getValues()?.celular == "" || getValues()?.celular == null || getValues()?.celular == undefined)
+                                                    &&
+                                                    (getValues()?.paradero == "" || getValues()?.paradero == null || getValues()?.paradero == undefined)
+                                                    &&
+                                                    (getValues()?.fileUrl == "" || getValues()?.fileUrl == null || getValues()?.fileUrl == undefined)
+                                                ) {
+                                                    Swal.fire({
+                                                        title: "Error!",
+                                                        text: "Debes completar los campos",
+                                                        icon: "error",
+                                                        confirmButtonText: "OK",
+                                                    });
+                                                }
+                                                else {
+                                                    handleEditAsientoFinal()
+                                                }
                                             }}
                                         >
-                                            {`Editar`}
+                                            {`Guardar`}
                                         </Button>
                                     </div>
                                 </form>
