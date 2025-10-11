@@ -39,14 +39,14 @@ function Panel({ open, setOpen }: any) {
                     display: true,
                     outSession: false
                 },
-                {
-                    id: 1,
-                    title: "Pasajes",
-                    href: `/dashboard/pasajes`,
-                    icon: <Bus />,
-                    display: true,
-                    outSession: false
-                },
+                // {
+                //     id: 1,
+                //     title: "Pasajes",
+                //     href: `/dashboard/pasajes`,
+                //     icon: <Bus />,
+                //     display: true,
+                //     outSession: false
+                // },
                 {
                     id: 5,
                     title: "Cerrar Sesión",
